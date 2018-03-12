@@ -7,14 +7,14 @@ class Header extends Component {
 		return(
 		  <div id="headerfixed">
 		    <div id="topbar">
-		      <div class="row">
-		        <div class="col-sm-6"><a href="./index.js"><img class="black-logo" src={logo}/></a></div>
-		        <div class="col-sm-6">
+		      <div className="row">
+		        <div className="col-sm-6"><a href="/"><img className="black-logo" src={logo}/></a></div>
+		        <div className="col-sm-6">
 		          <div id="menu">
-		          	<a href="./about">About</a>
-		          	<a href="./database">Browse Database</a>
-		          	<a href="./featured">Featured Tomograms</a>
-		          	<a href="about#faq">FAQ</a>
+		          	<a href="/about">About</a>
+		          	<a href="/browse">Browse Database</a>
+		          	<a href="/featured">Featured Tomograms</a>
+		          	<a href="/about#FAQ">FAQ</a>
 		          	<a href="/contact">Contact</a>
 		          </div>
 		        </div>
