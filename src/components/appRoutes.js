@@ -12,6 +12,7 @@ import Contact from './contact.js';
 import Featured from './featured.js';
 import Browse from './browse.js';
 import TomogramView from './tomogramView.js';
+import CarboCollection from './carboCollection.js'
 
 class AppRoutes extends Component {
 	render(){
@@ -23,6 +24,7 @@ class AppRoutes extends Component {
 				<Route path="/featured" component={Featured}/>
 				<Route path="/browse" component={Browse}/>
 				<Route path="/tomogram/:id" render={props => <TomogramView {...props} />} />
+				<Route path="/carboxysomes/:id" render={props => <CarboCollection {...props} />} />
 				<Route path="/" component={Home}/>
 			</Switch>
 		)

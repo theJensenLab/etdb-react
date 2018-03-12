@@ -28,7 +28,7 @@ class Featured extends Component {
 				  </div>
 				</div>
 				<div className="row" id="featured">
-				  <div className="col-sm-3"><a href="carboxysomes-collection"><img className="results-thumb" src="http://www.designing-science-development.com/jensen/wp-content/uploads/2018/01/keyimg_zl2008-01-11-13.jpg"/>
+				  <div className="col-sm-3"><a href="/carboxysomes/txid"><img className="results-thumb" src="http://www.designing-science-development.com/jensen/wp-content/uploads/2018/01/keyimg_zl2008-01-11-13.jpg"/>
 				      <name>Carboxysomes</name></a></div>
 				  <div className="col-sm-3"><img className="results-thumb" src="http://www.designing-science-development.com/jensen/wp-content/uploads/2018/01/keyimg_zl2008-01-11-13.jpg"/>
 				    <name>Chemoreceptors</name>
