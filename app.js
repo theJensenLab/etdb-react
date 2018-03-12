@@ -6,8 +6,8 @@ import ReactDOM from 'react-dom';
 
 import AppRoutes from './src/components/appRoutes.js';
 
-import './src/assets/css/boots-bones.css'
 import './src/assets/css/jensen.css'
+import './src/assets/css/boots-bones.css'
 import './src/assets/css/contact.css'
 
 class App extends Component {
