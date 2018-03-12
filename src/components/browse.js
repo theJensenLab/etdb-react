@@ -10,16 +10,16 @@ class Browse extends Component {
 		return(
 			<div>
 				<Header />
-				<div class="row" id="browsedatabase">
-					<div class="col-sm-2">
+				<div className="row" id="browsedatabase">
+					<div className="col-sm-2">
 						<div id="filters"></div>
-						<input class="form-control" type="text" placeholder="Search for..."/>
+						<input className="form-control" type="text" placeholder="Search for..."/>
 						<div id="reddiv"></div><b>Filters</b>
 						<p>+ Bacteria</p>
 						<p>+ Archaea</p>
 						<p>+ Eukaryotes</p>
 					</div>
-					<div class="col-sm-10" id="searchresultsgrid">
+					<div className="col-sm-10" id="searchresultsgrid">
 						<TomogramListItem />
 						<TomogramListItem />
 						<TomogramListItem />

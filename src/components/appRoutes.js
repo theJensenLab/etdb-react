@@ -18,11 +18,11 @@ class AppRoutes extends Component {
 		return(
 			<Switch>
 				<Route path="/about" component={About}/>
-				<Route path="/search" component={Search}/>
+				<Route path="/search/:id" render={props => <Search {...props} />} />
 				<Route path="/contact" component={Contact}/>
 				<Route path="/featured" component={Featured}/>
 				<Route path="/browse" component={Browse}/>
-				<Route path="/view" component={TomogramView}/>
+				<Route path="/tomogram/:id" render={props => <TomogramView {...props} />} />
 				<Route path="/" component={Home}/>
 			</Switch>
 		)

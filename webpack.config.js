@@ -24,7 +24,7 @@ module.exports = {
         use: [
           {
             loader: 'file-loader',
-            options: {}  
+            options: {publicPath: "/"}  
           }
         ]
       }
@@ -32,6 +32,8 @@ module.exports = {
   },
   devServer: {
     compress: true,
-    historyApiFallback: true
+    historyApiFallback: true,
+    contentBase: __dirname,
+    publicPath: "/"
   }
 };
