@@ -34,6 +34,7 @@ module.exports = {
     compress: true,
     historyApiFallback: true,
     contentBase: __dirname,
-    publicPath: "/"
+    publicPath: "/",
+    port: 9156
   }
 };
