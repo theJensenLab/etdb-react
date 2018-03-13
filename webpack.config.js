@@ -35,6 +35,7 @@ module.exports = {
     historyApiFallback: true,
     contentBase: __dirname,
     publicPath: "/",
-    port: 9156
+    port: 9156,
+    host: "127.0.0.1"
   }
 };
