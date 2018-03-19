@@ -61,8 +61,9 @@ class About extends Component {
                   <div className="col-sm-6">			  		<img src="http://www.designing-science-development.com/jensen/wp-content/uploads/2018/03/cell.png"/>
 </div>
 				</div>
-                
-				<FAQ />
+                <div id="longreddiv"></div>
+				<a name="FAQ"></a> 
+                <FAQ />
 				<Footer />
 			</div>
 		)

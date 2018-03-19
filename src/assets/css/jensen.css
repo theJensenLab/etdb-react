@@ -123,12 +123,10 @@ div#topbar.transparent div#menu {
 -------------------------------------------------------------- */
 /* FAQ
 -------------------------------------------------------------- */
-div#faq {
-    padding-top: 130px;
-}
+
 
 div#faq {
-    margin: 150px auto 50px;
+    margin: 50px auto 50px;
     max-width: 1200px;
 }
 
@@ -181,10 +179,7 @@ button:focus, html input[type="button"]:focus, input[type="reset"]:focus, input[
     line-height: 1.7;
 }
 
-div#faq {
-    margin-bottom: 100px;
-    margin-top: 100px;
-}
+
 
 .panel {
     display: none;
