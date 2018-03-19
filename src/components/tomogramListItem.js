@@ -10,8 +10,8 @@ class TomogramListItem extends Component {
 							<source src="http://www.designing-science-development.com/jensen/wp-content/uploads/2018/01/tomogram-Converted_1.mp4" type="video/mp4"/>
 							<source src="/video/movie.ogg" type="video/ogg"/>
 						</video>
-						<p>Tomogram name</p>
-						<p>Tomogram date</p>
+						<name>Tomogram name</name>
+						<date>Tomogram date</date>
 					</a>
 				</div>
 			</div>

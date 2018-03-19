@@ -592,6 +592,39 @@ div#home-image-container img {
     border-bottom-left-radius: 70px;
 }
 
+/* Challenges page
+-------------------------------------------------------------- */
+
+p.goal {
+    font-size: 130%;
+    margin-bottom: 30px;
+}
+
+div#longreddiv {
+    width: 1050px;
+    height: 3px;
+    background: #000;
+    margin: 50px auto;
+}
+
+div#about .col-sm-9 {
+    padding-left: 0px !important;
+}
+
+p.note {
+    font-family: monospace;
+    font-size: 85%;
+    border-top: 1px dashed #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0px;
+    color: #666665;
+    font-weight: 100 !important;
+}
+
+.challengerow {
+    padding-bottom: 50px !important;
+}
+
 /* About page
 -------------------------------------------------------------- */
 div#about {
@@ -613,8 +646,12 @@ div#space150 {
 div#about p {
     line-height: 2;
     letter-spacing: .5px;
- 
+ margin-bottom:20px;
     font-weight: 300;
+}
+
+p.challenge {
+    margin-right: 100px;
 }
 
 div#faqleft {
@@ -788,8 +825,7 @@ name {
     line-height: 1;
     font-family: 'Open Sans', sans-serif;
     font-size: 15px;
-    margin-top: 10px;
-    padding-bottom: 10px;
+ 
 }
 
 div#filter {

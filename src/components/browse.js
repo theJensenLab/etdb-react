@@ -14,7 +14,15 @@ class Browse extends Component {
 					<div className="col-sm-2">
 						<div id="filters"></div>
 						<input className="form-control" type="text" placeholder="Search for..."/>
-						<div id="reddiv"></div><b>Filters</b>
+						<div id="reddiv"></div><b>Sort by</b>
+						<p>Most Viewed</p>
+						<p>Specimen</p>
+						<p>User</p>
+                        <p>Last Modified</p>
+                        <p>Date Taken</p>
+                        
+                        
+                        <div id="reddiv"></div><b>Filters</b>
 						<p>+ Bacteria</p>
 						<p>+ Archaea</p>
 						<p>+ Eukaryotes</p>

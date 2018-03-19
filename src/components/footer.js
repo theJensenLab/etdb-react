@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 class Footer extends Component {
 	render(){
 		return(
+            
 			<div className="row" id="footer">
 			  <div className="col-sm-3">
 			  	<a href="https://templeton.org/">
@@ -26,7 +27,7 @@ class Footer extends Component {
 			    <p>Scientific Challenges</p>
 			    <p>Built with Blockchain</p>
 			    <p>FAQ</p>
-                <p>How to reference the database</p>
+                
 			  </div>
 			  <div className="col-sm-3">
 			    <p>Extra links</p>

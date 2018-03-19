@@ -28,7 +28,7 @@ class About extends Component {
 				      <h3>By making this data available, we hope others will use it to fuel their own discoveries.  </h3>
 				      <div id="reddiv"></div>
 				      <p>In addition to its value for cell biologists, the ETDB offers a massive dataset for software developers to develop, test and improve image processing algorithms. We have some ideas for areas particularly ripe for improvement; check them out on the Scientific Challenges page.</p>
-                      <a className="browse" href="http://www.designing-science-development.com/jensen/search-results/">View challenges <i className="fa fa-arrow-right" aria-hidden="true"></i></a>
+                      <a className="browse" href="/challenges">View challenges <i className="fa fa-arrow-right" aria-hidden="true"></i></a>
 				    </div>
 				  </div>
                   <div className="col-sm-6">			  		<img src="http://www.designing-science-development.com/jensen/wp-content/uploads/2018/03/challenges.png"/>
