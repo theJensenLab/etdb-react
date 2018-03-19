@@ -30,8 +30,10 @@ class Home extends Component {
 				  <div className="col-sm-6" id="homehero"></div>
 				  <div className="col-sm-6" id="homesecondary">
 				    <div>
+                        <h4>Welcome to the</h4>
 				      <h3>Caltech Electron Tomography Database</h3>
-				      <h6>Cryo-electron tomography is a specialized imaging technique used to produce high-resolution, three-dimensional views of cells</h6>
+				      <h6>A public repository featuring more than [number or counter here] electron tomography datasets of intact bacterial and archaeal cells, representing more than [number or counter] species.
+</h6>
 				      <a className="browse" href="/browse">Browse database <i className="fa fa-arrow-right" aria-hidden="true"></i></a>
 				    </div>
 				  </div>

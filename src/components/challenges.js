@@ -1,18 +1,21 @@
 import React, { Component } from 'react'
 
 import Header from './header.js'
-import FAQ from './faq.js'
 import Footer from './footer.js'
 
-class About extends Component {
+class challenges extends Component {
 	render(){
 		return(
 			<div>
 				<Header />
                 <div id="space150"></div>
-			
 				<div className="row" id="about">
-                <h3>About Electron tomography</h3>
+				  <div>
+				    <h2>Challenges to the Caltech Electron Tomography Database, a public repository of more than [number or counter here] electron tomography datasets of intact bacterial and archaeal cells representing more than [number or counter] species.</h2>
+				  </div>
+				</div>
+				<div className="row" id="about">
+                <h3>Electron tomography</h3>
 				      <div id="reddiv"></div>
 				  <div className="col-sm-6">				      
                         <p>Electron tomography is a form of transmission electron microscopy in which a sample is tilted during imaging, typically one or two degrees between images, building up a "tilt-series" of images that can be computationally reconstructed into a 3D view of the sample, or "tomogram." In essence, electron tomography takes a CT scan of a cell.</p>				    </div>
@@ -25,19 +28,15 @@ class About extends Component {
 				<div className="row" id="about">
 				  <div className="col-sm-6">
 				    <div>
-				      <h3>By making this data available, we hope others will use it to fuel their own discoveries.  </h3>
+				      <h3>Scientific Challenges</h3>
 				      <div id="reddiv"></div>
-				      <p>In addition to its value for cell biologists, the ETDB offers a massive dataset for software developers to develop, test and improve image processing algorithms. We have some ideas for areas particularly ripe for improvement; check them out on the Scientific Challenges page.</p>
+				      <p>By making this data available, we hope others will use it to fuel their own discoveries.  In addition to its value for cell biologists, the ETDB offers a massive dataset for software developers to develop, test and improve image processing algorithms. We have some ideas for areas particularly ripe for improvement; check them out on the Scientific Challenges page.</p>
                       <a className="browse" href="http://www.designing-science-development.com/jensen/search-results/">View challenges <i className="fa fa-arrow-right" aria-hidden="true"></i></a>
 				    </div>
 				  </div>
-                  <div className="col-sm-6">			  		<img src="http://www.designing-science-development.com/jensen/wp-content/uploads/2018/03/challenges.png"/>
-</div>
-
 				</div>
 				<div className="row" id="about">
-				  <div className="col-sm-6">			  		<img src="http://www.designing-science-development.com/jensen/wp-content/uploads/2018/03/BLOCKCHAIN-2.png"/>
-</div>
+				  <div className="col-sm-6"></div>
 				  <div className="col-sm-6">
 				    <div>
 				      <h3>Built with Blockchain</h3>
@@ -57,11 +56,7 @@ class About extends Component {
                       <a className="browse" href="http://www.jensenlab.caltech.edu">Jensen Lab <i className="fa fa-arrow-right" aria-hidden="true"></i></a>
 				    </div>
 				  </div>
-
-                  <div className="col-sm-6">			  		<img src="http://www.designing-science-development.com/jensen/wp-content/uploads/2018/03/cell.png"/>
-</div>
 				</div>
-                
 				<FAQ />
 				<Footer />
 			</div>

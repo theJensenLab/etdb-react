@@ -8,6 +8,7 @@ class Contact extends Component {
 		return(
 			<div>
 				<Header />
+                <div id="space150"></div>
 				<red-2 className="row">
 				  <div className="col-sm-8">
 				    <h2>The Electronic Tomography Database is a multi faceted endeavor. Please contact the appropriate person.</h2>

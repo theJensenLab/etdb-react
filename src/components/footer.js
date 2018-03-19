@@ -21,11 +21,12 @@ class Footer extends Component {
 			  	</a>
 			  </div>
 			  <div className="col-sm-3">
-			    <p><b>California Institute of Technology</b></p>
-			    <p>1200 E California Blvd</p>
-			    <p>Pasadena, CA 91125</p>
-			    <p>Department of Biology</p>
-			    <p>Broad Center for the Biological Sciences</p>
+			    <p><b>About</b></p>
+			    <p>Electron Tomography</p>
+			    <p>Scientific Challenges</p>
+			    <p>Built with Blockchain</p>
+			    <p>FAQ</p>
+                <p>How to reference the database</p>
 			  </div>
 			  <div className="col-sm-3">
 			    <p>Extra links</p>
