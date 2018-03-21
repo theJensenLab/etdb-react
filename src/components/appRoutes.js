@@ -19,15 +19,15 @@ class AppRoutes extends Component {
 	render(){
 		return(
 			<Switch>
-				<Route path="/about" component={About}/>
-				<Route path="/search/:id" render={props => <Search {...props} />} />
-				<Route path="/contact" component={Contact}/>
-				<Route path="/featured" component={Featured}/>
-                <Route path="/challenges" component={Challenges}/>
-				<Route path="/browse" component={Browse}/>
-				<Route path="/tomogram/:id" render={props => <TomogramView {...props} />} />
-				<Route path="/carboxysomes/:id" render={props => <CarboCollection {...props} />} />
-				<Route path="/" component={Home}/>
+				<Route path="/about" render={props => <About Core={this.props.Core} {...props} />} />
+				<Route path="/search/:id" render={props => <Search Core={this.props.Core} {...props} />} />
+				<Route path="/contact" render={props => <Contact Core={this.props.Core} {...props} />} />
+				<Route path="/featured" render={props => <Featured Core={this.props.Core} {...props} />} />
+                <Route path="/challenges" render={props => <Challenges Core={this.props.Core} {...props} />} />
+				<Route path="/browse" render={props => <Browse Core={this.props.Core} {...props} />} />
+				<Route path="/tomogram/:id" render={props => <TomogramView Core={this.props.Core} {...props} />} />
+				<Route path="/carboxysomes/:id" render={props => <CarboCollection Core={this.props.Core} {...props} />} />
+				<Route path="/" render={props => <Home Core={this.props.Core} {...props} />} />
 			</Switch>
 		)
 	}

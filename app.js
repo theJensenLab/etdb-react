@@ -10,11 +10,23 @@ import './src/assets/css/bootstrap.css'
 import './src/assets/css/jensen.css'
 import './src/assets/css/contact.css'
 
+import OIPJS from 'oip-js';
+
+var Core = OIPJS({'artifactFilters': [
+	function(artifact){
+		if (Core.Artifact.getType(artifact) === "Research" && Core.Artifact.getSubtype(artifact) === "Tomogram"){
+			return true;
+		} else {
+			return false;
+		}
+	}]
+});
+
 class App extends Component {
 	render(){
 		return(
 			<Router>
-				<AppRoutes />
+				<AppRoutes Core={Core} />
 			</Router>
 		)
 	}

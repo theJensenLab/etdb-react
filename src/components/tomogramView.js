@@ -6,6 +6,27 @@ import Footer from './footer.js'
 import placeholder from '../assets/img/placeholder.jpg'
 
 class TomogramView extends Component {
+	constructor(props){
+		super(props);
+
+		this.state = {
+			artifact: {}
+		}
+
+		this.getTomogram = this.getTomogram.bind(this);
+		this.storeTomogram = this.storeTomogram.bind(this);
+	}
+	componentDidMount(){
+		this.getTomogram();
+	}
+	getTomogram(){
+		this.props.Core.Index.getArtifactFromID(this.props.match.params.id, this.storeTomogram, (error) => {
+			console.error(error)
+		})
+	}
+	storeTomogram(artifact){
+		this.setState({artifact: artifact});
+	}
 	render(){
 		return(
 			<div>
@@ -35,13 +56,13 @@ class TomogramView extends Component {
 						</div>
 					</div>
 					<div className="col-sm-6" id="tomographdata">
-						<h2>E.coli Minicell/Pul T2SS </h2>
+						<h2>{this.props.Core.Artifact.getTitle(this.state.artifact)}</h2>
 						<h3><b>Lab:</b> Jensen Lab</h3>
 						<h3><b>Insitution:</b> Caltech</h3>
 						<div id="reddiv"> </div>
-						<p><b>Tilt Series date:</b> 04/17/2017</p>
+						<p><b>Tilt Series date:</b> {this.props.Core.Artifact.getTimestamp(this.state.artifact)}</p>
 						<p><b>Data Taken By:</b> Yiwei Chang</p>
-						<p><b>Description:</b> grid box YWC250</p>
+						<p><b>Description:</b> {this.props.Core.Artifact.getDescription(this.state.artifact)}</p>
 						<p><b>Strain:</b> PAP5359 (minCDE knockout) (Pipeline: autoprocref_1492486778)</p>
 						<p><b>Species / Specimen:</b> Escherichia coli 562</p>
 						<p><b>Collaborators and Roles:</b> Strain provided by Ingrid Guilvout in Olivera Francetic lab</p>

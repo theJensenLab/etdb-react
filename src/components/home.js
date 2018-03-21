@@ -4,6 +4,27 @@ import logo from '../assets/img/etdb-logo.png'
 import red from '../assets/img/red.jpg'
 
 class Home extends Component {
+	constructor(props){
+		super(props);
+
+		this.state = {
+			numberOfTomograms: ""
+		}
+
+		this.getTomograms = this.getTomograms.bind(this);
+		this.countTomograms = this.countTomograms.bind(this);
+	}
+	componentDidMount(){
+		this.getTomograms();
+	}
+	getTomograms(){
+		this.props.Core.Index.getSupportedArtifacts(this.countTomograms, (error) => {
+			console.error(error)
+		})
+	}
+	countTomograms(artifacts){
+		this.setState({numberOfTomograms: artifacts.length});
+	}
 	render(){
 		return(
 			<div>
@@ -32,8 +53,7 @@ class Home extends Component {
 				    <div>
                         <h4>Welcome to the</h4>
 				      <h3>Caltech Electron Tomography Database</h3>
-				      <h6>A public repository featuring more than [number or counter here] electron tomography datasets of intact bacterial and archaeal cells, representing more than [number or counter] species.
-</h6>
+				      <h6>A public repository featuring more than {this.state.numberOfTomograms} electron tomography datasets of intact bacterial and archaeal cells, representing more than [number or species counter] species.</h6>
 				      <a className="browse" href="/browse">Browse database <i className="fa fa-arrow-right" aria-hidden="true"></i></a>
 				    </div>
 				  </div>

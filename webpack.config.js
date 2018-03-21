@@ -38,5 +38,8 @@ module.exports = {
     publicPath: "/",
     port: 9156,
     host: "127.0.0.1"
+  },
+  node: {
+    fs: "empty"
   }
 };
