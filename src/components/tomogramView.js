@@ -29,7 +29,7 @@ class TomogramView extends Component {
 		this.setState({artifact: artifact});
 	}
 	render(){
-		let title = "loading...", timestamp, description, strain, speciesName, date, NBCItaxID, artNotes, tiltSingleDual, files, thumbnail, thumbFilename, location, defocus, niceDate
+		let title = "loading...", timestamp, description, strain, speciesName, date, NBCItaxID, artNotes, tiltSingleDual, files, thumbnail, thumbFilename, location, defocus, niceDate, software = "No info available"
 
 		let collabRoles = "No info available"
 
@@ -46,10 +46,11 @@ class TomogramView extends Component {
 					if (file.getType() === "Research" && file.getSubtype() === "Keyimg"){
 						thumbFilename = file.getFilename();
 					}
+					if (file.getSoftware() && file.getSoftware() !== ""){
+						software = file.getSoftware();
+					}
 				}
 			}
-
-			thumbFilename = undefined
 
 			if (!thumbFilename){
 				thumbnail = this.state.artifact.getThumbnail()
@@ -88,7 +89,7 @@ class TomogramView extends Component {
 				</div>
 				<div className="row" id="singletomograminfo">
 					<div className="col-sm-6" id="videoembed">
-						<div id="videoinner"><img src={"https://ipfs.oip.fun/ipfs/" + location + "/" + thumbFilename}/>
+						<div id="videoinner"><img src={"http://etdb.caltech.edu:8080/ipfs/" + location + "/" + thumbFilename}/>
 							<div id="share">
 								<p><b>Share:</b><span className="fab fa-facebook-square"></span><span className="fab fa-twitter-square"></span></p>
 							</div>
@@ -107,7 +108,7 @@ class TomogramView extends Component {
 						<p><b>Collaborators and Roles:</b> {collabRoles}</p>
 						<p><b>Tilt Series Setting:</b> {tiltSingleDual}. constant angular increment, step: 1.0. tilt range: (-60, 60). dosage: 130/A2. defocus: {defocus}. magnification: 27500.</p>
 						<p><b>Microscope:</b> Caltech Polara</p>
-						<p><b>Acquisition Software:</b> UCSFTomo</p>
+						<p><b>Acquisition Software:</b> {software}</p>
 						<p><b>Processing Software Used:</b> Raptor</p>
 						<p style={{whiteSpace: "pre"}}><b>Notes:</b> {artNotes}</p>
 					</div>
