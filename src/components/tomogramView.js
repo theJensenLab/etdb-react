@@ -29,7 +29,7 @@ class TomogramView extends Component {
 		this.setState({artifact: artifact});
 	}
 	render(){
-		let title = "loading...", timestamp, description, strain, speciesName, date, NBCItaxID, artNotes, tiltSingleDual, thumbnail, thumbFilename, location, defocus, niceDate
+		let title = "loading...", timestamp, description, strain, speciesName, date, NBCItaxID, artNotes, tiltSingleDual, files, thumbnail, thumbFilename, location, defocus, niceDate
 
 		let collabRoles = "No info available"
 
@@ -38,11 +38,24 @@ class TomogramView extends Component {
 			timestamp = this.state.artifact.getTimestamp();
 			description = this.state.artifact.getDescription();
 
-			thumbnail = this.state.artifact.getThumbnail();
+			files = this.state.artifact.getFiles();
 			location = this.state.artifact.getLocation();
 
-			if (thumbnail) {
-				thumbFilename = thumbnail.getFilename();
+			if (files) {
+				for (var file of files){
+					if (file.getType() === "Research" && file.getSubtype() === "Keyimg"){
+						thumbFilename = file.getFilename();
+					}
+				}
+			}
+
+			thumbFilename = undefined
+
+			if (!thumbFilename){
+				thumbnail = this.state.artifact.getThumbnail()
+				if (thumbnail){
+					thumbFilename = thumbnail.getFilename();
+				}
 			}
 
 			date = this.state.artifact.getDetail("date");
@@ -96,7 +109,7 @@ class TomogramView extends Component {
 						<p><b>Microscope:</b> Caltech Polara</p>
 						<p><b>Acquisition Software:</b> UCSFTomo</p>
 						<p><b>Processing Software Used:</b> Raptor</p>
-						<p><b>Notes:</b> {artNotes}</p>
+						<p style={{whiteSpace: "pre"}}><b>Notes:</b> {artNotes}</p>
 					</div>
 				</div>
 				<Footer />
