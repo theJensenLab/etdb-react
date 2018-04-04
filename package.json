@@ -23,7 +23,8 @@
   },
   "homepage": "https://github.com/OstlerDev/etdb-react#readme",
   "dependencies": {
-    "oip-js": "^1.0.29",
+    "moment": "^2.22.0",
+    "oip-js": "1.1.6",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2"

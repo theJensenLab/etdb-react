@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import moment from 'moment';
 
 import Header from './header.js'
 import Footer from './footer.js'
@@ -10,7 +11,7 @@ class TomogramView extends Component {
 		super(props);
 
 		this.state = {
-			artifact: {}
+			artifact: undefined
 		}
 
 		this.getTomogram = this.getTomogram.bind(this);
@@ -28,6 +29,31 @@ class TomogramView extends Component {
 		this.setState({artifact: artifact});
 	}
 	render(){
+		let title = "loading...", timestamp, description, strain, speciesName, date, NBCItaxID, artNotes, tiltSingleDual, thumbnail, thumbFilename, location, defocus, niceDate
+
+		let collabRoles = "No info available"
+
+		if (this.state.artifact){
+			title = this.state.artifact.getTitle();
+			timestamp = this.state.artifact.getTimestamp();
+			description = this.state.artifact.getDescription();
+
+			thumbnail = this.state.artifact.getThumbnail();
+			location = this.state.artifact.getLocation();
+
+			if (thumbnail) {
+				thumbFilename = thumbnail.getFilename();
+			}
+
+			date = this.state.artifact.getDetail("date");
+			niceDate = moment(date * 1000).calendar(null, {sameElse: "MMMM Do YYYY"});
+			NBCItaxID = this.state.artifact.getDetail("NBCItaxID");
+			artNotes = this.state.artifact.getDetail("artNotes");
+			strain = this.state.artifact.getDetail("strain");
+			speciesName = this.state.artifact.getDetail("speciesName");
+			tiltSingleDual = this.state.artifact.getDetail("tiltSingleDual");
+			defocus = this.state.artifact.getDetail("defocus");
+		}
 		return(
 			<div>
 				<Header />
@@ -49,27 +75,28 @@ class TomogramView extends Component {
 				</div>
 				<div className="row" id="singletomograminfo">
 					<div className="col-sm-6" id="videoembed">
-						<div id="videoinner"><img src={placeholder}/>
+						<div id="videoinner"><img src={"https://ipfs.oip.fun/ipfs/" + location + "/" + thumbFilename}/>
 							<div id="share">
 								<p><b>Share:</b><span className="fab fa-facebook-square"></span><span className="fab fa-twitter-square"></span></p>
 							</div>
 						</div>
 					</div>
 					<div className="col-sm-6" id="tomographdata">
-						<h2>{this.props.Core.Artifact.getTitle(this.state.artifact)}</h2>
+						<h2>{title}</h2>
 						<h3><b>Lab:</b> Jensen Lab</h3>
 						<h3><b>Insitution:</b> Caltech</h3>
 						<div id="reddiv"> </div>
-						<p><b>Tilt Series date:</b> {this.props.Core.Artifact.getTimestamp(this.state.artifact)}</p>
-						<p><b>Data Taken By:</b> Yiwei Chang</p>
-						<p><b>Description:</b> {this.props.Core.Artifact.getDescription(this.state.artifact)}</p>
-						<p><b>Strain:</b> PAP5359 (minCDE knockout) (Pipeline: autoprocref_1492486778)</p>
-						<p><b>Species / Specimen:</b> Escherichia coli 562</p>
-						<p><b>Collaborators and Roles:</b> Strain provided by Ingrid Guilvout in Olivera Francetic lab</p>
-						<p><b>Tilt Series Setting:</b> single tilt. constant angular increment, step: 1.0. tilt range: (-60, 60). dosage: 130/A2. defocus: -6um. magnification: 27500.</p>
+						<p><b>Tilt Series date:</b> {niceDate}</p>
+						{/*<p><b>Data Taken By:</b> Yiwei Chang</p>*/}
+						<p><b>Description:</b> {description}</p>
+						<p><b>Strain:</b> {strain}</p>
+						<p><b>Species / Specimen:</b> {speciesName}</p>
+						<p><b>Collaborators and Roles:</b> {collabRoles}</p>
+						<p><b>Tilt Series Setting:</b> {tiltSingleDual}. constant angular increment, step: 1.0. tilt range: (-60, 60). dosage: 130/A2. defocus: {defocus}. magnification: 27500.</p>
 						<p><b>Microscope:</b> Caltech Polara</p>
 						<p><b>Acquisition Software:</b> UCSFTomo</p>
 						<p><b>Processing Software Used:</b> Raptor</p>
+						<p><b>Notes:</b> {artNotes}</p>
 					</div>
 				</div>
 				<Footer />
