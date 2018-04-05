@@ -63,7 +63,7 @@ class Home extends Component {
 				    <div>
                         <h4>Welcome to the</h4>
 				      <h3>Caltech Electron Tomography Database</h3>
-				      <h6>A public repository featuring {this.state.numberOfTomograms - 1} electron tomography datasets of intact bacterial and archaeal cells, representing {this.state.numberOfSpecies - 1} species.</h6>
+				      <h6>A public repository featuring {this.state.numberOfTomograms} electron tomography datasets of intact bacterial and archaeal cells, representing {this.state.numberOfSpecies} species.</h6>
 				      <a className="browse" href="/browse">Browse database <i className="fa fa-arrow-right" aria-hidden="true"></i></a>
 				    </div>
 				  </div>
