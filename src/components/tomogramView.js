@@ -110,7 +110,7 @@ class TomogramView extends Component {
 						<p><b>Microscope:</b> Caltech Polara</p>
 						<p><b>Acquisition Software:</b> {software}</p>
 						<p><b>Processing Software Used:</b> Raptor</p>
-						<p style={{whiteSpace: "pre"}}><b>Notes:</b> {artNotes}</p>
+						<p style={{whiteSpace: "pre-wrap"}}><b>Notes:</b> {artNotes}</p>
 					</div>
 				</div>
 				<Footer />
