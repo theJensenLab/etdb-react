@@ -130,6 +130,15 @@ div#faq {
     max-width: 1200px;
 }
 
+button.accordion:hover {
+    border-bottom: 1px solid #000;
+}
+
+div#faq {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 div#faq h3 {
     text-align: center;
     font-size: 40px;
@@ -624,7 +633,7 @@ p.note {
 -------------------------------------------------------------- */
 div#about {
     margin: 0px auto 0px;
-    max-width: 1050px;
+    max-width: 1200px;
   padding-bottom: 150px;
 }
 
@@ -692,10 +701,11 @@ div#about img {
 }
 
 div#about a.browse {
-    font-size: 13px;
+    font-size: 18px;
     text-decordation: none;
     border-left: 2px solid #000;
     border-bottom: 3px solid #000;
+    text-decoration: none;
 }
 
 div#about svg.svg-inline--fa.fa-arrow-right.fa-w-14 {
@@ -1127,6 +1137,7 @@ div#featured {
 div#featured-3 p {
     font-weight: lighter;
     padding-right: 50px;
+    font-size: 18px;
 }
 
 div#featured-3 {

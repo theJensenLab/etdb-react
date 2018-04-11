@@ -9,11 +9,15 @@ class About extends Component {
 		return(
 			<div>
 				<Header />
-                <div id="space150"></div>
-			
+			<div className="row" id="featured-2">
+				  <div className="col-sm-8">
+				    <h2>Welcome to the Caltech ETDB, the blockchain-based Web 3.0 database of 10,000+ electron tomograms. </h2>
+				  </div>
+				</div>
 				<div className="row" id="about">
-                <h3>About Electron tomography</h3>
+                <div className="col-sm-12">	<h3>About Electron tomography</h3>
 				      <div id="reddiv"></div>
+                      </div>
 				  <div className="col-sm-6">				      
                         <p>Electron tomography is a form of transmission electron microscopy in which a sample is tilted during imaging, typically one or two degrees between images, building up a "tilt-series" of images that can be computationally reconstructed into a 3D view of the sample, or "tomogram." In essence, electron tomography takes a CT scan of a cell.</p>				    </div>
 
@@ -42,7 +46,7 @@ class About extends Component {
 				    <div>
 				      <h3>Built with Blockchain</h3>
 				      <div id="reddiv"></div>
-				      <p> Cryo-electron tomography is an imaging technique used to produce high-resolution, 3D views of biological samples, think of it as a CT scan for cells. In contrast to other electron tomography techniques, samples are immobilized in non-crystalline ("vitreous") ice and imaged under cryogenic conditions, allowing them to be imaged without dehydration or chemical fixation, which could otherwise disrupt or distort biological structures. </p>
+				      <p> The innovative design of the ETDB uses the Open Index Protocol (OIP) developed by <a target="blank" href="https://www.alexandria.io/">Alexandria.io</a> to provide persistent file storage and permissionless access. Tomograms are stored in the IPFS network, a distributed system designed to ensure file persistence.  The addresses of the content, and the tomograms' metadata, are stored in the public <a href="http://www.flo.cash/" target="blank">FLO blockchain</a>. The result is a robust, decentralized database open to anyone through open-source software. While etdb.caltech.edu offers one way to access the database, users are free to create their own applications to retrieve and interact with the data. </p>
 				    </div>
 				  </div>
 				</div>
@@ -61,7 +65,6 @@ class About extends Component {
                   <div className="col-sm-6">			  		<img src="http://www.designing-science-development.com/jensen/wp-content/uploads/2018/03/cell.png"/>
 </div>
 				</div>
-                <div id="longreddiv"></div>
 				<a name="FAQ"></a> 
                 <FAQ />
 				<Footer />
