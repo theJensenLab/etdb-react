@@ -8,7 +8,8 @@ class Home extends Component {
 		super(props);
 
 		this.state = {
-			numberOfTomograms: ""
+			numberOfTomograms: 2,
+			numberOfSpecies: 2
 		}
 
 		this.getTomograms = this.getTomograms.bind(this);
@@ -24,6 +25,15 @@ class Home extends Component {
 	}
 	countTomograms(artifacts){
 		this.setState({numberOfTomograms: artifacts.length});
+
+		var TypesOfSpecies = [];
+		for (var artifact of artifacts){
+			if (artifact.getDetail("speciesName") && TypesOfSpecies.indexOf(artifact.getDetail("speciesName")) === -1){
+				TypesOfSpecies.push(artifact.getDetail("speciesName"))
+			}
+		}
+
+		this.setState({numberOfSpecies: TypesOfSpecies.length});
 	}
 	render(){
 		return(
@@ -53,7 +63,7 @@ class Home extends Component {
 				    <div>
                         <h4>Welcome to the</h4>
 				      <h3>Caltech Electron Tomography Database</h3>
-				      <h6>A public repository featuring more than {this.state.numberOfTomograms} electron tomography datasets of intact bacterial and archaeal cells, representing more than [number or species counter] species.</h6>
+				      <h6>A public repository featuring {this.state.numberOfTomograms} electron tomography datasets of intact bacterial and archaeal cells, representing {this.state.numberOfSpecies} species.</h6>
 				      <a className="browse" href="/browse">Browse database <i className="fa fa-arrow-right" aria-hidden="true"></i></a>
 				    </div>
 				  </div>

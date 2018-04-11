@@ -1,17 +1,25 @@
 import React, { Component } from 'react'
+import moment from 'moment';
 
 class TomogramListItem extends Component {
 	render(){
+		let thumbFilename = "";
+
+		if (this.props.artifact){
+			let thumbnail = this.props.artifact.getThumbnail()
+			if (thumbnail){
+				thumbFilename = thumbnail.getFilename();
+			}
+		}
 		return(
 			<div className="col-sm-3" id="tomogramcell">
 				<div id="video-thumb-container">
-					<a className="tomogram-link" href={"/tomogram/" + this.props.Core.Artifact.getTXID(this.props.artifact).substr(0,6)}>
-						<video className="videothumbhover" loop="">
-							<source src="http://www.designing-science-development.com/jensen/wp-content/uploads/2018/01/tomogram-Converted_1.mp4" type="video/mp4"/>
-							<source src="/video/movie.ogg" type="video/ogg"/>
+					<a className="tomogram-link" href={"/tomogram/" + this.props.artifact.getTXID().substr(0,6)}>
+						<video className="videothumbhover" style={{maxHeight: "72%"}} poster={"http://etdb.caltech.edu:8080/ipfs/" + this.props.artifact.getLocation() + "/" + thumbFilename}>
+							<source src="" type="video/mp4"/>
 						</video>
-						<name>{this.props.Core.Artifact.getTitle(this.props.artifact)}</name>
-						<date>{this.props.Core.Artifact.getTimestamp(this.props.artifact)}</date>
+						<name>{this.props.artifact.getTitle()}</name>
+						<date>{moment(this.props.artifact.getDetail("date") * 1000).calendar(null, {sameElse: "MMMM Do YYYY"})}</date>
 					</a>
 				</div>
 			</div>

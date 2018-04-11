@@ -9,12 +9,13 @@ import AppRoutes from './src/components/appRoutes.js';
 import './src/assets/css/bootstrap.css'
 import './src/assets/css/jensen.css'
 import './src/assets/css/contact.css'
+import './src/assets/css/special-typekit-fonts.css'
 
-import OIPJS from 'oip-js';
+import { OIPJS } from 'oip-js';
 
 var Core = OIPJS({'artifactFilters': [
 	function(artifact){
-		if (Core.Artifact.getType(artifact) === "Research" && Core.Artifact.getSubtype(artifact) === "Tomogram"){
+		if (artifact.getType() === "Research" && artifact.getSubtype() === "Tomogram"){
 			return true;
 		} else {
 			return false;
