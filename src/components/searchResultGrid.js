@@ -1,34 +1,27 @@
 
 import React, {Component} from 'react';
+import moment from 'moment'
 
 import TomogramListItem from './tomogramListItem';
 
+//functions can be put under super and above render but variables can't?
 class SearchResultGrid extends Component {
   constructor(props){
     super(props);
-
-    this.state = {
-      artifacts: []
-    }
-    this.getTomograms = this.getTomograms.bind(this);
-    this.storeTomograms = this.storeTomograms.bind(this);
-  }
-  componentDidMount(){
-    this.getTomograms();
-  }
-  getTomograms(){
-    this.props.Core.Index.getSupportedArtifacts(this.storeTomograms, (error) => {
-      console.error(error)
-    })
-  }
-  storeTomograms(artifacts){
-    this.setState({artifacts: artifacts});
   }
 
   render(){
+
+    const filterText = this.props.filterText;
+    const filterDate = this.props.filterDate;
+
+    const artifacts = [];
+
+    console.log(this.props.artifacts)
+
     return(
       <div className="col-sm-10" id="searchresultsgrid">
-        {this.state.artifacts.map((artifact) => <TomogramListItem Core={this.props.Core} artifact={artifact} />)}
+        {this.props.artifacts.map((artifact) => <TomogramListItem Core={this.props.Core} artifact={artifact} />)}
       </div>
     )
   }

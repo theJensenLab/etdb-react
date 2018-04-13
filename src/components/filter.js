@@ -5,7 +5,7 @@ class Filter extends Component {
 
   render() {
     const filterText = this.props.filterText;
-    const filter = this.props.filter;
+    const filterDate = this.props.filterDate;
 
     return (
       <div className="col-sm-2">
@@ -17,7 +17,7 @@ class Filter extends Component {
         <p><input type="checkbox" checked={null}/>   Specimen </p>
         <p><input type="checkbox" checked={null}/>   User</p>
         <p><input type="checkbox" checked={null}/>   Last Modified</p>
-        <p><input type="checkbox" checked={null}/>   Date Taken</p>
+        <p><input type="checkbox" checked={filterDate}/>   Date Taken</p>
 
 
         <div id="reddiv"></div><b>Filters</b>

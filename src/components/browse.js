@@ -10,10 +10,26 @@ class Browse extends Component {
 		super(props);
 
 		this.state = {
+			artifacts: [],
 			filterText: "",
-			filter: false
+			filterDate: false
 		}
+
+		this.getTomograms = this.getTomograms.bind(this);
+    this.storeTomograms = this.storeTomograms.bind(this);
+
 	}
+	componentDidMount(){
+    this.getTomograms();
+  }
+  getTomograms(){
+    this.props.Core.Index.getSupportedArtifacts(this.storeTomograms, (error) => {
+      console.error(error)
+    })
+  }
+	storeTomograms(artifacts){
+    this.setState({artifacts: artifacts});
+  }
 
 	render(){
 		return(
@@ -22,12 +38,13 @@ class Browse extends Component {
 				<div className="row" id="browsedatabase">
 					<Filter
 						filterText={this.state.filterText}
-						filter={this.state.filter}
+						filterDate={this.state.filterDate}
 					/>
 					<SearchResultGrid
 						Core={this.props.Core}
+						artifacts={this.state.artifacts}
 						filterText={this.state.filterText}
-						filter={this.state.filter}
+						filterDate={this.state.filterDate}
 					/>
 
 				</div>

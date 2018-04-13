@@ -20,19 +20,24 @@ class TomogramView extends Component {
 	componentDidMount(){
 		this.getTomogram();
 	}
+
+	//this.props.match.params.id???
 	getTomogram(){
+		console.log("tomogramView props: ", this.props)
 		this.props.Core.Index.getArtifactFromID(this.props.match.params.id, this.storeTomogram, (error) => {
 			console.error(error)
 		})
 	}
+
+	//why call setState, why not pass down through props?
 	storeTomogram(artifact){
 		this.setState({artifact: artifact});
 	}
 	render(){
 		let title = "loading...", timestamp, description, strain, speciesName, date, NBCItaxID, artNotes, tiltSingleDual, files, thumbnail, thumbFilename, location, defocus, niceDate, software = "No info available"
-
+		console.log("tomogramView title: ")
 		let collabRoles = "No info available"
-
+		//props instead of state
 		if (this.state.artifact){
 			title = this.state.artifact.getTitle();
 			timestamp = this.state.artifact.getTimestamp();
@@ -60,7 +65,9 @@ class TomogramView extends Component {
 			}
 
 			date = this.state.artifact.getDetail("date");
+			console.log("tomogramView date: ")
 			niceDate = moment(date * 1000).calendar(null, {sameElse: "MMMM Do YYYY"});
+			console.log("tomogramView niceDate: ")
 			NBCItaxID = this.state.artifact.getDetail("NBCItaxID");
 			artNotes = this.state.artifact.getDetail("artNotes");
 			strain = this.state.artifact.getDetail("strain");
