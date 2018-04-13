@@ -6,18 +6,11 @@ import TomogramListItem from './tomogramListItem';
 
 //functions can be put under super and above render but variables can't?
 class SearchResultGrid extends Component {
-  constructor(props){
-    super(props);
-  }
 
   render(){
 
-    const filterText = this.props.filterText;
-    const filterDate = this.props.filterDate;
-
-    const artifacts = [];
-
-    console.log(this.props.artifacts)
+    const filterText = this.props.browseState.filterText;
+    console.log(this.props.browseState);
 
     return(
       <div className="col-sm-10" id="searchresultsgrid">

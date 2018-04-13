@@ -36,6 +36,7 @@ class Home extends Component {
 		this.setState({numberOfSpecies: TypesOfSpecies.length});
 	}
 	render(){
+
 		return(
 			<div>
 				<div id="headerfixed">

@@ -10,26 +10,34 @@ class Browse extends Component {
 		super(props);
 
 		this.state = {
-			artifacts: [],
 			filterText: "",
-			filterDate: false
+			// checkered: {}
 		}
 
-		this.getTomograms = this.getTomograms.bind(this);
-    this.storeTomograms = this.storeTomograms.bind(this);
-
+		this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
+		this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
 	}
-	componentDidMount(){
-    this.getTomograms();
-  }
-  getTomograms(){
-    this.props.Core.Index.getSupportedArtifacts(this.storeTomograms, (error) => {
-      console.error(error)
-    })
-  }
-	storeTomograms(artifacts){
-    this.setState({artifacts: artifacts});
-  }
+	handleFilterTextChange(filterText) {
+		this.setState({
+			filterText: filterText
+		});
+	}
+
+	handleCheckboxChange(name, checked) {
+		//how can I do something like this: ???
+
+		// this.setState((prevState) => {
+		// 	const checkeredObj = Object.assign({[name]: checked}, prevState.checkered);
+		// 	console.log(prevState.checkered);
+		// 	return {checkered: checkeredObj};
+		// })
+		this.setState({
+			[name]: checked
+		})
+		// console.log(this.state);
+	}
+
+
 
 	render(){
 		return(
@@ -38,13 +46,13 @@ class Browse extends Component {
 				<div className="row" id="browsedatabase">
 					<Filter
 						filterText={this.state.filterText}
-						filterDate={this.state.filterDate}
+						onFilterTextChange={this.handleFilterTextChange}
+						onCheckboxChange={this.handleCheckboxChange}
 					/>
 					<SearchResultGrid
 						Core={this.props.Core}
-						artifacts={this.state.artifacts}
-						filterText={this.state.filterText}
-						filterDate={this.state.filterDate}
+						artifacts={this.props.Artifacts}
+						browseState={this.state}
 					/>
 
 				</div>

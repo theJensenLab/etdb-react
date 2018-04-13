@@ -13,6 +13,8 @@ import './src/assets/css/special-typekit-fonts.css'
 
 import { OIPJS } from 'oip-js';
 
+
+//what's this do?
 var Core = OIPJS({'artifactFilters': [
 	function(artifact){
 		if (artifact.getType() === "Research" && artifact.getSubtype() === "Tomogram"){
