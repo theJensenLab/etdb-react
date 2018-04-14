@@ -51,7 +51,7 @@ class Browse extends Component {
 					/>
 					<SearchResultGrid
 						Core={this.props.Core}
-						artifacts={this.props.Artifacts}
+						artifacts={this.props.artifacts}
 						browseState={this.state}
 					/>
 
