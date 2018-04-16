@@ -38,6 +38,9 @@ class SearchResultGrid extends Component {
       const name = artifact.getTitle();
       const timeStamp = artifact.getTimestamp();
       const date = artifact.getDetail("date");
+      const user = artifact.getDetail("microscopist");
+      const txid = artifact.getTXID();
+      console.log(txid, user);
       // console.log("Timestamp: ", timeStamp);
       // console.log("Date: ", date);
 
@@ -102,10 +105,24 @@ class SearchResultGrid extends Component {
         });
         break;
       case USER_ATZ:
-        console.log(sortValue)
+        artifacts.sort( (a,b) => {
+          //adding .toLowerCase() throws error
+          var x = a.getDetail("microscopist");
+          var y = b.getDetail("microscopist");
+          if (x < y) {return -1;}
+          if (x > y) {return 1;}
+          return 0;
+        });
         break;
       case USER_ZTA:
-        console.log(sortValue);
+      artifacts.sort( (a,b) => {
+        //adding .toLowerCase() throws error
+        var x = a.getDetail("microscopist");
+        var y = b.getDetail("microscopist");
+        if (x > y) {return -1;}
+        if (x < y) {return 1;}
+        return 0;
+      });
         break;
       case LAST_MODIFIED_NTL:
         artifacts.sort( (a,b) => {return b.getTimestamp()-a.getTimestamp()});
