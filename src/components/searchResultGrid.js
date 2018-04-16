@@ -9,18 +9,28 @@ import TomogramListItem from './tomogramListItem';
 class SearchResultGrid extends Component {
   render() {
     const artifacts = [];
+
+    //STATE_CONSTANTS
     const filterText = this.props.filterText;
     const filterState = this.props.filterState;
+    const sortValue = this.props.sortValue;
     // const specimenType = artifact.specimenType();
 
+
+    //SORT_CONSTANTS
+    const MOST_VIEWED = "mostViewed";
+    const SPECIMEN = "specimen";
+    const USER = "user";
+    const LAST_MODIFIED = "lastModified";
+    const DATE_TAKEN = "dateTaken";
 
     //FILTERS
     this.props.artifacts.forEach((artifact) => {
       const name = artifact.getTitle();
       const timeStamp = artifact.getTimestamp();
-      const ogDate = artifact.getDetail("date");
-      console.log("Timestamp: ", timeStamp);
-      console.log("Date: ", ogDate);
+      const date = artifact.getDetail("date");
+      // console.log("Timestamp: ", timeStamp);
+      // console.log("Date: ", date);
 
       if (name.indexOf(filterText) === -1) {
         return;
@@ -53,22 +63,21 @@ class SearchResultGrid extends Component {
       } else console.log()
 
       //can't do: artifacts.push(artifact)
-      artifacts.push(
-        <TomogramListItem
-          Core={this.props.Core}
-          artifact={artifact}
-        />)
+      artifacts.push(artifact)
     })
 
+
     //SORTS
-    if (filterState.dateTaken) {
-      artifacts.sort();
+    if (sortValue === DATE_TAKEN) {
+      artifacts.sort( (a,b) => {return a.getDetail("date")-b.getDetail("date")});
+    } else if (sortValue === LAST_MODIFIED) {
+      artifacts.sort( (a,b) => {return a.getTimestamp()-b.getTimestamp()});
     }
 
 
     return(
       <div className="col-sm-10" id="searchresultsgrid">
-        {artifacts}
+        {artifacts.map((artifact) => <TomogramListItem Core={this.props.Core} artifact={artifact} />)}
       </div>
     )
   }

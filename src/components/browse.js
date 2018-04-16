@@ -15,7 +15,8 @@ class Browse extends Component {
 			// 	test: "ryan",
 			// 	test2: "erik"
 			// },
-			artifacts: []
+			artifacts: [],
+			sortValue: null
 
 		}
 
@@ -23,6 +24,7 @@ class Browse extends Component {
 		this.storeTomograms = this.storeTomograms.bind(this);
 		this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
 		this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
+		this.handleSelectChange = this.handleSelectChange.bind(this);
 	}
 
 	componentDidMount(){
@@ -58,7 +60,11 @@ class Browse extends Component {
 		// console.log(this.state);
 	}
 
-
+	handleSelectChange(value) {
+		this.setState({
+			sortValue: value
+		})
+	}
 
 	render(){
 		return(
@@ -69,12 +75,15 @@ class Browse extends Component {
 						filterText={this.state.filterText}
 						onFilterTextChange={this.handleFilterTextChange}
 						onCheckboxChange={this.handleCheckboxChange}
+						onSelectChange={this.handleSelectChange}
+						sortValue={this.sortValue}
 					/>
 					<SearchResultGrid
 						Core={this.props.Core}
 						artifacts={this.state.artifacts}
 						filterText={this.state.filterText}
 						filterState={this.state}
+						sortValue={this.state.sortValue}
 					/>
 
 				</div>
