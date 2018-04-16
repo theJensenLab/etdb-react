@@ -17,7 +17,7 @@ class Filter extends Component {
 
     const name = e.target.name;
     const checked = e.target.checked;
-    // console.log(name, checked);
+    console.log(name, checked);
     this.props.onCheckboxChange(name, checked);
   }
 

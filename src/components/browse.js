@@ -8,15 +8,35 @@ import SearchResultGrid from './searchResultGrid'
 class Browse extends Component {
 	constructor(props){
 		super(props);
-
+		//do you only need to add the constructor and super if handling state?
 		this.state = {
 			filterText: "",
-			// checkered: {}
+			// filterState: {
+			// 	test: "ryan",
+			// 	test2: "erik"
+			// },
+			artifacts: []
+
 		}
 
+		this.getTomograms = this.getTomograms.bind(this);
+		this.storeTomograms = this.storeTomograms.bind(this);
 		this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
 		this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
 	}
+
+	componentDidMount(){
+    this.getTomograms();
+  }
+  getTomograms(){
+    this.props.Core.Index.getSupportedArtifacts((this.storeTomograms), (error) => {
+      console.error(error)
+    })
+  }
+	storeTomograms(artifacts){
+    this.setState({artifacts: artifacts});
+  }
+
 	handleFilterTextChange(filterText) {
 		this.setState({
 			filterText: filterText
@@ -24,16 +44,17 @@ class Browse extends Component {
 	}
 
 	handleCheckboxChange(name, checked) {
-		//how can I do something like this: ???
 
-		// this.setState((prevState) => {
-		// 	const checkeredObj = Object.assign({[name]: checked}, prevState.checkered);
-		// 	console.log(prevState.checkered);
-		// 	return {checkered: checkeredObj};
+		// this.setState({
+		// 	filterState: {
+		// 		[name]: checked
+		// 	}
 		// })
+
 		this.setState({
 			[name]: checked
 		})
+
 		// console.log(this.state);
 	}
 
@@ -51,8 +72,9 @@ class Browse extends Component {
 					/>
 					<SearchResultGrid
 						Core={this.props.Core}
-						artifacts={this.props.artifacts}
-						browseState={this.state}
+						artifacts={this.state.artifacts}
+						filterText={this.state.filterText}
+						filterState={this.state}
 					/>
 
 				</div>
