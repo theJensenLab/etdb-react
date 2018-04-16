@@ -34,8 +34,8 @@ class TomogramView extends Component {
 		this.setState({artifact: artifact});
 	}
 	render(){
-		let title = "loading...", timestamp, description, strain, speciesName, date, NBCItaxID, artNotes, tiltSingleDual, files, thumbnail, thumbFilename, location, defocus, niceDate, software = "No info available"
-		console.log("tomogramView title: ")
+		let title = "loading...", timestamp, description, strain, speciesName, date, NBCItaxID, artNotes, tiltSingleDual, files = [], thumbnail, thumbFilename, location, defocus, niceDate, software = "No info available"
+
 		let collabRoles = "No info available"
 		//props instead of state
 		if (this.state.artifact){
@@ -118,6 +118,37 @@ class TomogramView extends Component {
 						<p><b>Acquisition Software:</b> {software}</p>
 						<p><b>Processing Software Used:</b> Raptor</p>
 						<p style={{whiteSpace: "pre-wrap"}}><b>Notes:</b> {artNotes}</p>
+					</div>
+					<div className="col-sm-12" style={{marginTop: "10px"}}>
+						<center>
+							<h5>Files</h5>
+						</center>
+						<table className="table table-bordered">
+							<thead>
+								<tr>
+									<th>#</th>
+									<th>Name</th>
+									<th>Size</th>
+									<th>Type</th>
+									<th>Subtype</th>
+									<th>Download</th>
+								</tr>
+							</thead>
+							<tbody>
+								{files.map((file, i) => {
+									return <tr>
+										<th scope="row">{i + 1}</th>
+										<td>{file.getDisplayName()}</td>
+										<td>{file.getFilesize() || "Unknown"}</td>
+										<td>{file.getType()}</td>
+										<td>{file.getSubtype()}</td>
+										<td>
+											<a href={"http://etdb.caltech.edu:8080/ipfs/" + location + "/" + file.getFilename()} className="btn btn-primary" target="_blank" download>Download</a>
+										</td>
+									</tr>
+								})}
+							</tbody>
+						</table>
 					</div>
 				</div>
 				<Footer />
