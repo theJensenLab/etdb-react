@@ -29,7 +29,7 @@ class TomogramView extends Component {
 		this.setState({artifact: artifact});
 	}
 	render(){
-		let title = "loading...", timestamp, description, strain, speciesName, date, NBCItaxID, artNotes, tiltSingleDual, files = [], thumbnail, thumbFilename, location, defocus, niceDate, software = "No info available"
+		let title = "loading...", timestamp, description, strain, speciesName, date, NBCItaxID, artNotes, tiltSingleDual, files = [], thumbnail, thumbFilename, location, defocus, niceDate, software = "No info available", institution, lab, microscopist
 
 		let collabRoles = "No info available"
 
@@ -67,6 +67,9 @@ class TomogramView extends Component {
 			speciesName = this.state.artifact.getDetail("speciesName");
 			tiltSingleDual = this.state.artifact.getDetail("tiltSingleDual");
 			defocus = this.state.artifact.getDetail("defocus");
+			lab = this.state.artifact.getDetail("lab");
+			institution = this.state.artifact.getDetail("institution");
+			microscopist = this.state.artifact.getDetail("microscopist");
 		}
 		return(
 			<div>
@@ -97,15 +100,15 @@ class TomogramView extends Component {
 					</div>
 					<div className="col-sm-6" id="tomographdata">
 						<h2>{title}</h2>
-						<h3><b>Lab:</b> Jensen Lab</h3>
-						<h3><b>Institution:</b> Caltech</h3>
+						<h3><b>Lab:</b> {lab}</h3>
+						<h3><b>Institution:</b> {institution}</h3>
 						<div id="reddiv"> </div>
 						<p><b>Tilt Series date:</b> {niceDate}</p>
 						{/*<p><b>Data Taken By:</b> Yiwei Chang</p>*/}
 						<p><b>Description:</b> {description}</p>
 						<p><b>Strain:</b> {strain}</p>
 						<p><b>Species / Specimen:</b> {speciesName}</p>
-						<p><b>Collaborators and Roles:</b> {collabRoles}</p>
+						<p><b>Collaborators and Roles:</b> {microscopist}</p>
 						<p><b>Tilt Series Setting:</b> {tiltSingleDual}. constant angular increment, step: 1.0. tilt range: (-60, 60). dosage: 130/A2. defocus: {defocus}. magnification: 27500.</p>
 						<p><b>Microscope:</b> Caltech Polara</p>
 						<p><b>Acquisition Software:</b> {software}</p>
