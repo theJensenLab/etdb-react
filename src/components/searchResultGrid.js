@@ -122,7 +122,7 @@ class SearchResultGrid extends Component {
     }
 
 
-    // console.log(artifacts);
+    console.log(artifacts);
 
     return(
       <div className="col-sm-10" id="searchresultsgrid">
