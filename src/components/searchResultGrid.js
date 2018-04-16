@@ -1,4 +1,3 @@
-
 import React, {Component} from 'react';
 import moment from 'moment'
 
@@ -66,14 +65,27 @@ class SearchResultGrid extends Component {
       artifacts.push(artifact)
     })
 
-
+    //Switch This
     //SORTS
     if (sortValue === DATE_TAKEN) {
       artifacts.sort( (a,b) => {return a.getDetail("date")-b.getDetail("date")});
     } else if (sortValue === LAST_MODIFIED) {
       artifacts.sort( (a,b) => {return a.getTimestamp()-b.getTimestamp()});
+    } else if (sortValue === SPECIMEN) {
+      artifacts.forEach( (artifact) => {
+        console.log(artifact.getDetail("speciesName"));
+      })
+      artifacts.sort( (a,b) => {
+        var x = a.getDetail("speciesName").toLowerCase();
+        var y = b.getDetail("speciesName").toLowerCase();
+        if (x < y) {return -1;}
+        if (x > y) {return 1;}
+        return 0;
+      })
     }
 
+
+    console.log(artifacts);
 
     return(
       <div className="col-sm-10" id="searchresultsgrid">
@@ -85,4 +97,4 @@ class SearchResultGrid extends Component {
 
 
 export default SearchResultGrid
-  // {this.props.artifacts.map((artifact) => <TomogramListItem Core={this.props.Core} artifact={artifact} />)}
+// {this.props.artifacts.map((artifact) => <TomogramListItem Core={this.props.Core} artifact={artifact} />)}
