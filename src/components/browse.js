@@ -8,7 +8,7 @@ import SearchResultGrid from './searchResultGrid'
 class Browse extends Component {
 	constructor(props){
 		super(props);
-		//do you only need to add the constructor and super if handling state?
+
 		this.state = {
 			filterText: "",
 			// filterState: {
@@ -47,6 +47,7 @@ class Browse extends Component {
 
 	handleCheckboxChange(name, checked) {
 
+		//This doesn't work, so I have to pass the whole state to get access
 		// this.setState({
 		// 	filterState: {
 		// 		[name]: checked

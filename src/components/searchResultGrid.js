@@ -3,18 +3,15 @@ import moment from 'moment'
 
 import TomogramListItem from './tomogramListItem';
 
-//functions can be put under super and above render but variables can't?
-//why doesn't this work if I push the individual artifacts into the artifact array
 class SearchResultGrid extends Component {
   render() {
     const artifacts = [];
 
     //STATE_CONSTANTS
     const filterText = this.props.filterText;
+    //filter state is merely the full state of browse;
     const filterState = this.props.filterState;
     const sortValue = this.props.sortValue;
-    // const specimenType = artifact.specimenType();
-
 
     //SORT_CONSTANTS
     const VIEWS_HTL = "viewsHtL";
@@ -48,8 +45,7 @@ class SearchResultGrid extends Component {
         return;
       }
 
-      // if (filterState.bacteria && specimenType.lower() === "bacteria"){
-      // }
+      // if (filterState.bacteria && specimenType.lower() === "bacteria"){}
 
       if (filterState.bacteria){
         // artifacts.push(
@@ -115,14 +111,14 @@ class SearchResultGrid extends Component {
         });
         break;
       case USER_ZTA:
-      artifacts.sort( (a,b) => {
-        //adding .toLowerCase() throws error
-        var x = a.getDetail("microscopist");
-        var y = b.getDetail("microscopist");
-        if (x > y) {return -1;}
-        if (x < y) {return 1;}
-        return 0;
-      });
+        artifacts.sort( (a,b) => {
+          //adding .toLowerCase() throws error
+          var x = a.getDetail("microscopist");
+          var y = b.getDetail("microscopist");
+          if (x > y) {return -1;}
+          if (x < y) {return 1;}
+          return 0;
+        });
         break;
       case LAST_MODIFIED_NTL:
         artifacts.sort( (a,b) => {return b.getTimestamp()-a.getTimestamp()});

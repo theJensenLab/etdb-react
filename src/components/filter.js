@@ -40,7 +40,7 @@ class Filter extends Component {
         <div id="reddiv"></div><b>Sort by</b>
         <select value={this.props.sortValue} onChange={this.handleSelectChange}>
             <option value={null}>Default</option>
-            <option value="viewsdHtL">Views: High to Low </option>
+            <option value="viewsHtL">Views: High to Low </option>
             <option value="viewsLtH">Views: Low to High</option>
             <option value="specimenAtZ">Specimen: A to Z</option>
             <option value="specimenZtA">Specimen: Z to A</option>
