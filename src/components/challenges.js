@@ -75,7 +75,7 @@ class Challenges extends Component {
     <div id="reddiv"></div>				      
       <p class="goal challenge">The goal is to develop software that can locate, in a tilt-series, all the gold beads used as fiducial markers for alignment during reconstruction. </p>
 
-      <p class="challenge">After many years of effort, we have reasonably good software to find the beads in each image of a tilt-series, but there are still enough mistakes that a human has to go through the tilt-series by hand, identifying and correcting incorrectly-tracked beads. There's a great need in the field for robust software that gets this right all the time.
+      <p class="challenge">After many years of effort by others in our field, we have reasonably good software to find the beads in each image of a tilt-series, but there are still enough mistakes that a human has to go through the tilt-series by hand, identifying and correcting incorrectly-tracked beads. There's a great need in the field for robust software that gets this right all the time.
 
 </p>
         
