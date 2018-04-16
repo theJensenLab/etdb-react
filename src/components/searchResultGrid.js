@@ -17,11 +17,21 @@ class SearchResultGrid extends Component {
 
 
     //SORT_CONSTANTS
-    const MOST_VIEWED = "mostViewed";
-    const SPECIMEN = "specimen";
-    const USER = "user";
-    const LAST_MODIFIED = "lastModified";
-    const DATE_TAKEN = "dateTaken";
+    const VIEWS_HTL = "viewsHtL";
+    const VIEWS_LTH = "viewsLtH";
+
+    const SPECIMEN_ATZ = "specimenAtZ";
+    const SPECIMEN_ZTA = "specimenZtA";
+
+    const USER_ATZ = "userAtZ";
+    const USER_ZTA = "userZtA";
+
+    const LAST_MODIFIED_NTL = "lastModifiedNtL";
+    const LAST_MODIFIED_LTN = "lastModifiedLtN";
+
+    const DATE_TAKEN_NTL = "dateTakenNtL";
+    const DATE_TAKEN_LTN = "dateTakenLtN";
+
 
     //FILTERS
     this.props.artifacts.forEach((artifact) => {
@@ -65,27 +75,54 @@ class SearchResultGrid extends Component {
       artifacts.push(artifact)
     })
 
-    //Switch This
     //SORTS
-    if (sortValue === DATE_TAKEN) {
-      artifacts.sort( (a,b) => {return a.getDetail("date")-b.getDetail("date")});
-    } else if (sortValue === LAST_MODIFIED) {
-      artifacts.sort( (a,b) => {return a.getTimestamp()-b.getTimestamp()});
-    } else if (sortValue === SPECIMEN) {
-      artifacts.forEach( (artifact) => {
-        console.log(artifact.getDetail("speciesName"));
-      })
-      artifacts.sort( (a,b) => {
-        var x = a.getDetail("speciesName").toLowerCase();
-        var y = b.getDetail("speciesName").toLowerCase();
-        if (x < y) {return -1;}
-        if (x > y) {return 1;}
-        return 0;
-      })
+    switch (sortValue) {
+      case VIEWS_HTL:
+        console.log(sortValue)
+        break;
+      case VIEWS_LTH:
+        console.log(sortValue);
+        break;
+      case SPECIMEN_ATZ:
+        artifacts.sort( (a,b) => {
+          var x = a.getDetail("speciesName").toLowerCase();
+          var y = b.getDetail("speciesName").toLowerCase();
+          if (x < y) {return -1;}
+          if (x > y) {return 1;}
+          return 0;
+        });
+        break;
+      case SPECIMEN_ZTA:
+        artifacts.sort( (a,b) => {
+          var x = a.getDetail("speciesName").toLowerCase();
+          var y = b.getDetail("speciesName").toLowerCase();
+          if (x > y) {return -1;}
+          if (x < y) {return 1;}
+          return 0;
+        });
+        break;
+      case USER_ATZ:
+        console.log(sortValue)
+        break;
+      case USER_ZTA:
+        console.log(sortValue);
+        break;
+      case LAST_MODIFIED_NTL:
+        artifacts.sort( (a,b) => {return b.getTimestamp()-a.getTimestamp()});
+        break;
+      case LAST_MODIFIED_LTN:
+        artifacts.sort( (a,b) => {return a.getTimestamp()-b.getTimestamp()});
+        break;
+      case DATE_TAKEN_NTL:
+        artifacts.sort( (a,b) => {return b.getDetail("date")-a.getDetail("date")});
+        break;
+      case DATE_TAKEN_LTN:
+        artifacts.sort( (a,b) => {return a.getDetail("date")-b.getDetail("date")});
+        break;
     }
 
 
-    console.log(artifacts);
+    // console.log(artifacts);
 
     return(
       <div className="col-sm-10" id="searchresultsgrid">

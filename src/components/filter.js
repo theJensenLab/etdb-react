@@ -40,11 +40,17 @@ class Filter extends Component {
         <div id="reddiv"></div><b>Sort by</b>
         <select value={this.props.sortValue} onChange={this.handleSelectChange}>
             <option value={null}>Default</option>
-            <option value="mostViewed">Most Viewed</option>
-            <option value="specimen">Specimen</option>
-            <option value="user">User</option>
-            <option value="lastModified">Last Modified</option>
-            <option value="dateTaken">Date Taken</option>
+            <option value="viewsdHtL">Views: High to Low </option>
+            <option value="viewsLtH">Views: Low to High</option>
+            <option value="specimenAtZ">Specimen: A to Z</option>
+            <option value="specimenZtA">Specimen: Z to A</option>
+            <option value="userAtZ">User: A to Z</option>
+            <option value="userZtA">User: Z to A</option>
+            <option value="lastModifiedNtL">Last Modified: Newest to Latest</option>
+            <option value="lastModifiedLtN">Last Modified: Newest to Latest</option>
+            <option value="dateTakenNtL">Date Taken: Newest to Latest</option>
+            <option value="dateTakenLtN">Date Taken: Latest to Newest</option>
+
           </select>
 
         {/* filters */}
