@@ -98,7 +98,7 @@ class TomogramView extends Component {
 					<div className="col-sm-6" id="tomographdata">
 						<h2>{title}</h2>
 						<h3><b>Lab:</b> Jensen Lab</h3>
-						<h3><b>Insitution:</b> Caltech</h3>
+						<h3><b>Institution:</b> Caltech</h3>
 						<div id="reddiv"> </div>
 						<p><b>Tilt Series date:</b> {niceDate}</p>
 						{/*<p><b>Data Taken By:</b> Yiwei Chang</p>*/}
