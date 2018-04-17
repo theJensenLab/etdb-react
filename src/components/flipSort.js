@@ -14,12 +14,12 @@ class FlipSort extends Component {
   render() {
     const flipState = this.props.flipState;
     const flipArrow = flipState ? (
-      <span>▼</span>
-    ) : (
       <span>▲</span>
+    ) : (
+      <span>▼</span>
     )
     return (
-      <button onClick={this.handleFlipState} className="buttonSort">{flipArrow}</button>
+      <button onClick={this.handleFlipState} className="flip-arrow">{flipArrow}</button>
     )
   }
 }

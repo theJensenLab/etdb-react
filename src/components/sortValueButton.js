@@ -37,9 +37,9 @@ class SortValueButton extends Component {
     const buttonValue = this.props.buttonValue;
 
     const button = sortBool ? (
-      <i><button name={buttonName} className="sortButton" onClick={this.handleSortButtonChange}>
+      <b><button name={buttonName} className="sortButton" onClick={this.handleSortButtonChange}>
         {buttonValue}
-      </button></i>
+      </button></b>
     ) : (
       <button name={buttonName} className="sortButton" onClick={this.handleSortButtonChange}>
         {buttonValue}
@@ -50,11 +50,11 @@ class SortValueButton extends Component {
     ) : ( null)
 
     return (
-      <div className="row">
-        <div className="col-sm-10">
+      <div className="row sort-row">
+        <div className="col">
           {button}
         </div>
-        <div className="col-sm-2">{flipSort}</div>
+        <div className="col">{flipSort}</div>
       </div>
     )
   }

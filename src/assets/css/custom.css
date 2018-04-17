@@ -4,3 +4,14 @@
   border: none;
   text-align: left;
 }
+
+
+.flip-arrow {
+  border: none;
+  background: none;
+}
+
+.sort-row {
+  display: flex;
+  
+}
