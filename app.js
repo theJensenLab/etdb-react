@@ -10,6 +10,7 @@ import './src/assets/css/bootstrap.css'
 import './src/assets/css/jensen.css'
 import './src/assets/css/contact.css'
 import './src/assets/css/special-typekit-fonts.css'
+import './src/assets/css/custom.css'
 
 import { OIPJS } from 'oip-js';
 

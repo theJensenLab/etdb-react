@@ -38,7 +38,17 @@ class Filter extends Component {
 
         {/* sorts */}
         <div id="reddiv"></div><b>Sort by</b>
-        <select value={this.props.sortValue} onChange={this.handleSelectChange}>
+
+        <div className="sort-buttons">
+          <div className="row"><button name="views" className="sortButton" onClick={null}>Views</button></div>
+          <div className="row"><button name="" className="sortButton" onClick={null}>Specimen</button></div>
+          <div className="row"><button name="" className="sortButton" onClick={null}>User</button></div>
+          <div className="row"><button name="" className="sortButton" onClick={null}>Last Modifed</button></div>
+          <div className="row"><button name="" className="sortButton" onClick={null}>Date Taken</button></div>
+
+
+        </div>
+        {/* <select value={this.props.sortValue} onChange={this.handleSelectChange}>
             <option value={null}>Default</option>
             <option value="viewsHtL">Views: High to Low </option>
             <option value="viewsLtH">Views: Low to High</option>
@@ -50,8 +60,7 @@ class Filter extends Component {
             <option value="lastModifiedLtN">Last Modified: Newest to Latest</option>
             <option value="dateTakenNtL">Date Taken: Newest to Latest</option>
             <option value="dateTakenLtN">Date Taken: Latest to Newest</option>
-
-          </select>
+        </select> */}
 
         {/* filters */}
         <div id="reddiv"></div><b>Filters</b>
