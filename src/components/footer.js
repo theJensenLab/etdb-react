@@ -6,31 +6,59 @@ class Footer extends Component {
             
 			<div className="row" id="footer">
 			  <div className="col-sm-3">
-			  	<a href="https://templeton.org/">
-			  		<img src="http://www.designing-science-development.com/jensen/wp-content/uploads/2018/02/templteton.png"/>
+			  	<a href="http://www.hhmi.org/">
+			  		<img class="square" src="/src/assets/img/hhmi.png"/>
 			  	</a>
-			  	<a href="https://templeton.org/">
-			  		<img src="http://www.designing-science-development.com/jensen/wp-content/uploads/2018/02/nih-logo-color.png"/>
+			  
+			  </div>
+			  <div className="col-sm-3">
+              <a href="https://om.od.nih.gov/">
+			  		<img class="long" src="/src/assets/img/nih.png"/>
+			  	</a>
+			  	
+			  </div>
+			  <div className="col-sm-3">
+              <a href="http://beckmaninstitute.caltech.edu/">
+			  		<img src="/src/assets/img/beckman.png"/>
 			  	</a>
 			  </div>
 			  <div className="col-sm-3">
-			  	<a href="http://beckmaninstitute.caltech.edu/">
-			  		<img src="http://www.designing-science-development.com/jensen/wp-content/uploads/2018/02/logo.png"/>
+              <a href="https://www.moore.org/">
+			  		<img src="/src/assets/img/logo-white.png"/>
 			  	</a>
-			  	<a href="https://templeton.org/">
-			  		<img src="http://www.designing-science-development.com/jensen/wp-content/uploads/2018/02/hhmi-social-200x200.png"/>
+			  </div>
+              <div className="col-sm-3">
+              <a href="http://microbiology.caltech.edu/CIT_Micro-Welcome.html">
+			  		<img src="/src/assets/img/cemi.png"/>
 			  	</a>
 			  </div>
 			  <div className="col-sm-3">
-			    <p><b>About</b></p>
-			    <p>Electron Tomography</p>
-			    <p>Scientific Challenges</p>
-			    <p>Built with Blockchain</p>
-			    <p>FAQ</p>
-                
+              <a href="http://www.hfsp.org/">
+			  		<img class="square" src="/src/assets/img/hfsp.png"/>
+			  	</a>
 			  </div>
-			  <div className="col-sm-3">
-			    <p>Extra links</p>
+              <div className="col-sm-3">
+              <a href="https://templeton.org/">
+			  		<img src="/src/assets/img/templteton.png"/>
+			  	</a>
+			  </div>
+              <div className="col-sm-3">
+              <a class="footerlink" href="https://templeton.org/">
+			  		Department of Energy
+			  	</a>
+			  </div>
+              <div className="col-sm-3">
+              <a class="footerlink" href="https://templeton.org/">
+              The Searle Scholars Program
+			  	</a>
+			  </div>
+              <div className="col-sm-3">
+              <a href="https://templeton.org/">
+              <img src="/src/assets/img/ted.png"/>			  	</a>
+			  </div>
+              <div className="col-sm-3">
+              <a href="https://templeton.org/">
+              <img src="/src/assets/img/agi.png"/>			  	</a>
 			  </div>
 			</div>
 		)

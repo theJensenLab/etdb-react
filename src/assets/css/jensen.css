@@ -188,7 +188,14 @@ button:focus, html input[type="button"]:focus, input[type="reset"]:focus, input[
     line-height: 1.7;
 }
 
+.contact p {
+    font-size: 14px !important;
+    line-height: 1.9;
+}
 
+.contact b {
+    font-weight: 600;
+}
 
 .panel {
     display: none;
@@ -490,14 +497,23 @@ footer.site-footer {
     text-align: left;
 }
 
+div#footer .col-sm-3 {
+    height: 130px;
+}
+
+div#footer a {
+    color: #000;
+    text-align: center !important;
+}
+
 div#footer img {
     max-width: 172px;
     max-height: 65px;
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
-    margin-bottom: 50px;
+    margin: 0px auto 50px;
     display: block;
-    opacity: .7;
+    opacity: .9;
 }
 
 div#footer p {
