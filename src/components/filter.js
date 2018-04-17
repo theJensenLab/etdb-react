@@ -8,6 +8,7 @@ class Filter extends Component {
     this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
     this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
     this.handleSelectChange = this.handleSelectChange.bind(this);
+    this.handleSortButtonChange = this.handleSortButtonChange.bind(this);
   }
 
   handleFilterTextChange(e) {
@@ -27,6 +28,11 @@ class Filter extends Component {
     this.props.onSelectChange(e.target.value);
   }
 
+  handleSortButtonChange(e) {
+    console.log(e.target.name);
+    this.props.onSortButtonChange(e.target.name);
+  }
+
   render() {
 
     return (
@@ -40,11 +46,11 @@ class Filter extends Component {
         <div id="reddiv"></div><b>Sort by</b>
 
         <div className="sort-buttons">
-          <div className="row"><button name="views" className="sortButton" onClick={null}>Views</button></div>
-          <div className="row"><button name="" className="sortButton" onClick={null}>Specimen</button></div>
-          <div className="row"><button name="" className="sortButton" onClick={null}>User</button></div>
-          <div className="row"><button name="" className="sortButton" onClick={null}>Last Modifed</button></div>
-          <div className="row"><button name="" className="sortButton" onClick={null}>Date Taken</button></div>
+          <div className="row"><button name="viewHtL" className="sortButton" onClick={this.handleSortButtonChange}>Views</button></div>
+          <div className="row"><button name="specimenAtZ" className="sortButton" onClick={this.handleSortButtonChange}>Specimen</button></div>
+          <div className="row"><button name="userAtZ" className="sortButton" onClick={this.handleSortButtonChange}>User</button></div>
+          <div className="row"><button name="lastModifiedNtL" className="sortButton" onClick={this.handleSortButtonChange}>Last Modifed</button></div>
+          <div className="row"><button name="dateTakenNtL" className="sortButton" onClick={this.handleSortButtonChange}>Date Taken</button></div>
 
 
         </div>

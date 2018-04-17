@@ -25,6 +25,7 @@ class Browse extends Component {
 		this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
 		this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
 		this.handleSelectChange = this.handleSelectChange.bind(this);
+		this.handleSortButtonChange = this.handleSortButtonChange.bind(this);
 	}
 
 	componentDidMount(){
@@ -67,6 +68,12 @@ class Browse extends Component {
 		})
 	}
 
+	handleSortButtonChange(value) {
+		this.setState({
+			sortValue: value
+		})
+	}
+
 	render(){
 		return(
 			<div>
@@ -78,6 +85,7 @@ class Browse extends Component {
 						onCheckboxChange={this.handleCheckboxChange}
 						onSelectChange={this.handleSelectChange}
 						sortValue={this.sortValue}
+						onSortButtonChange={this.handleSortButtonChange}
 					/>
 					<SearchResultGrid
 						Core={this.props.Core}
