@@ -14,6 +14,7 @@ import Featured from './featured.js';
 import Browse from './browse.js';
 import TomogramView from './tomogramView.js';
 import CarboCollection from './carboCollection.js'
+import CellenvelopeCollection from './CellenvelopeCollection.js'
 
 class AppRoutes extends Component {
 	render(){
@@ -27,7 +28,8 @@ class AppRoutes extends Component {
 				<Route path="/browse" render={props => <Browse Core={this.props.Core} {...props} />} />
 				<Route path="/tomogram/:id" render={props => <TomogramView Core={this.props.Core} {...props} />} />
 				<Route path="/carboxysomes/:id" render={props => <CarboCollection Core={this.props.Core} {...props} />} />
-				<Route path="/" render={props => <Home Core={this.props.Core} {...props} />} />
+                <Route path="/cellenvelope/:id" render={props => <CellenvelopeCollection Core={this.props.Core} {...props} />} />
+                <Route path="/" render={props => <Home Core={this.props.Core} {...props} />} />
 			</Switch>
 		)
 	}

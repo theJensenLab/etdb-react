@@ -499,6 +499,7 @@ footer.site-footer {
 
 div#footer .col-sm-3 {
     height: 130px;
+    text-align: center;
 }
 
 div#footer a {
@@ -514,6 +515,16 @@ div#footer img {
     margin: 0px auto 50px;
     display: block;
     opacity: .9;
+}
+
+div#footer {
+    text-align: center;
+}
+
+a.footerlink {
+    /* text-align: center !important; */
+    margin: 20px auto !important;
+    display: inline-block;
 }
 
 div#footer p {
@@ -890,7 +901,7 @@ div#tomogram-thumb {
 
 div#video-thumb-container {
     overflow: hidden;
-    height: 200px;
+    height: 300px;
     margin-bottom: 7px;
 }
 
