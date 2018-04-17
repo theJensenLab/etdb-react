@@ -48,7 +48,7 @@ class Home extends Component {
 			          	<a href="/about">About</a>
 			          	<a href="/browse">Browse Database</a>
 			          	<a href="/featured">Featured Tomograms</a>
-			          	<a href="/about#FAQ">FAQ</a>
+			          	<a href="/challenges">Scientific Challenges</a>
 			          	<a href="/contact">Contact</a>
 			          </div>
 				      </div>
