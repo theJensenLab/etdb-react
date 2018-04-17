@@ -1,5 +1,6 @@
 
 import React, {Component} from 'react';
+import SortValueButton from './SortValueButton';
 
 class Filter extends Component {
   constructor(props) {
@@ -7,7 +8,6 @@ class Filter extends Component {
 
     this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
     this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
-    this.handleSelectChange = this.handleSelectChange.bind(this);
     this.handleSortButtonChange = this.handleSortButtonChange.bind(this);
   }
 
@@ -16,24 +16,35 @@ class Filter extends Component {
   }
 
   handleCheckboxChange(e) {
-
     const name = e.target.name;
     const checked = e.target.checked;
     console.log(name, checked);
     this.props.onCheckboxChange(name, checked);
   }
 
-  handleSelectChange(e) {
-    console.log(e.target.value);
-    this.props.onSelectChange(e.target.value);
-  }
 
-  handleSortButtonChange(e) {
-    console.log(e.target.name);
-    this.props.onSortButtonChange(e.target.name);
+  handleSortButtonChange(value) {
+    this.props.onSortButtonChange(value);
   }
 
   render() {
+    const sortValue = this.props.sortValue;
+
+    //SORT_CONSTANTS
+    const VIEWS_HTL = "viewsHtL";
+    const VIEWS_LTH = "viewsLtH";
+
+    const SPECIMEN_ATZ = "specimenAtZ";
+    const SPECIMEN_ZTA = "specimenZtA";
+
+    const USER_ATZ = "userAtZ";
+    const USER_ZTA = "userZtA";
+
+    const LAST_MODIFIED_NTL = "lastModifiedNtL";
+    const LAST_MODIFIED_LTN = "lastModifiedLtN";
+
+    const DATE_TAKEN_NTL = "dateTakenNtL";
+    const DATE_TAKEN_LTN = "dateTakenLtN";
 
     return (
       <div className="col-sm-2">
@@ -42,31 +53,20 @@ class Filter extends Component {
         {/* filterText */}
         <input className="form-control" type="text" value={this.props.filterText} onChange={this.handleFilterTextChange} placeholder="Search for..."/>
 
+
         {/* sorts */}
         <div id="reddiv"></div><b>Sort by</b>
 
         <div className="sort-buttons">
-          <div className="row"><button name="viewHtL" className="sortButton" onClick={this.handleSortButtonChange}>Views</button></div>
-          <div className="row"><button name="specimenAtZ" className="sortButton" onClick={this.handleSortButtonChange}>Specimen</button></div>
-          <div className="row"><button name="userAtZ" className="sortButton" onClick={this.handleSortButtonChange}>User</button></div>
-          <div className="row"><button name="lastModifiedNtL" className="sortButton" onClick={this.handleSortButtonChange}>Last Modifed</button></div>
-          <div className="row"><button name="dateTakenNtL" className="sortButton" onClick={this.handleSortButtonChange}>Date Taken</button></div>
+          <SortValueButton buttonValue="Views" name={VIEWS_HTL} sortValue={this.props.sortValue} onSortButtonChange={this.handleSortButtonChange}/>
+          <SortValueButton buttonValue="Specimen" name={SPECIMEN_ATZ} sortValue={this.props.sortValue} onSortButtonChange={this.handleSortButtonChange}/>
+          <SortValueButton buttonValue="User" name={USER_ATZ} sortValue={this.props.sortValue} onSortButtonChange={this.handleSortButtonChange}/>
+          <SortValueButton buttonValue="Last Modifed" name={LAST_MODIFIED_NTL} sortValue={this.props.sortValue} onSortButtonChange={this.handleSortButtonChange}/>
+          <SortValueButton buttonValue="Date Taken" name={DATE_TAKEN_NTL} sortValue={this.props.sortValue} onSortButtonChange={this.handleSortButtonChange}/>
 
-
+          {/* <div className="row"><button name="lastModifiedNtL" className="sortButton" onClick={this.handleSortButtonChange}>Last Modifed</button></div> */}
+          {/* <div className="row"><button name="dateTakenNtL" className="sortButton" onClick={this.handleSortButtonChange}>Date Taken</button></div> */}
         </div>
-        {/* <select value={this.props.sortValue} onChange={this.handleSelectChange}>
-            <option value={null}>Default</option>
-            <option value="viewsHtL">Views: High to Low </option>
-            <option value="viewsLtH">Views: Low to High</option>
-            <option value="specimenAtZ">Specimen: A to Z</option>
-            <option value="specimenZtA">Specimen: Z to A</option>
-            <option value="userAtZ">User: A to Z</option>
-            <option value="userZtA">User: Z to A</option>
-            <option value="lastModifiedNtL">Last Modified: Newest to Latest</option>
-            <option value="lastModifiedLtN">Last Modified: Newest to Latest</option>
-            <option value="dateTakenNtL">Date Taken: Newest to Latest</option>
-            <option value="dateTakenLtN">Date Taken: Latest to Newest</option>
-        </select> */}
 
         {/* filters */}
         <div id="reddiv"></div><b>Filters</b>

@@ -24,7 +24,6 @@ class Browse extends Component {
 		this.storeTomograms = this.storeTomograms.bind(this);
 		this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
 		this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
-		this.handleSelectChange = this.handleSelectChange.bind(this);
 		this.handleSortButtonChange = this.handleSortButtonChange.bind(this);
 	}
 
@@ -62,12 +61,6 @@ class Browse extends Component {
 		// console.log(this.state);
 	}
 
-	handleSelectChange(value) {
-		this.setState({
-			sortValue: value
-		})
-	}
-
 	handleSortButtonChange(value) {
 		this.setState({
 			sortValue: value
@@ -84,7 +77,7 @@ class Browse extends Component {
 						onFilterTextChange={this.handleFilterTextChange}
 						onCheckboxChange={this.handleCheckboxChange}
 						onSelectChange={this.handleSelectChange}
-						sortValue={this.sortValue}
+						sortValue={this.state.sortValue}
 						onSortButtonChange={this.handleSortButtonChange}
 					/>
 					<SearchResultGrid

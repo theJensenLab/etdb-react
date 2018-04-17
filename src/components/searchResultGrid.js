@@ -32,15 +32,6 @@ class SearchResultGrid extends Component {
 
     //FILTERS
     this.props.artifacts.forEach((artifact) => {
-      const name = artifact.getTitle();
-      const timeStamp = artifact.getTimestamp();
-      const date = artifact.getDetail("date");
-      const user = artifact.getDetail("microscopist");
-      const txid = artifact.getTXID();
-      console.log(txid, user);
-      // console.log("Timestamp: ", timeStamp);
-      // console.log("Date: ", date);
-
       if (name.indexOf(filterText) === -1) {
         return;
       }
@@ -83,6 +74,7 @@ class SearchResultGrid extends Component {
         console.log(sortValue);
         break;
       case SPECIMEN_ATZ:
+        console.log(sortValue);
         artifacts.sort( (a,b) => {
           var x = a.getDetail("speciesName").toLowerCase();
           var y = b.getDetail("speciesName").toLowerCase();
@@ -92,6 +84,7 @@ class SearchResultGrid extends Component {
         });
         break;
       case SPECIMEN_ZTA:
+        console.log(sortValue);
         artifacts.sort( (a,b) => {
           var x = a.getDetail("speciesName").toLowerCase();
           var y = b.getDetail("speciesName").toLowerCase();
@@ -101,6 +94,7 @@ class SearchResultGrid extends Component {
         });
         break;
       case USER_ATZ:
+        console.log(sortValue);
         artifacts.sort( (a,b) => {
           //adding .toLowerCase() throws error
           var x = a.getDetail("microscopist");
@@ -111,6 +105,7 @@ class SearchResultGrid extends Component {
         });
         break;
       case USER_ZTA:
+        console.log(sortValue);
         artifacts.sort( (a,b) => {
           //adding .toLowerCase() throws error
           var x = a.getDetail("microscopist");
@@ -121,21 +116,25 @@ class SearchResultGrid extends Component {
         });
         break;
       case LAST_MODIFIED_NTL:
+        console.log(sortValue);
         artifacts.sort( (a,b) => {return b.getTimestamp()-a.getTimestamp()});
         break;
       case LAST_MODIFIED_LTN:
+        console.log(sortValue);
         artifacts.sort( (a,b) => {return a.getTimestamp()-b.getTimestamp()});
         break;
       case DATE_TAKEN_NTL:
+        console.log(sortValue);
         artifacts.sort( (a,b) => {return b.getDetail("date")-a.getDetail("date")});
         break;
       case DATE_TAKEN_LTN:
+        console.log(sortValue);
         artifacts.sort( (a,b) => {return a.getDetail("date")-b.getDetail("date")});
         break;
     }
 
 
-    console.log(artifacts);
+    // console.log(artifacts);
 
     return(
       <div className="col-sm-10" id="searchresultsgrid">
