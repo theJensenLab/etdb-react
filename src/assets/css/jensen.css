@@ -272,7 +272,7 @@ div#menu a:before {
 
 div#menu a {
     color: #2b2b2b;
-    margin: 0 27px;
+    margin: 0 10px;
     position: relative;
 
   text-decoration: none;
@@ -282,7 +282,7 @@ div#menu a:hover {
 }
 
 div#menu {
-    text-align: right;
+    text-align: center;
     font-family: 'Open Sans', sans-serif;;
     font-weight: normal;
     font-size: 16px;

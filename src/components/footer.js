@@ -52,7 +52,7 @@ class Footer extends Component {
 			  </div>
               <div className="col-sm-3">
               <a target="blank" class="footerlink" href="http://www.searlescholars.net/">
-              The Searle Scholars Program
+              <img src="/src/assets/img/searle_banner.png"/>
 			  	</a>
 			  </div>
               <div className="col-sm-3">

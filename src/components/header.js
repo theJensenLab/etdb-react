@@ -15,7 +15,7 @@ class Header extends Component {
 		          	<Link to="/about">About</Link>
 		          	<Link to="/browse">Browse Database</Link>
 		          	<Link to="/featured">Featured Tomograms</Link>
-		          	<Link to="/about#FAQ">FAQ</Link>
+		          	<Link to="/challenges">Scientific Challenges</Link>
 		          	<Link to="/contact">Contact</Link>
 		          </div>
 		        </div>
