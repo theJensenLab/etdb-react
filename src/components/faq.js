@@ -10,10 +10,34 @@ class FAQ extends Component {
     this.handleSelect = this.handleSelect.bind(this);
     
     this.state = {
-      activeKey: null
+      activeKey: null,
+      numberOfTomograms: 40,
+      numberOfSpecies: 10
     };
-  }
 
+    this.getTomograms = this.getTomograms.bind(this);
+    this.countTomograms = this.countTomograms.bind(this);
+  }
+  componentDidMount(){
+    this.getTomograms();
+  }
+  getTomograms(){
+    this.props.Core.Index.getSupportedArtifacts(this.countTomograms, (error) => {
+      console.error(error)
+    })
+  }
+  countTomograms(artifacts){
+    this.setState({numberOfTomograms: artifacts.length});
+
+    var TypesOfSpecies = [];
+    for (var artifact of artifacts){
+      if (artifact.getDetail("speciesName") && TypesOfSpecies.indexOf(artifact.getDetail("speciesName")) === -1){
+        TypesOfSpecies.push(artifact.getDetail("speciesName"))
+      }
+    }
+
+    this.setState({numberOfSpecies: TypesOfSpecies.length});
+  }
   handleSelect(activeKey) {
     if (activeKey !== this.state.activeKey)
       this.setState({ activeKey });
@@ -32,7 +56,7 @@ class FAQ extends Component {
             <Panel eventKey='1'>
               <Button onClick={() => this.handleSelect('1')} className="accordion">What is this database?</Button>
               <Panel.Body collapsible>
-                <p>The Caltech Tomography Database is a public repository of cryo-electron tomography datasets (tilt-series and reconstructions) of cells. These datasets were acquired by the <a target="blank" href="http://www.jensenlab.caltech.edu">Jensen Lab</a> at Caltech over the past 15 years. Currently, [nearly 90] [needs to be adjusted based on what data is made public] species of bacteria and archaea are represented, and this number will keep climbing.</p>
+                <p>The Caltech Tomography Database is a public repository of {this.state.numberOfTomograms} cryo-electron tomography datasets (tilt-series and reconstructions) of cells. These datasets were acquired by the <a target="blank" href="http://www.jensenlab.caltech.edu">Jensen Lab</a> at Caltech over the past 15 years. Currently, {this.state.numberOfSpecies} species of bacteria and archaea are represented, and this number will keep climbing.</p>
               </Panel.Body>
             </Panel>
             <Panel eventKey='2'>

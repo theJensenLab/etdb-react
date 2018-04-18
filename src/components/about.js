@@ -72,7 +72,7 @@ class About extends Component {
 </div>
 				</div>
 				<a name="FAQ"></a> 
-                <FAQ />
+                <FAQ Core={this.props.Core} />
 				<Footer />
 			</div>
 		)
