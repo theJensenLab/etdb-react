@@ -5,21 +5,21 @@ class FlipSort extends Component {
   constructor(props){
     super(props);
 
-    this.handleFlipState = this.handleFlipState.bind(this);
+    this.handleFlipSortChange = this.handleFlipSortChange.bind(this);
   }
-  handleFlipState() {
-    this.props.onFlipChange();
+  handleFlipSortChange() {
+    this.props.onFlipSortChange();
   }
 
   render() {
-    const flipState = this.props.flipState;
-    const flipArrow = flipState ? (
+    const flipSort = this.props.flipSort;
+    const flipArrow = flipSort ? (
       <span>▲</span>
     ) : (
       <span>▼</span>
     )
     return (
-      <button onClick={this.handleFlipState} className="flip-arrow">{flipArrow}</button>
+      <button onClick={this.handleFlipSortChange} className="flip-arrow">{flipArrow}</button>
     )
   }
 }

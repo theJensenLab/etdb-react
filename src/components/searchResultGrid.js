@@ -12,6 +12,8 @@ class SearchResultGrid extends Component {
     //filter state is merely the full state of browse;
     const filterState = this.props.filterState;
     const sortValue = this.props.sortValue;
+    const flipSort = this.props.flipSort;
+    console.log(flipSort);
 
     //SORT_CONSTANTS
     const VIEWS_HTL = "viewsHtL";
@@ -134,7 +136,7 @@ class SearchResultGrid extends Component {
     }
 
 
-    // console.log(artifacts);
+    if (flipSort === true) {artifacts.reverse()};
 
     return(
       <div className="col-sm-10" id="searchresultsgrid">

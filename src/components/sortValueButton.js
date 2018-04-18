@@ -6,27 +6,19 @@ class SortValueButton extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      flipSort: false
-    }
-
     this.handleSortButtonChange = this.handleSortButtonChange.bind(this);
-    this.handleFlipState = this.handleFlipState.bind(this);
+    this.handleFlipSortChange = this.handleFlipSortChange.bind(this);
 
   }
 
   handleSortButtonChange(e) {
     this.props.onSortButtonChange(e.target.name);
-    console.log(e.target.name);
-    console.log(this.state.flipSort);
   }
 
-  handleFlipState() {
-    this.setState(prevState => ({
-      flipSort: !prevState.flipSort
-    }))
-    console.log(this.state.flipSort)
+  handleFlipSortChange() {
+    this.props.onFlipSortChange()
   }
+
 
 
   render() {
@@ -46,7 +38,7 @@ class SortValueButton extends Component {
       </button>);
 
     const flipSort = sortBool ? (
-      <FlipSort onFlipChange={this.handleFlipState} flipState={this.state.flipSort} />
+      <FlipSort onFlipSortChange={this.handleFlipSortChange} flipSort={this.props.flipSort} />
     ) : ( null)
 
     return (
