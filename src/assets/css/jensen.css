@@ -518,6 +518,9 @@ div#footer img {
 
 div#footer {
     text-align: center;
+    background: #fafafa;
+    z-index: 999;
+    position:absolute;
 }
 
 a.footerlink {
@@ -551,6 +554,10 @@ div#homecontent {
     padding-top: 120px;
 }
 
+div#browsedatabase b {
+    margin-bottom: 20px;
+    display: inline-block;
+}
 
 a.browse { 
     border-top: 1px solid #000;
@@ -757,7 +764,7 @@ div#sort {
 }
 
 div#filters b {
-    margin: 30px 0px 10px;
+    margin: 20px 0px 20px;
     display: block;
     border-bottom: 1px solid;
 }
@@ -777,8 +784,21 @@ div#filters input.form-control {
 }
 
 div#searchresultsgrid .col-sm-3 {
-    padding-bottom: 10px;
-    padding-top: 10px; 
+    padding-bottom: 5px;
+    padding-top: 10px;
+    background: #2b2b2b;
+    width: 24%;
+    margin: 5px;
+}
+
+div#tomogramcell name {
+    color: #fff;
+    padding-top: 5px;
+}
+
+div#searchresultsgrid .col-sm-3:hover {
+    background: #000;
+    opacity: 1;
 }
 
 div#searchresultsgrid {
@@ -798,9 +818,7 @@ div#sortby {
     border-bottom: 1px solid #ccc;
 }
 
-div#searchresultsgrid .col-sm-3:hover {
-    background: #ffffff;
-}
+
 
 div#browsedatabase {
     padding-top: 150px;
@@ -811,25 +829,42 @@ div#sort {
     border-left: 1px solid #ccc;
 }
 select {
-    font-family: 'Open Sans', sans-serif;;
+    font-family: 'Open Sans', sans-serif;
     font-size: 15px;
     border-radius: 1px !important;
     width: 150px;
-  margin-left: 20px;
-    background: #fafafa;
+    margin-left: 0px;
+    background: #fff;
+    border-radius: 0px !important;
+    border: 0px;
+    display: inline-block;
+    width: 100%;
+}
+
+div#filters {
+    position: fixed;
+    width: 200px;
+    z-index: 1;
+    background: #e5342a;
+    padding: 0px 20px 20px;
+    border-radius: 20px;
 }
 
 img.results-thumb {
     width: 100%;
 }
 
+a.tomogram-link:hover {
+    opacity: 1;
+}
+
 date {
     font-size: 12px;
-    color: grey;
+    color: #ccc;
     display: inline-block;
     font-weight: 100;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 10px;
+    border-bottom: 0px;
+    padding-bottom: 0px;
     width: 100%;
 }
 
@@ -841,6 +876,7 @@ img.results-thumb {
 }
 
 video.videothumbhover {
+    max-height: 80% !important;
     -webkit-filter: contrast(120%);
     filter: contrast(120%);
 }
@@ -904,8 +940,8 @@ div#tomogram-thumb {
 
 div#video-thumb-container {
     overflow: hidden;
-    height: 300px;
     margin-bottom: 7px;
+    height:250px;
 }
 
 /* Tomogram Single Page
@@ -1151,6 +1187,23 @@ div#metadata p {
 div#featured img {
     width: 100%;
     margin-bottom: 15px;
+}
+
+a.back {
+    background: #2b2b2b;
+    padding: 5px 30px;
+    color: #fff;
+    margin-top: 20px;
+    display: inline-block;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+div#featured name {
+    /* font-weight: bold; */
+    border-bottom: 1px solid;
+    padding-bottom: 10px;
 }
 
 div#featured-2 {

@@ -14,6 +14,9 @@ class cytoskeletalCollection extends Component {
 					<div class="col-sm-8">
 						<h2>Cytoskeletal Elements</h2>
 					</div>
+                    <div class="col-sm-4">
+					<a class="back" href="http://localhost:9156/featured">Back to featured tomograms</a>
+					</div>
 				</div>
 				<div class="row" id="featured-3">
 					<div class="col-sm-6">
