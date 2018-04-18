@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import Header from './header.js'
 import Footer from './footer.js'
+// import FeaturedCell from './FeaturedCell.js'
 
 import FeaturedFile from '../assets/data/featured.js';
 
@@ -54,6 +55,9 @@ class Featured extends Component {
 					
 				</div>
 				<div className="row" id="featured">
+					{/* This line below should be uncommented out once the OIPd Advanced search is working.
+					featuredTypes.map((type, i) => <FeaturedCell Core={this.props.Core} tomogram={type.thumbnail} url={"/featured/" + type.section} title={type.name} description={type.description} />)
+					*/}
 					{featuredTypes.map((type, i) => {
 						var matchedTomogram = undefined;
 						var thumbnailLocation = "QmevjEoYtXtDBvjBFhxLuHaPHghdpPSChSvg64CWisGJEV"; // Default
