@@ -12,8 +12,8 @@ class Browse extends Component {
 		this.state = {
 			filterText: "",
 			// filterState: {
-			// 	test: "ryan",
-			// 	test2: "erik"
+			// 	test: "devon",
+			// 	test2: "amy"
 			// },
 			artifacts: [],
 			sortValue: null,
