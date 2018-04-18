@@ -49,6 +49,11 @@ class TomogramView extends Component {
 
 			files = this.state.artifact.getFiles();
 			location = this.state.artifact.getLocation();
+			
+			let fileSubtypeOrder = ['Tiltseries', 'Reconstruction', 'Subvolume', 'Keymov', 'Keyimg', 'Preview', 'Snapshot', 'Thumbnail']
+			files.sort((a, b) => {
+				return fileSubtypeOrder.indexOf(a.getSubtype()) - fileSubtypeOrder.indexOf(b.getSubtype())
+			})
 
 			if (files) {
 				for (var file of files){
@@ -69,12 +74,6 @@ class TomogramView extends Component {
 					}
 				}
 			}
-
-			
-			let fileSubtypeOrder = ['Tiltseries', 'Reconstruction', 'Subvolume', 'Keymov', 'Keyimg', 'Preview', 'Snapshot', 'Thumbnail']
-			files.sort((a, b) => {
-				return fileSubtypeOrder.indexOf(a.getSubtype()) - fileSubtypeOrder.indexOf(b.getSubtype())
-			})
 
 			if (!thumbFilename){
 				thumbnail = this.state.artifact.getThumbnail()
@@ -156,7 +155,7 @@ class TomogramView extends Component {
 						</center>
 						<div style={{width: "100%", margin: "auto", overflowX: "auto"}}>
 							<div style={{display: "flex"}}>
-								{snapshots.map((snapshot, i) => <img index={i} onClick={() => this.setState({isLightboxOpen: true, photoIndex: i})} width="auto" height={300} src={snapshot} style={{display: "inline-block", padding: "0px 3px"}} />)}
+								{snapshots.map((snapshot, i) => <img index={i} onClick={() => this.setState({photoIndex: i, isLightboxOpen: true})} width="auto" height={300} src={snapshot} style={{display: "inline-block", padding: "0px 3px"}} />)}
 							</div>
 						</div>
 					</div>
