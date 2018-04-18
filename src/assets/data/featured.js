@@ -14,31 +14,38 @@ module.exports = {
             {
                "institution": "Caltech", 
                "lab": "Jensen Lab", 
-               "sid": "pd2005-04-29-3"
+               "sid": "pd2005-04-29-3",
+               "description": "Test Description"
             },{
                "institution": "Caltech", 
                "lab": "Jensen Lab", 
-               "sid": "pd2005-04-29-3"
+               "sid": "pd2005-04-29-3",
+               "description": "Test Description"
             },{
                "institution": "Caltech", 
                "lab": "Jensen Lab", 
-               "sid": "pd2005-04-29-3"
+               "sid": "pd2005-04-29-3",
+               "description": "Test Description"
             },{
                "institution": "Caltech", 
                "lab": "Jensen Lab", 
-               "sid": "pd2005-04-29-3"
+               "sid": "pd2005-04-29-3",
+               "description": "Test Description"
             },{
                "institution": "Caltech", 
                "lab": "Jensen Lab", 
-               "sid": "pd2005-04-29-3"
+               "sid": "pd2005-04-29-3",
+               "description": "Test Description"
             },{
                "institution": "Caltech", 
                "lab": "Jensen Lab", 
-               "sid": "pd2005-04-29-3"
+               "sid": "pd2005-04-29-3",
+               "description": "Test Description"
             },{
                "institution": "Caltech", 
                "lab": "Jensen Lab", 
-               "sid": "pd2005-04-29-3"
+               "sid": "pd2005-04-29-3",
+               "description": "Test Description"
             }
          ]
       },
@@ -56,31 +63,38 @@ module.exports = {
             {
                "institution": "Caltech", 
                "lab": "Jensen Lab", 
-               "sid": "pd2005-04-29-3"
+               "sid": "pd2005-04-29-3",
+               "description": "Test Description"
             },{
                "institution": "Caltech", 
                "lab": "Jensen Lab", 
-               "sid": "pd2005-04-29-3"
+               "sid": "pd2005-04-29-3",
+               "description": "Test Description"
             },{
                "institution": "Caltech", 
                "lab": "Jensen Lab", 
-               "sid": "pd2005-04-29-3"
+               "sid": "pd2005-04-29-3",
+               "description": "Test Description"
             },{
                "institution": "Caltech", 
                "lab": "Jensen Lab", 
-               "sid": "pd2005-04-29-3"
+               "sid": "pd2005-04-29-3",
+               "description": "Test Description"
             },{
                "institution": "Caltech", 
                "lab": "Jensen Lab", 
-               "sid": "pd2005-04-29-3"
+               "sid": "pd2005-04-29-3",
+               "description": "Test Description"
             },{
                "institution": "Caltech", 
                "lab": "Jensen Lab", 
-               "sid": "pd2005-04-29-3"
+               "sid": "pd2005-04-29-3",
+               "description": "Test Description"
             },{
                "institution": "Caltech", 
                "lab": "Jensen Lab", 
-               "sid": "pd2005-04-29-3"
+               "sid": "pd2005-04-29-3",
+               "description": "Test Description"
             }
          ]
       }
