@@ -198,15 +198,14 @@ button:focus, html input[type="button"]:focus, input[type="reset"]:focus, input[
 }
 
 .panel {
-    display: none;
     overflow: hidden;
-      margin-bottom: 50px;
+    margin-bottom: 50px;
     background-color: transparent;
     border: 1px solid transparent;
     border-radius: 0px;
     -webkit-box-shadow: none;
     box-shadow: none;
-  font-family: 'Open Sans', sans-serif;;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .accordion {
@@ -221,7 +220,7 @@ button:focus, html input[type="button"]:focus, input[type="reset"]:focus, input[
     border-radius: 0px;
     background: transparent;
     border-bottom: 1px solid #ccc;
-font-family: 'Open Sans', sans-serif;;
+    font-family: 'Open Sans', sans-serif;
     letter-spacing: 1px;
     font-size: 16px;
 }

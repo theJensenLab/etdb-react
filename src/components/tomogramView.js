@@ -145,10 +145,13 @@ class TomogramView extends Component {
 							</thead>
 							<tbody>
 								{files.map((file, i) => {
+									let fileSize = "Unknown"
+									if (file.getFilesize())
+										fileSize = filesize(file.getFilesize(), {base: 10})
 									return <tr>
 										<th scope="row">{i + 1}</th>
 										<td>{file.getDisplayName()}</td>
-										<td>{filesize(file.getFilesize(), {base: 10}) || "Unknown"}</td>
+										<td>{fileSize}</td>
 										<td>{file.getType()}</td>
 										<td>{file.getSubtype()}</td>
 										<td>
