@@ -11,7 +11,7 @@ class TomogramListItem extends Component {
 				thumbFilename = thumbnail.getFilename();
 			}
 		}
-		//this.props.artifact.getFunction ???
+
 		return(
 			<div className="col-sm-3" id="tomogramcell">
 				<div id="video-thumb-container">

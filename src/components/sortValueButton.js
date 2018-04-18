@@ -19,12 +19,10 @@ class SortValueButton extends Component {
     this.props.onFlipSortChange()
   }
 
-
-
   render() {
     const sortValue = this.props.sortValue;
     const buttonName = this.props.name;
-    //if the button is the same as the state selected
+    //sortBool lets you know if the button is the same as the state selected
     const sortBool = (sortValue === buttonName);
     const buttonValue = this.props.buttonValue;
 
@@ -39,7 +37,7 @@ class SortValueButton extends Component {
 
     const flipSort = sortBool ? (
       <FlipSort onFlipSortChange={this.handleFlipSortChange} flipSort={this.props.flipSort} />
-    ) : ( null)
+    ) : ( null );
 
     return (
       <div className="row sort-row">

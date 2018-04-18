@@ -11,16 +11,11 @@ class Browse extends Component {
 
 		this.state = {
 			filterText: "",
-			// filterState: {
-			// 	test: "devon",
-			// 	test2: "amy"
-			// },
 			artifacts: [],
 			sortValue: null,
 			flipSort: false
-
 		}
-
+		
 		this.getTomograms = this.getTomograms.bind(this);
 		this.storeTomograms = this.storeTomograms.bind(this);
 		this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
@@ -48,19 +43,9 @@ class Browse extends Component {
 	}
 
 	handleCheckboxChange(name, checked) {
-
-		//This doesn't work, so I have to pass the whole state to get access
-		// this.setState({
-		// 	filterState: {
-		// 		[name]: checked
-		// 	}
-		// })
-
 		this.setState({
 			[name]: checked
 		})
-
-		// console.log(this.state);
 	}
 
 	handleSortButtonChange(value) {
@@ -102,7 +87,6 @@ class Browse extends Component {
 						sortValue={this.state.sortValue}
 						flipSort={this.state.flipSort}
 					/>
-
 				</div>
 				<Footer />
 			</div>
