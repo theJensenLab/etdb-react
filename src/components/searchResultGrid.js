@@ -21,9 +21,16 @@ class SearchResultGrid extends Component {
     const LAST_MODIFIED = "lastModified";
     const DATE_TAKEN = "dateTaken";
 
+    //OTHER_CONSTANTS
+
+
+
 
     //FILTERS
     this.props.artifacts.forEach((artifact) => {
+
+      // console.log(artifact);
+      const name = artifact.getTitle();
       if (name.indexOf(filterText) === -1) {
         return;
       }
