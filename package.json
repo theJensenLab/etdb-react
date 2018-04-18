@@ -30,6 +30,7 @@
     "react": "^16.2.0",
     "react-bootstrap": "^0.32.1",
     "react-dom": "^16.2.0",
+    "react-image-lightbox": "^4.6.0",
     "react-router-dom": "^4.2.2"
   },
   "devDependencies": {

@@ -2,6 +2,7 @@ import React, { Component, StrictMode } from 'react'
 import { Carousel } from 'react-bootstrap'
 import moment from 'moment';
 import filesize from 'filesize';
+import Lightbox from 'react-image-lightbox';
 
 import Header from './header.js'
 import Footer from './footer.js'
@@ -13,7 +14,9 @@ class TomogramView extends Component {
 		super(props);
 
 		this.state = {
-			artifact: undefined
+			artifact: undefined,
+			isLightboxOpen: false,
+			photoIndex: 0
 		}
 
 		this.getTomogram = this.getTomogram.bind(this);
@@ -36,7 +39,7 @@ class TomogramView extends Component {
 		this.setState({artifact: artifact});
 	}
 	render(){
-		let title = "loading...", timestamp, description, strain, speciesName, date, NBCItaxID, artNotes, tiltSingleDual, files = [], thumbnail, thumbFilename, video, videoFilename, location, defocus, niceDate, software = "No info available", institution, lab, microscopist, scopeName, magnification, tiltSeriesSettingsString
+		let title = "loading...", timestamp, description, strain, speciesName, date, NBCItaxID, artNotes, tiltSingleDual, files = [], thumbnail, thumbFilename, video, videoFilename, location, defocus, niceDate, software = "No info available", institution, lab, microscopist, scopeName, magnification, tiltSeriesSettingsString, snapshots = []
 
 		//props instead of state
 		if (this.state.artifact){
@@ -61,8 +64,12 @@ class TomogramView extends Component {
 					if (file.getSoftware() && file.getSoftware() !== ""){
 						software = file.getSoftware();
 					}
+					if (file.getSubtype() === 'Snapshot' && file.getFilename().match(`.jpg$`)) {
+						snapshots.push("http://etdb.caltech.edu:8080/ipfs/" + location + "/" + file.getFilename())
+					}
 				}
 			}
+
 			
 			let fileSubtypeOrder = ['Tiltseries', 'Reconstruction', 'Subvolume', 'Keymov', 'Keyimg', 'Preview', 'Snapshot', 'Thumbnail']
 			files.sort((a, b) => {
@@ -77,9 +84,7 @@ class TomogramView extends Component {
 			}
 
 			date = this.state.artifact.getDetail("date");
-			console.log("tomogramView date: ")
 			niceDate = moment(date * 1000).calendar(null, {sameElse: "MMMM Do YYYY"});
-			console.log("tomogramView niceDate: ")
 			NBCItaxID = this.state.artifact.getDetail("NBCItaxID");
 			artNotes = this.state.artifact.getDetail("artNotes");
 			strain = this.state.artifact.getDetail("strain");
@@ -151,15 +156,28 @@ class TomogramView extends Component {
 						</center>
 						<div style={{width: "100%", margin: "auto", overflowX: "auto"}}>
 							<div style={{display: "flex"}}>
-								{files.map((file) => {
-									if (file.getSubtype() === 'Snapshot' && file.getFilename().match(`.jpg$`)) {
-										let path = "http://etdb.caltech.edu:8080/ipfs/" + location + "/" + file.getFilename()
-										return <img width="auto" height={300} src={path} style={{display: "inline-block", padding: "0px 3px"}}></img>
-									}
-								})}
+								{snapshots.map((snapshot, i) => <img index={i} onClick={() => this.setState({isLightboxOpen: true, photoIndex: i})} width="auto" height={300} src={snapshot} style={{display: "inline-block", padding: "0px 3px"}} />)}
 							</div>
 						</div>
 					</div>
+					{this.state.isLightboxOpen && (
+						<Lightbox
+							mainSrc={snapshots[this.state.photoIndex]}
+							nextSrc={snapshots[(this.state.photoIndex + 1) % snapshots.length]}
+							prevSrc={snapshots[(this.state.photoIndex + snapshots.length - 1) % snapshots.length]}
+							onCloseRequest={() => this.setState({ isLightboxOpen: false })}
+							onMovePrevRequest={() =>
+								this.setState({
+									photoIndex: (this.state.photoIndex + snapshots.length - 1) % snapshots.length,
+								})
+							}
+							onMoveNextRequest={() =>
+								this.setState({
+									photoIndex: (this.state.photoIndex + 1) % snapshots.length,
+								})
+							}
+						/>
+					)}
 					<div className="col-sm-12" style={{marginTop: "10px"}}>
 						<center>
 							<h5>Files</h5>
