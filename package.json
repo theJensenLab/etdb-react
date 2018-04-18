@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/OstlerDev/etdb-react#readme",
   "dependencies": {
+    "filesize": "^3.6.1",
     "moment": "^2.22.0",
     "oip-js": "1.1.8",
     "react": "^16.2.0",
