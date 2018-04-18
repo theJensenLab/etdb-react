@@ -44,15 +44,14 @@ class Filter extends Component {
 
     return (
       <div className="col-sm-2">
-        <div id="filter"></div>
+        <div id="filters">
 
         {/* filterText */}
-        <b>Search</b>
         <input className="form-control" type="text" value={this.props.filterText} onChange={this.handleFilterTextChange} placeholder="Search for..."/>
 
 
         {/* sorts */}
-        <div id="reddiv"></div><b>Sort by</b>
+        <b>Sort by</b>
 
         <div className="sortButton">
           <SortValueButton buttonValue="Views" name={VIEWS} sortValue={this.props.sortValue} onSortButtonChange={this.handleSortButtonChange} onFlipSortChange={this.handleFlipSortChange} flipSort={this.props.flipSort} />
@@ -67,7 +66,7 @@ class Filter extends Component {
         <p><input type="checkbox" onChange={this.handleCheckboxChange} name="bacteria" checked={null}/>   Bacteria</p>
         <p><input type="checkbox" onChange={this.handleCheckboxChange} name="archaea" checked={null}/>   Archaea</p>
         <p><input type="checkbox" onChange={this.handleCheckboxChange} name="eukaryotes" checked={null}/>   Eukaryotes</p>
-      </div>
+      </div></div>
     )
   }
 }
