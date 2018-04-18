@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, StrictMode } from 'react'
 import moment from 'moment';
 import filesize from 'filesize';
 
@@ -78,19 +78,23 @@ class TomogramView extends Component {
 			scopeName = this.state.artifact.getDetail("scopeName") || "Caltech Polara";
 
 			let tiltSeriesSettings = []
+			let degree = String.fromCharCode(176)
+			let sq = String.fromCharCode(178)
+			let angs = String.fromCharCode(8491)
+			let mu = String.fromCharCode(956)
 
 			if (this.state.artifact.getDetail("tiltSingleDual"))
 				tiltSeriesSettings.push(this.state.artifact.getDetail("tiltSingleDual") === 1 ?  "single axis" : "dual axis");
 			if (this.state.artifact.getDetail("tiltMin") || this.state.artifact.getDetail("tiltMax"))
-				tiltSeriesSettings.push(`tilt range: (${this.state.artifact.getDetail("tiltMin")}, ${this.state.artifact.getDetail("tiltMax")})`);
+				tiltSeriesSettings.push(`tilt range: (${this.state.artifact.getDetail("tiltMin")}${degree}, ${this.state.artifact.getDetail("tiltMax")}${degree})`);
 			if (this.state.artifact.getDetail("tiltStep"))
-				tiltSeriesSettings.push(`step: ${this.state.artifact.getDetail("tiltStep")}` + "&#176");
+				tiltSeriesSettings.push(`step: ${this.state.artifact.getDetail("tiltStep")}${degree}`);
 			if (this.state.artifact.getDetail("tiltConstant"))
 				tiltSeriesSettings.push(this.state.artifact.getDetail("tiltConstant") === 1 ? "constant angular increment" : "");
 			if (this.state.artifact.getDetail("dosage"))
-				tiltSeriesSettings.push(`dosage: ${this.state.artifact.getDetail("dosage")}eV/A2`);			
+				tiltSeriesSettings.push(`dosage: ${this.state.artifact.getDetail("dosage")}eV/${angs}${sq}`);			
 			if (this.state.artifact.getDetail("defocus"))
-				tiltSeriesSettings.push(`defocus: ${this.state.artifact.getDetail("defocus")}um`);
+				tiltSeriesSettings.push(`defocus: ${this.state.artifact.getDetail("defocus")}${mu}m`);
 			if (this.state.artifact.getDetail("magnification"))
 				tiltSeriesSettings.push(`magnification: ${this.state.artifact.getDetail("magnification")}x`);
 			
