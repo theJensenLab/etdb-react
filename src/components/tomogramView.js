@@ -49,10 +49,10 @@ class TomogramView extends Component {
 
 			if (files) {
 				for (var file of files){
-					if (file.getType() === "Research" && file.getSubtype() === "Keyimg"){
+					if (file.getType() === "Tomogram" && file.getSubtype() === "Keyimg"){
 						thumbFilename = file.getFilename();
 					}
-					if (file.getType() === "Research" && file.getSubtype() === "Keymov"){
+					if (file.getType() === "Tomogram" && file.getSubtype() === "Keymov"){
 						if (this.props.Core.util.getExtension(file.getFilename()) === "mp4"){
 							video = file;
 							videoFilename = file.getFilename();
