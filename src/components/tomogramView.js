@@ -36,7 +36,7 @@ class TomogramView extends Component {
 		this.setState({artifact: artifact});
 	}
 	render(){
-		let title = "loading...", timestamp, description, strain, speciesName, date, NBCItaxID, artNotes, tiltSingleDual, files = [], thumbnail, thumbFilename, location, defocus, niceDate, software = "No info available", institution, lab, microscopist, scopeName, magnification, tiltSeriesSettingsString
+		let title = "loading...", timestamp, description, strain, speciesName, date, NBCItaxID, artNotes, tiltSingleDual, files = [], thumbnail, thumbFilename, video, videoFilename, location, defocus, niceDate, software = "No info available", institution, lab, microscopist, scopeName, magnification, tiltSeriesSettingsString
 
 		//props instead of state
 		if (this.state.artifact){
@@ -51,6 +51,12 @@ class TomogramView extends Component {
 				for (var file of files){
 					if (file.getType() === "Research" && file.getSubtype() === "Keyimg"){
 						thumbFilename = file.getFilename();
+					}
+					if (file.getType() === "Research" && file.getSubtype() === "Keymov"){
+						if (this.props.Core.util.getExtension(file.getFilename()) === "mp4"){
+							video = file;
+							videoFilename = file.getFilename();
+						}
 					}
 					if (file.getSoftware() && file.getSoftware() !== ""){
 						software = file.getSoftware();
@@ -108,9 +114,12 @@ class TomogramView extends Component {
 					<div className="col-sm-6">
 					</div>
 				</div>
-				<div className="row" id="singletomograminfo">
+				<div className="container row" id="singletomograminfo">
 					<div className="col-sm-6" id="videoembed">
-						<div id="videoinner"><img src={"http://etdb.caltech.edu:8080/ipfs/" + location + "/" + thumbFilename}/>
+						<div id="videoinner">
+							{ videoFilename ? <video autoPlay loop controls>
+								<source src={"http://etdb.caltech.edu:8080/ipfs/" + location + "/" + videoFilename} />
+							</video> : <img src={"http://etdb.caltech.edu:8080/ipfs/" + location + "/" + thumbFilename} />}
 							<div id="share">
 								<p><b>Share:</b><span className="fab fa-facebook-square"></span><span className="fab fa-twitter-square"></span></p>
 							</div>
