@@ -64,7 +64,7 @@ class TomogramView extends Component {
 				}
 			}
 			
-			let fileSubtypeOrder = ['Tiltseries', 'Reconstruction', 'Keymov', 'Keyimg', 'Preview', 'Snapshot', 'Thumbnail']
+			let fileSubtypeOrder = ['Tiltseries', 'Reconstruction', 'Subvolume', 'Keymov', 'Keyimg', 'Preview', 'Snapshot', 'Thumbnail']
 			files.sort((a, b) => {
 				return fileSubtypeOrder.indexOf(a.getSubtype()) - fileSubtypeOrder.indexOf(b.getSubtype())
 			})
@@ -88,6 +88,8 @@ class TomogramView extends Component {
 			institution = this.state.artifact.getDetail("institution");
 			microscopist = this.state.artifact.getDetail("microscopist");
 			scopeName = this.state.artifact.getDetail("scopeName") || "Caltech Polara";
+			scopeName = scopeName === '0' ? "Caltech Polara" : scopeName
+
 
 			let tiltSeriesSettings = []
 			let degree = String.fromCharCode(176)
