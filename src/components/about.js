@@ -36,24 +36,23 @@ class About extends Component {
                       <a className="browse" href="/challenges">View challenges <i className="fa fa-arrow-right" aria-hidden="true"></i></a>
 				    </div>
 				  </div>
-                  <div className="col-sm-6">			  		<img src="http://www.designing-science-development.com/jensen/wp-content/uploads/2018/03/challenges.png"/>
-</div>
+            <div className="col-sm-6">
+							<img src="http://www.designing-science-development.com/jensen/wp-content/uploads/2018/03/challenges.png"/>
+						</div>
 
 				</div>
 				<div className="row" id="about">
                 
 				  <div className="col-sm-6">
-                  <h3>Built with Blockchain</h3>			  		 
+              <h3>Built with Blockchain</h3>			  		 
 				      <div id="reddiv"></div>
-				      <p> Bitcoin introduced blockchain technology to the world, but blockchain can be used in many ways. A blockchain is a digital ledger that anyone can use or audit, and no one can change. A blockchain uses peer-to-peer networking to achieve network consensus without central points of failure. The Inter Planetary File System (IPFS) is a protocol and network designed to create a content-addressable, peer-to-peer method of storing and sharing content in a distributed file system. </p>
-
-</div>
+				      <p> A blockchain uses peer-to-peer networking to achieve network consensus without central points of failure, making it a public digital ledger which anyone can contribute to or audit, and no one can alter. The Inter Planetary File System (IPFS) is a file transport protocol and network designed to create a content-addressable, peer-to-peer method of storing and sharing content in a distributed file system.</p>
+					</div>
 				  <div className="col-sm-6">
-				    <div>
-                   
-<p>The Open Index Protocol (OIP) specification uses the FLO blockchain to index metadata and interoperable transport protocols like Bitcoin and IPFS for value and file transfer. The system provides persistent file storage and permissionless access. The result is a robust, decentralized database open to anyone through open-source software. </p>
+				    <div>      
+							<p>The Open Index Protocol (OIP) specification defines standard use of these technologies; it uses the FLO blockchain to index metadata and IPFS to store files. The OIP system includes a transparent index, persistent file storage and permissionless access. The result is a robust, decentralized database open to anyone through open-source software.</p>
 
-<p>ETDB is built on the OIP specification. The addresses of the tomograms, and their corresponding metadata, are stored in the public FLO blockchain and the tomogram files are stored in the IPFS network. While etdb.caltech.edu offers one way to access the database, users are free to create their own applications to retrieve and interact with the data. </p>
+							<p>ETDB is built on the OIP specification. The addresses of the tomograms, and their corresponding metadata, are stored in the public FLO blockchain and the tomogram files are stored in the IPFS network. While etdb.caltech.edu offers one way to access the database, users are free to create their own applications to retrieve and interact with the data.</p>
 				    </div>
 				  </div>
 				</div>
