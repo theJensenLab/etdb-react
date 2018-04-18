@@ -5,14 +5,14 @@ import Footer from './footer.js'
 
 import placeholder from '../assets/img/placeholder.jpg'
 
-class CarboCollection extends Component {
+class dnaCollection extends Component {
 	render(){
 		return(
 			<div>
 				<Header />
 				<div class="row" id="featured-2">
 					<div class="col-sm-8">
-						<h2>Carboxysomes</h2>
+						<h2>DNA</h2>
 					</div>
                     <div class="col-sm-4">
 					<a class="back" href="http://localhost:9156/featured">Back to featured tomograms</a>
@@ -21,7 +21,7 @@ class CarboCollection extends Component {
 				<div class="row" id="featured-3">
 					<div class="col-sm-6">
 						<div id="reddiv"></div>
-						<p> RuBisCO is the main enzyme involved in carbon fixation. To make the reaction it catalyzes more efficient, some bacteria enclose RuBisCO in microcompartments called carboxysomes. Carboxysomes are generally icosahedral, but vary in size and shape. </p>
+						<p>The genome of bacterial and archaeal cells is highly organized to pack inside the cell. In certain conditions, it is visible by electron tomography. For instance, when cells are in a state of minimal transcription, like in this attack phase Bdellovibrio bacteriovorus [yc2013-05-01-10], the nucleoid is highly condensed. In this dividing Hyphomonas neptunium cell, you can see supercoiled DNA being segregated through the narrow stalk into the budding daughter  </p>
 					</div>
 					<div class="col-sm-6">
 						
@@ -34,4 +34,4 @@ class CarboCollection extends Component {
 	}
 }
 
-export default CarboCollection;
+export default dnaCollection;

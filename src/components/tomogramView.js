@@ -1,5 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component, StrictMode } from 'react'
+import { Carousel } from 'react-bootstrap'
 import moment from 'moment';
+import filesize from 'filesize';
 
 import Header from './header.js'
 import Footer from './footer.js'
@@ -34,9 +36,8 @@ class TomogramView extends Component {
 		this.setState({artifact: artifact});
 	}
 	render(){
-		let title = "loading...", timestamp, description, strain, speciesName, date, NBCItaxID, artNotes, tiltSingleDual, files = [], thumbnail, thumbFilename, location, defocus, niceDate, software = "No info available", institution, lab, microscopist
+		let title = "loading...", timestamp, description, strain, speciesName, date, NBCItaxID, artNotes, tiltSingleDual, files = [], thumbnail, thumbFilename, location, defocus, niceDate, software = "No info available", institution, lab, microscopist, scopeName, magnification, tiltSeriesSettingsString
 
-		let collabRoles = "No info available"
 		//props instead of state
 		if (this.state.artifact){
 			title = this.state.artifact.getTitle();
@@ -72,29 +73,39 @@ class TomogramView extends Component {
 			artNotes = this.state.artifact.getDetail("artNotes");
 			strain = this.state.artifact.getDetail("strain");
 			speciesName = this.state.artifact.getDetail("speciesName");
-			tiltSingleDual = this.state.artifact.getDetail("tiltSingleDual");
-			defocus = this.state.artifact.getDetail("defocus");
 			lab = this.state.artifact.getDetail("lab");
 			institution = this.state.artifact.getDetail("institution");
 			microscopist = this.state.artifact.getDetail("microscopist");
+			scopeName = this.state.artifact.getDetail("scopeName") || "Caltech Polara";
+
+			let tiltSeriesSettings = []
+			let degree = String.fromCharCode(176)
+			let sq = String.fromCharCode(178)
+			let angs = String.fromCharCode(8491)
+			let mu = String.fromCharCode(956)
+
+			if (this.state.artifact.getDetail("tiltSingleDual"))
+				tiltSeriesSettings.push(this.state.artifact.getDetail("tiltSingleDual") === 1 ?  "single axis" : "dual axis");
+			if (this.state.artifact.getDetail("tiltMin") || this.state.artifact.getDetail("tiltMax"))
+				tiltSeriesSettings.push(`tilt range: (${this.state.artifact.getDetail("tiltMin")}${degree}, ${this.state.artifact.getDetail("tiltMax")}${degree})`);
+			if (this.state.artifact.getDetail("tiltStep"))
+				tiltSeriesSettings.push(`step: ${this.state.artifact.getDetail("tiltStep")}${degree}`);
+			if (this.state.artifact.getDetail("tiltConstant"))
+				tiltSeriesSettings.push(this.state.artifact.getDetail("tiltConstant") === 1 ? "constant angular increment" : "");
+			if (this.state.artifact.getDetail("dosage"))
+				tiltSeriesSettings.push(`dosage: ${this.state.artifact.getDetail("dosage")}eV/${angs}${sq}`);			
+			if (this.state.artifact.getDetail("defocus"))
+				tiltSeriesSettings.push(`defocus: ${this.state.artifact.getDetail("defocus")}${mu}m`);
+			if (this.state.artifact.getDetail("magnification"))
+				tiltSeriesSettings.push(`magnification: ${this.state.artifact.getDetail("magnification")}x`);
+			
+			tiltSeriesSettingsString = tiltSeriesSettings.join(", ");
 		}
 		return(
 			<div>
 				<Header />
 				<div className="row" id="singletomogram">
 					<div className="col-sm-6">
-						<a className="return" href="/database">
-							<span className="fas fa-arrow-left"> </span>
-							<p>Return to database</p>
-						</a>
-					</div>
-					<div className="col-sm-6" id="downloadoptions">
-						<li className="dropdown btn btn-default"><span className="glyphicon glyphicon-th-list"> Download Options <span className="fas fa-arrow-down"></span></span>
-							<ul className="dropdown-menu dropdown-toggle" data-toggle="dropdown">
-								<li><a href="#">Raw data</a></li>
-								<li> <a href="#">3D Reconstruction</a></li>
-							</ul>
-						</li>
 					</div>
 				</div>
 				<div className="row" id="singletomograminfo">
@@ -107,20 +118,33 @@ class TomogramView extends Component {
 					</div>
 					<div className="col-sm-6" id="tomographdata">
 						<h2>{title}</h2>
-						<h3><b>Lab:</b> {lab}</h3>
-						<h3><b>Institution:</b> {institution}</h3>
 						<div id="reddiv"> </div>
 						<p><b>Tilt Series date:</b> {niceDate}</p>
-						{/*<p><b>Data Taken By:</b> Yiwei Chang</p>*/}
-						<p><b>Description:</b> {description}</p>
-						<p><b>Strain:</b> {strain}</p>
+						<p><b>Data Taken By:</b> {microscopist}</p>
 						<p><b>Species / Specimen:</b> {speciesName}</p>
-						<p><b>Collaborators and Roles:</b> {microscopist}</p>
-						<p><b>Tilt Series Setting:</b> {tiltSingleDual}. constant angular increment, step: 1.0. tilt range: (-60, 60). dosage: 130/A2. defocus: {defocus}. magnification: 27500.</p>
-						<p><b>Microscope:</b> Caltech Polara</p>
+						<p><b>Strain:</b> {strain}</p>
+						<p><b>Tilt Series Setting:</b> {tiltSeriesSettingsString}.</p>
+						<p><b>Microscope:</b> {scopeName}</p>
 						<p><b>Acquisition Software:</b> {software}</p>
 						<p><b>Processing Software Used:</b> Raptor</p>
 						<p style={{whiteSpace: "pre-wrap"}}><b>Notes:</b> {artNotes}</p>
+					</div>
+					<div className="col-sm-12" style={{marginTop: "10px"}}>
+						<center>
+							<h5>Snapshots</h5>
+						</center>
+						<Carousel>
+								{files.map((file) => {
+									if (file.getSubtype() === 'Snapshot' && file.getFilename().match(`.jpg$`)) {
+										let path = "http://etdb.caltech.edu:8080/ipfs/" + location + "/" + file.getFilename()
+										return <Carousel.Item>
+												<center>
+													<img width={300} height={300} src={path}></img>
+												</center>
+											</Carousel.Item>
+									}
+								})}
+						</Carousel>
 					</div>
 					<div className="col-sm-12" style={{marginTop: "10px"}}>
 						<center>
@@ -139,10 +163,13 @@ class TomogramView extends Component {
 							</thead>
 							<tbody>
 								{files.map((file, i) => {
+									let fileSize = "Unknown"
+									if (file.getFilesize())
+										fileSize = filesize(file.getFilesize(), {base: 10})
 									return <tr>
 										<th scope="row">{i + 1}</th>
 										<td>{file.getDisplayName()}</td>
-										<td>{file.getFilesize() || "Unknown"}</td>
+										<td>{fileSize}</td>
 										<td>{file.getType()}</td>
 										<td>{file.getSubtype()}</td>
 										<td>

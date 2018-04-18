@@ -5,14 +5,14 @@ import Footer from './footer.js'
 
 import placeholder from '../assets/img/placeholder.jpg'
 
-class CarboCollection extends Component {
+class OutermembraneCollection extends Component {
 	render(){
 		return(
 			<div>
 				<Header />
 				<div class="row" id="featured-2">
 					<div class="col-sm-8">
-						<h2>Carboxysomes</h2>
+						<h2>Outer Membrane Vesicles</h2>
 					</div>
                     <div class="col-sm-4">
 					<a class="back" href="http://localhost:9156/featured">Back to featured tomograms</a>
@@ -21,10 +21,11 @@ class CarboCollection extends Component {
 				<div class="row" id="featured-3">
 					<div class="col-sm-6">
 						<div id="reddiv"></div>
-						<p> RuBisCO is the main enzyme involved in carbon fixation. To make the reaction it catalyzes more efficient, some bacteria enclose RuBisCO in microcompartments called carboxysomes. Carboxysomes are generally icosahedral, but vary in size and shape. </p>
+						<p>Many bacterial species secrete outer membrane vesicles (OMVs) into the environment, either for survival of the cell or community or to deliver toxins. OMVs can be released singly or as chains, with pearled or tubular morphologies. </p>
 					</div>
 					<div class="col-sm-6">
-						
+                    <div id="reddiv"></div>
+						<p> Some species even OMV chains to extend the electron transport chain to an external electron acceptor, forming nanowires. </p>
 					</div>
 				</div>
 				<div class="row" id="featured"></div>
@@ -34,4 +35,4 @@ class CarboCollection extends Component {
 	}
 }
 
-export default CarboCollection;
+export default OutermembraneCollection;

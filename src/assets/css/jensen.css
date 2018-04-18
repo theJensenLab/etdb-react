@@ -188,18 +188,24 @@ button:focus, html input[type="button"]:focus, input[type="reset"]:focus, input[
     line-height: 1.7;
 }
 
+.contact p {
+    font-size: 14px !important;
+    line-height: 1.9;
+}
 
+.contact b {
+    font-weight: 600;
+}
 
 .panel {
-    display: none;
     overflow: hidden;
-      margin-bottom: 50px;
+    margin-bottom: 50px;
     background-color: transparent;
     border: 1px solid transparent;
     border-radius: 0px;
     -webkit-box-shadow: none;
     box-shadow: none;
-  font-family: 'Open Sans', sans-serif;;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .accordion {
@@ -214,7 +220,7 @@ button:focus, html input[type="button"]:focus, input[type="reset"]:focus, input[
     border-radius: 0px;
     background: transparent;
     border-bottom: 1px solid #ccc;
-font-family: 'Open Sans', sans-serif;;
+    font-family: 'Open Sans', sans-serif;
     letter-spacing: 1px;
     font-size: 16px;
 }
@@ -265,7 +271,7 @@ div#menu a:before {
 
 div#menu a {
     color: #2b2b2b;
-    margin: 0 27px;
+    margin: 0 10px;
     position: relative;
 
   text-decoration: none;
@@ -275,7 +281,7 @@ div#menu a:hover {
 }
 
 div#menu {
-    text-align: right;
+    text-align: center;
     font-family: 'Open Sans', sans-serif;;
     font-weight: normal;
     font-size: 16px;
@@ -490,14 +496,37 @@ footer.site-footer {
     text-align: left;
 }
 
+div#footer .col-sm-3 {
+    height: 130px;
+    text-align: center;
+}
+
+div#footer a {
+    color: #000;
+    text-align: center !important;
+}
+
 div#footer img {
     max-width: 172px;
     max-height: 65px;
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
-    margin-bottom: 50px;
+    margin: 0px auto 50px;
     display: block;
-    opacity: .7;
+    opacity: .9;
+}
+
+div#footer {
+    text-align: center;
+    background: #fafafa;
+    z-index: 999;
+    position:absolute;
+}
+
+a.footerlink {
+    /* text-align: center !important; */
+    margin: 20px auto !important;
+    display: inline-block;
 }
 
 div#footer p {
@@ -525,6 +554,10 @@ div#homecontent {
     padding-top: 120px;
 }
 
+div#browsedatabase b {
+    margin-bottom: 20px;
+    display: inline-block;
+}
 
 a.browse { 
     border-top: 1px solid #000;
@@ -637,6 +670,10 @@ div#about {
   padding-bottom: 150px;
 }
 
+div#about h3 {
+    margin-top: 50px;
+}
+
 div#about a {
     color: #000;
     text-decoration: underline;
@@ -727,7 +764,7 @@ div#sort {
 }
 
 div#filters b {
-    margin: 30px 0px 10px;
+    margin: 20px 0px 20px;
     display: block;
     border-bottom: 1px solid;
 }
@@ -747,8 +784,21 @@ div#filters input.form-control {
 }
 
 div#searchresultsgrid .col-sm-3 {
-    padding-bottom: 10px;
-    padding-top: 10px; 
+    padding-bottom: 5px;
+    padding-top: 10px;
+    background: #2b2b2b;
+    width: 24%;
+    margin: 5px;
+}
+
+div#tomogramcell name {
+    color: #fff;
+    padding-top: 5px;
+}
+
+div#searchresultsgrid .col-sm-3:hover {
+    background: #000;
+    opacity: 1;
 }
 
 div#searchresultsgrid {
@@ -768,9 +818,7 @@ div#sortby {
     border-bottom: 1px solid #ccc;
 }
 
-div#searchresultsgrid .col-sm-3:hover {
-    background: #ffffff;
-}
+
 
 div#browsedatabase {
     padding-top: 150px;
@@ -781,25 +829,42 @@ div#sort {
     border-left: 1px solid #ccc;
 }
 select {
-    font-family: 'Open Sans', sans-serif;;
+    font-family: 'Open Sans', sans-serif;
     font-size: 15px;
     border-radius: 1px !important;
     width: 150px;
-  margin-left: 20px;
-    background: #fafafa;
+    margin-left: 0px;
+    background: #fff;
+    border-radius: 0px !important;
+    border: 0px;
+    display: inline-block;
+    width: 100%;
+}
+
+div#filters {
+    position: fixed;
+    width: 200px;
+    z-index: 1;
+    background: #e5342a;
+    padding: 0px 20px 20px;
+    border-radius: 20px;
 }
 
 img.results-thumb {
     width: 100%;
 }
 
+a.tomogram-link:hover {
+    opacity: 1;
+}
+
 date {
     font-size: 12px;
-    color: grey;
+    color: #ccc;
     display: inline-block;
     font-weight: 100;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 10px;
+    border-bottom: 0px;
+    padding-bottom: 0px;
     width: 100%;
 }
 
@@ -811,6 +876,7 @@ img.results-thumb {
 }
 
 video.videothumbhover {
+    max-height: 80% !important;
     -webkit-filter: contrast(120%);
     filter: contrast(120%);
 }
@@ -874,8 +940,8 @@ div#tomogram-thumb {
 
 div#video-thumb-container {
     overflow: hidden;
-    height: 200px;
     margin-bottom: 7px;
+    height:250px;
 }
 
 /* Tomogram Single Page
@@ -1123,9 +1189,26 @@ div#featured img {
     margin-bottom: 15px;
 }
 
+a.back {
+    background: #2b2b2b;
+    padding: 5px 30px;
+    color: #fff;
+    margin-top: 20px;
+    display: inline-block;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+div#featured name {
+    /* font-weight: bold; */
+    border-bottom: 1px solid;
+    padding-bottom: 10px;
+}
+
 div#featured-2 {
     max-width: 1200px;
-    margin: 0 auto 50px;
+    margin: 0 auto 0px;
     padding-top: 150px;
 }
 
