@@ -23,10 +23,12 @@
   },
   "homepage": "https://github.com/OstlerDev/etdb-react#readme",
   "dependencies": {
+    "bootstrap": "^3.3.7",
     "filesize": "^3.6.1",
     "moment": "^2.22.0",
     "oip-js": "1.1.8",
     "react": "^16.2.0",
+    "react-bootstrap": "^0.32.1",
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2"
   },
