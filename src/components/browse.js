@@ -64,7 +64,10 @@ class Browse extends Component {
 	}
 
 	handleSortButtonChange(value) {
-		this.setState({
+		console.log(value);
+		if (value === this.state.sortValue) {
+			this.setState({sortValue: null})
+		} else this.setState({
 			sortValue: value,
 			flipSort: false
 		})

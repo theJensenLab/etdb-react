@@ -9,7 +9,7 @@ class SearchResultGrid extends Component {
 
     //STATE_CONSTANTS
     const filterText = this.props.filterText;
-      //filter state is merely the full state of browse;
+      //filter state is the full state of browse;
     const filterState = this.props.filterState;
     const sortValue = this.props.sortValue;
     const flipSort = this.props.flipSort;
@@ -30,28 +30,28 @@ class SearchResultGrid extends Component {
 
       // if (filterState.bacteria && specimenType.lower() === "bacteria"){}
 
-      if (filterState.bacteria){
-        // artifacts.push(
-        //   <TomogramListItem
-        //     Core={this.props.Core}
-        //     artifact={artifact}
-        //   />)
-        // return;
-      } else if (filterState.archaea) {
-        // artifacts.push(
-        //   <TomogramListItem
-        //     Core={this.props.Core}
-        //     artifact={artifact}
-        //   />)
-        // return;
-      } else if (filterState.eukaryotes) {
-        // artifacts.push(
-        //   <TomogramListItem
-        //     Core={this.props.Core}
-        //     artifact={artifact}
-        //   />)
-        // return;
-      } else console.log()
+      // if (filterState.bacteria){
+      //   artifacts.push(
+      //     <TomogramListItem
+      //       Core={this.props.Core}
+      //       artifact={artifact}
+      //     />)
+      //   return;
+      // } else if (filterState.archaea) {
+      //   artifacts.push(
+      //     <TomogramListItem
+      //       Core={this.props.Core}
+      //       artifact={artifact}
+      //     />)
+      //   return;
+      // } else if (filterState.eukaryotes) {
+      //   artifacts.push(
+      //     <TomogramListItem
+      //       Core={this.props.Core}
+      //       artifact={artifact}
+      //     />)
+      //   return;
+      // } else console.log()
 
       artifacts.push(artifact)
     })
@@ -108,4 +108,3 @@ class SearchResultGrid extends Component {
 
 
 export default SearchResultGrid
-// {this.props.artifacts.map((artifact) => <TomogramListItem Core={this.props.Core} artifact={artifact} />)}

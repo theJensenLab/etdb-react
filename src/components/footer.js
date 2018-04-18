@@ -4,17 +4,17 @@ class Footer extends Component {
 	render(){
 		return(
 			<div>
-				<div className="row">This project</div> 
+				<div className="row">This project</div>
 					<div className="row" id="footer">
 						<div className="col-sm-3">
 							<a target="blank" href="http://www.hhmi.org/">
-								<img class="square" src="/src/assets/img/hhmi.png"/>
+								<img className="square" src="/src/assets/img/hhmi.png"/>
 							</a>
 						</div>
 						<div className="col-sm-3">
 							<a target="blank" href="https://om.od.nih.gov/">
-								<img class="long" src="/src/assets/img/nih.png"/>
-							</a>	
+								<img className="long" src="/src/assets/img/nih.png"/>
+							</a>
 						</div>
 						<div className="col-sm-3">
 							<a target="blank" href="http://beckmaninstitute.caltech.edu/">
@@ -33,7 +33,7 @@ class Footer extends Component {
 						</div>
 						<div className="col-sm-3">
 							<a target="blank" href="http://www.hfsp.org/">
-								<img class="square" src="/src/assets/img/hfsp.png"/>
+								<img className="square" src="/src/assets/img/hfsp.png"/>
 							</a>
 						</div>
 						<div className="col-sm-3">
@@ -42,12 +42,12 @@ class Footer extends Component {
 							</a>
 						</div>
 						<div className="col-sm-3">
-							<a target="blank" class="footerlink" href="https://www.energy.gov/">
+							<a target="blank" className="footerlink" href="https://www.energy.gov/">
 								Department of Energy
 							</a>
 						</div>
 						<div className="col-sm-3">
-							<a target="blank" class="footerlink" href="http://www.searlescholars.net/">
+							<a target="blank" className="footerlink" href="http://www.searlescholars.net/">
 								<img src="/src/assets/img/searle_banner.png"/>
 							</a>
 						</div>
@@ -58,7 +58,7 @@ class Footer extends Component {
 						</div>
 						<div className="col-sm-3">
 							<a target="blank" href="http://agi.org/">
-								<img src="/src/assets/img/agi.png"/>			  	
+								<img src="/src/assets/img/agi.png"/>
 							</a>
 						</div>
 					</div>
