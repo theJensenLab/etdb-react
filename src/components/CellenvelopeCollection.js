@@ -18,11 +18,11 @@ class CellenvelopeCollection extends Component {
 				<div class="row" id="featured-3">
 					<div class="col-sm-6">
 						<div id="reddiv"></div>
-						<p>Carboxysomes are bacterial compartments consisting of polyhedral protein shells filled with the enzyme ribulose-1,5-bisphosphate carboxylase/oxygenase (RuBisCO) -the predominant enzyme in carbon fixation and the rate limiting enzyme in the Calvin Cycle-and a carbonic anhydrase.[2] Carboxysomes are thought to have evolved as a consequence of the increase in oxygen concentration in the ancient atmosphere; this is because oxygen is a competing substrate to carbon dioxide in the RuBisCO reaction.[3] </p>
+						<p>All cells are separated from their environment by at least one selectively permeable membrane.  To buttress this membrane against turgor pressure, most bacteria use a cell wall made of carbohydrate – long glycan strands crosslinked by short peptides to form a rigid peptidoglycan sacculus. ] </p>
 					</div>
 					<div class="col-sm-6">
 						<div id="spacediv"></div>
-						<p>To overcome the inefficiency of RuBisCO, carboxysomes concentrate carbon dioxide inside the shell by means of co-localized carbonic anhydrase activity, which produces carbon dioxide from the bicarbonate that diffuses into the carboxysome. The resulting production of carbon dioxide near RuBisCO decreases the proportion of ribulose-1,5-bisphosphate oxygenation and thereby avoids costly photorespiratory reactions. The surrounding shell provides a barrier to carbon dioxide loss, helping to increase its concentration around RuBisCO.[4][5] </p>
+						<p>Monoderms have one membrane and a thick multi-layered sacculus.  Diderms have two membranes, an inner and an outer, with a thin sacculus sandwiched in between.  Here are some examples of these different architectures:  </p>
 					</div>
 				</div>
 				<div class="row" id="featured"></div>

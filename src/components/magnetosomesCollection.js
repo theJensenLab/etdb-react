@@ -5,20 +5,20 @@ import Footer from './footer.js'
 
 import placeholder from '../assets/img/placeholder.jpg'
 
-class CarboCollection extends Component {
+class MagnetosomesCollection extends Component {
 	render(){
 		return(
 			<div>
 				<Header />
 				<div class="row" id="featured-2">
 					<div class="col-sm-8">
-						<h2>Carboxysomes</h2>
+						<h2>Magnetosomes</h2>
 					</div>
 				</div>
 				<div class="row" id="featured-3">
 					<div class="col-sm-6">
 						<div id="reddiv"></div>
-						<p> RuBisCO is the main enzyme involved in carbon fixation. To make the reaction it catalyzes more efficient, some bacteria enclose RuBisCO in microcompartments called carboxysomes. Carboxysomes are generally icosahedral, but vary in size and shape. </p>
+						<p> Magnetosomes orient magnetotactic bacteria in a magnetic field. These membrane pockets contain ferrous microcrystals and are aligned by cytoskeletal filaments of MamK, creating a compass needle along the cell's length.  </p>
 					</div>
 					<div class="col-sm-6">
 						
@@ -31,4 +31,4 @@ class CarboCollection extends Component {
 	}
 }
 
-export default CarboCollection;
+export default MagnetosomesCollection;

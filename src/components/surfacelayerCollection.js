@@ -5,23 +5,24 @@ import Footer from './footer.js'
 
 import placeholder from '../assets/img/placeholder.jpg'
 
-class CarboCollection extends Component {
+class surfacelayerCollection extends Component {
 	render(){
 		return(
 			<div>
 				<Header />
 				<div class="row" id="featured-2">
 					<div class="col-sm-8">
-						<h2>Carboxysomes</h2>
+						<h2>Surface Layer</h2>
 					</div>
 				</div>
 				<div class="row" id="featured-3">
 					<div class="col-sm-6">
 						<div id="reddiv"></div>
-						<p> RuBisCO is the main enzyme involved in carbon fixation. To make the reaction it catalyzes more efficient, some bacteria enclose RuBisCO in microcompartments called carboxysomes. Carboxysomes are generally icosahedral, but vary in size and shape. </p>
+						<p> Many archaeal cells, as well as some bacteria, use an extracellular layer of crystalline protein for protection from turgor pressure, viral attack, or predation (among other things). </p>
 					</div>
 					<div class="col-sm-6">
-						
+                    <div id="reddiv"></div>
+						<p>The proteins that make these surface layers, or S-layers, differ between species and S-layers vary widely in symmetry and appearance.  Here are some examples:  </p>
 					</div>
 				</div>
 				<div class="row" id="featured"></div>
@@ -31,4 +32,4 @@ class CarboCollection extends Component {
 	}
 }
 
-export default CarboCollection;
+export default surfacelayerCollection;
