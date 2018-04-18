@@ -9,9 +9,10 @@
 .flip-arrow {
   border: none;
   background: none;
+  font-size: 11px;
 }
 
 .sort-row {
   display: flex;
-  
+
 }
