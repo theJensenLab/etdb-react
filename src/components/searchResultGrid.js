@@ -36,21 +36,21 @@ class SearchResultGrid extends Component {
         //     Core={this.props.Core}
         //     artifact={artifact}
         //   />)
-        return;
+        // return;
       } else if (filterState.archaea) {
         // artifacts.push(
         //   <TomogramListItem
         //     Core={this.props.Core}
         //     artifact={artifact}
         //   />)
-        return;
+        // return;
       } else if (filterState.eukaryotes) {
         // artifacts.push(
         //   <TomogramListItem
         //     Core={this.props.Core}
         //     artifact={artifact}
         //   />)
-        return;
+        // return;
       } else console.log()
 
       artifacts.push(artifact)
