@@ -1,0 +1,18 @@
+.sortButton {
+
+  background: none;
+  border: none;
+  text-align: left;
+}
+
+
+.flip-arrow {
+  border: none;
+  background: none;
+  font-size: 11px;
+}
+
+.sort-row {
+  display: flex;
+
+}

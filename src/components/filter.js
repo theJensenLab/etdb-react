@@ -1,5 +1,6 @@
 
 import React, {Component} from 'react';
+import SortValueButton from './SortValueButton';
 
 class Filter extends Component {
   constructor(props) {
@@ -7,7 +8,8 @@ class Filter extends Component {
 
     this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
     this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
-    this.handleSelectChange = this.handleSelectChange.bind(this);
+    this.handleSortButtonChange = this.handleSortButtonChange.bind(this);
+    this.handleFlipSortChange = this.handleFlipSortChange.bind(this);
   }
 
   handleFilterTextChange(e) {
@@ -15,43 +17,50 @@ class Filter extends Component {
   }
 
   handleCheckboxChange(e) {
-
     const name = e.target.name;
     const checked = e.target.checked;
     console.log(name, checked);
     this.props.onCheckboxChange(name, checked);
   }
 
-  handleSelectChange(e) {
-    console.log(e.target.value);
-    this.props.onSelectChange(e.target.value);
+
+  handleSortButtonChange(value) {
+    this.props.onSortButtonChange(value);
+  }
+
+  handleFlipSortChange() {
+    this.props.onFlipSortChange();
   }
 
   render() {
+    const sortValue = this.props.sortValue;
+
+    //SORT_CONSTANTS
+    const VIEWS = "views";
+    const SPECIMEN = "specimen";
+    const USER = "user";
+    const LAST_MODIFIED = "lastModified";
+    const DATE_TAKEN = "dateTaken";
 
     return (
       <div className="col-sm-2">
-        <div id="filters">
+        {/* <div id="filter flipSort={this.props.flipSort}"></div> */}
 
         {/* filterText */}
         <b>Search</b>
         <input className="form-control" type="text" value={this.props.filterText} onChange={this.handleFilterTextChange} placeholder="Search for..."/>
 
+
         {/* sorts */}
-       <b>Sort by</b>
-        <select value={this.props.sortValue} onChange={this.handleSelectChange}>
-            <option value={null}>Default</option>
-            <option value="viewsHtL">Views: High to Low </option>
-            <option value="viewsLtH">Views: Low to High</option>
-            <option value="specimenAtZ">Specimen: A to Z</option>
-            <option value="specimenZtA">Specimen: Z to A</option>
-            <option value="userAtZ">User: A to Z</option>
-            <option value="userZtA">User: Z to A</option>
-            <option value="lastModifiedNtL">Last Modified: Newest to Latest</option>
-            <option value="lastModifiedLtN">Last Modified: Newest to Latest</option>
-            <option value="dateTakenNtL">Date Taken: Newest to Latest</option>
-            <option value="dateTakenLtN">Date Taken: Latest to Newest</option>
-        </select>
+        <div id="reddiv"></div><b>Sort by</b>
+
+        <div className="sortButton">
+          <SortValueButton buttonValue="Views" name={VIEWS} sortValue={this.props.sortValue} onSortButtonChange={this.handleSortButtonChange} onFlipSortChange={this.handleFlipSortChange} flipSort={this.props.flipSort} />
+          <SortValueButton buttonValue="Specimen" name={SPECIMEN} sortValue={this.props.sortValue} onSortButtonChange={this.handleSortButtonChange} onFlipSortChange={this.handleFlipSortChange} flipSort={this.props.flipSort} />
+          <SortValueButton buttonValue="User" name={USER} sortValue={this.props.sortValue} onSortButtonChange={this.handleSortButtonChange} onFlipSortChange={this.handleFlipSortChange} flipSort={this.props.flipSort} />
+          <SortValueButton buttonValue="Last Modifed" name={LAST_MODIFIED} sortValue={this.props.sortValue} onSortButtonChange={this.handleSortButtonChange} onFlipSortChange={this.handleFlipSortChange} flipSort={this.props.flipSort} />
+          <SortValueButton buttonValue="Date Taken" name={DATE_TAKEN} sortValue={this.props.sortValue} onSortButtonChange={this.handleSortButtonChange} onFlipSortChange={this.handleFlipSortChange} flipSort={this.props.flipSort} />
+        </div>
 
         {/* filters */}
         <b>Filters</b>

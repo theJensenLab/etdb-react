@@ -12,11 +12,12 @@ class Browse extends Component {
 		this.state = {
 			filterText: "",
 			// filterState: {
-			// 	test: "ryan",
-			// 	test2: "erik"
+			// 	test: "devon",
+			// 	test2: "amy"
 			// },
 			artifacts: [],
-			sortValue: null
+			sortValue: null,
+			flipSort: false
 
 		}
 
@@ -24,7 +25,8 @@ class Browse extends Component {
 		this.storeTomograms = this.storeTomograms.bind(this);
 		this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
 		this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
-		this.handleSelectChange = this.handleSelectChange.bind(this);
+		this.handleSortButtonChange = this.handleSortButtonChange.bind(this);
+		this.handleFlipSortChange = this.handleFlipSortChange.bind(this);
 	}
 
 	componentDidMount(){
@@ -61,10 +63,17 @@ class Browse extends Component {
 		// console.log(this.state);
 	}
 
-	handleSelectChange(value) {
+	handleSortButtonChange(value) {
 		this.setState({
-			sortValue: value
+			sortValue: value,
+			flipSort: false
 		})
+	}
+
+	handleFlipSortChange() {
+		this.setState(prevState => ({
+      flipSort: !prevState.flipSort
+    }))
 	}
 
 	render(){
@@ -77,7 +86,10 @@ class Browse extends Component {
 						onFilterTextChange={this.handleFilterTextChange}
 						onCheckboxChange={this.handleCheckboxChange}
 						onSelectChange={this.handleSelectChange}
-						sortValue={this.sortValue}
+						sortValue={this.state.sortValue}
+						onSortButtonChange={this.handleSortButtonChange}
+						onFlipSortChange={this.handleFlipSortChange}
+						flipSort={this.state.flipSort}
 					/>
 					<SearchResultGrid
 						Core={this.props.Core}
@@ -85,6 +97,7 @@ class Browse extends Component {
 						filterText={this.state.filterText}
 						filterState={this.state}
 						sortValue={this.state.sortValue}
+						flipSort={this.state.flipSort}
 					/>
 
 				</div>
