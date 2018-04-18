@@ -31,13 +31,14 @@ class Filter extends Component {
 
     return (
       <div className="col-sm-2">
-        <div id="filters"></div>
+        <div id="filters">
 
         {/* filterText */}
+        <b>Search</b>
         <input className="form-control" type="text" value={this.props.filterText} onChange={this.handleFilterTextChange} placeholder="Search for..."/>
 
         {/* sorts */}
-        <div id="reddiv"></div><b>Sort by</b>
+       <b>Sort by</b>
         <select value={this.props.sortValue} onChange={this.handleSelectChange}>
             <option value={null}>Default</option>
             <option value="viewsHtL">Views: High to Low </option>
@@ -54,11 +55,11 @@ class Filter extends Component {
           </select>
 
         {/* filters */}
-        <div id="reddiv"></div><b>Filters</b>
+        <b>Filters</b>
         <p><input type="checkbox" onChange={this.handleCheckboxChange} name="bacteria" checked={null}/>   Bacteria</p>
         <p><input type="checkbox" onChange={this.handleCheckboxChange} name="archaea" checked={null}/>   Archaea</p>
         <p><input type="checkbox" onChange={this.handleCheckboxChange} name="eukaryotes" checked={null}/>   Eukaryotes</p>
-      </div>
+      </div></div>
     )
   }
 }

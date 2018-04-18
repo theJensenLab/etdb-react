@@ -12,7 +12,10 @@ class FlagellaCollection extends Component {
 				<Header />
 				<div class="row" id="featured-2">
 					<div class="col-sm-8">
-						<h2>Cell Envelope</h2>
+						<h2>Flagella</h2>
+					</div>
+                    <div class="col-sm-4">
+					<a class="back" href="http://localhost:9156/featured">Back to featured tomograms</a>
 					</div>
 				</div>
 				<div class="row" id="featured-3">

@@ -4,7 +4,7 @@ class Footer extends Component {
 	render(){
 		return(
 
-
+<div className="row">This project</div>
             
 			<div className="row" id="footer">
 			  <div className="col-sm-3">
