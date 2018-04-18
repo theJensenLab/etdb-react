@@ -1,6 +1,6 @@
 
 import React, {Component} from 'react';
-import SortValueButton from './SortValueButton';
+import SortValueButton from './sortValueButton';
 
 class Filter extends Component {
   constructor(props) {
