@@ -44,7 +44,7 @@ class Filter extends Component {
 
     return (
       <div className="col-sm-2">
-        {/* <div id="filter flipSort={this.props.flipSort}"></div> */}
+        <div id="filter"></div>
 
         {/* filterText */}
         <b>Search</b>
@@ -67,7 +67,7 @@ class Filter extends Component {
         <p><input type="checkbox" onChange={this.handleCheckboxChange} name="bacteria" checked={null}/>   Bacteria</p>
         <p><input type="checkbox" onChange={this.handleCheckboxChange} name="archaea" checked={null}/>   Archaea</p>
         <p><input type="checkbox" onChange={this.handleCheckboxChange} name="eukaryotes" checked={null}/>   Eukaryotes</p>
-      </div></div>
+      </div>
     )
   }
 }
