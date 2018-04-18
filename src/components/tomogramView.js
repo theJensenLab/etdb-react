@@ -149,18 +149,16 @@ class TomogramView extends Component {
 						<center>
 							<h5>Snapshots</h5>
 						</center>
-						<Carousel>
+						<div style={{width: "100%", margin: "auto", overflowX: "auto"}}>
+							<div style={{display: "flex"}}>
 								{files.map((file) => {
 									if (file.getSubtype() === 'Snapshot' && file.getFilename().match(`.jpg$`)) {
 										let path = "http://etdb.caltech.edu:8080/ipfs/" + location + "/" + file.getFilename()
-										return <Carousel.Item>
-												<center>
-													<img width={300} height={300} src={path}></img>
-												</center>
-											</Carousel.Item>
+										return <img width="auto" height={300} src={path} style={{display: "inline-block", padding: "0px 3px"}}></img>
 									}
 								})}
-						</Carousel>
+							</div>
+						</div>
 					</div>
 					<div className="col-sm-12" style={{marginTop: "10px"}}>
 						<center>
