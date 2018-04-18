@@ -63,6 +63,11 @@ class TomogramView extends Component {
 					}
 				}
 			}
+			
+			let fileSubtypeOrder = ['Tiltseries', 'Reconstruction', 'Keymov', 'Keyimg', 'Preview', 'Snapshot', 'Thumbnail']
+			files.sort((a, b) => {
+				return fileSubtypeOrder.indexOf(a.getSubtype()) - fileSubtypeOrder.indexOf(b.getSubtype())
+			})
 
 			if (!thumbFilename){
 				thumbnail = this.state.artifact.getThumbnail()
