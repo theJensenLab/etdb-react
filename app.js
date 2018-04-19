@@ -7,6 +7,7 @@ import ReactDOM from 'react-dom';
 import AppRoutes from './src/components/appRoutes.js';
 
 import './node_modules/bootstrap/dist/css/bootstrap.min.css'
+import './src/assets/css/fontawesome-all.min.css'
 import './src/assets/css/jensen.css'
 import './src/assets/css/contact.css'
 import './src/assets/css/special-typekit-fonts.css'

@@ -23,8 +23,6 @@
   },
   "homepage": "https://github.com/theJensenLab/etdb-react#readme",
   "dependencies": {
-    "@fortawesome/fontawesome": "^1.1.5",
-    "@fortawesome/react-fontawesome": "0.0.18",
     "bootstrap": "^3.3.7",
     "filesize": "^3.6.1",
     "moment": "^2.22.0",
