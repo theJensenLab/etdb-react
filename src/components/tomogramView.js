@@ -191,7 +191,7 @@ class TomogramView extends Component {
 						
 						<p><b>Tilt Series date:</b> {niceDate}</p>
 						<p><b>Data Taken By:</b> {microscopist}</p>
-						<p><b>Species / Specimen:</b> {speciesName}</p>
+						<p><b>Species / Specimen:</b> <i>{speciesName} </i></p>
 						<p><b>Strain:</b> {strain}</p>
 						<p><b>Tilt Series Setting:</b> {tiltSeriesSettingsString}.</p>
 						<p><b>Microscope:</b> {scopeName}</p>
