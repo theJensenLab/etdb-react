@@ -13,6 +13,13 @@ import {
 	PinterestShareButton,
 	RedditShareButton,
 	EmailShareButton,
+	FacebookIcon,
+	TwitterIcon,
+	GooglePlusIcon,
+	LinkedinIcon,
+	PinterestIcon,
+	RedditIcon,
+	EmailIcon,
   } from 'react-share';
 
 import Header from './header.js'
@@ -145,8 +152,28 @@ class TomogramView extends Component {
 							</video> : <img src={"http://etdb.caltech.edu:8080/ipfs/" + location + "/" + thumbFilename} />}
 							<div id="share">
 								<p>
-									<b>Share:</b>	
-									<FacebookShareButton url={"http://etdb.caltech.edu/tomogram/" + txid}/>
+									<b>Share:</b>
+									<TwitterShareButton url={"http://etdb.caltech.edu/tomogram/" + txid}>
+										<TwitterIcon size={32} round />
+									</TwitterShareButton>
+									<RedditShareButton url={"http://etdb.caltech.edu/tomogram/" + txid}>
+										<RedditIcon size={32} round />
+									</RedditShareButton>
+									<FacebookShareButton url={"http://etdb.caltech.edu/tomogram/" + txid}>
+										<FacebookIcon size={32} round />
+									</FacebookShareButton>
+									<LinkedinShareButton url={"http://etdb.caltech.edu/tomogram/" + txid}>
+										<LinkedinIcon size={32} round />
+									</LinkedinShareButton>
+									<GooglePlusShareButton url={"http://etdb.caltech.edu/tomogram/" + txid}>
+										<GooglePlusIcon size={32} round />
+									</GooglePlusShareButton>
+									<PinterestShareButton url={"http://etdb.caltech.edu/tomogram/" + txid}>
+										<PinterestIcon size={32} round />
+									</PinterestShareButton>
+									<EmailShareButton url={"http://etdb.caltech.edu/tomogram/" + txid}>
+										<EmailIcon size={32} round />
+									</EmailShareButton>
 								</p>
 							</div>
 						</div>
