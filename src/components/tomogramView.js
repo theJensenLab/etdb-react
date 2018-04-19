@@ -7,21 +7,20 @@ import { Button, Panel, PanelGroup } from 'react-bootstrap'
 
 import {
 	FacebookShareButton,
-	GooglePlusShareButton,
 	LinkedinShareButton,
 	TwitterShareButton,
-	PinterestShareButton,
-	TelegramShareButton,
 	RedditShareButton,
 	EmailShareButton,
+	
 	FacebookIcon,
 	TwitterIcon,
-	TelegramIcon,
-	GooglePlusIcon,
 	LinkedinIcon,
-	PinterestIcon,
 	RedditIcon,
 	EmailIcon,
+
+	FacebookShareCount,
+	LinkedinShareCount,
+	RedditShareCount,
   } from 'react-share';
 
 import Header from './header.js'
@@ -59,7 +58,9 @@ class TomogramView extends Component {
 		this.setState({artifact: artifact});
 	}
 	render(){
-		let title = "loading...", timestamp, description, strain, speciesName, date, NBCItaxID, artNotes, tiltSingleDual, files = [], thumbnail, thumbFilename, video, videoFilename, location, defocus, niceDate, software = "No info available", institution, lab, microscopist, scopeName, magnification, tiltSeriesSettingsString, txid, snapshots = []
+		let title = "loading...", timestamp, description, strain, speciesName, date, NBCItaxID, artNotes, tiltSingleDual, files = [], thumbnail, thumbFilename, video, videoFilename, location, defocus, niceDate, software = "No info available", institution, lab, microscopist, scopeName, magnification, tiltSeriesSettingsString, txid, hashtags, snapshots = []
+
+		hashtags = ["ETDB", "ElectronTomography"]
 
 		//props instead of state
 		if (this.state.artifact){
@@ -155,25 +156,19 @@ class TomogramView extends Component {
                         <div id="share">
 								<p>
 									<b>Share:</b>
-									<EmailShareButton url={"http://etdb.caltech.edu/tomogram/" + txid}>
+									<EmailShareButton url={"http://etdb.caltech.edu/tomogram/" + txid} subject={"ETDB tomogram of " + title}>
 										<EmailIcon size={32} round />
 									</EmailShareButton>
-									<PinterestShareButton url={"http://etdb.caltech.edu/tomogram/" + txid}>
-										<PinterestIcon size={32} round />
-									</PinterestShareButton>
-									<GooglePlusShareButton url={"http://etdb.caltech.edu/tomogram/" + txid}>
-										<GooglePlusIcon size={32} round />
-									</GooglePlusShareButton>
-									<LinkedinShareButton url={"http://etdb.caltech.edu/tomogram/" + txid}>
+									<LinkedinShareButton url={"http://etdb.caltech.edu/tomogram/" + txid} title={"ETDB tomogram of " + title}>
 										<LinkedinIcon size={32} round />
 									</LinkedinShareButton>
-									<FacebookShareButton url={"http://etdb.caltech.edu/tomogram/" + txid}>
+									<FacebookShareButton url={"http://etdb.caltech.edu/tomogram/" + txid} hashtag="#ETDB #ElectronTomography" quote={"ETDB tomogram of " + title}>
 										<FacebookIcon size={32} round />
 									</FacebookShareButton>
-									<RedditShareButton url={"http://etdb.caltech.edu/tomogram/" + txid}>
+									<RedditShareButton url={"http://etdb.caltech.edu/tomogram/" + txid} title={"ETDB tomogram of " + title}>
 										<RedditIcon size={32} round />
 									</RedditShareButton>
-									<TwitterShareButton url={"http://etdb.caltech.edu/tomogram/" + txid}>
+									<TwitterShareButton url={"http://etdb.caltech.edu/tomogram/" + txid} hashtags={hashtags} via="TheJensenLab" title={"ETDB tomogram of " + title}>
 										<TwitterIcon size={32} round />
 									</TwitterShareButton>
 								</p>
