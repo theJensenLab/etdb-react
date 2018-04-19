@@ -1254,6 +1254,12 @@ div#singletomogram {
 
 }
 
+.snapshots h4, .downloads h4 {
+    border-bottom: 0px;
+    margin-bottom: 0px;
+    margin-top: 80px;
+}
+
 div#singletomogram p {
     display: inline;
     margin-left: 10px;
