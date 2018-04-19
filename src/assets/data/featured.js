@@ -99,7 +99,7 @@ module.exports = {
          "thumbnail": {
             "institution": "Caltech", 
             "lab": "Jensen Lab", 
-            "sid": "zl2008-07-07-8"
+            "sid": "mp2009-08-04-20"
          },
          "detailOne": "Bacteria and archaea have evolved very different shapes to thrive in different environmental niches. Some cells are coccoid (round), some rod-shaped, others vibrioid (banana-shaped), or even square.  Some spiral like corkscrews, and some resemble stars.  Still others are pleomorphic (varied in shape).  Here's a sample of that diversity:",
          "detailTwo": "",
