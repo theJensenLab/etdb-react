@@ -120,15 +120,14 @@ div#topbar.transparent div#menu {
     padding-top: 0px;
 }
 
+circle {
+    fill: #000;
+    border-radius: 0px !important;
+}
+
 -------------------------------------------------------------- */
 /* FAQ
 -------------------------------------------------------------- */
-
-
-
-
-
-
 
 
 .panel-group .panel+.panel {
@@ -557,7 +556,7 @@ div#footer img {
 div#footer {
     text-align: center;
     background: #fafafa;
-    z-index: 999;
+
     position:absolute;
 }
 
