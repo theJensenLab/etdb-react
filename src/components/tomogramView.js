@@ -145,17 +145,11 @@ class TomogramView extends Component {
 					</div>
 				</div>
                 <div className="container row" id="singletomograminfo">
-                <h2>{title}</h2>
+                <div className="col-sm-6"> <h2>{title}</h2>
 						<div id="reddiv"> </div>
-                        </div>
-
-				<div className="container row" id="singletomograminfo">
-					<div className="col-sm-4" id="videoembed">
-						<div id="videoinner">
-							{ videoFilename ? <video autoPlay loop controls>
-								<source src={"http://etdb.caltech.edu:8080/ipfs/" + location + "/" + videoFilename} />
-							</video> : <img src={"http://etdb.caltech.edu:8080/ipfs/" + location + "/" + thumbFilename} />}
-							<div id="share">
+</div>
+<div className="col-sm-6">
+                        <div id="share">
 								<p>
 									<b>Share:</b>
 									<TwitterShareButton url={"http://etdb.caltech.edu/tomogram/" + txid}>
@@ -181,6 +175,16 @@ class TomogramView extends Component {
 									</EmailShareButton>
 								</p>
 							</div>
+                            </div>
+                        </div>
+
+				<div className="container row" id="singletomograminfo">
+					<div className="col-sm-4" id="videoembed">
+						<div id="videoinner">
+							{ videoFilename ? <video autoPlay loop controls>
+								<source src={"http://etdb.caltech.edu:8080/ipfs/" + location + "/" + videoFilename} />
+							</video> : <img src={"http://etdb.caltech.edu:8080/ipfs/" + location + "/" + thumbFilename} />}
+							
 						</div>
 					</div>
 					<div className="col-sm-8" id="tomographdata">
