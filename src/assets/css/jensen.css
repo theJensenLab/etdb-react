@@ -865,10 +865,6 @@ div#tomogramcell name {
     padding-top: 5px;
 }
 
-div#searchresultsgrid .col-sm-3:hover {
-    background: #2b2b2b;
-    opacity: 1;
-}
 
 div#searchresultsgrid {
     padding: 0px;
