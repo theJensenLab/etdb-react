@@ -37,7 +37,7 @@ class About extends Component {
 				    </div>
 				  </div>
             <div className="col-sm-6">
-							<img src="http://www.designing-science-development.com/jensen/wp-content/uploads/2018/03/challenges.png"/>
+							<img src="/src/assets/img/challenges.png"/>
 						</div>
 
 				</div>
@@ -62,13 +62,13 @@ class About extends Component {
 				      <h3>Learning more</h3>
 				      <div id="reddiv"></div>
 				      <p>If you are interested in learning more about tomograms, this database and other research conducted by the Jensen Lab please <a href="/contact">get in touch</a></p>
-                      <p>Many of these datasets have been used in studies resulting in scientific publications. You can view a list of these publications on the <a target="blank" href="https://jensenlab.caltech.edu/publications/">Jensen Lab</a> website.
+                      <p>Many of these datasets have been used in studies resulting in scientific publications. You can view a list of these publications on the <a target="blank" href="/src/assets/img/learn-more.png">Jensen Lab</a> website.
 </p>
                       <a className="browse" href="http://www.jensenlab.caltech.edu">Jensen Lab <i className="fa fa-arrow-right" aria-hidden="true"></i></a>
 				    </div>
 				  </div>
 
-                  <div className="col-sm-6">			  		<img src="http://www.designing-science-development.com/jensen/wp-content/uploads/2018/03/cell.png"/>
+                  <div className="col-sm-6">			  		<img src="/src/assets/img/learn-more.png"/>
 </div>
 				</div>
 				<a name="FAQ"></a> 

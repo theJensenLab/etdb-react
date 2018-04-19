@@ -700,6 +700,11 @@ p.challenge {
     margin-right: 100px;
 }
 
+.panel-body a {
+    color: #000;
+    text-decoration: underline;
+}
+
 div#faqleft {
     padding-left: 150px;
 }

@@ -16,7 +16,7 @@ class Challenges extends Component {
 				  </div>
 
                    <div className="col-sm-4">
-                   <img src="http://www.designing-science-development.com/jensen/wp-content/uploads/2018/03/challenges.gif"/>				  </div>
+                   <img src="/src/assets/img/eye.png"/>				  </div>
 				</div>
                 <div id="longreddiv"></div>
                 <div className="row challengerow" id="about">

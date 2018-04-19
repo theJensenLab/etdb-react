@@ -49,7 +49,7 @@ class FAQ extends Component {
     return(
       <div>
         <a name="faq"></a>
-        <div id="space"></div>
+        
         <div id="faq">
           <h3>Facts & Questions</h3>
           <PanelGroup accordion activeKey={this.state.activeKey} id="faqPanel">
