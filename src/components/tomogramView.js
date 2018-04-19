@@ -4,6 +4,16 @@ import moment from 'moment';
 import filesize from 'filesize';
 import Lightbox from 'react-image-lightbox';
 
+import {
+	FacebookShareButton,
+	GooglePlusShareButton,
+	LinkedinShareButton,
+	TwitterShareButton,
+	PinterestShareButton,
+	RedditShareButton,
+	EmailShareButton,
+  } from 'react-share';
+
 import Header from './header.js'
 import Footer from './footer.js'
 
@@ -39,7 +49,7 @@ class TomogramView extends Component {
 		this.setState({artifact: artifact});
 	}
 	render(){
-		let title = "loading...", timestamp, description, strain, speciesName, date, NBCItaxID, artNotes, tiltSingleDual, files = [], thumbnail, thumbFilename, video, videoFilename, location, defocus, niceDate, software = "No info available", institution, lab, microscopist, scopeName, magnification, tiltSeriesSettingsString, snapshots = []
+		let title = "loading...", timestamp, description, strain, speciesName, date, NBCItaxID, artNotes, tiltSingleDual, files = [], thumbnail, thumbFilename, video, videoFilename, location, defocus, niceDate, software = "No info available", institution, lab, microscopist, scopeName, magnification, tiltSeriesSettingsString, txid, snapshots = []
 
 		//props instead of state
 		if (this.state.artifact){
@@ -117,6 +127,7 @@ class TomogramView extends Component {
 				tiltSeriesSettings.push(`magnification: ${this.state.artifact.getDetail("magnification")}x`);
 			
 			tiltSeriesSettingsString = tiltSeriesSettings.join(", ");
+			txid = this.state.artifact.getTXID()
 		}
 		return(
 			<div>
@@ -132,7 +143,10 @@ class TomogramView extends Component {
 								<source src={"http://etdb.caltech.edu:8080/ipfs/" + location + "/" + videoFilename} />
 							</video> : <img src={"http://etdb.caltech.edu:8080/ipfs/" + location + "/" + thumbFilename} />}
 							<div id="share">
-								<p><b>Share:</b><span className="fab fa-facebook-square"></span><span className="fab fa-twitter-square"></span></p>
+								<p>
+									<b>Share:</b>	
+									<FacebookShareButton url={"http://etdb.caltech.edu/tomogram/" + txid}/>
+								</p>
 							</div>
 						</div>
 					</div>
