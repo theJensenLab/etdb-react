@@ -855,7 +855,7 @@ div#filters input.form-control {
 div#searchresultsgrid .col-sm-3 {
     padding-bottom: 5px;
     padding-top: 10px;
-    background: #696969;
+    background: #4a4a4a;
     width: 24%;
     margin: 5px;
 }
@@ -1337,7 +1337,7 @@ div#featured name {
 
 div#featured .col-sm-3 {
     margin-bottom: 30px;
-    background: #696969;
+    background: #4a4a4a;
     width: 24%;
     margin: 5px;
 }
