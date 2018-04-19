@@ -496,6 +496,11 @@ footer.site-footer {
     text-align: left;
 }
 
+div#footer H3 {
+    FONT-SIZE: 20px;
+    margin-bottom: 80px;
+}
+
 div#footer .col-sm-3 {
     height: 130px;
     text-align: center;
