@@ -15,7 +15,7 @@ class About extends Component {
 				  </div>
 				</div>
                 <div id="space150"></div>
-				<div className="row" id="about">
+				<div className="row aboutintro" id="about">
                 <div className="col-sm-12">	<h3>About Electron tomography</h3>
 				      <div id="reddiv"></div>
                       </div>
@@ -41,7 +41,7 @@ class About extends Component {
 						</div>
 
 				</div>
-				<div className="row" id="about">
+				<div className="row aboutintro" id="about">
                 
 				  <div className="col-sm-6">
               <h3>Built with Blockchain</h3>			  		 

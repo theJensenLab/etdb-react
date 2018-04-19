@@ -121,8 +121,12 @@ div#topbar.transparent div#menu {
 }
 
 circle {
-    fill: #e5342a;
+    fill: #e4e2d8;
     border-radius: 0px !important;
+}
+
+path {
+    fill: #2b2b2b;
 }
 
 -------------------------------------------------------------- */
@@ -559,8 +563,7 @@ div#footer img {
 
 div#footer {
     text-align: center;
-    background: #fafafa;
-
+    BACKGROUND: #EFEEE9;
     position:absolute;
 }
 
@@ -686,6 +689,13 @@ div#longreddiv {
 
 div#about .col-sm-9 {
     padding-left: 0px !important;
+}
+
+.aboutintro {
+    background: #EFEEE9;
+    padding: 30px;
+    margin-bottom: 50px !important;
+    padding-bottom: 30px !important;
 }
 
 p.note {
@@ -845,18 +855,18 @@ div#filters input.form-control {
 div#searchresultsgrid .col-sm-3 {
     padding-bottom: 5px;
     padding-top: 10px;
-    background: #2b2b2b;
+    background: #EFEEE9;
     width: 24%;
     margin: 5px;
 }
 
 div#tomogramcell name {
-    color: #fff;
+    color: #000;
     padding-top: 5px;
 }
 
 div#searchresultsgrid .col-sm-3:hover {
-    background: #000;
+    background: #e4e2d8;
     opacity: 1;
 }
 
@@ -921,7 +931,7 @@ a.tomogram-link:hover {
 
 .TomoCellSubtext {
     font-size: 12px;
-    color: #ccc;
+    color: grey;
     display: inline;
     font-weight: 100;
     border-bottom: 0px;
@@ -1313,6 +1323,10 @@ a.backtodatabase {
 div#featured img {
     width: 100%;
     margin-bottom: 15px;
+}
+
+div#featured .col-sm-3 {
+    margin-bottom: 30px;
 }
 
 a.back {
