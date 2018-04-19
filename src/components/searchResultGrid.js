@@ -28,7 +28,6 @@ class SearchResultGrid extends Component {
 
     //FILTERS
     this.props.artifacts.forEach((artifact) => {
-
       // console.log(artifact);
       const name = artifact.getTitle();
       if (name.indexOf(filterText) === -1) {
@@ -81,14 +80,15 @@ class SearchResultGrid extends Component {
       case USER:
         console.log(sortValue);
         artifacts.sort( (a,b) => {
-          //adding .toLowerCase() throws error
-          var x = a.getDetail("microscopist");
-          var y = b.getDetail("microscopist");
-          if (x < y) {return -1;}
-          if (x > y) {return 1;}
+          if ((typeof b.getDetail("microscopist") === 'undefined' && typeof a.getDetail("microscopist") !== 'undefined') || a.getDetail("microscopist") < b.getDetail("microscopist")) {
+          return -1;
+          }
+          if ((typeof a.getDetail("microscopist") === 'undefined' && typeof b.getDetail("microscopist") !== 'undefined') || a.getDetail("microscopist") > b.getDetail("microscopist")) {
+              return 1;
+          }
           return 0;
-        });
-        break;
+      });
+      break;
       case LAST_MODIFIED:
         console.log(sortValue);
         artifacts.sort( (a,b) => {return b.getTimestamp()-a.getTimestamp()});
@@ -101,7 +101,6 @@ class SearchResultGrid extends Component {
         artifacts.sort( (a,b) => {return b.getTimestamp()-a.getTimestamp()});
 
     }
-
 
     if (flipSort === true) {artifacts.reverse()};
 
