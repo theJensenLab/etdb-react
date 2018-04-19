@@ -56,7 +56,7 @@ class Home extends Component {
 				  </div>
 				</div>
 				<div id="home-image">
-				  <div id="home-image-container"><img src={red}/></div>
+				  <div id="home-image-container"><img src="/src/assets/img/etdb-home.png"/></div>
 				</div>
 				<div className="row" id="homecontent">
 				  <div className="col-sm-6" id="homehero"></div>
