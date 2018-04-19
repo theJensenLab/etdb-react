@@ -9,16 +9,15 @@ class Challenges extends Component {
 			<div>
 				<Header />
                 <div id="space150"></div>
-				<div className="row challengerow" id="about">
+				<div className="row " id="about">
 				  <div className="col-sm-8">
-                  <h4>Scientific Challenges</h4>
+                  <h2><b>Scientific Challenges</b></h2>
 				    <h2>In addition to its value for cell biologists, the ETDB offers a massive dataset for software developers to develop, test and improve image processing algorithms. Below are some ideas for areas particularly ripe for improvement.</h2>
 				  </div>
 
                    <div className="col-sm-4">
                    <img src="/src/assets/img/eye.png"/>				  </div>
 				</div>
-                <div id="longreddiv"></div>
                 <div className="row challengerow" id="about">
                
 				  <div className="col-sm-9">
@@ -43,7 +42,6 @@ class Challenges extends Component {
 				</div>
 
 
-                <div id="longreddiv"></div>
 
                   <div className="row challengerow" id="about">
                 
@@ -65,9 +63,8 @@ class Challenges extends Component {
                   </div>
 				</div>
 
-                       <div id="longreddiv"></div>
 
-<div className="row" id="about">
+<div className="row challengerow" id="about">
 
 <div className="col-sm-9">
 <h3>3.  Improved software to find and track fiducial markers
