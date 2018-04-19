@@ -146,38 +146,37 @@ class TomogramView extends Component {
 				</div>
                 <div className="container row" id="singletomograminfo">
                 <div className="col-sm-6"> <h2>{title}</h2>
-						<div id="reddiv"> </div>
-</div>
-<div className="col-sm-6">
+					<div id="reddiv"> </div>
+				</div>
+				<div className="col-sm-6">
                         <div id="share">
 								<p>
 									<b>Share:</b>
-									<TwitterShareButton url={"http://etdb.caltech.edu/tomogram/" + txid}>
-										<TwitterIcon size={32} round />
-									</TwitterShareButton>
-									<RedditShareButton url={"http://etdb.caltech.edu/tomogram/" + txid}>
-										<RedditIcon size={32} round />
-									</RedditShareButton>
-									<FacebookShareButton url={"http://etdb.caltech.edu/tomogram/" + txid}>
-										<FacebookIcon size={32} round />
-									</FacebookShareButton>
-									<LinkedinShareButton url={"http://etdb.caltech.edu/tomogram/" + txid}>
-										<LinkedinIcon size={32} round />
-									</LinkedinShareButton>
-									<GooglePlusShareButton url={"http://etdb.caltech.edu/tomogram/" + txid}>
-										<GooglePlusIcon size={32} round />
-									</GooglePlusShareButton>
-									<PinterestShareButton url={"http://etdb.caltech.edu/tomogram/" + txid}>
-										<PinterestIcon size={32} round />
-									</PinterestShareButton>
 									<EmailShareButton url={"http://etdb.caltech.edu/tomogram/" + txid}>
 										<EmailIcon size={32} round />
 									</EmailShareButton>
+									<PinterestShareButton url={"http://etdb.caltech.edu/tomogram/" + txid}>
+										<PinterestIcon size={32} round />
+									</PinterestShareButton>
+									<GooglePlusShareButton url={"http://etdb.caltech.edu/tomogram/" + txid}>
+										<GooglePlusIcon size={32} round />
+									</GooglePlusShareButton>
+									<LinkedinShareButton url={"http://etdb.caltech.edu/tomogram/" + txid}>
+										<LinkedinIcon size={32} round />
+									</LinkedinShareButton>
+									<FacebookShareButton url={"http://etdb.caltech.edu/tomogram/" + txid}>
+										<FacebookIcon size={32} round />
+									</FacebookShareButton>
+									<RedditShareButton url={"http://etdb.caltech.edu/tomogram/" + txid}>
+										<RedditIcon size={32} round />
+									</RedditShareButton>
+									<TwitterShareButton url={"http://etdb.caltech.edu/tomogram/" + txid}>
+										<TwitterIcon size={32} round />
+									</TwitterShareButton>
 								</p>
 							</div>
                             </div>
                         </div>
-
 				<div className="container row" id="singletomograminfo">
 					<div className="col-sm-4" id="videoembed">
 						<div id="videoinner">
