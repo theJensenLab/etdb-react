@@ -7,8 +7,8 @@ class Home extends Component {
 		super(props);
 
 		this.state = {
-			numberOfTomograms: 2,
-			numberOfSpecies: 2
+			numberOfTomograms: 0,
+			numberOfSpecies: 0
 		}
 
 		this.getTomograms = this.getTomograms.bind(this);

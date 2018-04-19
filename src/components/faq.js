@@ -11,8 +11,8 @@ class FAQ extends Component {
     
     this.state = {
       activeKey: null,
-      numberOfTomograms: 40,
-      numberOfSpecies: 10
+      numberOfTomograms: 0,
+      numberOfSpecies: 0
     };
 
     this.getTomograms = this.getTomograms.bind(this);

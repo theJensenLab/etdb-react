@@ -158,9 +158,6 @@ class TomogramView extends Component {
 									<EmailShareButton url={"http://etdb.caltech.edu/tomogram/" + txid}>
 										<EmailIcon size={32} round />
 									</EmailShareButton>
-									<TelegramShareButton url={"http://etdb.caltech.edu/tomogram/" + txid}>
-										<TelegramIcon size={32} round />
-									</TelegramShareButton>
 									<PinterestShareButton url={"http://etdb.caltech.edu/tomogram/" + txid}>
 										<PinterestIcon size={32} round />
 									</PinterestShareButton>
