@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 
 import logo from '../assets/img/etdb-logo.png'
-import red from '../assets/img/red.jpg'
 
 class Home extends Component {
 	constructor(props){
