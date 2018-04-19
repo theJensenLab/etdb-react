@@ -9,19 +9,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/OstlerDev/etdb-react.git"
+    "url": "git+https://github.com/theJensenLab/etdb-react.git"
   },
   "keywords": [
     "OIP",
     "Tomogram",
     "etdb"
   ],
-  "author": "Sky Young <sky@alexandria.io>",
-  "license": "ISC",
+  "contributors": ["Davi Ortega <ortegad@caltech.edu>", "Sky Young <sky@alexandria.io>", "Ohryan <ohryan@alexandria.io>", "Prudence Rees-Lee"],
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/OstlerDev/etdb-react/issues"
+    "url": "https://github.com/theJensenLab/etdb-react/issues"
   },
-  "homepage": "https://github.com/OstlerDev/etdb-react#readme",
+  "homepage": "https://github.com/theJensenLab/etdb-react#readme",
   "dependencies": {
     "@fortawesome/fontawesome": "^1.1.5",
     "@fortawesome/react-fontawesome": "0.0.18",
