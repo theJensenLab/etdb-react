@@ -15,7 +15,7 @@ class Browse extends Component {
 			sortValue: null,
 			flipSort: false
 		}
-		
+
 		this.getTomograms = this.getTomograms.bind(this);
 		this.storeTomograms = this.storeTomograms.bind(this);
 		this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
