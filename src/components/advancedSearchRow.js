@@ -34,7 +34,7 @@ class AdvancedSearchRow extends Component {
         {/* ---------------- ALL FIELDS ----------------*/}
         <div className="row" style={FieldRow1}>
           <select className="col-sm-5 as-select">
-            <option>Field</option>
+            <option>All Fields</option>
             <option>Microscopist</option>
             <option>Species Name</option>
             <option>Strain</option>

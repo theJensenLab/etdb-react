@@ -20,3 +20,9 @@
 .as-select {
   margin-right: auto;
 }
+
+.submit-as-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}

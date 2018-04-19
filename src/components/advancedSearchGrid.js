@@ -2,6 +2,7 @@
 import React, {Component} from 'react';
 import AdvancedSearchRow from './advancedSearchRow'
 import AdvancedSearchRowComplex from './advancedSearchRowComplex'
+import SubmitAdvancedSearch from './submitAdvancedSearch'
 
 
 class AdvancedSearchGrid extends Component {
@@ -49,6 +50,7 @@ class AdvancedSearchGrid extends Component {
         {/* ---------------- ADDITIONAL SEARCH ROWS TO ADD COMPLEXITY QUERIES ---------------- */}
         {complexRows}
         {/* ---------------- SUBMIT BUTTON ---------------- */}
+        <SubmitAdvancedSearch />
 
       </div>
 
