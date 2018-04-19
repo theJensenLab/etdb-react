@@ -4,8 +4,9 @@ class Footer extends Component {
 	render(){
 		return(
 			<div>
-				<div className="row">This project</div>
+				
 					<div className="row" id="footer">
+                    <h3>This project was made possible thanks to the support of the following organizations: </h3>
 						<div className="col-sm-3">
 							<a target="blank" href="http://www.hhmi.org/">
 								<img className="square" src="/src/assets/img/hhmi.png"/>
