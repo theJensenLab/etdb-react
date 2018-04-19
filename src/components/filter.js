@@ -1,7 +1,7 @@
 
 import React, {Component} from 'react';
 import SortValueButton from './sortValueButton';
-import AdvancedSearch from './advancedSearch'
+import Search from './search';
 
 
 class Filter extends Component {
@@ -9,7 +9,7 @@ class Filter extends Component {
     super(props);
 
     this.state = {
-      advancedSearchToggle: false
+      advancedSearchToggleBool: false
     }
 
     this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
@@ -19,8 +19,8 @@ class Filter extends Component {
     this.handleAdvancedSearchToggle = this.handleAdvancedSearchToggle.bind(this);
   }
 
-  handleFilterTextChange(e) {
-    this.props.onFilterTextChange(e.target.value);
+  handleFilterTextChange(value) {
+    this.props.onFilterTextChange(value);
   }
 
   handleCheckboxChange(e) {
@@ -41,7 +41,7 @@ class Filter extends Component {
 
   handleAdvancedSearchToggle() {
     this.setState(prevState => ({
-      advancedSearchToggle: !prevState.advancedSearchToggle
+      advancedSearchToggleBool: !prevState.advancedSearchToggleBool
     }))
   }
 
@@ -59,11 +59,12 @@ class Filter extends Component {
       <div className="col-sm-2">
         <div id="filters">
 
-        {/* filterText */}
-        <input className="form-control" type="text" value={this.props.filterText} onChange={this.handleFilterTextChange} placeholder="Search for..."/>
-
-        {/* advanced search */}
-        <AdvancedSearch onAdvancedSearchtoggleClick={this.handleAdvancedSearchToggle} advancedSearchToggle={this.state.advancedSearchToggle} />
+        {/* search */}
+        <Search
+          onFilterTextChange={this.handleFilterTextChange}
+          onAdvancedSearchtoggleClick={this.handleAdvancedSearchToggle}
+          advancedSearchToggleBool={this.state.advancedSearchToggleBool}
+        />
 
         {/* sort buttons */}
         <h5>Sort by</h5>

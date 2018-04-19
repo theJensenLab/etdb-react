@@ -70,7 +70,6 @@ class Browse extends Component {
 				<Header />
 				<div className="row" id="browsedatabase">
 					<Filter
-						filterText={this.state.filterText}
 						onFilterTextChange={this.handleFilterTextChange}
 						onCheckboxChange={this.handleCheckboxChange}
 						onSelectChange={this.handleSelectChange}

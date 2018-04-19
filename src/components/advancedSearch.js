@@ -15,10 +15,7 @@ class AdvancedSearch extends Component {
   }
 
   render() {
-    const toggleState = this.props.advancedSearchToggle;
-    const advancedSearchGrid = toggleState ? (
-      <AdvancedSearchGrid />
-    ) : (null);
+    const toggleState = this.props.advancedSearchToggleBool;
 
     return (
       <div style={AdvancedSearchContainer} className="advanced-search-container">
@@ -28,9 +25,6 @@ class AdvancedSearch extends Component {
             Advanced Search
           </button></div>
 
-        </div>
-        <div className="advanced-search-grid">
-          {advancedSearchGrid}
         </div>
 
       </div>
