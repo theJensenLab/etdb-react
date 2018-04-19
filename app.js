@@ -24,6 +24,11 @@ var Core = OIPJS({
 		} else {
 			return false;
 		}
+	}, function(artifact){
+		if (artifact.getMainAddress() === "FTzDQwVJZNPMUxxY7c3KB4jDambni7yZ3a"){
+			return true;
+		}
+		return false;
 	}]
 });
 
