@@ -9,8 +9,8 @@ class Header extends Component {
 		  <div id="headerfixed">
 		    <div id="topbar">
 		      <div className="row">
-		        <div className="col-sm-6"><Link to="/"><img className="black-logo" src={logo}/></Link></div>
-		        <div className="col-sm-6">
+		        <div className="col-sm-3"><Link to="/"><img className="black-logo" src={logo}/></Link></div>
+		        <div className="col-sm-9">
 		          <div id="menu">
 		          	<Link to="/about">About</Link>
 		          	<Link to="/browse">Browse Database</Link>

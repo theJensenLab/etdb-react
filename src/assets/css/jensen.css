@@ -271,7 +271,7 @@ div#menu a:before {
 
 div#menu a {
     color: #2b2b2b;
-    margin: 0 10px;
+    margin: 0 30px;
     position: relative;
 
   text-decoration: none;
@@ -281,7 +281,7 @@ div#menu a:hover {
 }
 
 div#menu {
-    text-align: center;
+    text-align: right;
     font-family: 'Open Sans', sans-serif;;
     font-weight: normal;
     font-size: 16px;
@@ -559,9 +559,8 @@ div#homecontent {
     padding-top: 120px;
 }
 
-div#browsedatabase b {
-    margin-bottom: 20px;
-    display: inline-block;
+.row.sort-row b {
+    font-weight: 600;
 }
 
 a.browse { 
@@ -773,10 +772,11 @@ div#sort {
     text-transform: uppercase;
 }
 
-div#filters b {
-    margin: 20px 0px 20px;
-    display: block;
-    border-bottom: 1px solid;
+div#filters h5 {
+    font-family: "open sans";
+    text-transform: none;
+    letter-spacing: 0px;
+    margin-top: 40px;
 }
 
 div#filters input.form-control::-webkit-input-placeholder {
@@ -787,6 +787,19 @@ div#filters input.form-control::-webkit-input-placeholder {
     line-height: 1.5;
     text-transform: none;
   }
+
+  .row.sort-row {
+    font-family: "letter-gothic-std";
+    margin-left: 0px;
+    padding-left: 0px;
+    font-size: 14px;
+    text-transform: uppercase !important;
+}
+
+button.sortButton {
+    padding: 0px;
+    margin-bottom: 10px;
+}
 
 div#filters input.form-control {
     border: 1px solid #000;
@@ -828,7 +841,9 @@ div#sortby {
     border-bottom: 1px solid #ccc;
 }
 
-
+div#browsedatabase video {
+    height: 200px;
+}
 
 div#browsedatabase {
     padding-top: 150px;
@@ -856,7 +871,7 @@ div#filters {
     width: 200px;
     z-index: 1;
     background: #e5342a;
-    padding: 0px 20px 20px;
+    padding: 20px 20px 20px;
     border-radius: 20px;
 }
 

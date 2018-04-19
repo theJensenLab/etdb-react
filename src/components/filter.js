@@ -50,7 +50,8 @@ class Filter extends Component {
         <input className="form-control" type="text" value={this.props.filterText} onChange={this.handleFilterTextChange} placeholder="Search for..."/>
 
         {/* sort buttons */}
-        <b>Sort by</b>
+      
+        <h5>Sort by</h5>
         <div className="sortButton">
           {/* <SortValueButton buttonValue="Views" name={VIEWS} sortValue={this.props.sortValue} onSortButtonChange={this.handleSortButtonChange} onFlipSortChange={this.handleFlipSortChange} flipSort={this.props.flipSort} /> */}
           <SortValueButton buttonValue="Specimen" name={SPECIMEN} sortValue={this.props.sortValue} onSortButtonChange={this.handleSortButtonChange} onFlipSortChange={this.handleFlipSortChange} flipSort={this.props.flipSort} />
