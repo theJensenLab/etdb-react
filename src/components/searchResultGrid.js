@@ -17,7 +17,7 @@ class SearchResultGrid extends Component {
     //SORT_CONSTANTS
     const VIEWS = "views";
     const SPECIMEN = "specimen";
-    const USER = "user";
+    const MICROSCOPIST = "microscopist";
     const LAST_MODIFIED = "lastModified";
     const DATE_TAKEN = "dateTaken";
 
@@ -28,7 +28,6 @@ class SearchResultGrid extends Component {
 
     //FILTERS
     this.props.artifacts.forEach((artifact) => {
-      // console.log(artifact);
       const name = artifact.getTitle();
       if (name.indexOf(filterText) === -1) {
         return;
@@ -77,7 +76,7 @@ class SearchResultGrid extends Component {
           return 0;
         });
         break;
-      case USER:
+      case MICROSCOPIST:
         console.log(sortValue);
         artifacts.sort( (a,b) => {
           if ((typeof b.getDetail("microscopist") === 'undefined' && typeof a.getDetail("microscopist") !== 'undefined') || a.getDetail("microscopist") < b.getDetail("microscopist")) {
