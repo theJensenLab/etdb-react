@@ -695,7 +695,7 @@ div#about .col-sm-9 {
     background: #EFEEE9;
     padding: 30px;
     margin-bottom: 50px !important;
-    padding-bottom: 30px !important;
+    padding-bottom: 100px !important;
 }
 
 p.note {
@@ -1325,9 +1325,24 @@ div#featured img {
     margin-bottom: 15px;
 }
 
+div#featured name {
+    color: #fff;
+    border-bottom: 0px;
+    text-align: center;
+    font-size: 18px;
+    font-family: muli;
+}
+
 div#featured .col-sm-3 {
     margin-bottom: 30px;
+    background: #e5342a;
+    width: 24%;
+    margin: 5px;
 }
+
+div#featured .col-sm-3 {
+    margin-bottom: 30px;
+    padding: 5px 5px 10px;}
 
 a.back {
     background: #2b2b2b;
@@ -1340,11 +1355,7 @@ a.back {
     letter-spacing: 1px;
 }
 
-div#featured name {
-    /* font-weight: bold; */
-    border-bottom: 1px solid;
-    padding-bottom: 10px;
-}
+
 
 div#featured-2 {
     max-width: 1200px;
