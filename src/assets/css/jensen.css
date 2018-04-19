@@ -1438,3 +1438,49 @@ div#featured-grid {
 h3.contact {
     font-size: 16px;
 }
+
+
+@media only screen and (max-width: 700px) {
+    div#searchresultsgrid .col-sm-3 {
+        padding-bottom: 5px;
+        padding-top: 10px;
+        background: #4a4a4a;
+        width: 100%;}
+
+        p.challenge {
+            margin-right: 0px;
+        }
+
+        div#menu a {
+            color: #2b2b2b;
+            margin: 0px;
+            position: relative;
+            text-decoration: none;
+            display: block;
+        }
+
+        div#topbar div#menu {
+            padding-top: 0px;
+            font-size: 12px;
+        }
+
+        div#topbar .col-sm-3, div#topbar .col-sm-9 {
+            width: 40%;
+        }
+
+        div#topbar .col-sm-9 {
+            float: right;
+            margin-top: -85px;
+        }
+
+        div#about h2 {
+            font-size: 16px;}
+
+            div#about a.browse {
+                margin-bottom: 50px;
+            }
+      
+div#footer {
+    padding: 20px 20px 0px;
+}
+}
