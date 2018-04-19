@@ -3,6 +3,7 @@ import { Carousel } from 'react-bootstrap'
 import moment from 'moment';
 import filesize from 'filesize';
 import Lightbox from 'react-image-lightbox';
+import { Button, Panel, PanelGroup } from 'react-bootstrap'
 
 import Header from './header.js'
 import Footer from './footer.js'
@@ -148,7 +149,31 @@ class TomogramView extends Component {
 						<p><b>Acquisition Software:</b> {software}</p>
 						<p><b>Processing Software Used:</b> Raptor</p>
 						<p style={{whiteSpace: "pre-wrap"}}><b>Notes:</b> {artNotes}</p>
+                       
+          <PanelGroup accordion activeKey={this.state.activeKey} id="faqPanel">
+            <Panel eventKey='1'>
+              <Button onClick={() => this.handleSelect('1')} className="accordion">Download Options</Button>
+              <Panel.Body collapsible>
+                <p>The Caltech Tomography Database is a public repository of {this.state.numberOfTomograms} cryo-electron tomography datasets (tilt-series and reconstructions) of cells. These datasets were acquired by the <a target="blank" href="http://www.jensenlab.caltech.edu">Jensen Lab</a> at Caltech over the past 15 years. Currently, {this.state.numberOfSpecies} species of bacteria and archaea are represented, and this number will keep climbing.</p>
+              </Panel.Body>
+            </Panel>
+          
+          
+         
+           
+         
+          </PanelGroup>
+    
+
 					</div>
+
+
+
+
+
+
+
+                    
 					<div className="col-sm-12" style={{marginTop: "10px"}}>
 						<center>
 							<h5>Snapshots</h5>

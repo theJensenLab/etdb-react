@@ -123,7 +123,27 @@ div#topbar.transparent div#menu {
 -------------------------------------------------------------- */
 /* FAQ
 -------------------------------------------------------------- */
+.panel-group .panel+.panel {
+    margin-top: 0px;
+}
 
+.panel-group .panel {
+    margin-bottom: 0;
+    border-radius: 0px;
+    margin-top: 0px;
+}
+
+input:focus {
+    outline:none !important;
+}
+
+:focus {outline:0 !important;}
+
+.btn-default:hover {
+
+    background-color: transparent !important;
+
+}
 
 div#faq {
     margin: 50px auto 50px;
