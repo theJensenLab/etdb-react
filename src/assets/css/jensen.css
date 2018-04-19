@@ -121,7 +121,7 @@ div#topbar.transparent div#menu {
 }
 
 circle {
-    fill: #000;
+    fill: #e5342a;
     border-radius: 0px !important;
 }
 
@@ -274,6 +274,10 @@ div#headerfixed {
 
 div#topbar.transparent {
     background: transparent !important;
+}
+
+.transparent a {
+    margin: 15px !important;
 }
 
 div#menu a:hover:before {
