@@ -137,7 +137,7 @@ class TomogramView extends Component {
 				tiltSeriesSettings.push(`magnification: ${this.state.artifact.getDetail("magnification")}x`);
 			
 			tiltSeriesSettingsString = tiltSeriesSettings.join(", ");
-			txid = this.state.artifact.getTXID()
+			txid = this.state.artifact.getTXID().substr(0,6)
 		}
 		return(
 			<div>
