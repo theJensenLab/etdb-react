@@ -272,6 +272,8 @@ class TomogramView extends Component {
 						</table>
 					</div>
 				</div>
+
+<center><a class="backtodatabase" href="/browse">Back to the database</a></center>
 				<Footer />
 			</div>
 		)
