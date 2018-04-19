@@ -102,9 +102,9 @@ svg.svg-inline--fa.fa-long-arrow-alt-right.fa-w-14 {
 }
 
 /* Hide Play button + controls on iOS */
-video::-webkit-media-controls {
+/*video::-webkit-media-controls {
     display:none !important;
-}
+}*/
 
 button.btn.btn-secondary {
     border: 1px solid;
@@ -120,9 +120,9 @@ div#topbar.transparent div#menu {
     padding-top: 0px;
 }
 
-/* -------------------------------------------------------------- */
+-------------------------------------------------------------- */
 /* FAQ
-/* -------------------------------------------------------------- */
+-------------------------------------------------------------- */
 
 
 div#faq {
@@ -198,15 +198,14 @@ button:focus, html input[type="button"]:focus, input[type="reset"]:focus, input[
 }
 
 .panel {
-    display: none;
     overflow: hidden;
-      margin-bottom: 50px;
+    margin-bottom: 50px;
     background-color: transparent;
     border: 1px solid transparent;
     border-radius: 0px;
     -webkit-box-shadow: none;
     box-shadow: none;
-  font-family: 'Open Sans', sans-serif;;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .accordion {
@@ -221,7 +220,7 @@ button:focus, html input[type="button"]:focus, input[type="reset"]:focus, input[
     border-radius: 0px;
     background: transparent;
     border-bottom: 1px solid #ccc;
-font-family: 'Open Sans', sans-serif;;
+    font-family: 'Open Sans', sans-serif;
     letter-spacing: 1px;
     font-size: 16px;
 }
@@ -235,9 +234,9 @@ a:hover {
 }
 
 
-/* -------------------------------------------------------------- */
+-------------------------------------------------------------- */
 /* Header + Nav
-/* -------------------------------------------------------------- */
+-------------------------------------------------------------- */
 div#headerfixed {
     position: fixed;
     width: 100%;
@@ -345,9 +344,9 @@ div#database-body {
     background: white !important; 
 }
 .stylish-input-group .form-control{
-    border-right:0; 
-    box-shadow:0 0 0; 
-    border-color:#ccc;
+	border-right:0; 
+	box-shadow:0 0 0; 
+	border-color:#ccc;
 }
 .stylish-input-group button{
     border:0;
@@ -474,7 +473,7 @@ div#homehero p {
     font-family: 'Open Sans', sans-serif;;
     font-size: 18px;
     line-height: 2;
-    font-weight: 100;
+	font-weight: 100;
 }
 
 a.learnmore {
@@ -482,29 +481,6 @@ a.learnmore {
     font-weight: bold;
     margin: 15px 0px;
     display: inline-block;
-}
-
-.table-bordered>tbody>tr>td, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>td, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>thead>tr>th {
-    border: 0px;
-}
-
-tr .btn-primary {
-    margin: 0px;
-    font-size: 10px !important;
-}
-
-td {
-    vertical-align: middle !important;
-}
-
-.table-bordered {
-    border: 0px;
-}
-
-tr {
-    border-bottom: 1px solid #ccc;
-    font-size: 12px;
-    vertical-align: center! important;
 }
 
 /* Footer
@@ -518,11 +494,6 @@ footer.site-footer {
     border-top: 1px solid #ccc;
     padding-top: 50px;
     text-align: left;
-}
-
-div#footer h3 {
-    font-size: 20px;
-    margin-bottom: 80px;
 }
 
 div#footer .col-sm-3 {
@@ -766,7 +737,6 @@ div#about img {
     border-bottom-left-radius: 50px;
 }
 
-
 div#about a.browse {
     font-size: 18px;
     text-decordation: none;
@@ -888,14 +858,25 @@ a.tomogram-link:hover {
     opacity: 1;
 }
 
-date {
+.TomoCellSubtext {
     font-size: 12px;
     color: #ccc;
-    display: inline-block;
+    display: inline;
     font-weight: 100;
     border-bottom: 0px;
     padding-bottom: 0px;
     width: 100%;
+}
+
+.TomoCellMicroscopist {
+    font-size: 12px;
+    color: #ccc;
+    display: inline;
+    float: right;
+    font-weight: 100;
+    border-bottom: 0px;
+    padding-bottom: 0px;
+    padding-top: 4px;
 }
 
 img.results-thumb {
@@ -1080,11 +1061,6 @@ div#download-options .dropdown-menu a, div#sort-options .dropdown-menu a {
 div#download-options .dropdown-menu a:hover, div#sort-options .dropdown-menu a:hover {
     color: #fff;
    background: #2b2b2b;
-}
-
-div#videoinner {
-    width: 450px;
-    height: 450px;
 }
 
 div#singletomogram h2 {
