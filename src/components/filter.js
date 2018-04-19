@@ -8,15 +8,10 @@ class Filter extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      advancedSearchToggleBool: false
-    }
-
     this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
     this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
     this.handleSortButtonChange = this.handleSortButtonChange.bind(this);
     this.handleFlipSortChange = this.handleFlipSortChange.bind(this);
-    this.handleAdvancedSearchToggle = this.handleAdvancedSearchToggle.bind(this);
   }
 
   handleFilterTextChange(value) {
@@ -39,11 +34,6 @@ class Filter extends Component {
     this.props.onFlipSortChange();
   }
 
-  handleAdvancedSearchToggle() {
-    this.setState(prevState => ({
-      advancedSearchToggleBool: !prevState.advancedSearchToggleBool
-    }))
-  }
 
   render() {
     const sortValue = this.props.sortValue;
@@ -59,14 +49,12 @@ class Filter extends Component {
       <div className="col-sm-2">
         <div id="filters">
 
-        {/* search */}
+        {/* ---------------- SEARCH (EVERYTHING ABOVE SORT BUTTONS) ---------------- */}
         <Search
           onFilterTextChange={this.handleFilterTextChange}
-          onAdvancedSearchtoggleClick={this.handleAdvancedSearchToggle}
-          advancedSearchToggleBool={this.state.advancedSearchToggleBool}
         />
 
-        {/* sort buttons */}
+        {/* ---------------- SORT BUTTONS ---------------- */}
         <h5>Sort by</h5>
         <div className="sortButton">
           {/* <SortValueButton buttonValue="Views" name={VIEWS} sortValue={this.props.sortValue} onSortButtonChange={this.handleSortButtonChange} onFlipSortChange={this.handleFlipSortChange} flipSort={this.props.flipSort} /> */}
@@ -76,7 +64,7 @@ class Filter extends Component {
           <SortValueButton buttonValue="Date Taken" name={DATE_TAKEN} sortValue={this.props.sortValue} onSortButtonChange={this.handleSortButtonChange} onFlipSortChange={this.handleFlipSortChange} flipSort={this.props.flipSort} />
         </div>
 
-        {/* filters */}
+        {/* ---------------- FILTER CHECKBOXES ---------------- */}
         {/* <b>Filters</b>
         <p><input type="checkbox" onChange={this.handleCheckboxChange} name="bacteria" checked={null}/>   Bacteria</p>
         <p><input type="checkbox" onChange={this.handleCheckboxChange} name="archaea" checked={null}/>   Archaea</p>

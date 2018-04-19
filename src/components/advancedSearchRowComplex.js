@@ -6,8 +6,8 @@ class AdvancedSearchRowComplex extends Component {
     super(props);
 
     this.state = {
-      //true for ADD, false for MINUS
-      rowOpt: true
+      //THE ADD COMPLEX ROW ONLY BUTTON SHOWS WHEN TRUE. GETS SET TO FALSE AFTER CLICK (SEE handleAddRowClick FUNCTION)
+      addRowOpt: true
     }
 
     this.handleAddRowClick = this.handleAddRowClick.bind(this);
@@ -15,9 +15,10 @@ class AdvancedSearchRowComplex extends Component {
 
   }
 
+  // WHEN ROW IS CLICKED, ADDROWOPT GETS SET TO FALSE SO THE ADD ROW BUTTON WON'T SHOW AND A COMPLEX ROW IS ADDED
   handleAddRowClick() {
     this.setState(prevState => ({
-      rowOpt: !prevState.rowOpt
+      addRowOpt: !prevState.addRowOpt
     }));
     this.props.onAddRowClick()
   }
@@ -28,48 +29,47 @@ class AdvancedSearchRowComplex extends Component {
 
   render() {
 
-    const addRowOpt = this.state.rowOpt ? (
-
-      <div className="row">
-        <button onClick={this.handleAddRowClick}>+</button>
+    /* ---------------- BUTTON TO ADD ROW COMPLEXITY; RENDERS UNTIL CLICKED ----------------*/
+    const addRowOpt = this.state.addRowOpt ? (
+      <div style={FlexEnd} className="row">
+        <button onClick={this.handleAddRowClick}
+          style={OpButtonStyle}>+</button>
       </div>
     ) : (
       null
     );
 
-    // const minusRowOpt = this.state.rowOpt ? (null) : (
-    //   <div className="col-sm-1">
-    //     <button onClick={this.handleMinusRowClick}>-</button>
-    //   </div>
-    // );
-
 
     return (
       <div>
+
+        {/* ---------------- BUTTON TO DELETE A COMPLEX ROW ----------------*/}
         <div className="row" style={FieldRow2}>
           <div className="col-sm-1">
-            <button onClick={this.handleMinusRowClick}>-</button>
+            <button
+              onClick={this.handleMinusRowClick}
+              style={OpButtonStyle}>-</button>
           </div>
 
-
+          {/* ---------------- AND/OR/NOT ----------------*/}
           <select className="col-sm-5 as-select">
             <option>AND</option>
             <option>OR</option>
             <option>NOT</option>
           </select>
 
+          {/* ---------------- ALL FIELDS ----------------*/}
           <select className="col-sm-5 as-select">
-            <option>Field</option>
+            <option>All Fields</option>
             <option>Species Name</option>
             <option>Strain</option>
             <option>Institution</option>
             <option>Lab</option>
             <option>Art Notes</option>
           </select>
-
-
         </div>
 
+        {/* ---------------- CONTAINS/IS (EXACT)/STARTS WITH ----------------*/}
         <div className="row" style={FieldRow3}>
           <select className="col-sm-9 as-select">
             <option>contains</option>
@@ -78,9 +78,12 @@ class AdvancedSearchRowComplex extends Component {
           </select>
         </div>
 
+        {/* ---------------- TEXT INPUT ----------------*/}
         <div className="row">
           <input style={FieldText} className="input-field1-text" type="text" value=""  />
         </div>
+
+        {/* BUTTON TO ADD ADDITIONAL COMPLEX ROW */}
         {addRowOpt}
 
       </div>
@@ -88,7 +91,7 @@ class AdvancedSearchRowComplex extends Component {
   }
 }
 
-
+/* ---------------- REACT INLINE STYLES (FEEL FREE TO DELETE/CHANGE) ---------------- */
 const FieldRow1 = {
   marginTop: "5px",
   display: "flex",
@@ -117,5 +120,15 @@ const FieldRow3 = {
   justifyContent: "flex-start"
 }
 
+const OpButtonStyle = {
+  border: "none",
+  background: "none",
+  color: "white"
+}
+
+const FlexEnd = {
+  display: "flex",
+  justifyContent: "flex-end"
+}
 
 export default AdvancedSearchRowComplex

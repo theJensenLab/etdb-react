@@ -5,29 +5,24 @@ class AdvancedSearchRow extends Component {
   constructor(props){
     super(props);
 
-    this.state = {
-      //true for ADD, false for MINUS
-      rowOpt: true
-    }
-
     this.handleAddRowClick = this.handleAddRowClick.bind(this)
 
   }
 
   handleAddRowClick() {
-    this.setState(prevState => ({
-      rowOpt: !prevState.rowOpt
-    }));
     this.props.onAddRowClick()
   }
 
   render() {
-    const counterBool = (this.props.complexCounter === 0);
-    const rowOptBool = this.state.rowOpt;
+    //TRUE IF THERE ARE 0 COMPLEX ROWS
+    const complexRowCounterBool = (this.props.complexRowCounter === 0);
 
-    const addRowOpt = (counterBool) ? (
-      <div className="row">
-        <button onClick={this.handleAddRowClick}>+</button>
+    //SHOW THE ADD BUTTON ONLY IF THERE ARE NO COMPLEX ROWS
+    const addComplexRowButton = (complexRowCounterBool) ? (
+      <div style={FlexEnd} className="row">
+        <button
+          onClick={this.handleAddRowClick}
+          style={OpButtonStyle}>+</button>
       </div>
     ) : (
       null
@@ -35,6 +30,8 @@ class AdvancedSearchRow extends Component {
 
     return (
       <div>
+
+        {/* ---------------- ALL FIELDS ----------------*/}
         <div className="row" style={FieldRow1}>
           <select className="col-sm-5 as-select">
             <option>Field</option>
@@ -45,17 +42,22 @@ class AdvancedSearchRow extends Component {
             <option>Lab</option>
             <option>Art Notes</option>
           </select>
+
+          {/* ---------------- CONTAINS/IS (EXACT)/STARTS WITH ----------------*/}
           <select className="col-sm-6 as-select">
             <option>contains</option>
             <option>is (exact)</option>
             <option>starts with</option>
           </select>
         </div>
+
+        {/* ---------------- TEXT INPUT ----------------*/}
         <div className="row">
           <input style={FieldText} className="input-field1-text" type="text" value=""   />
         </div>
 
-        {addRowOpt }
+        {/* BUTTON TO ADD COMPLEX ROW  (WILL ONLY SHOW IF THERE ARE 0 COMPLEX ROWS)*/}
+        {addComplexRowButton}
 
       </div>
 
@@ -63,6 +65,7 @@ class AdvancedSearchRow extends Component {
   }
 }
 
+/* ---------------- REACT INLINE STYLES (FEEL FREE TO DELETE/CHANGE) ---------------- */
 const FieldRow1 = {
   marginTop: "5px",
   display: "flex",
@@ -79,5 +82,17 @@ const FieldText = {
   fontSize: "12px"
 }
 
+const OpButtonStyle = {
+  border: "none",
+  background: "none",
+  color: "white",
+  display: "flex",
+  justifyContent: "flex-end"
+}
+
+const FlexEnd = {
+  display: "flex",
+  justifyContent: "flex-end"
+}
 
 export default AdvancedSearchRow

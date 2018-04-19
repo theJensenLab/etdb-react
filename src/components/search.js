@@ -1,10 +1,13 @@
 import React, {Component} from 'react';
-import AdvancedSearch from './advancedSearch'
 import AdvancedSearchGrid from './advancedSearchGrid'
 
-class Smart extends Component {
+class Search extends Component {
   constructor(props){
     super(props);
+
+    this.state = {
+      advancedSearchToggleBool: false
+    }
 
     this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
     this.handleAdvancedSearchToggle = this.handleAdvancedSearchToggle.bind(this);
@@ -16,14 +19,18 @@ class Smart extends Component {
     this.props.onFilterTextChange(value);
   }
 
+
   handleAdvancedSearchToggle() {
-    this.props.onAdvancedSearchtoggleClick()
+    this.setState(prevState => ({
+      advancedSearchToggleBool: !prevState.advancedSearchToggleBool
+    }))
   }
 
   render() {
-    const advancedSearchToggleBool = this.props.advancedSearchToggleBool
+    const advancedSearchToggleBool = this.state.advancedSearchToggleBool;
 
-    const filterTextInput = advancedSearchToggleBool ? (
+    // IF ADVANCED SEARCH IS NOT TOGGLED, NORMAL TEXT FILTER IS RENDERED; ELSE, THE ADVANCED SEARCH GRID IS RENDERED
+    const searchGrid = advancedSearchToggleBool ? (
       <AdvancedSearchGrid />
     ) : (
       <input
@@ -37,21 +44,36 @@ class Smart extends Component {
     return (
     <div>
 
-      {/* advanced search */}
-      <AdvancedSearch
-        onAdvancedSearchtoggleClick={this.handleAdvancedSearchToggle}
-        advancedSearchToggleBool={advancedSearchToggleBool}
-      />
+      {/* ---------------- ADVANCED SEARCH BUTTON (THIS TOGGLES THE SEARCH GRID) ---------------- */}
+      <div style={AdvancedSearchContainer} className="advanced-search-container">
+        <div className="advanced-search-button">
+          <div className="row"><button style={AdvancedSearchToggleButton} onClick={this.handleAdvancedSearchToggle} className="advanced-search-toggle-button">
+            Advanced Search
+          </button></div>
+        </div>
+      </div>
 
-      {/* filterText */}
-      {filterTextInput}
-
-
+      {/* ---------------- SEARCH FILTER || GRID (SEE COMMENT FOR searchGrid ^) ---------------- */}
+      {searchGrid}
 
     </div>
     )
   }
 }
 
+/* ---------------- REACT INLINE STYLES (FEEL FREE TO DELETE/CHANGE) ---------------- */
+const AdvancedSearchContainer = {
+  margin: "5px 0px"
+}
 
-export default Smart
+const AdvancedSearchToggleButton = {
+  margin: "5px 0px",
+  color: "white",
+  float: "right",
+  background: 'none',
+  border: 'none',
+  fontSize: '10px',
+  fontFamily: 'Helvetica-light'
+}
+
+export default Search

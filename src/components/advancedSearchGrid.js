@@ -9,7 +9,7 @@ class AdvancedSearchGrid extends Component {
     super(props);
 
     this.state = {
-      complexCount: 0
+      complexRowCounter: 0
     }
 
     this.handleAddRowClick = this.handleAddRowClick.bind(this);
@@ -18,20 +18,20 @@ class AdvancedSearchGrid extends Component {
 
   handleAddRowClick() {
     this.setState({
-      complexCount: this.state.complexCount + 1
+      complexRowCounter: this.state.complexRowCounter + 1
     })
   }
 
   handleMinusRowClick() {
     this.setState({
-      complexCount: this.state.complexCount - 1
+      complexRowCounter: this.state.complexRowCounter - 1
     })
   }
 
   render() {
     let complexRows = [];
 
-    for (var i = 0; i < this.state.complexCount; i++){
+    for (var i = 0; i < this.state.complexRowCounter; i++){
       complexRows.push(
         <AdvancedSearchRowComplex
           onAddRowClick={this.handleAddRowClick}
@@ -41,14 +41,14 @@ class AdvancedSearchGrid extends Component {
 
     return (
       <div>
-
+        {/* ---------------- DEFAULT ADVANCED SEARCH ---------------- */}
         <AdvancedSearchRow
-          complexCounter={this.state.complexCount}
+          complexRowCounter={this.state.complexRowCounter}
           onAddRowClick={this.handleAddRowClick}
         />
+        {/* ---------------- ADDITIONAL SEARCH ROWS TO ADD COMPLEXITY QUERIES ---------------- */}
         {complexRows}
-
-
+        {/* ---------------- SUBMIT BUTTON ---------------- */}
 
       </div>
 
