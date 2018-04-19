@@ -144,8 +144,13 @@ class TomogramView extends Component {
 					<div className="col-sm-6">
 					</div>
 				</div>
+                <div className="container row" id="singletomograminfo">
+                <h2>{title}</h2>
+						<div id="reddiv"> </div>
+                        </div>
+
 				<div className="container row" id="singletomograminfo">
-					<div className="col-sm-6" id="videoembed">
+					<div className="col-sm-4" id="videoembed">
 						<div id="videoinner">
 							{ videoFilename ? <video autoPlay loop controls>
 								<source src={"http://etdb.caltech.edu:8080/ipfs/" + location + "/" + videoFilename} />
@@ -178,9 +183,8 @@ class TomogramView extends Component {
 							</div>
 						</div>
 					</div>
-					<div className="col-sm-6" id="tomographdata">
-						<h2>{title}</h2>
-						<div id="reddiv"> </div>
+					<div className="col-sm-8" id="tomographdata">
+						
 						<p><b>Tilt Series date:</b> {niceDate}</p>
 						<p><b>Data Taken By:</b> {microscopist}</p>
 						<p><b>Species / Specimen:</b> {speciesName}</p>
@@ -191,20 +195,43 @@ class TomogramView extends Component {
 						<p><b>Processing Software Used:</b> Raptor</p>
 						<p style={{whiteSpace: "pre-wrap"}}><b>Notes:</b> {artNotes}</p>
                        
+          <div id="downloadoptions">
           <PanelGroup accordion activeKey={this.state.activeKey} id="faqPanel">
             <Panel eventKey='1'>
               <Button onClick={() => this.handleSelect('1')} className="accordion">Download Options</Button>
               <Panel.Body collapsible>
-                <p>The Caltech Tomography Database is a public repository of {this.state.numberOfTomograms} cryo-electron tomography datasets (tilt-series and reconstructions) of cells. These datasets were acquired by the <a target="blank" href="http://www.jensenlab.caltech.edu">Jensen Lab</a> at Caltech over the past 15 years. Currently, {this.state.numberOfSpecies} species of bacteria and archaea are represented, and this number will keep climbing.</p>
-              </Panel.Body>
+              <table className="table table-bordered">
+							<thead>
+								<tr>
+									<th>#</th>
+									<th>Name</th>
+									<th>Size</th>
+									<th>Type</th>
+									<th>Subtype</th>
+									<th>Download</th>
+								</tr>
+							</thead>
+							<tbody>
+								{files.map((file, i) => {
+									let fileSize = "Unknown"
+									if (file.getFilesize())
+										fileSize = filesize(file.getFilesize(), {base: 10})
+									return <tr>
+										<th scope="row">{i + 1}</th>
+										<td>{file.getDisplayName()}</td>
+										<td>{fileSize}</td>
+										<td>{file.getType()}</td>
+										<td>{file.getSubtype()}</td>
+										<td>
+											<a href={"http://etdb.caltech.edu:8080/ipfs/" + location + "/" + file.getFilename()} className="btn btn-primary" target="_blank" download>Download</a>
+										</td>
+									</tr>
+								})}
+							</tbody>
+						</table>              </Panel.Body>
             </Panel>
-          
-          
-         
-           
-         
           </PanelGroup>
-    
+    </div>
 
 					</div>
 
@@ -217,7 +244,7 @@ class TomogramView extends Component {
                     
 					<div className="col-sm-12" style={{marginTop: "10px"}}>
 						<center>
-							<h5>Snapshots</h5>
+							<h5>View Snapshots</h5>
 						</center>
 						<div style={{width: "100%", margin: "auto", overflowX: "auto"}}>
 							<div style={{display: "flex"}}>
