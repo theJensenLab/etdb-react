@@ -71,7 +71,7 @@ class TomogramView extends Component {
 			files = this.state.artifact.getFiles();
 			location = this.state.artifact.getLocation();
 			
-			let fileSubtypeOrder = ['Tiltseries', 'Reconstruction', 'Subvolume', 'Keymov', 'Keyimg', 'Preview', 'Snapshot', 'Thumbnail']
+			let fileSubtypeOrder = ['Tiltseries', 'Reconstruction', 'Subvolume', 'Keymov', 'Keyimg', 'Preview', 'Snapshot', 'Thumbnail', 'Other']
 			files.sort((a, b) => {
 				return fileSubtypeOrder.indexOf(a.getSubtype()) - fileSubtypeOrder.indexOf(b.getSubtype())
 			})
@@ -197,16 +197,17 @@ class TomogramView extends Component {
 						<p><b>Processing Software Used:</b> Raptor</p>
 						<p style={{whiteSpace: "pre-wrap"}}><b>Notes:</b> {artNotes}</p>
 					</div>
-					<div className="col-sm-12 snapshots" style={{marginTop: "10px"}}>
-						
+					{ snapshots.length !== 0 &&
+						<div className="col-sm-12 snapshots" style={{marginTop: "10px"}}>		
 							<h4>View Snapshots</h4>
-						<div id="reddiv"></div>
-						<div style={{width: "100%", margin: "auto", overflowX: "auto"}}>
-							<div style={{display: "flex"}}>
-								{snapshots.map((snapshot, i) => <img index={i} onClick={() => this.setState({photoIndex: i, isLightboxOpen: true})} width="auto" height={300} src={snapshot} style={{display: "inline-block", padding: "0px 3px"}} />)}
+							<div id="reddiv"></div>
+							<div style={{width: "100%", margin: "auto", overflowX: "auto"}}>
+								<div style={{display: "flex"}}>
+									{snapshots.map((snapshot, i) => <img index={i} onClick={() => this.setState({photoIndex: i, isLightboxOpen: true})} width="auto" height={300} src={snapshot} style={{display: "inline-block", padding: "0px 3px"}} />)}
+								</div>
 							</div>
 						</div>
-					</div>
+					}
 					{this.state.isLightboxOpen && (
 						<Lightbox
 							mainSrc={snapshots[this.state.photoIndex]}
