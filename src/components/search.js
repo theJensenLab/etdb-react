@@ -48,7 +48,7 @@ class Search extends Component {
       <div style={AdvancedSearchContainer} className="advanced-search-container">
         <div className="advanced-search-button">
           <div className="row"><button style={AdvancedSearchToggleButton} onClick={this.handleAdvancedSearchToggle} className="advanced-search-toggle-button">
-            Expand for Advanced Search <i class="far fa-plus-square"></i>
+            Expand for Advanced Search <i className="far fa-plus-square"></i>
 
 
           </button></div>

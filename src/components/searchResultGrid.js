@@ -16,21 +16,17 @@ class SearchResultGrid extends Component {
 
     //SORT_CONSTANTS
     const VIEWS = "views";
+    const TITLE = "title";
     const SPECIMEN = "specimen";
     const MICROSCOPIST = "microscopist";
     const LAST_MODIFIED = "lastModified";
     const DATE_TAKEN = "dateTaken";
 
-    //OTHER_CONSTANTS
-
-
-
-
     //FILTERS
     this.props.artifacts.forEach((artifact) => {
-      //SEARCHES FOR TITLE NOT SPECIMEN
-      const name = artifact.getTitle();
-      if (name.indexOf(filterText) === -1) {
+
+      const artifactString = JSON.stringify(artifact.toJSON());
+      if (artifactString.indexOf(filterText) === -1) {
         return;
       }
 
@@ -66,6 +62,16 @@ class SearchResultGrid extends Component {
     switch (sortValue) {
       case VIEWS:
         console.log(sortValue)
+        break;
+      case TITLE:
+        console.log(sortValue)
+        artifacts.sort( (a,b) => {
+          var x = a.getTitle().toLowerCase();
+          var y = b.getTitle().toLowerCase();
+          if (x < y) {return -1;}
+          if (x > y) {return 1;}
+          return 0;
+        });
         break;
       case SPECIMEN:
         console.log(sortValue);
@@ -103,7 +109,7 @@ class SearchResultGrid extends Component {
     }
 
     if (flipSort === true) {artifacts.reverse()};
-    
+
     return(
       <div className="col-sm-10" id="searchresultsgrid">
         {artifacts.map((artifact) => <TomogramListItem Core={this.props.Core} artifact={artifact} />)}

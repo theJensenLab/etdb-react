@@ -6,8 +6,7 @@ class AdvancedSearchRowComplex extends Component {
     super(props);
 
     this.state = {
-      //THE ADD COMPLEX ROW ONLY BUTTON SHOWS WHEN TRUE. GETS SET TO FALSE AFTER CLICK (SEE handleAddRowClick FUNCTION)
-      addRowOpt: true
+      addRowButton: true
     }
 
     this.handleAddRowClick = this.handleAddRowClick.bind(this);
@@ -16,11 +15,10 @@ class AdvancedSearchRowComplex extends Component {
 
   }
 
-  // WHEN ROW IS CLICKED, ADDROWOPT GETS SET TO FALSE SO THE ADD ROW BUTTON WON'T SHOW AND A COMPLEX ROW IS ADDED
   handleAddRowClick() {
-    // this.setState(prevState => ({
-    //   addRowOpt: !prevState.addRowOpt
-    // }));
+    this.setState(prevState => ({
+      addRowButton: !prevState.addRowButton
+    }));
     this.props.onAddRowClick()
   }
 
@@ -35,15 +33,15 @@ class AdvancedSearchRowComplex extends Component {
   render() {
 
     /* ---------------- BUTTON TO ADD ROW COMPLEXITY; RENDERS UNTIL CLICKED ----------------*/
-    const addRowOpt = this.state.addRowOpt ? (
-      <div className="row">
-        <button class="remove"
-              onClick={this.handleMinusRowClick}
-              style={OpButtonStyle}>- Remove row </button>
+    const addRowButton = this.state.addRowButton ? (
+      // <div className="row">
+        // <button class="remove"
+        //       onClick={this.handleMinusRowClick}
+        //       style={OpButtonStyle}>- Remove row </button>
 
         <button class="addparameter" onClick={this.handleAddRowClick}
           style={OpButtonStyle}>Add parameter +</button>
-      </div>
+      /* </div> */
     ) : (
       null
     );
@@ -89,7 +87,14 @@ class AdvancedSearchRowComplex extends Component {
         </div>
 
         {/* BUTTON TO ADD ADDITIONAL COMPLEX ROW */}
-        {addRowOpt}
+        <div className="row">
+          <button class="remove"
+                onClick={this.handleMinusRowClick}
+                style={OpButtonStyle}>
+                - Remove row
+          </button>
+          {addRowButton}
+        </div>
 
       </div>
     )
