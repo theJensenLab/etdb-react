@@ -249,6 +249,8 @@ class TomogramView extends Component {
 											subtype = "Key image"
 										else if (file.getSubtype() === "Keymov")
 											subtype = "Key movie"
+										else if (file.getSubtype() === "Tiltseries")
+											subtype = "Tilt series"
 										else
 											subtype = file.getSubtype()
 										return <tr>
