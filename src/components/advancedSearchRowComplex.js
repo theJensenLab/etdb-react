@@ -16,9 +16,9 @@ class AdvancedSearchRowComplex extends Component {
   }
 
   handleAddRowClick() {
-    this.setState(prevState => ({
-      addRowButton: !prevState.addRowButton
-    }));
+    // this.setState(prevState => ({
+    //   addRowButton: !prevState.addRowButton
+    // }));
     this.props.onAddRowClick()
   }
 
@@ -33,18 +33,18 @@ class AdvancedSearchRowComplex extends Component {
   render() {
 
     /* ---------------- BUTTON TO ADD ROW COMPLEXITY; RENDERS UNTIL CLICKED ----------------*/
-    const addRowButton = this.state.addRowButton ? (
-      // <div className="row">
-        // <button class="remove"
-        //       onClick={this.handleMinusRowClick}
-        //       style={OpButtonStyle}>- Remove row </button>
-
-        <button class="addparameter" onClick={this.handleAddRowClick}
-          style={OpButtonStyle}>Add parameter +</button>
-      /* </div> */
-    ) : (
-      null
-    );
+    // const addRowButton = this.state.addRowButton ? (
+    //   <div className="row">
+    //     <button class="remove"
+    //           onClick={this.handleMinusRowClick}
+    //           style={OpButtonStyle}>- Remove row </button>
+    //
+    //     <button class="addparameter" onClick={this.handleAddRowClick}
+    //       style={OpButtonStyle}>Add parameter +</button>
+    //    </div>
+    // ) : (
+    //   null
+    // );
 
 
     return (
@@ -90,11 +90,11 @@ class AdvancedSearchRowComplex extends Component {
         <div className="row">
           <button class="remove"
                 onClick={this.handleMinusRowClick}
-                style={OpButtonStyle}>
-                - Remove row
-          </button>
-          {addRowButton}
-        </div>
+                style={OpButtonStyle}>- Remove row </button>
+
+          <button class="addparameter" onClick={this.handleAddRowClick}
+            style={OpButtonStyle}>Add parameter +</button>
+         </div>
 
       </div>
     )
