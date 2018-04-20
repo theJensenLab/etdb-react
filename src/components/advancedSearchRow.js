@@ -6,12 +6,12 @@ class AdvancedSearchRow extends Component {
     super(props);
 
     this.handleAddRowClick = this.handleAddRowClick.bind(this)
-
   }
 
   handleAddRowClick() {
     this.props.onAddRowClick()
   }
+
 
   render() {
     //TRUE IF THERE ARE 0 COMPLEX ROWS
@@ -53,7 +53,7 @@ class AdvancedSearchRow extends Component {
 
         {/* ---------------- TEXT INPUT ----------------*/}
         <div className="row">
-          <input style={FieldText} className="input-field1-text" type="text" value=""   />
+          <input style={FieldText} className="input-field1-text" type="text" value=""  />
         </div>
 
         {/* BUTTON TO ADD COMPLEX ROW  (WILL ONLY SHOW IF THERE ARE 0 COMPLEX ROWS)*/}
