@@ -156,19 +156,19 @@ class TomogramView extends Component {
                         <div id="share">
 								<p>
 									<b>Share:</b>
-									<EmailShareButton url={"http://etdb.caltech.edu/tomogram/" + txid} subject={"ETDB tomogram of " + title}>
+									<EmailShareButton url={"http://etdb.caltech.edu/tomogram/" + txid} subject={"ETDB tomogram of " + title + " by " + microscopist}>
 										<EmailIcon size={32} round />
 									</EmailShareButton>
-									<LinkedinShareButton url={"http://etdb.caltech.edu/tomogram/" + txid} title={"ETDB tomogram of " + title}>
+									<LinkedinShareButton url={"http://etdb.caltech.edu/tomogram/" + txid} title={"ETDB tomogram of " + title + " by " + microscopist}>
 										<LinkedinIcon size={32} round />
 									</LinkedinShareButton>
-									<FacebookShareButton url={"http://etdb.caltech.edu/tomogram/" + txid} hashtag="#ETDB #ElectronTomography" quote={"ETDB tomogram of " + title}>
+									<FacebookShareButton url={"http://etdb.caltech.edu/tomogram/" + txid} hashtag="#ETDB #ElectronTomography" quote={"ETDB tomogram of " + title + " by " + microscopist}>
 										<FacebookIcon size={32} round />
 									</FacebookShareButton>
-									<RedditShareButton url={"http://etdb.caltech.edu/tomogram/" + txid} title={"ETDB tomogram of " + title}>
+									<RedditShareButton url={"http://etdb.caltech.edu/tomogram/" + txid} title={"ETDB tomogram of " + title + " by " + microscopist}>
 										<RedditIcon size={32} round />
 									</RedditShareButton>
-									<TwitterShareButton url={"http://etdb.caltech.edu/tomogram/" + txid} hashtags={hashtags} via="TheJensenLab" title={"ETDB tomogram of " + title}>
+									<TwitterShareButton url={"http://etdb.caltech.edu/tomogram/" + txid} hashtags={hashtags} via="TheJensenLab" title={"ETDB tomogram of " + title + " by " + microscopist}>
 										<TwitterIcon size={32} round />
 									</TwitterShareButton>
 								</p>
