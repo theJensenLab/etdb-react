@@ -867,6 +867,10 @@ const FieldRow1  {
     color: white;
     fontSize: 12px;
   }
+
+  button.remove {
+    float: left;
+}
   
   const FieldRow2 {
     marginTop: 30px;
@@ -900,7 +904,7 @@ div#sortbuttons {
 }
 
   input.input-field1-text {
-    border: 1px solid #000 !important;
+    border: 1px solid #ccc !important;
     background: #fff !important;
     padding: 4px;
 }
@@ -951,8 +955,21 @@ button.sortButton {
 }
 
 div#filters input.form-control {
-    border: 1px solid #000;
+    border: 1px solid #ccc;
     border-radius: 0px;
+}
+
+select.col-sm-5.as-select {
+    margin-right: 10px;
+    width: 100%;
+}
+
+select.col-sm-9.as-select {
+    margin-left: 10px;
+}
+
+button.addparameter {
+    float: right;
 }
 
 div#searchresultsgrid .col-sm-3 {

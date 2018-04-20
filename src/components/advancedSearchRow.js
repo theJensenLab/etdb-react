@@ -88,7 +88,7 @@ const OpButtonStyle = {
   color: "black",
   display: "flex",
   justifyContent: "flex-end",
-  fontSize: "10px"
+  fontSize: "12px"
 }
 
 const FlexEnd = {

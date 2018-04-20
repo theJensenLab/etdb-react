@@ -31,12 +31,12 @@ class AdvancedSearchRowComplex extends Component {
 
     /* ---------------- BUTTON TO ADD ROW COMPLEXITY; RENDERS UNTIL CLICKED ----------------*/
     const addRowOpt = this.state.addRowOpt ? (
-      <div style={FlexEnd} className="row">
-       <button
+      <div className="row">
+     <button class="remove"
               onClick={this.handleMinusRowClick}
               style={OpButtonStyle}>- Remove row </button>
 
-        <button onClick={this.handleAddRowClick}
+        <button class="addparameter" onClick={this.handleAddRowClick}
           style={OpButtonStyle}>Add parameter +</button>
       </div>
     ) : (
@@ -52,14 +52,14 @@ class AdvancedSearchRowComplex extends Component {
           
 
           {/* ---------------- AND/OR/NOT ----------------*/}
-          <select className="col-sm-5 as-select">
+          <select className="col-sm-3 as-select">
             <option>AND</option>
             <option>OR</option>
             <option>NOT</option>
           </select>
 
           {/* ---------------- ALL FIELDS ----------------*/}
-          <select className="col-sm-6 as-select">
+          <select className="col-sm-9 as-select">
             <option>All Fields</option>
             <option>Species Name</option>
             <option>Strain</option>
@@ -124,7 +124,7 @@ const FieldRow1 = {
     border: "none",
     background: "none",
     color: "black",
-    fontSize: "10px"
+    fontSize: "12px"
 
   }
   
