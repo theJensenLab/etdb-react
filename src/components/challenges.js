@@ -58,7 +58,7 @@ class Challenges extends Component {
 
 				  <div className="col-sm-3"> 
                
-                  <p className="note"><b>Related challenge:</b> Like the uncharacterized structures reported in <a target="blank" href="http://jb.asm.org/content/early/2017/06/07/JB.00100-17.long">this paper</a>, we expect that there are many other structures yet to be found in the data and we challenge anybody to find some examples.  If you do find something new, we'd love to hear about it [link to contact] and discuss potential ways to figure out what it really is.
+                  <p className="note"><b>Related challenge:</b> Like the uncharacterized structures reported in <a target="blank" href="http://jb.asm.org/content/early/2017/06/07/JB.00100-17.long">this paper</a>, we expect that there are many other structures yet to be found in the data and we challenge anybody to find some examples.  If you do find something new, we'd love to <a target="blank" href="http://etdb.caltech.edu/contact">hear about it</a> and discuss potential ways to figure out what it really is.
  </p>
                   </div>
 				</div>
