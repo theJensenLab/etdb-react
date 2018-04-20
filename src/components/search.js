@@ -48,7 +48,9 @@ class Search extends Component {
       <div style={AdvancedSearchContainer} className="advanced-search-container">
         <div className="advanced-search-button">
           <div className="row"><button style={AdvancedSearchToggleButton} onClick={this.handleAdvancedSearchToggle} className="advanced-search-toggle-button">
-            Advanced Search
+            Expand for Advanced Search <i class="far fa-plus-square"></i>
+
+
           </button></div>
         </div>
       </div>
@@ -68,12 +70,11 @@ const AdvancedSearchContainer = {
 
 const AdvancedSearchToggleButton = {
   margin: "5px 0px",
-  color: "white",
-  float: "right",
+  color: "black",
+  padding: "0px 0px",
   background: 'none',
   border: 'none',
-  fontSize: '10px',
-  fontFamily: 'Helvetica-light'
+  fontSize: '12px',
 }
 
 export default Search

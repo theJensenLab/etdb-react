@@ -848,6 +848,67 @@ div#about h2 a {
     text-decoration: underline;
 }
 
+
+/* Advanced Search
+-------------------------------------------------------------- */
+
+const FieldRow1  {
+    marginTop: 5px;
+    display: flex;
+    justifyContent: flex-start;
+  }
+  
+  const FieldText  {
+    width: 100%;
+    marginTop: 9px;
+    background: none;
+    border: none;
+    borderBottom: 1px solid white;
+    color: white;
+    fontSize: 12px;
+  }
+
+  button.remove {
+    float: left;
+}
+  
+  const FieldRow2 {
+    marginTop: 30px;
+    display: flex;
+    justifyContent: flex-start;
+  }
+  
+  const FieldRow3  {
+    marginTop: 10px;
+    display: flex;
+    justifyContent: flex-start;
+  }
+  
+  const OpButtonStyle  {
+    border: none;
+    background: none;
+    color: white;
+  }
+  
+  const FlexEnd {
+    display: flex;
+    justifyContent: flex-end;
+  }
+
+  select.col-sm-6.as-select {
+    margin: 0px;
+}
+
+div#sortbuttons {
+    margin-top: 40px;
+}
+
+  input.input-field1-text {
+    border: 1px solid #ccc !important;
+    background: #fff !important;
+    padding: 4px;
+}
+
 /* Search results page
 -------------------------------------------------------------- */
 div#sort {
@@ -858,10 +919,10 @@ div#sort {
 }
 
 div#filters h5 {
-    font-family: "open sans";
+    font-family: muli;
     text-transform: none;
     letter-spacing: 0px;
-    margin-top: 40px;
+    margin-top: 0px;
 }
 
 div#filters input.form-control::-webkit-input-placeholder {
@@ -871,14 +932,21 @@ div#filters input.form-control::-webkit-input-placeholder {
     color: #2b2b2b;
     line-height: 1.5;
     text-transform: none;
+    margin-bottom: 30px;
   }
 
   .row.sort-row {
-    font-family: "letter-gothic-std";
     margin-left: 0px;
     padding-left: 0px;
-    font-size: 14px;
-    text-transform: uppercase !important;
+    font-size: 12px;
+}
+
+button.sortButton:hover {
+    font-weight: 600 !important;
+}
+
+.as-select {
+    margin-right: 4px;
 }
 
 button.sortButton {
@@ -887,8 +955,21 @@ button.sortButton {
 }
 
 div#filters input.form-control {
-    border: 1px solid #000;
+    border: 1px solid #ccc;
     border-radius: 0px;
+}
+
+select.col-sm-5.as-select {
+    margin-right: 10px;
+    width: 65%;
+}
+
+select.col-sm-9.as-select {
+    margin-left: 10px;
+}
+
+button.addparameter {
+    float: right;
 }
 
 div#searchresultsgrid .col-sm-3 {
@@ -896,7 +977,7 @@ div#searchresultsgrid .col-sm-3 {
     padding-top: 10px;
     background: #4a4a4a;
     width: 24%;
-    margin: 5px;
+    margin: .1%;
 }
 
 div#tomogramcell name {
@@ -963,7 +1044,7 @@ div#filters {
 
 div#browsedatabase .col-sm-10 {
     width: 100%;
-    padding-left: 330px !important;
+    padding-left: 350px !important;
 }
 
 img.results-thumb {
