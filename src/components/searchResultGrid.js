@@ -28,6 +28,7 @@ class SearchResultGrid extends Component {
 
     //FILTERS
     this.props.artifacts.forEach((artifact) => {
+      //SEARCHES FOR TITLE NOT SPECIMEN
       const name = artifact.getTitle();
       if (name.indexOf(filterText) === -1) {
         return;
@@ -102,7 +103,7 @@ class SearchResultGrid extends Component {
     }
 
     if (flipSort === true) {artifacts.reverse()};
-
+    
     return(
       <div className="col-sm-10" id="searchresultsgrid">
         {artifacts.map((artifact) => <TomogramListItem Core={this.props.Core} artifact={artifact} />)}

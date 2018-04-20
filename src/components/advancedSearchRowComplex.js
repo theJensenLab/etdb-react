@@ -18,9 +18,9 @@ class AdvancedSearchRowComplex extends Component {
 
   // WHEN ROW IS CLICKED, ADDROWOPT GETS SET TO FALSE SO THE ADD ROW BUTTON WON'T SHOW AND A COMPLEX ROW IS ADDED
   handleAddRowClick() {
-    this.setState(prevState => ({
-      addRowOpt: !prevState.addRowOpt
-    }));
+    // this.setState(prevState => ({
+    //   addRowOpt: !prevState.addRowOpt
+    // }));
     this.props.onAddRowClick()
   }
 
@@ -37,7 +37,7 @@ class AdvancedSearchRowComplex extends Component {
     /* ---------------- BUTTON TO ADD ROW COMPLEXITY; RENDERS UNTIL CLICKED ----------------*/
     const addRowOpt = this.state.addRowOpt ? (
       <div className="row">
-     <button class="remove"
+        <button class="remove"
               onClick={this.handleMinusRowClick}
               style={OpButtonStyle}>- Remove row </button>
 
@@ -54,7 +54,7 @@ class AdvancedSearchRowComplex extends Component {
 
         {/* ---------------- BUTTON TO DELETE A COMPLEX ROW ----------------*/}
         <div className="row" style={FieldRow2}>
-          
+
 
           {/* ---------------- AND/OR/NOT ----------------*/}
           <select className="col-sm-3 as-select">
@@ -102,7 +102,7 @@ const FieldRow1 = {
     display: "flex",
     justifyContent: "flex-start"
   }
-  
+
   const FieldText = {
     width: "100%",
     marginTop: "9px",
@@ -112,19 +112,19 @@ const FieldRow1 = {
     color: "black",
     fontSize: "12px"
   }
-  
+
   const FieldRow2 = {
     marginTop: "30px",
     display: "flex",
     justifyContent: "flex-start"
   }
-  
+
   const FieldRow3 = {
     marginTop: "10px",
     display: "flex",
     justifyContent: "flex-start"
   }
-  
+
   const OpButtonStyle = {
     border: "none",
     background: "none",
@@ -132,7 +132,7 @@ const FieldRow1 = {
     fontSize: "12px"
 
   }
-  
+
   const FlexEnd = {
     display: "flex",
     justifyContent: "flex-end"
