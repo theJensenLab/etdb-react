@@ -26,7 +26,7 @@ class SearchResultGrid extends Component {
     this.props.artifacts.forEach((artifact) => {
 
       const artifactString = JSON.stringify(artifact.toJSON());
-      if (artifactString.indexOf(filterText) === -1) {
+      if (artifactString.toLowerCase().indexOf(filterText.toLowerCase()) === -1) {
         return;
       }
 
