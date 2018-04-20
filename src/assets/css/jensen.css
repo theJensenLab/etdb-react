@@ -848,6 +848,63 @@ div#about h2 a {
     text-decoration: underline;
 }
 
+
+/* Advanced Search
+-------------------------------------------------------------- */
+
+const FieldRow1  {
+    marginTop: 5px;
+    display: flex;
+    justifyContent: flex-start;
+  }
+  
+  const FieldText  {
+    width: 100%;
+    marginTop: 9px;
+    background: none;
+    border: none;
+    borderBottom: 1px solid white;
+    color: white;
+    fontSize: 12px;
+  }
+  
+  const FieldRow2 {
+    marginTop: 30px;
+    display: flex;
+    justifyContent: flex-start;
+  }
+  
+  const FieldRow3  {
+    marginTop: 10px;
+    display: flex;
+    justifyContent: flex-start;
+  }
+  
+  const OpButtonStyle  {
+    border: none;
+    background: none;
+    color: white;
+  }
+  
+  const FlexEnd {
+    display: flex;
+    justifyContent: flex-end;
+  }
+
+  select.col-sm-6.as-select {
+    margin: 0px;
+}
+
+div#sortbuttons {
+    margin-top: 40px;
+}
+
+  input.input-field1-text {
+    border: 1px solid #000 !important;
+    background: #fff !important;
+    padding: 4px;
+}
+
 /* Search results page
 -------------------------------------------------------------- */
 div#sort {
@@ -858,10 +915,10 @@ div#sort {
 }
 
 div#filters h5 {
-    font-family: "open sans";
+    font-family: muli;
     text-transform: none;
     letter-spacing: 0px;
-    margin-top: 40px;
+    margin-top: 0px;
 }
 
 div#filters input.form-control::-webkit-input-placeholder {
@@ -871,14 +928,21 @@ div#filters input.form-control::-webkit-input-placeholder {
     color: #2b2b2b;
     line-height: 1.5;
     text-transform: none;
+    margin-bottom: 30px;
   }
 
   .row.sort-row {
-    font-family: "letter-gothic-std";
     margin-left: 0px;
     padding-left: 0px;
-    font-size: 14px;
-    text-transform: uppercase !important;
+    font-size: 12px;
+}
+
+button.sortButton:hover {
+    font-weight: 600 !important;
+}
+
+.as-select {
+    margin-right: 4px;
 }
 
 button.sortButton {

@@ -33,7 +33,7 @@ class AdvancedSearchRowComplex extends Component {
     const addRowOpt = this.state.addRowOpt ? (
       <div style={FlexEnd} className="row">
         <button onClick={this.handleAddRowClick}
-          style={OpButtonStyle}>+</button>
+          style={OpButtonStyle}>Add parameter +</button>
       </div>
     ) : (
       null
@@ -59,7 +59,7 @@ class AdvancedSearchRowComplex extends Component {
           </select>
 
           {/* ---------------- ALL FIELDS ----------------*/}
-          <select className="col-sm-5 as-select">
+          <select className="col-sm-12 as-select">
             <option>All Fields</option>
             <option>Species Name</option>
             <option>Strain</option>
@@ -71,7 +71,7 @@ class AdvancedSearchRowComplex extends Component {
 
         {/* ---------------- CONTAINS/IS (EXACT)/STARTS WITH ----------------*/}
         <div className="row" style={FieldRow3}>
-          <select className="col-sm-9 as-select">
+          <select className="col-sm-12 as-select">
             <option>contains</option>
             <option>is (exact)</option>
             <option>starts with</option>
@@ -93,42 +93,44 @@ class AdvancedSearchRowComplex extends Component {
 
 /* ---------------- REACT INLINE STYLES (FEEL FREE TO DELETE/CHANGE) ---------------- */
 const FieldRow1 = {
-  marginTop: "5px",
-  display: "flex",
-  justifyContent: "flex-start"
-}
+    marginTop: "5px",
+    display: "flex",
+    justifyContent: "flex-start"
+  }
+  
+  const FieldText = {
+    width: "100%",
+    marginTop: "9px",
+    background: "none",
+    border: "none",
+    borderBottom: "1px solid black",
+    color: "black",
+    fontSize: "12px"
+  }
+  
+  const FieldRow2 = {
+    marginTop: "30px",
+    display: "flex",
+    justifyContent: "flex-start"
+  }
+  
+  const FieldRow3 = {
+    marginTop: "10px",
+    display: "flex",
+    justifyContent: "flex-start"
+  }
+  
+  const OpButtonStyle = {
+    border: "none",
+    background: "none",
+    color: "black",
+    fontSize: "10px"
 
-const FieldText = {
-  width: "100%",
-  marginTop: "9px",
-  background: "none",
-  border: "none",
-  borderBottom: "1px solid white",
-  color: "white",
-  fontSize: "12px"
-}
-
-const FieldRow2 = {
-  marginTop: "30px",
-  display: "flex",
-  justifyContent: "flex-start"
-}
-
-const FieldRow3 = {
-  marginTop: "10px",
-  display: "flex",
-  justifyContent: "flex-start"
-}
-
-const OpButtonStyle = {
-  border: "none",
-  background: "none",
-  color: "white"
-}
-
-const FlexEnd = {
-  display: "flex",
-  justifyContent: "flex-end"
-}
+  }
+  
+  const FlexEnd = {
+    display: "flex",
+    justifyContent: "flex-end"
+  }
 
 export default AdvancedSearchRowComplex

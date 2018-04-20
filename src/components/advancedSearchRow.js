@@ -22,7 +22,7 @@ class AdvancedSearchRow extends Component {
       <div style={FlexEnd} className="row">
         <button
           onClick={this.handleAddRowClick}
-          style={OpButtonStyle}>+</button>
+          style={OpButtonStyle}>Add parameter +</button>
       </div>
     ) : (
       null
@@ -77,17 +77,18 @@ const FieldText = {
   marginTop: "9px",
   background: "none",
   border: "none",
-  borderBottom: "1px solid white",
-  color: "white",
+  borderBottom: "1px solid black",
+  color: "black",
   fontSize: "12px"
 }
 
 const OpButtonStyle = {
   border: "none",
   background: "none",
-  color: "white",
+  color: "black",
   display: "flex",
-  justifyContent: "flex-end"
+  justifyContent: "flex-end",
+  fontSize: "10px"
 }
 
 const FlexEnd = {
