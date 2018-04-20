@@ -112,8 +112,8 @@ class TomogramView extends Component {
 			lab = this.state.artifact.getDetail("lab");
 			institution = this.state.artifact.getDetail("institution");
 			microscopist = this.state.artifact.getDetail("microscopist");
-			scopeName = this.state.artifact.getDetail("scopeName") || "Caltech Polara";
-			scopeName = scopeName === '0' ? "Caltech Polara" : scopeName
+			scopeName = this.state.artifact.getDetail("scopeName") || "No info available";
+			scopeName = scopeName === '0' ? "No info available" : scopeName
 
 
 			let tiltSeriesSettings = []
@@ -196,18 +196,7 @@ class TomogramView extends Component {
 						<p><b>Acquisition Software:</b> {software}</p>
 						<p><b>Processing Software Used:</b> Raptor</p>
 						<p style={{whiteSpace: "pre-wrap"}}><b>Notes:</b> {artNotes}</p>
-                       
-         
-
 					</div>
-
-
-
-
-
-
-
-                    
 					<div className="col-sm-12 snapshots" style={{marginTop: "10px"}}>
 						
 							<h4>View Snapshots</h4>
@@ -246,26 +235,34 @@ class TomogramView extends Component {
 									<th>Name</th>
 									<th>Size</th>
 									<th>Type</th>
-									<th>Subtype</th>
 									<th>Download</th>
 								</tr>
 							</thead>
 							<tbody>
 								{files.map((file, i) => {
-									let fileSize = "Unknown"
-									if (file.getFilesize())
-										fileSize = filesize(file.getFilesize(), {base: 10})
-									return <tr>
-										<th scope="row">{i + 1}</th>
-										<td>{file.getDisplayName()}</td>
-										<td>{fileSize}</td>
-										<td>{file.getType()}</td>
-										<td>{file.getSubtype()}</td>
-										<td>
-											<a href={"http://etdb.caltech.edu:8080/ipfs/" + location + "/" + file.getFilename()} className="btn btn-primary" target="_blank" download>Download</a>
-										</td>
-									</tr>
-								})}
+									if (file.getType() === "Tomogram") {
+										let fileSize = "Unknown"
+										if (file.getFilesize())
+											fileSize = filesize(file.getFilesize(), {base: 10})
+										let subtype = "Unknown"
+										if (file.getSubtype() === "Keyimg")
+											subtype = "Key image"
+										else if (file.getSubtype() === "Keymov")
+											subtype = "Key movie"
+										else
+											subtype = file.getSubtype()
+										return <tr>
+											<th scope="row">{i + 1}</th>
+											<td>{file.getDisplayName()}</td>
+											<td>{fileSize}</td>
+											<td>{subtype}</td>
+											<td>
+												<a href={"http://etdb.caltech.edu:8080/ipfs/" + location + "/" + file.getFilename()} className="btn btn-primary" target="_blank" download>Download</a>
+											</td>
+										</tr>
+										}
+									}
+								)}
 							</tbody>
 						</table>
 					</div>
