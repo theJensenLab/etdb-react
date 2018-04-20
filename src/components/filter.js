@@ -50,7 +50,8 @@ class Filter extends Component {
         <div id="filters">
 
         {/* ---------------- SEARCH (EVERYTHING ABOVE SORT BUTTONS) ---------------- */}
-        <Search
+        <h5>Quick Search</h5>
+         <Search
           onFilterTextChange={this.handleFilterTextChange}
         />
 

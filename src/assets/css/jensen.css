@@ -931,7 +931,7 @@ div#browsedatabase video {
 }
 
 div#browsedatabase {
-    padding-top: 150px;
+    padding-top: 100px;
 }
 
 div#sort {
@@ -953,11 +953,17 @@ select {
 
 div#filters {
     position: fixed;
-    width: 200px;
+    width: 300px;
     z-index: 1;
-    background: #e5342a;
+    background: #EFEEE9;
     padding: 20px 20px 20px;
-    border-radius: 20px;
+    border-radius: 5px;
+    border: 1px solid;
+}
+
+div#browsedatabase .col-sm-10 {
+    width: 100%;
+    padding-left: 330px !important;
 }
 
 img.results-thumb {
