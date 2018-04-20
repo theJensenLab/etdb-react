@@ -58,7 +58,7 @@ class TomogramView extends Component {
 		this.setState({artifact: artifact});
 	}
 	render(){
-		let title = "loading...", timestamp, description, strain, speciesName, date, NBCItaxID, artNotes, tiltSingleDual, files = [], thumbnail, thumbFilename, video, videoFilename, location, defocus, niceDate, software = "No info available", institution, lab, microscopist, scopeName, magnification, tiltSeriesSettingsString, txid, hashtags, snapshots = []
+		let title = "loading...", timestamp, description, strain, speciesName, date, NBCItaxID, artNotes, tiltSingleDual, files = [], thumbnail, thumbFilename, video, videoFilename, location, defocus, niceDate, acquisitionSoftware = "No info available", processingSoftware = "No info available", institution, lab, microscopist, scopeName, magnification, tiltSeriesSettingsString, txid, hashtags, snapshots = []
 
 		hashtags = ["ETDB", "ElectronTomography"]
 
@@ -88,7 +88,10 @@ class TomogramView extends Component {
 						}
 					}
 					if (file.getSoftware() && file.getSoftware() !== ""){
-						software = file.getSoftware();
+						if (file.getSubtype() === "Tiltseries")
+							acquisitionSoftware = file.getSoftware();
+						else if (file.getSubtype() === "Reconstruction")
+							processingSoftware = file.getSoftware();
 					}
 					if (file.getSubtype() === 'Snapshot' && file.getFilename().match(`.jpg$`)) {
 						snapshots.push("http://etdb.caltech.edu:8080/ipfs/" + location + "/" + file.getFilename())
@@ -193,8 +196,8 @@ class TomogramView extends Component {
 						<p><b>Strain:</b> {strain}</p>
 						<p><b>Tilt Series Setting:</b> {tiltSeriesSettingsString}.</p>
 						<p><b>Microscope:</b> {scopeName}</p>
-						<p><b>Acquisition Software:</b> {software}</p>
-						<p><b>Processing Software Used:</b> Raptor</p>
+						<p><b>Acquisition Software:</b> {acquisitionSoftware}</p>
+						<p><b>Processing Software Used:</b> {processingSoftware}</p>
 						<p style={{whiteSpace: "pre-wrap"}}><b>Notes:</b> {artNotes}</p>
 					</div>
 					{ snapshots.length !== 0 &&
