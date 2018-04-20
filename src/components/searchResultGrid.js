@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import moment from 'moment'
+import Infinite from 'react-infinite';
 
 import TomogramListItem from './tomogramListItem';
 
@@ -112,7 +113,9 @@ class SearchResultGrid extends Component {
 
     return(
       <div className="col-sm-10" id="searchresultsgrid">
-        {artifacts.map((artifact) => <TomogramListItem Core={this.props.Core} artifact={artifact} />)}
+        <Infinite containerHeight={1000} elementHeight={50}>
+          {artifacts.map((artifact) => <TomogramListItem Core={this.props.Core} artifact={artifact} />)}
+        </Infinite>
       </div>
     )
   }
