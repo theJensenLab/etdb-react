@@ -12,6 +12,7 @@ class AdvancedSearchRowComplex extends Component {
 
     this.handleAddRowClick = this.handleAddRowClick.bind(this);
     this.handleMinusRowClick = this.handleMinusRowClick.bind(this);
+    this.handleTextChange = this.handleTextChange.bind(this);
 
   }
 
@@ -25,6 +26,10 @@ class AdvancedSearchRowComplex extends Component {
 
   handleMinusRowClick() {
     this.props.onMinusRowClick()
+  }
+
+  handleTextChange(e) {
+    // console.log(e.target.value)
   }
 
   render() {
@@ -80,7 +85,7 @@ class AdvancedSearchRowComplex extends Component {
 
         {/* ---------------- TEXT INPUT ----------------*/}
         <div className="row">
-          <input style={FieldText} className="input-field1-text" type="text" value=""  />
+          <input style={FieldText} className="input-field1-text" type="text" onChange={this.handleTextChange}  />
         </div>
 
         {/* BUTTON TO ADD ADDITIONAL COMPLEX ROW */}
