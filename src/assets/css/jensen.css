@@ -960,7 +960,7 @@ div#searchresultsgrid .col-sm-3 {
     padding-top: 10px;
     background: #4a4a4a;
     width: 24%;
-    margin: 5px;
+    margin: .1%;
 }
 
 div#tomogramcell name {
@@ -1027,7 +1027,7 @@ div#filters {
 
 div#browsedatabase .col-sm-10 {
     width: 100%;
-    padding-left: 330px !important;
+    padding-left: 350px !important;
 }
 
 img.results-thumb {
