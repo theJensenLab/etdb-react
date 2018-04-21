@@ -563,6 +563,7 @@ div#footer img {
 
 div#footer {
     width:100%;
+
     text-align: center;
     BACKGROUND: #EFEEE9;
     position:absolute;
@@ -1014,6 +1015,7 @@ div#browsedatabase video {
 
 div#browsedatabase {
     padding-top: 100px;
+    min-height: 90vh;
 }
 
 div#sort {
@@ -1052,10 +1054,14 @@ div#photocredit {
     font-style: italic;
 }
 
+.contactrow {
+    min-height: 94vh;
+}
+
 div#browsedatabase .col-sm-10 {
     width: 100%;
     padding-left: 350px !important;
-    max-width: 2500px;
+    max-width: 1500px;
     float: left;
 }
 

@@ -6,7 +6,7 @@ import Footer from './footer.js'
 class Contact extends Component {
 	render(){
 		return(
-			<div>
+			<div class="contactrow">
 				<Header />
 				<div id="featured-2" className="row">
 				  <div className="col-sm-8">
