@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import AdvancedSearchGrid from './advancedSearchGrid'
+import AdvancedSearchButton from './advancedSearchButton'
 
 class Search extends Component {
   constructor(props){
@@ -44,18 +45,8 @@ class Search extends Component {
     return (
     <div>
 
-      {/* ---------------- ADVANCED SEARCH BUTTON (THIS TOGGLES THE SEARCH GRID) ---------------- */}
-      <div style={AdvancedSearchContainer} className="advanced-search-container">
-        <div className="advanced-search-button">
-          <div className="row"><button style={AdvancedSearchToggleButton} onClick={this.handleAdvancedSearchToggle} className="advanced-search-toggle-button">
-            Expand for Advanced Search <i className="far fa-plus-square"></i>
+      <AdvancedSearchButton onAdvancedSearchButtonClick={this.handleAdvancedSearchToggle} />
 
-
-          </button></div>
-        </div>
-      </div>
-
-      {/* ---------------- SEARCH FILTER || GRID (SEE COMMENT FOR searchGrid ^) ---------------- */}
       {searchGrid}
 
     </div>
@@ -63,18 +54,5 @@ class Search extends Component {
   }
 }
 
-/* ---------------- REACT INLINE STYLES (FEEL FREE TO DELETE/CHANGE) ---------------- */
-const AdvancedSearchContainer = {
-  margin: "5px 0px"
-}
-
-const AdvancedSearchToggleButton = {
-  margin: "5px 0px",
-  color: "black",
-  padding: "0px 0px",
-  background: 'none',
-  border: 'none',
-  fontSize: '12px',
-}
 
 export default Search
