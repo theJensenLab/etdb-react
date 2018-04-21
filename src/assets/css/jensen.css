@@ -1043,9 +1043,20 @@ div#filters {
     border: 1px solid;
 }
 
+div#photocredit {
+    color: #fff;
+    position: absolute;
+    bottom: 25px;
+    left: 222px;
+    font-size: 12px;
+    font-style: italic;
+}
+
 div#browsedatabase .col-sm-10 {
     width: 100%;
     padding-left: 350px !important;
+    max-width: 2500px;
+    float: left;
 }
 
 img.results-thumb {

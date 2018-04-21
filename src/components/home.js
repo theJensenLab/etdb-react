@@ -55,7 +55,9 @@ class Home extends Component {
 				  </div>
 				</div>
 				<div id="home-image">
-				  <div id="home-image-container"><img src="/src/assets/img/etdb-home.png"/></div>
+				  <div id="home-image-container"><img src="/src/assets/img/etdb-home.png"/>
+                  <div id="photocredit">Matt Swulius using the Caltech Polara microscope</div>
+                  </div>
 				</div>
 				<div className="row" id="homecontent">
 				  <div className="col-sm-6" id="homehero"></div>
