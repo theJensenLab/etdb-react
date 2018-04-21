@@ -35,11 +35,11 @@ class AdvancedSearchRowComplex extends Component {
     /* ---------------- BUTTON TO ADD ROW COMPLEXITY; RENDERS UNTIL CLICKED ----------------*/
     // const addRowButton = this.state.addRowButton ? (
     //   <div className="row">
-    //     <button class="remove"
+    //     <button className="remove"
     //           onClick={this.handleMinusRowClick}
     //           style={OpButtonStyle}>- Remove row </button>
     //
-    //     <button class="addparameter" onClick={this.handleAddRowClick}
+    //     <button className="addparameter" onClick={this.handleAddRowClick}
     //       style={OpButtonStyle}>Add parameter +</button>
     //    </div>
     // ) : (
@@ -88,11 +88,11 @@ class AdvancedSearchRowComplex extends Component {
 
         {/* BUTTON TO ADD ADDITIONAL COMPLEX ROW */}
         <div className="row">
-          <button class="remove"
+          <button className="remove"
                 onClick={this.handleMinusRowClick}
                 style={OpButtonStyle}>- Remove row </button>
 
-          <button class="addparameter" onClick={this.handleAddRowClick}
+          <button className="addparameter" onClick={this.handleAddRowClick}
             style={OpButtonStyle}>Add parameter +</button>
          </div>
 
