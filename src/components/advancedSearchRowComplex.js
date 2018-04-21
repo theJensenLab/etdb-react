@@ -32,21 +32,6 @@ class AdvancedSearchRowComplex extends Component {
 
   render() {
 
-    /* ---------------- BUTTON TO ADD ROW COMPLEXITY; RENDERS UNTIL CLICKED ----------------*/
-    // const addRowButton = this.state.addRowButton ? (
-    //   <div className="row">
-    //     <button className="remove"
-    //           onClick={this.handleMinusRowClick}
-    //           style={OpButtonStyle}>- Remove row </button>
-    //
-    //     <button className="addparameter" onClick={this.handleAddRowClick}
-    //       style={OpButtonStyle}>Add parameter +</button>
-    //    </div>
-    // ) : (
-    //   null
-    // );
-
-
     return (
       <div>
 

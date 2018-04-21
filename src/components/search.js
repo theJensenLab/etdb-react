@@ -12,7 +12,7 @@ class Search extends Component {
 
     this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
     this.handleAdvancedSearchToggle = this.handleAdvancedSearchToggle.bind(this);
-
+    this.handleAdvanceSearchSubmit = this.handleAdvanceSearchSubmit.bind(this);
   }
 
   handleFilterTextChange(e) {
@@ -25,6 +25,11 @@ class Search extends Component {
     this.setState(prevState => ({
       advancedSearchToggleBool: !prevState.advancedSearchToggleBool
     }))
+  }
+
+  handleAdvanceSearchSubmit(e) {
+    console.log("YEW");
+    e.preventDefault();
   }
 
   render() {
@@ -43,13 +48,15 @@ class Search extends Component {
     );
 
     return (
-    <div>
+      <div>
 
-      <AdvancedSearchButton onAdvancedSearchButtonClick={this.handleAdvancedSearchToggle} />
+        <AdvancedSearchButton onAdvancedSearchButtonClick={this.handleAdvancedSearchToggle} />
 
-      {searchGrid}
+        <form onSubmit={this.handleAdvanceSearchSubmit}>
+          {searchGrid}
+        </form>
 
-    </div>
+      </div>
     )
   }
 }

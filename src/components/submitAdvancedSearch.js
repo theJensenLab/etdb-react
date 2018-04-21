@@ -11,7 +11,7 @@ class SubmitAdvancedSearch extends Component {
     return (
       <div>
         <div className="row submit-as-row">
-          <button style={SubmitStyle}>Search</button>
+          <input style={SubmitStyle} type="submit" value="Submit" />
         </div>
       </div>
     )
@@ -31,3 +31,5 @@ const FlexRowSubmit = {
 }
 
 export default SubmitAdvancedSearch
+
+{/* <button style={SubmitStyle}>Search</button> */}
