@@ -551,6 +551,12 @@ div#footer a {
     text-align: center !important;
 }
 
+div#smline {
+    width: 30px;
+    height: 1px;
+    background: #e5342a;
+}
+
 div#footer img {
     max-width: 172px;
     max-height: 65px;
@@ -944,7 +950,20 @@ div#filters input.form-control::-webkit-input-placeholder {
 }
 
 button.sortButton:hover {
-    font-weight: 600 !important;
+    color: #e5342a;
+}
+
+.row.sort-row b {
+    color:#e5342a;
+    font-weight: normal;
+}
+
+.flip-arrow {
+    border: none;
+    background: none;
+    font-size: 11px;
+    margin-top: 5px;
+    color: #e5342a;
 }
 
 .as-select {
@@ -953,7 +972,7 @@ button.sortButton:hover {
 
 button.sortButton {
     padding: 0px;
-    margin-bottom: 10px;
+    margin-top: 5px;
 }
 
 div#filters input.form-control {

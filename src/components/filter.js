@@ -52,12 +52,14 @@ class Filter extends Component {
 
         {/* ---------------- SEARCH (EVERYTHING ABOVE SORT BUTTONS) ---------------- */}
         <h5><i className="fas fa-search"></i> Search</h5>
+        <div id="smline"></div>
          <Search
           onFilterTextChange={this.handleFilterTextChange}
         />
 
         {/* ---------------- SORT BUTTONS ---------------- */}
        <div id="sortbuttons"> <h5><i className="fas fa-sort"></i> Sort by</h5>
+       <div id="smline"></div>
         <div className="sortButton">
           {/* <SortValueButton buttonValue="Views" name={VIEWS} sortValue={this.props.sortValue} onSortButtonChange={this.handleSortButtonChange} onFlipSortChange={this.handleFlipSortChange} flipSort={this.props.flipSort} /> */}
           <SortValueButton buttonValue="Title" name={TITLE} sortValue={this.props.sortValue} onSortButtonChange={this.handleSortButtonChange} onFlipSortChange={this.handleFlipSortChange} flipSort={this.props.flipSort} />
