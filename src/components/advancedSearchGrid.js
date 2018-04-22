@@ -1,5 +1,5 @@
 
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import AdvancedSearchRow from './advancedSearchRow'
 import AdvancedSearchRowComplex from './advancedSearchRowComplex'
 import SubmitAdvancedSearch from './submitAdvancedSearch'
@@ -15,6 +15,7 @@ class AdvancedSearchGrid extends Component {
 
     this.handleAddRowClick = this.handleAddRowClick.bind(this);
     this.handleMinusRowClick = this.handleMinusRowClick.bind(this);
+    this.handleAdvanceSearchSubmit = this.handleAdvanceSearchSubmit.bind(this);
   }
 
   handleAddRowClick() {
@@ -27,6 +28,10 @@ class AdvancedSearchGrid extends Component {
     this.setState({
       complexRowCounter: this.state.complexRowCounter - 1
     })
+  }
+
+  handleAdvanceSearchSubmit(e){
+    this.props.onSubmit(e);
   }
 
   render() {
@@ -43,15 +48,14 @@ class AdvancedSearchGrid extends Component {
 
     return (
       <div>
-        {/* ---------------- DEFAULT ADVANCED SEARCH ---------------- */}
-        <AdvancedSearchRow
-          complexRowCounter={this.state.complexRowCounter}
-          onAddRowClick={this.handleAddRowClick}
-        />
-        {/* ---------------- ADDITIONAL SEARCH ROWS TO ADD COMPLEXITY QUERIES ---------------- */}
-        {complexRows}
-        {/* ---------------- SUBMIT BUTTON ---------------- */}
-        <SubmitAdvancedSearch />
+        <form onSubmit={this.handleAdvanceSearchSubmit}>
+          <AdvancedSearchRow
+            complexRowCounter={this.state.complexRowCounter}
+            onAddRowClick={this.handleAddRowClick}
+          />
+          {complexRows}
+          <SubmitAdvancedSearch />
+        </form>
 
       </div>
 

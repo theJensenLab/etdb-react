@@ -13,7 +13,13 @@ class Browse extends Component {
 			filterText: "",
 			artifacts: [],
 			sortValue: null,
-			flipSort: false
+			flipSort: false,
+			ase: {
+				field: null,
+				stringOperator: null,
+				searchTextParameters: null
+
+			}
 		}
 
 		this.getTomograms = this.getTomograms.bind(this);
@@ -22,11 +28,24 @@ class Browse extends Component {
 		this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
 		this.handleSortButtonChange = this.handleSortButtonChange.bind(this);
 		this.handleFlipSortChange = this.handleFlipSortChange.bind(this);
+		this.testFunction = this.testFunction.bind(this);
 	}
 
 	componentDidMount(){
     this.getTomograms();
+		this.testFunction();
   }
+
+	testFunction(){
+		this.setState({
+			ase: {
+				...this.state.ase,
+				field: 1,
+				name: 3
+			}
+		})
+	}
+
   getTomograms(){
     this.props.Core.Index.getSupportedArtifacts((this.storeTomograms), (error) => {
       console.error(error)
@@ -34,7 +53,7 @@ class Browse extends Component {
   }
 	storeTomograms(artifacts){
 		//only for Dev so my comp doesn't crash. delete for prod
-		artifacts = artifacts.slice(0,99);
+		artifacts = artifacts.slice(0,4);
     this.setState({artifacts: artifacts});
   }
 

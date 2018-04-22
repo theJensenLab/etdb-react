@@ -2,30 +2,40 @@
 import React, {Component} from 'react';
 
 class AdvancedSearchRow extends Component {
-  constructor(props){
-    super(props);
+constructor(props){
+  super(props);
 
-    this.handleAddRowClick = this.handleAddRowClick.bind(this);
-    this.handleTextChange = this.handleTextChange.bind(this);
-
+  this.state = {
+    value: ""
   }
 
-  handleAddRowClick() {
-    this.props.onAddRowClick()
-  }
-  handleTextChange(e) {
-    // console.log(e.target.value);
-  }
+  this.handleAddRowClick = this.handleAddRowClick.bind(this);
+  this.handleTextChange = this.handleTextChange.bind(this);
+  this.handleFieldChange = this.handleFieldChange.bind(this)
+
+}
+
+handleAddRowClick() {
+  this.props.onAddRowClick()
+}
+handleTextChange(e) {
+  // console.log(e.target.value);
+}
+
+handleFieldChange(e) {
+  this.setState({value: e.target.value});
+  console.log(e.target.value);
+}
 
 
-  render() {
-    const complexRowCounterBool = (this.props.complexRowCounter === 0);
+render() {
+  const complexRowCounterBool = (this.props.complexRowCounter === 0);
 
-    const addComplexRowButton = (complexRowCounterBool) ? (
-      <div style={FlexEnd} className="row">
-        <button
-          onClick={this.handleAddRowClick}
-          style={OpButtonStyle}>Add parameter +</button>
+  const addComplexRowButton = (complexRowCounterBool) ? (
+    <div style={FlexEnd} className="row">
+      <button
+        onClick={this.handleAddRowClick}
+        style={OpButtonStyle}>Add parameter +</button>
       </div>
     ) : (
       null
@@ -36,21 +46,21 @@ class AdvancedSearchRow extends Component {
 
         {/* ---------------- ALL FIELDS ----------------*/}
         <div className="row" style={FieldRow1}>
-          <select className="col-sm-5 as-select">
-            <option>All Fields</option>
-            <option>Microscopist</option>
-            <option>Species Name</option>
-            <option>Strain</option>
-            <option>Institution</option>
-            <option>Lab</option>
-            <option>Art Notes</option>
+          <select value={this.state.value} name="fields" form="advanced-search" onChange={this.handleFieldChange} className="col-sm-5 as-select">
+            <option value="allFields" name="allFields">All Fields</option>
+            <option value="microscopist" name="microscopist">Microscopist</option>
+            <option value="species">Species</option>
+            <option value="strain">Strain</option>
+            <option value="institution">Institution</option>
+            <option value="lab">Lab</option>
+            <option value="notes">Notes</option>
           </select>
 
           {/* ---------------- CONTAINS/IS (EXACT)/STARTS WITH ----------------*/}
-          <select className="col-sm-6 as-select">
-            <option>contains</option>
-            <option>is (exact)</option>
-            <option>starts with</option>
+          <select name="operators" form="advanced-search" onChange={this.handleFieldChange} className="col-sm-6 as-select">
+            <option value="contains">contains</option>
+            <option value="isExact">is (exact)</option>
+            <option value="startsWith">starts with</option>
           </select>
         </div>
 
