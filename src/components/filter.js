@@ -55,6 +55,7 @@ class Filter extends Component {
         <div id="smline"></div>
          <Search
           onFilterTextChange={this.handleFilterTextChange}
+          filterText={this.props.filterText}
         />
 
         {/* ---------------- SORT BUTTONS ---------------- */}

@@ -23,39 +23,35 @@ class SearchResultGrid extends Component {
     const LAST_MODIFIED = "lastModified";
     const DATE_TAKEN = "dateTaken";
 
+    const SPECIES = "species";
+    const STRAIN = "strain";
+    const INSTITUTION = "institution";
+    const LAB = "lab";
+    const NOTES = "notes";
+    const CONTAINS = "contains";
+    const ISEXACT = "isExact";
+    const STARTSWITH = "startsWIth";
+
+
     //FILTERS
     this.props.artifacts.forEach((artifact) => {
-
       const artifactString = JSON.stringify(artifact.toJSON());
+
+      // if (artifact.getDetail(FIELD).toLowerCase().test(""))  {
+      //   return;
+      // }
+
+      //.startsWith("")
+      //.indexOf("")
+      // var str = "The best things in life are free";
+      // var patt = new RegExp("e");
+      // var res = patt.test(str);
+
       if (artifactString.toLowerCase().indexOf(filterText.toLowerCase()) === -1) {
         return;
       }
-
       // if (filterState.bacteria && specimenType.lower() === "bacteria"){}
-
-      // if (filterState.bacteria){
-      //   artifacts.push(
-      //     <TomogramListItem
-      //       Core={this.props.Core}
-      //       artifact={artifact}
-      //     />)
-      //   return;
-      // } else if (filterState.archaea) {
-      //   artifacts.push(
-      //     <TomogramListItem
-      //       Core={this.props.Core}
-      //       artifact={artifact}
-      //     />)
-      //   return;
-      // } else if (filterState.eukaryotes) {
-      //   artifacts.push(
-      //     <TomogramListItem
-      //       Core={this.props.Core}
-      //       artifact={artifact}
-      //     />)
-      //   return;
-      // } else console.log()
-
+        //push
       artifacts.push(artifact)
     })
 
@@ -94,8 +90,8 @@ class SearchResultGrid extends Component {
               return 1;
           }
           return 0;
-      });
-      break;
+        });
+        break;
       case LAST_MODIFIED:
         console.log(sortValue);
         artifacts.sort( (a,b) => {return b.getTimestamp()-a.getTimestamp()});

@@ -37,12 +37,16 @@ class Search extends Component {
 
     // IF ADVANCED SEARCH IS NOT TOGGLED, NORMAL TEXT FILTER IS RENDERED; ELSE, THE ADVANCED SEARCH GRID IS RENDERED
     const searchGrid = advancedSearchToggleBool ? (
-      <AdvancedSearchGrid onSubmit={this.handleAdvanceSearchSubmit} />
+      <AdvancedSearchGrid
+        onSubmit={this.handleAdvanceSearchSubmit}
+        onFilterTextChange={this.handleFilterTextChange}
+       />
     ) : (
       <input
         className="form-control"
         type="text"
         onChange={this.handleFilterTextChange}
+        value={this.props.filterText}
         placeholder="Search for..."
       />
     );

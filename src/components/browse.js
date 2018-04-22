@@ -98,6 +98,7 @@ class Browse extends Component {
 						onSortButtonChange={this.handleSortButtonChange}
 						onFlipSortChange={this.handleFlipSortChange}
 						flipSort={this.state.flipSort}
+						flipText={this.state.flipText}
 					/>
 					<SearchResultGrid
 						Core={this.props.Core}

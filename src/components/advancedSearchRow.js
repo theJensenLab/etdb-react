@@ -19,7 +19,7 @@ handleAddRowClick() {
   this.props.onAddRowClick()
 }
 handleTextChange(e) {
-  // console.log(e.target.value);
+  this.props.onFilterTextChange(e);
 }
 
 handleFieldChange(e) {

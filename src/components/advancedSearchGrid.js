@@ -16,6 +16,7 @@ class AdvancedSearchGrid extends Component {
     this.handleAddRowClick = this.handleAddRowClick.bind(this);
     this.handleMinusRowClick = this.handleMinusRowClick.bind(this);
     this.handleAdvanceSearchSubmit = this.handleAdvanceSearchSubmit.bind(this);
+    this.handleFilterTextChange = this.handleFilterTextChange.bind(this)
   }
 
   handleAddRowClick() {
@@ -34,6 +35,10 @@ class AdvancedSearchGrid extends Component {
     this.props.onSubmit(e);
   }
 
+  handleFilterTextChange(e) {
+    this.props.onFilterTextChange(e);
+  }
+
   render() {
     let complexRows = [];
 
@@ -48,10 +53,11 @@ class AdvancedSearchGrid extends Component {
 
     return (
       <div>
-        <form onSubmit={this.handleAdvanceSearchSubmit}>
+        <form id="advanced-search" onSubmit={this.handleAdvanceSearchSubmit}>
           <AdvancedSearchRow
             complexRowCounter={this.state.complexRowCounter}
             onAddRowClick={this.handleAddRowClick}
+            onFilterTextChange={this.handleFilterTextChange}
           />
           {complexRows}
           <SubmitAdvancedSearch />
