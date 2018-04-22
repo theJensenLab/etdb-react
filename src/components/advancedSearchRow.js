@@ -19,10 +19,8 @@ class AdvancedSearchRow extends Component {
 
 
   render() {
-    //TRUE IF THERE ARE 0 COMPLEX ROWS
     const complexRowCounterBool = (this.props.complexRowCounter === 0);
 
-    //SHOW THE ADD BUTTON ONLY IF THERE ARE NO COMPLEX ROWS
     const addComplexRowButton = (complexRowCounterBool) ? (
       <div style={FlexEnd} className="row">
         <button
@@ -61,7 +59,6 @@ class AdvancedSearchRow extends Component {
           <input style={FieldText} className="input-field1-text" type="text" onChange={this.handleTextChange}  />
         </div>
 
-        {/* BUTTON TO ADD COMPLEX ROW  (WILL ONLY SHOW IF THERE ARE 0 COMPLEX ROWS)*/}
         {addComplexRowButton}
 
       </div>

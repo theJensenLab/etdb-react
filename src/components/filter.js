@@ -38,7 +38,7 @@ class Filter extends Component {
   render() {
     const sortValue = this.props.sortValue;
 
-    //SORT_CONSTANTS
+    //SORT_CONSTANTS if changed, change in searchResultGrid too
     const VIEWS = "views";
     const TITLE = "title";
     const SPECIMEN = "specimen";

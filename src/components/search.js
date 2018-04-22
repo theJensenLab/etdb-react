@@ -28,7 +28,7 @@ class Search extends Component {
   }
 
   handleAdvanceSearchSubmit(e) {
-    console.log("YEW");
+    console.log(e);
     e.preventDefault();
   }
 

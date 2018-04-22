@@ -37,6 +37,7 @@ class AdvancedSearchGrid extends Component {
         <AdvancedSearchRowComplex
           onAddRowClick={this.handleAddRowClick}
           onMinusRowClick={this.handleMinusRowClick}
+          id={i}
         />)
     }
 
