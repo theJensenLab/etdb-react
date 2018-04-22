@@ -966,6 +966,12 @@ button.sortButton:hover {
     color: #e5342a;
 }
 
+.transparent img.black-logo {
+    position: fixed;
+    bottom: 17px;
+    right: 20px;
+}
+
 .as-select {
     margin-right: 4px;
 }
@@ -1058,10 +1064,10 @@ div#filters {
     position: fixed;
     width: 300px;
     z-index: 1;
-    background: #EFEEE9;
+    background: #b4b4b4;
     padding: 20px 20px 20px;
     border-radius: 5px;
-    border: 1px solid;
+    border-top: 8px solid #e5342a;
 }
 
 div#photocredit {
