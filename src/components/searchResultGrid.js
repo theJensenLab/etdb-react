@@ -1,11 +1,30 @@
 import React, {Component} from 'react';
 import moment from 'moment'
-import Infinite from 'react-infinite';
+import Pagination from 'react-js-pagination';
 
 import TomogramListItem from './tomogramListItem';
 
 class SearchResultGrid extends Component {
+  constructor(props){
+    super(props);
+
+    this.state = {
+      currentPage: 1
+    }
+
+    this.onPageChange = this.onPageChange.bind(this);
+  }
+  onPageChange(page){
+    this.setState({currentPage: page});
+  }
+  componentWillReceiveProps(nextProps){
+    if (this.props !== nextProps){
+      this.setState({currentPage: 1});
+    }
+  }
   render() {
+    window.scrollTo(0,0)
+
     const artifacts = [];
 
     //STATE_CONSTANTS
@@ -111,11 +130,38 @@ class SearchResultGrid extends Component {
 
     if (flipSort === true) {artifacts.reverse()};
 
+    var pageArtifacts = [];
+    var itemsPerPage = 100;
+    var totalFullPages = Math.floor(artifacts.length / itemsPerPage);
+    var itemsOnPartialPage = artifacts.length % itemsPerPage;
+
+    var totalPages = totalFullPages;
+
+    if (itemsOnPartialPage > 0){
+      totalPages += 1;
+    }
+
+    console.log(this.state.currentPage)
+
+    for (var k = 0; k < itemsPerPage; k++){
+      var artifactIndex = k + (itemsPerPage * (this.state.currentPage - 1));
+
+      // Check if it exists
+      if (artifacts[artifactIndex])
+        pageArtifacts.push(<TomogramListItem Core={this.props.Core} artifact={artifacts[artifactIndex]} />)
+    }
+
     return(
       <div className="col-sm-10" id="searchresultsgrid">
-        <Infinite containerHeight={1000} elementHeight={50}>
-          {artifacts.map((artifact) => <TomogramListItem Core={this.props.Core} artifact={artifact} />)}
-        </Infinite>
+        <div className="col-sm-12">
+          {pageArtifacts}
+        </div>
+        <br />
+        <center>
+        <div className="row" style={{margin: "auto"}}>
+          <Pagination onChange={this.onPageChange} activePage={this.state.currentPage} itemsCountPerPage={itemsPerPage} totalItemsCount={artifacts.length} pageRangeDisplayed={5} />
+        </div>
+        </center>
       </div>
     )
   }
