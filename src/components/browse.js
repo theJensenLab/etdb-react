@@ -14,12 +14,7 @@ class Browse extends Component {
 			artifacts: [],
 			sortValue: null,
 			flipSort: false,
-			ase: {
-				field: null,
-				stringOperator: null,
-				searchTextParameters: null
-
-			}
+			advancedSearchParams: []
 		}
 
 		this.getTomograms = this.getTomograms.bind(this);
@@ -28,23 +23,14 @@ class Browse extends Component {
 		this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
 		this.handleSortButtonChange = this.handleSortButtonChange.bind(this);
 		this.handleFlipSortChange = this.handleFlipSortChange.bind(this);
-		this.testFunction = this.testFunction.bind(this);
+		this.handleSearchOnChange = this.handleSearchOnChange.bind(this);
+    this.handleSearchTypeChange = this.handleSearchTypeChange.bind(this);
+    this.handleSearchForChange = this.handleSearchForChange.bind(this);
 	}
 
 	componentDidMount(){
     this.getTomograms();
-		this.testFunction();
   }
-
-	testFunction(){
-		this.setState({
-			ase: {
-				...this.state.ase,
-				field: 1,
-				name: 3
-			}
-		})
-	}
 
   getTomograms(){
     this.props.Core.Index.getSupportedArtifacts((this.storeTomograms), (error) => {
@@ -85,6 +71,23 @@ class Browse extends Component {
     }))
 	}
 
+	handleSearchOnChange(searchOnField) {
+		this.setState({
+			advancedSearchParams: null,
+			advancedSearchParams: {
+				searchOn: searchOnField
+			}
+		})
+  }
+
+  handleSearchTypeChange(searchType) {
+    console.log(searchType);
+  }
+
+  handleSearchForChange(searchForText) {
+    console.log(searchForText);
+  }
+
 	render(){
 		return(
 			<div>
@@ -99,6 +102,9 @@ class Browse extends Component {
 						onFlipSortChange={this.handleFlipSortChange}
 						flipSort={this.state.flipSort}
 						flipText={this.state.flipText}
+						onSearchOnChange={this.handleSearchOnChange}
+	          onSearchTypeChange={this.handleSearchTypeChange}
+	          onSearchForChange={this.handleSearchForChange}
 					/>
 					<SearchResultGrid
 						Core={this.props.Core}

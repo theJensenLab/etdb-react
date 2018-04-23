@@ -12,6 +12,9 @@ class Filter extends Component {
     this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
     this.handleSortButtonChange = this.handleSortButtonChange.bind(this);
     this.handleFlipSortChange = this.handleFlipSortChange.bind(this);
+    this.handleSearchOnChange = this.handleSearchOnChange.bind(this);
+    this.handleSearchTypeChange = this.handleSearchTypeChange.bind(this);
+    this.handleSearchForChange = this.handleSearchForChange.bind(this);
   }
 
   handleFilterTextChange(value) {
@@ -34,6 +37,20 @@ class Filter extends Component {
     this.props.onFlipSortChange();
   }
 
+  handleSearchOnChange(searchOnField) {
+    this.props.onSearchOnChange(searchOnField);
+    // console.log(searchOnField);
+  }
+
+  handleSearchTypeChange(searchType) {
+    this.props.onSearchTypeChange(searchType);
+    // console.log(searchType);
+  }
+
+  handleSearchForChange(searchForText) {
+    this.props.onSearchForChange(searchForText);
+    // console.log(searchForText);
+  }
 
   render() {
     const sortValue = this.props.sortValue;
@@ -56,6 +73,9 @@ class Filter extends Component {
          <Search
           onFilterTextChange={this.handleFilterTextChange}
           filterText={this.props.filterText}
+          onSearchOnChange={this.handleSearchOnChange}
+          onSearchTypeChange={this.handleSearchTypeChange}
+          onSearchForChange={this.handleSearchForChange}
         />
 
         {/* ---------------- SORT BUTTONS ---------------- */}
