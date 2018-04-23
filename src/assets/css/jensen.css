@@ -1117,6 +1117,13 @@ a.tomogram-link:hover {
     border-bottom: 0px;
     padding-bottom: 0px;
     padding-top: 4px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 45%;
+    right: 10px;
+    position: absolute;
+    text-align: right;
 }
 
 img.results-thumb {
@@ -1146,7 +1153,9 @@ name {
     line-height: 1;
     font-family: 'Open Sans', sans-serif;
     font-size: 15px;
- 
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 div#filter {
