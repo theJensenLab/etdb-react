@@ -1,13 +1,14 @@
 import React, {Component} from 'react';
 import moment from 'moment'
-// import Infinite from 'react-infinite';
+import Pagination from 'react-js-pagination';
+import { BarLoader } from 'react-spinners';
 
 import TomogramListItem from './tomogramListItem';
 
 
 
 class SearchResultGrid extends Component {
-  constructor(props) {
+  constructor(props){
     super(props);
 
     this.state = {
@@ -19,6 +20,11 @@ class SearchResultGrid extends Component {
   }
   onPageChange(page){
     this.setState({currentPage: page});
+  }
+  componentWillReceiveProps(nextProps){
+    if (this.props !== nextProps){
+      this.setState({currentPage: 1});
+    }
   }
   filterArtifacts(art, params, constants)
   {
