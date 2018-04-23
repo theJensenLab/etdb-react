@@ -202,7 +202,7 @@ button:focus, html input[type="button"]:focus, input[type="reset"]:focus, input[
 }
 
 .accordion:after {
-    content: '\02795'; /* Unicode character for "plus" sign (+) */
+    /*content: '\02795';  Unicode character for "plus" sign (+) */
     font-size: 13px;
     color: #777;
     float: right;
@@ -210,7 +210,7 @@ button:focus, html input[type="button"]:focus, input[type="reset"]:focus, input[
 }
 
 .active:after {
-    content: "\2796"; /* Unicode character for "minus" sign (-) */
+    /*content: "\2796";  Unicode character for "minus" sign (-) */
 }
 
 .panel p {
