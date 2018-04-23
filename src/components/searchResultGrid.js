@@ -16,7 +16,7 @@ class SearchResultGrid extends Component {
   }
 
   render() {
-    let artifacts = [];
+    var artifacts = [];
 
     //STATE_CONSTANTS
     const filterText = this.props.filterText;
