@@ -1623,3 +1623,18 @@ div#footer {
     padding: 20px 20px 0px;
 }
 }
+
+/* Pagination Styles */
+
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+    background-color: #b60000;
+    border-color: #b60000;
+}
+
+.pagination>li>a, .pagination>li>span {
+    color: #b60000;
+}
+
+.pagination>li>a:focus, .pagination>li>a:hover, .pagination>li>span:focus, .pagination>li>span:hover {
+    color: #b60000;
+}
