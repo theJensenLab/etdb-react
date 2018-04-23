@@ -1,5 +1,5 @@
 
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import AdvancedSearchRow from './advancedSearchRow'
 import AdvancedSearchRowComplex from './advancedSearchRowComplex'
 import SubmitAdvancedSearch from './submitAdvancedSearch'
@@ -15,6 +15,9 @@ class AdvancedSearchGrid extends Component {
 
     this.handleAddRowClick = this.handleAddRowClick.bind(this);
     this.handleMinusRowClick = this.handleMinusRowClick.bind(this);
+    this.handleAdvanceSearchSubmit = this.handleAdvanceSearchSubmit.bind(this);
+    this.handleSimpleSearchChange = this.handleSimpleSearchChange.bind(this);
+
   }
 
   handleAddRowClick() {
@@ -29,6 +32,15 @@ class AdvancedSearchGrid extends Component {
     })
   }
 
+  handleAdvanceSearchSubmit(e){
+    this.props.onSubmit(e);
+  }
+
+  handleSimpleSearchChange(simpleSearchParams){
+    this.props.onSimpleSearchChange(simpleSearchParams);
+  }
+
+
   render() {
     let complexRows = [];
 
@@ -37,20 +49,22 @@ class AdvancedSearchGrid extends Component {
         <AdvancedSearchRowComplex
           onAddRowClick={this.handleAddRowClick}
           onMinusRowClick={this.handleMinusRowClick}
+          id={i}
         />)
     }
 
     return (
       <div>
-        {/* ---------------- DEFAULT ADVANCED SEARCH ---------------- */}
-        <AdvancedSearchRow
-          complexRowCounter={this.state.complexRowCounter}
-          onAddRowClick={this.handleAddRowClick}
-        />
-        {/* ---------------- ADDITIONAL SEARCH ROWS TO ADD COMPLEXITY QUERIES ---------------- */}
-        {complexRows}
-        {/* ---------------- SUBMIT BUTTON ---------------- */}
-        <SubmitAdvancedSearch />
+        <form id="advanced-search" onSubmit={this.handleAdvanceSearchSubmit}>
+          <AdvancedSearchRow
+            complexRowCounter={this.state.complexRowCounter}
+            onAddRowClick={this.handleAddRowClick}
+            onSimpleSearchChange={this.handleSimpleSearchChange}
+
+          />
+          {complexRows}
+          <SubmitAdvancedSearch />
+        </form>
 
       </div>
 

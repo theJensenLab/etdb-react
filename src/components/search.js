@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import AdvancedSearchGrid from './advancedSearchGrid'
+import AdvancedSearchButton from './advancedSearchButton'
 
 class Search extends Component {
   constructor(props){
@@ -10,7 +11,10 @@ class Search extends Component {
     }
 
     this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
-    this.handleAdvancedSearchToggle = this.handleAdvancedSearchToggle.bind(this);
+    this.handleAdvanceSearchSubmit = this.handleAdvanceSearchSubmit.bind(this);
+    this.handleSimpleSearchChange = this.handleSimpleSearchChange.bind(this);
+    this.handleToggleAdvancedSearch = this.handleToggleAdvancedSearch.bind(this);
+    this.toggleAdvancedSearch = this.toggleAdvancedSearch.bind(this);
 
   }
 
@@ -20,61 +24,57 @@ class Search extends Component {
   }
 
 
-  handleAdvancedSearchToggle() {
+  handleToggleAdvancedSearch() {
     this.setState(prevState => ({
       advancedSearchToggleBool: !prevState.advancedSearchToggleBool
-    }))
+    }),
+    this.toggleAdvancedSearch
+  )
   }
+
+  toggleAdvancedSearch() {
+    this.props.onToggleAdvancedSearch(this.state.advancedSearchToggleBool)
+  }
+
+  handleAdvanceSearchSubmit(e) {
+    console.log(e);
+    e.preventDefault();
+  }
+
+  handleSimpleSearchChange(simpleSearchParams){
+    this.props.onSimpleSearchChange(simpleSearchParams);
+  }
+
 
   render() {
     const advancedSearchToggleBool = this.state.advancedSearchToggleBool;
 
     // IF ADVANCED SEARCH IS NOT TOGGLED, NORMAL TEXT FILTER IS RENDERED; ELSE, THE ADVANCED SEARCH GRID IS RENDERED
     const searchGrid = advancedSearchToggleBool ? (
-      <AdvancedSearchGrid />
+      <AdvancedSearchGrid
+        onSubmit={this.handleAdvanceSearchSubmit}
+        onFilterTextChange={this.handleFilterTextChange}
+        onSimpleSearchChange={this.handleSimpleSearchChange}
+
+       />
     ) : (
       <input
         className="form-control"
         type="text"
         onChange={this.handleFilterTextChange}
+        value={this.props.filterText}
         placeholder="Search for..."
       />
     );
 
     return (
-    <div>
-
-      {/* ---------------- ADVANCED SEARCH BUTTON (THIS TOGGLES THE SEARCH GRID) ---------------- */}
-      <div style={AdvancedSearchContainer} className="advanced-search-container">
-        <div className="advanced-search-button">
-          <div className="row"><button style={AdvancedSearchToggleButton} onClick={this.handleAdvancedSearchToggle} className="advanced-search-toggle-button">
-            Expand for Advanced Search <i className="far fa-plus-square"></i>
-
-
-          </button></div>
-        </div>
+      <div>
+        <AdvancedSearchButton onToggleAdvancedSearch={this.handleToggleAdvancedSearch} />
+        {searchGrid}
       </div>
-
-      {/* ---------------- SEARCH FILTER || GRID (SEE COMMENT FOR searchGrid ^) ---------------- */}
-      {searchGrid}
-
-    </div>
     )
   }
 }
 
-/* ---------------- REACT INLINE STYLES (FEEL FREE TO DELETE/CHANGE) ---------------- */
-const AdvancedSearchContainer = {
-  margin: "5px 0px"
-}
-
-const AdvancedSearchToggleButton = {
-  margin: "5px 0px",
-  color: "black",
-  padding: "0px 0px",
-  background: 'none',
-  border: 'none',
-  fontSize: '12px',
-}
 
 export default Search

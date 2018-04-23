@@ -5,6 +5,8 @@ import { BarLoader } from 'react-spinners';
 
 import TomogramListItem from './tomogramListItem';
 
+
+
 class SearchResultGrid extends Component {
   constructor(props){
     super(props);
@@ -13,6 +15,7 @@ class SearchResultGrid extends Component {
       currentPage: 1
     }
 
+    this.filterArtifacts = this.filterArtifacts.bind(this);
     this.onPageChange = this.onPageChange.bind(this);
   }
   onPageChange(page){
@@ -23,10 +26,150 @@ class SearchResultGrid extends Component {
       this.setState({currentPage: 1});
     }
   }
+  filterArtifacts(art, params, constants)
+  {
+    switch (params.searchOn)
+    {
+//--------------------------------------------------------------------------------------------------------------------
+      case constants.ALL_FIELDS:
+      const artifactString = JSON.stringify(art.toJSON());
+
+      if (artifactString.toLowerCase().indexOf(params.searchFor.toLowerCase()) >= 0) {
+        return true;
+      } else {return false}
+        // switch (params.searchType)
+        // {
+        //   case constants.CONTAINS:
+        //     if (art.getDetail(constants.MICROSCOPIST).toLowerCase().indexOf(params.searchFor.toLowerCase()) >= 0)
+        //     {
+        //       return true
+        //     } else {return false}
+        //     break;
+        //   case constants.IS_EXACT:
+        //     return (art.getDetail(constants.MICROSCOPIST).toLowerCase() === params.searchFor.toLowerCase())
+        //     break;
+        //   case constants.STARTS_WITH:
+        //      return (art.getDetail(constants.MICROSCOPIST).toLowerCase().startsWith(params.searchFor.toLowerCase()))
+        //      break;
+        // }
+        break;
+//--------------------------------------------------------------------------------------------------------------------
+      case constants.MICROSCOPIST:
+        switch (params.searchType)
+        {
+          case constants.CONTAINS:
+            if (art.getDetail(constants.MICROSCOPIST).toLowerCase().indexOf(params.searchFor.toLowerCase()) >= 0)
+            {
+              return true
+            } else {return false}
+            break;
+          case constants.IS_EXACT:
+            return (art.getDetail(constants.MICROSCOPIST).toLowerCase() === params.searchFor.toLowerCase())
+            break;
+          case constants.STARTS_WITH:
+             return (art.getDetail(constants.MICROSCOPIST).toLowerCase().startsWith(params.searchFor.toLowerCase()))
+             break;
+        }
+        break;
+//--------------------------------------------------------------------------------------------------------------------
+      case constants.SPECIES:
+        switch (params.searchType)
+        {
+          case constants.CONTAINS:
+            if (art.getDetail(constants.SPECIES).toLowerCase().indexOf(params.searchFor.toLowerCase()) >= 0)
+            {
+              return true
+            } else {return false}
+            break;
+          case constants.IS_EXACT:
+            return (art.getDetail(constants.SPECIES).toLowerCase() === params.searchFor.toLowerCase())
+            break;
+          case constants.STARTS_WITH:
+             return (art.getDetail(constants.SPECIES).toLowerCase().startsWith(params.searchFor.toLowerCase()))
+             break;
+        }
+        break;
+//--------------------------------------------------------------------------------------------------------------------
+      case constants.STRAIN:
+        switch (params.searchType)
+        {
+          case constants.CONTAINS:
+            if (art.getDetail(constants.STRAIN).toLowerCase().indexOf(params.searchFor.toLowerCase()) >= 0)
+            {
+              return true
+            } else {return false}
+            break;
+          case constants.IS_EXACT:
+            return (art.getDetail(constants.STRAIN).toLowerCase() === params.searchFor.toLowerCase())
+            break;
+          case constants.STARTS_WITH:
+             return (art.getDetail(constants.STRAIN).toLowerCase().startsWith(params.searchFor.toLowerCase()))
+             break;
+        }
+        break;
+//--------------------------------------------------------------------------------------------------------------------
+      case constants.INSTITUTION:
+        switch (params.searchType)
+        {
+          case constants.CONTAINS:
+            if (art.getDetail(constants.INSTITUTION).toLowerCase().indexOf(params.searchFor.toLowerCase()) >= 0)
+            {
+              return true
+            } else {return false}
+            break;
+          case constants.IS_EXACT:
+            return (art.getDetail(constants.INSTITUTION).toLowerCase() === params.searchFor.toLowerCase())
+            break;
+          case constants.STARTS_WITH:
+             return (art.getDetail(constants.INSTITUTION).toLowerCase().startsWith(params.searchFor.toLowerCase()))
+             break;
+        }
+        break;
+//--------------------------------------------------------------------------------------------------------------------
+      case constants.LAB:
+        switch (params.searchType)
+        {
+          case constants.CONTAINS:
+            if (art.getDetail(constants.LAB).toLowerCase().indexOf(params.searchFor.toLowerCase()) >= 0)
+            {
+              return true
+            } else {return false}
+            break;
+          case constants.IS_EXACT:
+            return (art.getDetail(constants.LAB).toLowerCase() === params.searchFor.toLowerCase())
+            break;
+          case constants.STARTS_WITH:
+             return (art.getDetail(constants.LAB).toLowerCase().startsWith(params.searchFor.toLowerCase()))
+             break;
+        }
+        break;
+//--------------------------------------------------------------------------------------------------------------------
+      case constants.NOTES:
+        switch (params.searchType)
+        {
+          case constants.CONTAINS:
+            if (art.getDetail(constants.NOTES).toLowerCase().indexOf(params.searchFor.toLowerCase()) >= 0)
+            {
+              return true
+            } else {return false}
+            break;
+          case constants.IS_EXACT:
+            console.log(params.searchFor, art.getDetail(constants.NOTES))
+            return (art.getDetail(constants.NOTES).toLowerCase() === params.searchFor.toLowerCase())
+            break;
+          case constants.STARTS_WITH:
+             return (art.getDetail(constants.NOTES).toLowerCase().startsWith(params.searchFor.toLowerCase()))
+             break;
+        }
+        break;
+//--------------------------------------------------------------------------------------------------------------------
+    }
+  }
+
   render() {
     window.scrollTo(0,0)
 
-    const artifacts = [];
+    var artifacts = [];
 
     //STATE_CONSTANTS
     const filterText = this.props.filterText;
@@ -34,50 +177,69 @@ class SearchResultGrid extends Component {
     const filterState = this.props.filterState;
     const sortValue = this.props.sortValue;
     const flipSort = this.props.flipSort;
+    const advancedSearchParams = this.props.advancedSearchParams;
+    const advancedSearchToggleBool = this.props.advancedSearchToggleBool;
 
-    //SORT_CONSTANTS
+    //CONSTANTS
     const VIEWS = "views";
     const TITLE = "title";
     const SPECIMEN = "specimen";
     const MICROSCOPIST = "microscopist";
     const LAST_MODIFIED = "lastModified";
     const DATE_TAKEN = "dateTaken";
+    const ALL_FIELDS = "allFields";
+    const SPECIES = "speciesName";
+    const STRAIN = "strain";
+    const INSTITUTION = "institution";
+    const LAB = "lab";
+    const NOTES = "artNotes";
+    const CONTAINS = "contains";
+    const IS_EXACT = "isExact";
+    const STARTS_WITH = "startsWIth";
 
-    //FILTERS
+    const constants = {
+      ALL_FIELDS: "allFields",
+      MICROSCOPIST: "microscopist",
+      SPECIES: "speciesName",
+      STRAIN: "strain",
+      INSTITUTION: "institution",
+      LAB: "lab",
+      NOTES: "artNotes",
+      CONTAINS: "contains",
+      IS_EXACT: "isExact",
+      STARTS_WITH: "startsWith"
+    }
+
+    var artifactsToFilter = this.props.artifacts;
+
+    if (advancedSearchToggleBool) {
+      for (const params of advancedSearchParams) {
+        if (artifacts.length > 0){
+          artifacts = [];
+        }
+
+        for (const art of artifactsToFilter){
+          if (this.filterArtifacts(art, params, constants)){
+            artifacts.push(art);
+          }
+        }
+
+        artifactsToFilter = artifacts;
+      }
+    } else {
+
     this.props.artifacts.forEach((artifact) => {
-
       const artifactString = JSON.stringify(artifact.toJSON());
+
       if (artifactString.toLowerCase().indexOf(filterText.toLowerCase()) === -1) {
         return;
       }
 
-      // if (filterState.bacteria && specimenType.lower() === "bacteria"){}
-
-      // if (filterState.bacteria){
-      //   artifacts.push(
-      //     <TomogramListItem
-      //       Core={this.props.Core}
-      //       artifact={artifact}
-      //     />)
-      //   return;
-      // } else if (filterState.archaea) {
-      //   artifacts.push(
-      //     <TomogramListItem
-      //       Core={this.props.Core}
-      //       artifact={artifact}
-      //     />)
-      //   return;
-      // } else if (filterState.eukaryotes) {
-      //   artifacts.push(
-      //     <TomogramListItem
-      //       Core={this.props.Core}
-      //       artifact={artifact}
-      //     />)
-      //   return;
-      // } else console.log()
-
       artifacts.push(artifact)
     })
+
+  }
+
 
     //SORTS
     switch (sortValue) {
@@ -114,8 +276,8 @@ class SearchResultGrid extends Component {
               return 1;
           }
           return 0;
-      });
-      break;
+        });
+        break;
       case LAST_MODIFIED:
         console.log(sortValue);
         artifacts.sort( (a,b) => {return b.getTimestamp()-a.getTimestamp()});

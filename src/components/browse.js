@@ -13,7 +13,9 @@ class Browse extends Component {
 			filterText: "",
 			artifacts: [],
 			sortValue: null,
-			flipSort: false
+			flipSort: false,
+			advancedSearchParams: [],
+			advancedSearchToggleBool: false
 		}
 
 		this.getTomograms = this.getTomograms.bind(this);
@@ -22,17 +24,23 @@ class Browse extends Component {
 		this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
 		this.handleSortButtonChange = this.handleSortButtonChange.bind(this);
 		this.handleFlipSortChange = this.handleFlipSortChange.bind(this);
+		this.handleSimpleSearchChange = this.handleSimpleSearchChange.bind(this);
+		this.handleToggleAdvancedSearch = this.handleToggleAdvancedSearch.bind(this);
+
 	}
 
 	componentDidMount(){
     this.getTomograms();
   }
+
   getTomograms(){
     this.props.Core.Index.getSupportedArtifacts((this.storeTomograms), (error) => {
       console.error(error)
     })
   }
 	storeTomograms(artifacts){
+		//only for Dev so my comp doesn't crash. delete for prod
+		artifacts = artifacts.slice(0,4);
     this.setState({artifacts: artifacts});
   }
 
@@ -64,6 +72,20 @@ class Browse extends Component {
     }))
 	}
 
+	handleSimpleSearchChange(simpleSearchParams){
+    // console.log(simpleSearchParams);
+		this.setState({
+			advancedSearchParams: [simpleSearchParams]
+		})
+  }
+
+	handleToggleAdvancedSearch(advancedSearchToggleBool) {
+		this.setState({
+			advancedSearchToggleBool: advancedSearchToggleBool,
+			filterText: ""
+		})
+  }
+
 	render(){
 		return(
 			<div>
@@ -77,6 +99,10 @@ class Browse extends Component {
 						onSortButtonChange={this.handleSortButtonChange}
 						onFlipSortChange={this.handleFlipSortChange}
 						flipSort={this.state.flipSort}
+						flipText={this.state.flipText}
+						onSimpleSearchChange={this.handleSimpleSearchChange}
+						onToggleAdvancedSearch={this.handleToggleAdvancedSearch}
+
 					/>
 					<SearchResultGrid
 						Core={this.props.Core}
@@ -85,6 +111,8 @@ class Browse extends Component {
 						filterState={this.state}
 						sortValue={this.state.sortValue}
 						flipSort={this.state.flipSort}
+						advancedSearchParams={this.state.advancedSearchParams}
+						advancedSearchToggleBool={this.state.advancedSearchToggleBool}
 					/>
 				</div>
 				<Footer />

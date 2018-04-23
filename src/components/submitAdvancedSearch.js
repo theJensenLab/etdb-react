@@ -1,21 +1,13 @@
+import React from 'react';
 
-import React, {Component} from 'react';
-
-class SubmitAdvancedSearch extends Component {
-  constructor(props){
-    super(props);
-
-  }
-
-  render() {
-    return (
-      <div>
-        <div className="row submit-as-row">
-          <button style={SubmitStyle}>Search</button>
-        </div>
+const SubmitAdvancedSearch = () => {
+  return (
+    <div>
+      <div className="row submit-as-row">
+        <input style={SubmitStyle} type="submit" value="Submit" />
       </div>
-    )
-  }
+    </div>
+  )
 }
 
 const SubmitStyle = {
@@ -31,3 +23,9 @@ const FlexRowSubmit = {
 }
 
 export default SubmitAdvancedSearch
+
+
+
+
+
+{/* <button style={SubmitStyle}>Search</button> */}
