@@ -20,7 +20,7 @@ const LAB = "lab";
 const NOTES = "artNotes";
 const CONTAINS = "contains";
 const IS_EXACT = "isExact";
-const STARTS_WITH = "startsWIth";
+const STARTS_WITH = "startsWith";
 
 
 class SearchResultGrid extends Component {
