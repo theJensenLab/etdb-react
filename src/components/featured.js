@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { BarLoader } from 'react-spinners';
 
 import Header from './header.js'
 import Footer from './footer.js'
@@ -58,7 +59,15 @@ class Featured extends Component {
 					{/* This line below should be uncommented out once the OIPd Advanced search is working.
 					featuredTypes.map((type, i) => <FeaturedCell Core={this.props.Core} tomogram={type.thumbnail} url={"/featured/" + type.section} title={type.name} description={type.description} />)
 					*/}
-					{featuredTypes.map((type, i) => {
+					{this.state.artifacts.length === 0 ? 
+					<center style={{marginTop: "50px", marginBottom: "0px", width: "50%", marginLeft: "auto", marginRight: "auto"}}>
+			            <BarLoader
+			              color={'#123abc'} 
+			              width={-1}
+			              loading={true} 
+			            />
+			        </center>
+					: featuredTypes.map((type, i) => {
 						var matchedTomogram = undefined;
 						var thumbnailLocation = "QmevjEoYtXtDBvjBFhxLuHaPHghdpPSChSvg64CWisGJEV"; // Default
 						var thumbnail = undefined;
