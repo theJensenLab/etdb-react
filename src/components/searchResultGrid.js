@@ -71,6 +71,7 @@ class SearchResultGrid extends Component {
         break;
 //--------------------------------------------------------------------------------------------------------------------
       case MICROSCOPIST:
+        if (art.getDetail(MICROSCOPIST) === undefined) {return false};
         switch (params.searchType)
         {
           case CONTAINS:
@@ -89,6 +90,7 @@ class SearchResultGrid extends Component {
         break;
 //--------------------------------------------------------------------------------------------------------------------
       case SPECIES:
+        if (art.getDetail(SPECIES) === undefined) {return false};
         switch (params.searchType)
         {
           case CONTAINS:
@@ -107,13 +109,11 @@ class SearchResultGrid extends Component {
         break;
 //--------------------------------------------------------------------------------------------------------------------
       case STRAIN:
-        // console.log(params.searchOn)
-        if (art.getDetail(SPECIES) === undefined) {return false};
+        if (art.getDetail(STRAIN) === undefined) {return false};
         switch (params.searchType)
         {
           case CONTAINS:
-            console.log(art.getDetail(STRAIN))
-            if (art.getDetail(SPECIES).toLowerCase().indexOf(params.searchFor.toLowerCase()) >= 0)
+            if (art.getDetail(STRAIN).toLowerCase().indexOf(params.searchFor.toLowerCase()) >= 0)
             {
               return true
             } else {return false}
@@ -128,6 +128,7 @@ class SearchResultGrid extends Component {
         break;
 //--------------------------------------------------------------------------------------------------------------------
       case INSTITUTION:
+        if (art.getDetail(INSTITUTION) === undefined) {return false};
         switch (params.searchType)
         {
           case CONTAINS:
@@ -146,6 +147,7 @@ class SearchResultGrid extends Component {
         break;
 //--------------------------------------------------------------------------------------------------------------------
       case LAB:
+        if (art.getDetail(LAB) === undefined) {return false};
         switch (params.searchType)
         {
           case CONTAINS:
@@ -164,6 +166,7 @@ class SearchResultGrid extends Component {
         break;
 //--------------------------------------------------------------------------------------------------------------------
       case NOTES:
+        if (art.getDetail(NOTES) === undefined) {return false};
         switch (params.searchType)
         {
           case CONTAINS:
