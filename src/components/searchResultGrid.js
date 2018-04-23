@@ -141,8 +141,6 @@ class SearchResultGrid extends Component {
       totalPages += 1;
     }
 
-    console.log(this.state.currentPage)
-
     for (var k = 0; k < itemsPerPage; k++){
       var artifactIndex = k + (itemsPerPage * (this.state.currentPage - 1));
 
