@@ -68,11 +68,11 @@ render() {
           <select name="searchOn" form="advanced-search" onChange={this.handleSimpleSearchChange} className="col-sm-5 as-select">
             <option value="allFields">All Fields</option>
             <option value="microscopist">Microscopist</option>
-            <option value="species">Species</option>
+            <option value="speciesName">Species</option>
             <option value="strain">Strain</option>
             <option value="institution">Institution</option>
             <option value="lab">Lab</option>
-            <option value="notes">Notes</option>
+            <option value="artNotes">Notes</option>
           </select>
 
           {/* ---------------- CONTAINS/IS (EXACT)/STARTS WITH ----------------*/}
