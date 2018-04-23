@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import moment from 'moment'
 import Pagination from 'react-js-pagination';
+import { BarLoader } from 'react-spinners';
 
 import TomogramListItem from './tomogramListItem';
 
@@ -152,6 +153,13 @@ class SearchResultGrid extends Component {
     return(
       <div className="col-sm-10" id="searchresultsgrid" style={{marginBottom: "-100px"}}>
         <div className="col-sm-12" style={{minHeight: "300px"}}>
+          { artifacts.length === 0 ? <center style={{marginTop: "150px", marginBottom: "-150px", width: "50%", marginLeft: "auto", marginRight: "auto"}}>
+            <BarLoader
+              color={'#123abc'} 
+              width={-1}
+              loading={true} 
+            />
+          </center> : ""}
           {pageArtifacts}
         </div>
         <br />
