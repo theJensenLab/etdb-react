@@ -155,7 +155,7 @@ class SearchResultGrid extends Component {
         <div className="col-sm-12" style={{minHeight: "300px"}}>
           { artifacts.length === 0 ? <center style={{marginTop: "150px", marginBottom: "-150px", width: "50%", marginLeft: "auto", marginRight: "auto"}}>
             <BarLoader
-              color={'#123abc'} 
+              color={'#b60000'} 
               width={-1}
               loading={true} 
             />
