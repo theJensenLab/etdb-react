@@ -107,7 +107,7 @@ class TomogramView extends Component {
 			}
 
 			date = this.state.artifact.getDetail("date");
-			niceDate = moment(date * 1000).calendar(null, {sameElse: "MMMM Do YYYY"});
+			niceDate = moment.utc(date * 1000).calendar(null, {sameElse: "MMMM Do YYYY"});
 			NBCItaxID = this.state.artifact.getDetail("NBCItaxID");
 			artNotes = this.state.artifact.getDetail("artNotes");
 			strain = this.state.artifact.getDetail("strain");

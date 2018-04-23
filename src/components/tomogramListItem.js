@@ -20,7 +20,7 @@ class TomogramListItem extends Component {
 							<source src="" type="video/mp4"/>
 						</video>
 						<name><i>{this.props.artifact.getDetail("speciesName")}</i></name>
-						<span className="TomoCellSubtext">{moment(this.props.artifact.getDetail("date") * 1000).calendar(null, {sameElse: "MMM Do YYYY"})}</span>
+						<span className="TomoCellSubtext">{moment.utc(this.props.artifact.getDetail("date") * 1000).calendar(null, {sameElse: "MMM Do YYYY"})}</span>
 						<span className="TomoCellMicroscopist">{this.props.artifact.getDetail("microscopist") || ""}</span>
 					</a>
 				</div>
