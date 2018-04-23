@@ -62,7 +62,7 @@ class Featured extends Component {
 					{this.state.artifacts.length === 0 ? 
 					<center style={{marginTop: "50px", marginBottom: "0px", width: "50%", marginLeft: "auto", marginRight: "auto"}}>
 			            <BarLoader
-			              color={'#123abc'} 
+			              color={'#b60000'} 
 			              width={-1}
 			              loading={true} 
 			            />
