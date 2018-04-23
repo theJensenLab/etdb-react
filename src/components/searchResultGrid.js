@@ -5,8 +5,18 @@ import moment from 'moment'
 import TomogramListItem from './tomogramListItem';
 
 class SearchResultGrid extends Component {
+  constructor(props) {
+    super(props);
+
+    this.filterArtifacts = this.filterArtifacts.bind(this);
+  }
+
+  filterArtifacts(art, params) {
+
+  }
+
   render() {
-    const artifacts = [];
+    let artifacts = [];
 
     //STATE_CONSTANTS
     const filterText = this.props.filterText;
@@ -34,7 +44,27 @@ class SearchResultGrid extends Component {
     const ISEXACT = "isExact";
     const STARTSWITH = "startsWIth";
 
-    //FILTERS
+    var artifactsToFilter = this.props.artifacts;
+
+    if (advancedSearchToggleBool) {
+      for (const params of advancedSearchParams) {
+        if (artifacts.length > 0){
+          artifacts = [];
+        }
+
+        for (const art of artifactsToFilter){
+          if (this.filterArtifacts(art, params)){
+            artifacts.push(art);
+          }
+        }
+
+        artifactsToFilter = artifacts;
+      }
+    }
+
+
+
+      //FILTERS
     this.props.artifacts.forEach((artifact) => {
       const artifactString = JSON.stringify(artifact.toJSON());
 
@@ -42,50 +72,8 @@ class SearchResultGrid extends Component {
         return;
       }
 
-
-      //ADVANCED SEARCH
-
-      for (const params of advancedSearchParams) {
-
-        switch (params.searchOn) {
-
-          case ALL_FIELDS:
-            switch (params.searchType) {
-              case CONTAINS:
-                if (artifactString.toLowerCase().indexOf(params.searchFor.toLowerCase()) === -1) {
-                  return;
-                }
-                break;
-              case ISEXACT:
-
-                break;
-              case STARTSWITH:
-                break;
-            }
-            break;
-
-          case MICROSCOPIST:
-            switch (params.searchType) {
-              case CONTAINS:
-                console.log(params.searchFor.toLowerCase());
-                console.log()
-                if (artifact.getDetail(MICROSCOPIST).toLowerCase().indexOf(params.searchFor.toLowerCase()) === -1) {
-                  return;
-                }
-                break;
-              case ISEXACT:
-              case STARTSWITH:
-            }
-            break;
-
-        }
-      }
-
-
-
       artifacts.push(artifact)
     })
-
 
 
     //SORTS
