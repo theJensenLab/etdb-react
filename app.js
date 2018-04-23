@@ -25,7 +25,7 @@ var Core = OIPJS({
 			return false;
 		}
 	}, function(artifact){
-		if (artifact.getMainAddress() === "FTzDQwVJZNPMUxxY7c3KB4jDambni7yZ3a"){
+		if (artifact.getMainAddress() === "FTSTq8xx8yWUKJA5E3bgXLzZqqG9V6dvnr"){
 			return true;
 		}
 		return false;

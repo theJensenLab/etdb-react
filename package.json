@@ -36,9 +36,10 @@
     "react-bootstrap": "^0.32.1",
     "react-dom": "^16.2.0",
     "react-image-lightbox": "^4.6.0",
-    "react-infinite": "^0.13.0",
+    "react-js-pagination": "^3.0.1",
     "react-router-dom": "^4.2.2",
-    "react-share": "^2.1.1"
+    "react-share": "^2.1.1",
+    "react-spinners": "^0.3.2"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

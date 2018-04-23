@@ -60,11 +60,8 @@ class SearchResultGrid extends Component {
 
         artifactsToFilter = artifacts;
       }
-    }
+    } else {
 
-
-
-      //FILTERS
     this.props.artifacts.forEach((artifact) => {
       const artifactString = JSON.stringify(artifact.toJSON());
 
@@ -74,6 +71,8 @@ class SearchResultGrid extends Component {
 
       artifacts.push(artifact)
     })
+
+  }
 
 
     //SORTS

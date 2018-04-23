@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { BarLoader } from 'react-spinners'
 
 import Header from './header.js'
 import Footer from './footer.js'
@@ -62,7 +63,15 @@ class FeaturedCollection extends Component {
 					</div>
 				</div>
 				<div className="row" id="featured">
-					{tomograms.map((type, i) => {
+					{this.state.artifacts.length === 0 ? 
+					<center style={{marginTop: "50px", marginBottom: "0px", width: "50%", marginLeft: "auto", marginRight: "auto"}}>
+			            <BarLoader
+			              color={'#b60000'} 
+			              width={-1}
+			              loading={true} 
+			            />
+			        </center>
+					: tomograms.map((type, i) => {
 						var matchedTomogram = undefined;
 						var tomoTxid = "";
 						var tomoTitle = "";
