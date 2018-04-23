@@ -7,7 +7,7 @@ constructor(props){
 
   this.state = {
     simpleSearchParams: {
-      searchOn: 'allFields',
+      searchOn: 'anyField',
       searchType: 'contains',
       searchFor: ""
     }
@@ -60,13 +60,27 @@ render() {
       null
     );
 
+    const searchTypes = (this.state.simpleSearchParams.searchOn === "anyField") ? (
+      <select name="searchType" form="advanced-search" onChange={this.handleSimpleSearchChange} className="col-sm-6 as-select">
+        <option value="contains">contains</option>
+      </select>
+    ) : (
+      <select name="searchType" form="advanced-search" onChange={this.handleSimpleSearchChange} className="col-sm-6 as-select">
+        <option value="contains">contains</option>
+        <option value="isExact">is (exact)</option>
+        <option value="startsWith">starts with</option>
+      </select>
+    )
+
+
+
     return (
       <div>
 
         {/* ---------------- ALL FIELDS ----------------*/}
         <div className="row" style={FieldRow1}>
           <select name="searchOn" form="advanced-search" onChange={this.handleSimpleSearchChange} className="col-sm-5 as-select">
-            <option value="allFields">All Fields</option>
+            <option value="anyField">Any Field</option>
             <option value="microscopist">Microscopist</option>
             <option value="speciesName">Species</option>
             <option value="strain">Strain</option>
@@ -76,11 +90,7 @@ render() {
           </select>
 
           {/* ---------------- CONTAINS/IS (EXACT)/STARTS WITH ----------------*/}
-          <select name="searchType" form="advanced-search" onChange={this.handleSimpleSearchChange} className="col-sm-6 as-select">
-            <option value="contains">contains</option>
-            <option value="isExact">is (exact)</option>
-            <option value="startsWith">starts with</option>
-          </select>
+          {searchTypes}
         </div>
 
         {/* ---------------- TEXT INPUT ----------------*/}
@@ -88,7 +98,7 @@ render() {
           <input name="searchFor" style={FieldText} className="input-field1-text" type="text" onBlur={this.handleSimpleSearchChange}  />
         </div>
 
-        {addComplexRowButton}
+        {/* {addComplexRowButton} */}
 
       </div>
 

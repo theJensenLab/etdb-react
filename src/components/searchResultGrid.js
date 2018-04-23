@@ -5,6 +5,22 @@ import { BarLoader } from 'react-spinners';
 
 import TomogramListItem from './tomogramListItem';
 
+//CONSTANTS
+const VIEWS = "views";
+const TITLE = "title";
+const SPECIMEN = "specimen";
+const MICROSCOPIST = "microscopist";
+const LAST_MODIFIED = "lastModified";
+const DATE_TAKEN = "dateTaken";
+const ANY_FIELD = "anyField";
+const SPECIES = "speciesName";
+const STRAIN = "strain";
+const INSTITUTION = "institution";
+const LAB = "lab";
+const NOTES = "artNotes";
+const CONTAINS = "contains";
+const IS_EXACT = "isExact";
+const STARTS_WITH = "startsWith";
 
 
 class SearchResultGrid extends Component {
@@ -26,12 +42,12 @@ class SearchResultGrid extends Component {
       this.setState({currentPage: 1});
     }
   }
-  filterArtifacts(art, params, constants)
+  filterArtifacts(art, params)
   {
     switch (params.searchOn)
     {
 //--------------------------------------------------------------------------------------------------------------------
-      case constants.ALL_FIELDS:
+      case ANY_FIELD:
       const artifactString = JSON.stringify(art.toJSON());
 
       if (artifactString.toLowerCase().indexOf(params.searchFor.toLowerCase()) >= 0) {
@@ -54,111 +70,116 @@ class SearchResultGrid extends Component {
         // }
         break;
 //--------------------------------------------------------------------------------------------------------------------
-      case constants.MICROSCOPIST:
+      case MICROSCOPIST:
+        if (art.getDetail(MICROSCOPIST) === undefined) {return false};
         switch (params.searchType)
         {
-          case constants.CONTAINS:
-            if (art.getDetail(constants.MICROSCOPIST).toLowerCase().indexOf(params.searchFor.toLowerCase()) >= 0)
+          case CONTAINS:
+            if (art.getDetail(MICROSCOPIST).toLowerCase().indexOf(params.searchFor.toLowerCase()) >= 0)
             {
               return true
             } else {return false}
             break;
-          case constants.IS_EXACT:
-            return (art.getDetail(constants.MICROSCOPIST).toLowerCase() === params.searchFor.toLowerCase())
+          case IS_EXACT:
+            return (art.getDetail(MICROSCOPIST).toLowerCase() === params.searchFor.toLowerCase())
             break;
-          case constants.STARTS_WITH:
-             return (art.getDetail(constants.MICROSCOPIST).toLowerCase().startsWith(params.searchFor.toLowerCase()))
+          case STARTS_WITH:
+             return (art.getDetail(MICROSCOPIST).toLowerCase().startsWith(params.searchFor.toLowerCase()))
              break;
         }
         break;
 //--------------------------------------------------------------------------------------------------------------------
-      case constants.SPECIES:
+      case SPECIES:
+        if (art.getDetail(SPECIES) === undefined) {return false};
         switch (params.searchType)
         {
-          case constants.CONTAINS:
-            if (art.getDetail(constants.SPECIES).toLowerCase().indexOf(params.searchFor.toLowerCase()) >= 0)
+          case CONTAINS:
+            if (art.getDetail(SPECIES).toLowerCase().indexOf(params.searchFor.toLowerCase()) >= 0)
             {
               return true
             } else {return false}
             break;
-          case constants.IS_EXACT:
-            return (art.getDetail(constants.SPECIES).toLowerCase() === params.searchFor.toLowerCase())
+          case IS_EXACT:
+            return (art.getDetail(SPECIES).toLowerCase() === params.searchFor.toLowerCase())
             break;
-          case constants.STARTS_WITH:
-             return (art.getDetail(constants.SPECIES).toLowerCase().startsWith(params.searchFor.toLowerCase()))
+          case STARTS_WITH:
+             return (art.getDetail(SPECIES).toLowerCase().startsWith(params.searchFor.toLowerCase()))
              break;
         }
         break;
 //--------------------------------------------------------------------------------------------------------------------
-      case constants.STRAIN:
+      case STRAIN:
+        if (art.getDetail(STRAIN) === undefined) {return false};
         switch (params.searchType)
         {
-          case constants.CONTAINS:
-            if (art.getDetail(constants.STRAIN).toLowerCase().indexOf(params.searchFor.toLowerCase()) >= 0)
+          case CONTAINS:
+            if (art.getDetail(STRAIN).toLowerCase().indexOf(params.searchFor.toLowerCase()) >= 0)
             {
               return true
             } else {return false}
             break;
-          case constants.IS_EXACT:
-            return (art.getDetail(constants.STRAIN).toLowerCase() === params.searchFor.toLowerCase())
+          case IS_EXACT:
+            return (art.getDetail(STRAIN).toLowerCase() === params.searchFor.toLowerCase())
             break;
-          case constants.STARTS_WITH:
-             return (art.getDetail(constants.STRAIN).toLowerCase().startsWith(params.searchFor.toLowerCase()))
+          case STARTS_WITH:
+             return (art.getDetail(STRAIN).toLowerCase().startsWith(params.searchFor.toLowerCase()))
              break;
         }
         break;
 //--------------------------------------------------------------------------------------------------------------------
-      case constants.INSTITUTION:
+      case INSTITUTION:
+        if (art.getDetail(INSTITUTION) === undefined) {return false};
         switch (params.searchType)
         {
-          case constants.CONTAINS:
-            if (art.getDetail(constants.INSTITUTION).toLowerCase().indexOf(params.searchFor.toLowerCase()) >= 0)
+          case CONTAINS:
+            if (art.getDetail(INSTITUTION).toLowerCase().indexOf(params.searchFor.toLowerCase()) >= 0)
             {
               return true
             } else {return false}
             break;
-          case constants.IS_EXACT:
-            return (art.getDetail(constants.INSTITUTION).toLowerCase() === params.searchFor.toLowerCase())
+          case IS_EXACT:
+            return (art.getDetail(INSTITUTION).toLowerCase() === params.searchFor.toLowerCase())
             break;
-          case constants.STARTS_WITH:
-             return (art.getDetail(constants.INSTITUTION).toLowerCase().startsWith(params.searchFor.toLowerCase()))
+          case STARTS_WITH:
+             return (art.getDetail(INSTITUTION).toLowerCase().startsWith(params.searchFor.toLowerCase()))
              break;
         }
         break;
 //--------------------------------------------------------------------------------------------------------------------
-      case constants.LAB:
+      case LAB:
+        if (art.getDetail(LAB) === undefined) {return false};
         switch (params.searchType)
         {
-          case constants.CONTAINS:
-            if (art.getDetail(constants.LAB).toLowerCase().indexOf(params.searchFor.toLowerCase()) >= 0)
+          case CONTAINS:
+            if (art.getDetail(LAB).toLowerCase().indexOf(params.searchFor.toLowerCase()) >= 0)
             {
               return true
             } else {return false}
             break;
-          case constants.IS_EXACT:
-            return (art.getDetail(constants.LAB).toLowerCase() === params.searchFor.toLowerCase())
+          case IS_EXACT:
+            return (art.getDetail(LAB).toLowerCase() === params.searchFor.toLowerCase())
             break;
-          case constants.STARTS_WITH:
-             return (art.getDetail(constants.LAB).toLowerCase().startsWith(params.searchFor.toLowerCase()))
+          case STARTS_WITH:
+             return (art.getDetail(LAB).toLowerCase().startsWith(params.searchFor.toLowerCase()))
              break;
         }
         break;
 //--------------------------------------------------------------------------------------------------------------------
-      case constants.NOTES:
+      case NOTES:
+        if (art.getDetail(NOTES) === undefined) {return false};
         switch (params.searchType)
         {
-          case constants.CONTAINS:
-            if (art.getDetail(constants.NOTES).toLowerCase().indexOf(params.searchFor.toLowerCase()) >= 0)
+          case CONTAINS:
+            if (art.getDetail(NOTES).toLowerCase().indexOf(params.searchFor.toLowerCase()) >= 0)
             {
               return true
             } else {return false}
             break;
-          case constants.IS_EXACT:
-            console.log(params.searchFor, art.getDetail(constants.NOTES))
-            return (art.getDetail(constants.NOTES).toLowerCase() === params.searchFor.toLowerCase())
+          case IS_EXACT:
+            return (art.getDetail(NOTES).toLowerCase() === params.searchFor.toLowerCase())
             break;
-          case constants.STARTS_WITH:
-             return (art.getDetail(constants.NOTES).toLowerCase().startsWith(params.searchFor.toLowerCase()))
+          case STARTS_WITH:
+             return (art.getDetail(NOTES).toLowerCase().startsWith(params.searchFor.toLowerCase()))
              break;
         }
         break;
@@ -180,35 +201,9 @@ class SearchResultGrid extends Component {
     const advancedSearchParams = this.props.advancedSearchParams;
     const advancedSearchToggleBool = this.props.advancedSearchToggleBool;
 
-    //CONSTANTS
-    const VIEWS = "views";
-    const TITLE = "title";
-    const SPECIMEN = "specimen";
-    const MICROSCOPIST = "microscopist";
-    const LAST_MODIFIED = "lastModified";
-    const DATE_TAKEN = "dateTaken";
-    const ALL_FIELDS = "allFields";
-    const SPECIES = "speciesName";
-    const STRAIN = "strain";
-    const INSTITUTION = "institution";
-    const LAB = "lab";
-    const NOTES = "artNotes";
-    const CONTAINS = "contains";
-    const IS_EXACT = "isExact";
-    const STARTS_WITH = "startsWIth";
 
-    const constants = {
-      ALL_FIELDS: "allFields",
-      MICROSCOPIST: "microscopist",
-      SPECIES: "speciesName",
-      STRAIN: "strain",
-      INSTITUTION: "institution",
-      LAB: "lab",
-      NOTES: "artNotes",
-      CONTAINS: "contains",
-      IS_EXACT: "isExact",
-      STARTS_WITH: "startsWith"
-    }
+
+
 
     var artifactsToFilter = this.props.artifacts;
 
@@ -219,7 +214,7 @@ class SearchResultGrid extends Component {
         }
 
         for (const art of artifactsToFilter){
-          if (this.filterArtifacts(art, params, constants)){
+          if (this.filterArtifacts(art, params)){
             artifacts.push(art);
           }
         }
@@ -318,9 +313,9 @@ class SearchResultGrid extends Component {
           <center style={{marginTop: "150px", marginBottom: "-150px", width: "50%", marginLeft: "auto", marginRight: "auto"}}>
           { this.props.artifacts.length === 0 ?
             <BarLoader
-              color={'#b60000'} 
+              color={'#b60000'}
               width={-1}
-              loading={true} 
+              loading={true}
             />
           : artifacts.length === 0 ? <h4>No Results</h4> : ""}
           </center>
