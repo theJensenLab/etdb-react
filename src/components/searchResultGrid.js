@@ -14,7 +14,8 @@ class SearchResultGrid extends Component {
     const filterState = this.props.filterState;
     const sortValue = this.props.sortValue;
     const flipSort = this.props.flipSort;
-    const advancedSearchParams = this.props.AdvancedSearchParams;
+    const advancedSearchParams = this.props.advancedSearchParams;
+    const advancedSearchToggleBool = this.props.advancedSearchToggleBool;
 
     //CONSTANTS
     const VIEWS = "views";
@@ -33,7 +34,6 @@ class SearchResultGrid extends Component {
     const ISEXACT = "isExact";
     const STARTSWITH = "startsWIth";
 
-
     //FILTERS
     this.props.artifacts.forEach((artifact) => {
       const artifactString = JSON.stringify(artifact.toJSON());
@@ -41,13 +41,51 @@ class SearchResultGrid extends Component {
       if (artifactString.toLowerCase().indexOf(filterText.toLowerCase()) === -1) {
         return;
       }
-      // if (filterState.bacteria && specimenType.lower() === "bacteria"){}
-        //push
+
+
+      //ADVANCED SEARCH
+
+      for (const params of advancedSearchParams) {
+
+        switch (params.searchOn) {
+
+          case ALL_FIELDS:
+            switch (params.searchType) {
+              case CONTAINS:
+                if (artifactString.toLowerCase().indexOf(params.searchFor.toLowerCase()) === -1) {
+                  return;
+                }
+                break;
+              case ISEXACT:
+
+                break;
+              case STARTSWITH:
+                break;
+            }
+            break;
+
+          case MICROSCOPIST:
+            switch (params.searchType) {
+              case CONTAINS:
+                console.log(params.searchFor.toLowerCase());
+                console.log()
+                if (artifact.getDetail(MICROSCOPIST).toLowerCase().indexOf(params.searchFor.toLowerCase()) === -1) {
+                  return;
+                }
+                break;
+              case ISEXACT:
+              case STARTSWITH:
+            }
+            break;
+
+        }
+      }
+
+
+
       artifacts.push(artifact)
     })
 
-    //ADVANCED SEARCH
-    
 
 
     //SORTS

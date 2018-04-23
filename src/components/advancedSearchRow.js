@@ -9,7 +9,7 @@ constructor(props){
     simpleSearchParams: {
       searchOn: 'allFields',
       searchType: 'contains',
-      searchFor: null
+      searchFor: ""
     }
   }
 
@@ -18,6 +18,10 @@ constructor(props){
   this.pushStateUp = this.pushStateUp.bind(this);
 
 
+}
+
+componentDidMount() {
+  this.pushStateUp()
 }
 
 handleAddRowClick() {

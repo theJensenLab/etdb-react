@@ -73,7 +73,7 @@ class Browse extends Component {
 	}
 
 	handleSimpleSearchChange(simpleSearchParams){
-    console.log(simpleSearchParams);
+    // console.log(simpleSearchParams);
 		this.setState({
 			advancedSearchParams: [simpleSearchParams]
 		})
@@ -81,7 +81,8 @@ class Browse extends Component {
 
 	handleToggleAdvancedSearch(advancedSearchToggleBool) {
 		this.setState({
-			advancedSearchToggleBool: advancedSearchToggleBool
+			advancedSearchToggleBool: advancedSearchToggleBool,
+			filterText: ""
 		})
   }
 
