@@ -150,8 +150,8 @@ class SearchResultGrid extends Component {
     }
 
     return(
-      <div className="col-sm-10" id="searchresultsgrid">
-        <div className="col-sm-12">
+      <div className="col-sm-10" id="searchresultsgrid" style={{marginBottom: "-100px"}}>
+        <div className="col-sm-12" style={{minHeight: "300px"}}>
           {pageArtifacts}
         </div>
         <br />
