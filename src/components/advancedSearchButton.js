@@ -5,18 +5,18 @@ class AdvancedSearchButton extends Component {
   constructor(props){
     super(props);
 
-    this.handleAdvancedSearchToggle = this.handleAdvancedSearchToggle.bind(this);
+    this.handleToggleAdvancedSearch = this.handleToggleAdvancedSearch.bind(this);
   }
 
-  handleAdvancedSearchToggle() {
-    this.props.onAdvancedSearchButtonClick();
+  handleToggleAdvancedSearch() {
+    this.props.onToggleAdvancedSearch();
   }
 
   render() {
     return (
       <div style={AdvancedSearchContainer} className="advanced-search-container">
         <div className="advanced-search-button">
-          <div className="row"><button style={AdvancedSearchToggleButton} onClick={this.handleAdvancedSearchToggle} className="advanced-search-toggle-button">
+          <div className="row"><button style={AdvancedSearchToggleButton} onClick={this.handleToggleAdvancedSearch} className="advanced-search-toggle-button">
             Expand for Advanced Search <i className="far fa-plus-square"></i>
 
 

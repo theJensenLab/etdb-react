@@ -14,15 +14,16 @@ class SearchResultGrid extends Component {
     const filterState = this.props.filterState;
     const sortValue = this.props.sortValue;
     const flipSort = this.props.flipSort;
+    const advancedSearchParams = this.props.AdvancedSearchParams;
 
-    //SORT_CONSTANTS
+    //CONSTANTS
     const VIEWS = "views";
     const TITLE = "title";
     const SPECIMEN = "specimen";
     const MICROSCOPIST = "microscopist";
     const LAST_MODIFIED = "lastModified";
     const DATE_TAKEN = "dateTaken";
-
+    const ALL_FIELDS = "allFields";
     const SPECIES = "species";
     const STRAIN = "strain";
     const INSTITUTION = "institution";
@@ -37,16 +38,6 @@ class SearchResultGrid extends Component {
     this.props.artifacts.forEach((artifact) => {
       const artifactString = JSON.stringify(artifact.toJSON());
 
-      // if (artifact.getDetail(FIELD).toLowerCase().test(""))  {
-      //   return;
-      // }
-
-      //.startsWith("")
-      //.indexOf("")
-      // var str = "The best things in life are free";
-      // var patt = new RegExp("e");
-      // var res = patt.test(str);
-
       if (artifactString.toLowerCase().indexOf(filterText.toLowerCase()) === -1) {
         return;
       }
@@ -54,6 +45,10 @@ class SearchResultGrid extends Component {
         //push
       artifacts.push(artifact)
     })
+
+    //ADVANCED SEARCH
+    
+
 
     //SORTS
     switch (sortValue) {

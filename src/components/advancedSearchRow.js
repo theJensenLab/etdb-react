@@ -6,13 +6,17 @@ constructor(props){
   super(props);
 
   this.state = {
-    value: ""
+    simpleSearchParams: {
+      searchOn: 'allFields',
+      searchType: 'contains',
+      searchFor: null
+    }
   }
 
   this.handleAddRowClick = this.handleAddRowClick.bind(this);
-  this.handleSearchOnChange = this.handleSearchOnChange.bind(this)
-  this.handleSearchTypeChange = this.handleSearchTypeChange.bind(this);
-  this.handleSearchForChange = this.handleSearchForChange.bind(this);
+  this.handleSimpleSearchChange = this.handleSimpleSearchChange.bind(this);
+  this.pushStateUp = this.pushStateUp.bind(this);
+
 
 }
 
@@ -20,21 +24,24 @@ handleAddRowClick() {
   this.props.onAddRowClick()
 }
 
-handleSearchOnChange(e) {
-  let searchOnField = e.target.value
-  this.props.onSearchOnChange(searchOnField)
+handleSimpleSearchChange(e){
+  let name = e.target.name;
+  let value = e.target.value;
+  this.setState(prevState => ({
+    simpleSearchParams: {
+        ...prevState.simpleSearchParams,
+        [name]: value
+    }
+  }),
+  this.pushStateUp
+)
 }
 
-handleSearchTypeChange(e) {
-  let searchType = e.target.value;
-  this.props.onSearchTypeChange(searchType);
+pushStateUp() {
+  this.props.onSimpleSearchChange(this.state.simpleSearchParams);
 }
 
-handleSearchForChange(e) {
-  // this.props.onFilterTextChange(e);
-  let searchForText = e.target.value;
-  this.props.onSearchForChange(searchForText);
-}
+
 
 render() {
   const complexRowCounterBool = (this.props.complexRowCounter === 0);
@@ -54,7 +61,7 @@ render() {
 
         {/* ---------------- ALL FIELDS ----------------*/}
         <div className="row" style={FieldRow1}>
-          <select name="fields" form="advanced-search" onChange={this.handleSearchOnChange} className="col-sm-5 as-select">
+          <select name="searchOn" form="advanced-search" onChange={this.handleSimpleSearchChange} className="col-sm-5 as-select">
             <option value="allFields">All Fields</option>
             <option value="microscopist">Microscopist</option>
             <option value="species">Species</option>
@@ -65,7 +72,7 @@ render() {
           </select>
 
           {/* ---------------- CONTAINS/IS (EXACT)/STARTS WITH ----------------*/}
-          <select name="operators" form="advanced-search" onChange={this.handleSearchTypeChange} className="col-sm-6 as-select">
+          <select name="searchType" form="advanced-search" onChange={this.handleSimpleSearchChange} className="col-sm-6 as-select">
             <option value="contains">contains</option>
             <option value="isExact">is (exact)</option>
             <option value="startsWith">starts with</option>
@@ -74,7 +81,7 @@ render() {
 
         {/* ---------------- TEXT INPUT ----------------*/}
         <div className="row">
-          <input style={FieldText} className="input-field1-text" type="text" onBlur={this.handleSearchForChange}  />
+          <input name="searchFor" style={FieldText} className="input-field1-text" type="text" onBlur={this.handleSimpleSearchChange}  />
         </div>
 
         {addComplexRowButton}

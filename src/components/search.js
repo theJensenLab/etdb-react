@@ -11,11 +11,11 @@ class Search extends Component {
     }
 
     this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
-    this.handleAdvancedSearchToggle = this.handleAdvancedSearchToggle.bind(this);
     this.handleAdvanceSearchSubmit = this.handleAdvanceSearchSubmit.bind(this);
-    this.handleSearchOnChange = this.handleSearchOnChange.bind(this);
-    this.handleSearchTypeChange = this.handleSearchTypeChange.bind(this);
-    this.handleSearchForChange = this.handleSearchForChange.bind(this);
+    this.handleSimpleSearchChange = this.handleSimpleSearchChange.bind(this);
+    this.handleToggleAdvancedSearch = this.handleToggleAdvancedSearch.bind(this);
+    this.toggleAdvancedSearch = this.toggleAdvancedSearch.bind(this);
+
   }
 
   handleFilterTextChange(e) {
@@ -24,10 +24,16 @@ class Search extends Component {
   }
 
 
-  handleAdvancedSearchToggle() {
+  handleToggleAdvancedSearch() {
     this.setState(prevState => ({
       advancedSearchToggleBool: !prevState.advancedSearchToggleBool
-    }))
+    }),
+    this.toggleAdvancedSearch
+  )
+  }
+
+  toggleAdvancedSearch() {
+    this.props.onToggleAdvancedSearch(this.state.advancedSearchToggleBool)
   }
 
   handleAdvanceSearchSubmit(e) {
@@ -35,20 +41,10 @@ class Search extends Component {
     e.preventDefault();
   }
 
-  handleSearchOnChange(searchOnField) {
-    this.props.onSearchOnChange(searchOnField);
-    // console.log(searchOnField);
+  handleSimpleSearchChange(simpleSearchParams){
+    this.props.onSimpleSearchChange(simpleSearchParams);
   }
 
-  handleSearchTypeChange(searchType) {
-    this.props.onSearchTypeChange(searchType);
-    // console.log(searchType);
-  }
-
-  handleSearchForChange(searchForText) {
-    this.props.onSearchForChange(searchForText);
-    // console.log(searchForText);
-  }
 
   render() {
     const advancedSearchToggleBool = this.state.advancedSearchToggleBool;
@@ -58,9 +54,8 @@ class Search extends Component {
       <AdvancedSearchGrid
         onSubmit={this.handleAdvanceSearchSubmit}
         onFilterTextChange={this.handleFilterTextChange}
-        onSearchOnChange={this.handleSearchOnChange}
-        onSearchTypeChange={this.handleSearchTypeChange}
-        onSearchForChange={this.handleSearchForChange}
+        onSimpleSearchChange={this.handleSimpleSearchChange}
+
        />
     ) : (
       <input
@@ -74,7 +69,7 @@ class Search extends Component {
 
     return (
       <div>
-        <AdvancedSearchButton onAdvancedSearchButtonClick={this.handleAdvancedSearchToggle} />
+        <AdvancedSearchButton onToggleAdvancedSearch={this.handleToggleAdvancedSearch} />
         {searchGrid}
       </div>
     )

@@ -14,7 +14,8 @@ class Browse extends Component {
 			artifacts: [],
 			sortValue: null,
 			flipSort: false,
-			advancedSearchParams: []
+			advancedSearchParams: [],
+			advancedSearchToggleBool: false
 		}
 
 		this.getTomograms = this.getTomograms.bind(this);
@@ -23,9 +24,9 @@ class Browse extends Component {
 		this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
 		this.handleSortButtonChange = this.handleSortButtonChange.bind(this);
 		this.handleFlipSortChange = this.handleFlipSortChange.bind(this);
-		this.handleSearchOnChange = this.handleSearchOnChange.bind(this);
-    this.handleSearchTypeChange = this.handleSearchTypeChange.bind(this);
-    this.handleSearchForChange = this.handleSearchForChange.bind(this);
+		this.handleSimpleSearchChange = this.handleSimpleSearchChange.bind(this);
+		this.handleToggleAdvancedSearch = this.handleToggleAdvancedSearch.bind(this);
+
 	}
 
 	componentDidMount(){
@@ -71,21 +72,17 @@ class Browse extends Component {
     }))
 	}
 
-	handleSearchOnChange(searchOnField) {
+	handleSimpleSearchChange(simpleSearchParams){
+    console.log(simpleSearchParams);
 		this.setState({
-			advancedSearchParams: null,
-			advancedSearchParams: {
-				searchOn: searchOnField
-			}
+			advancedSearchParams: [simpleSearchParams]
 		})
   }
 
-  handleSearchTypeChange(searchType) {
-    console.log(searchType);
-  }
-
-  handleSearchForChange(searchForText) {
-    console.log(searchForText);
+	handleToggleAdvancedSearch(advancedSearchToggleBool) {
+		this.setState({
+			advancedSearchToggleBool: advancedSearchToggleBool
+		})
   }
 
 	render(){
@@ -102,9 +99,9 @@ class Browse extends Component {
 						onFlipSortChange={this.handleFlipSortChange}
 						flipSort={this.state.flipSort}
 						flipText={this.state.flipText}
-						onSearchOnChange={this.handleSearchOnChange}
-	          onSearchTypeChange={this.handleSearchTypeChange}
-	          onSearchForChange={this.handleSearchForChange}
+						onSimpleSearchChange={this.handleSimpleSearchChange}
+						onToggleAdvancedSearch={this.handleToggleAdvancedSearch}
+
 					/>
 					<SearchResultGrid
 						Core={this.props.Core}
@@ -113,6 +110,8 @@ class Browse extends Component {
 						filterState={this.state}
 						sortValue={this.state.sortValue}
 						flipSort={this.state.flipSort}
+						advancedSearchParams={this.state.advancedSearchParams}
+						advancedSearchToggleBool={this.state.advancedSearchToggleBool}
 					/>
 				</div>
 				<Footer />
