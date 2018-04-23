@@ -39,8 +39,6 @@ class Browse extends Component {
     })
   }
 	storeTomograms(artifacts){
-		//only for Dev so my comp doesn't crash. delete for prod
-		artifacts = artifacts.slice(0,4);
     this.setState({artifacts: artifacts});
   }
 
