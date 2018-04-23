@@ -10,10 +10,16 @@ class SearchResultGrid extends Component {
   constructor(props) {
     super(props);
 
-    this.filterArtifacts = this.filterArtifacts.bind(this);
-  }
-  
+    this.state = {
+      currentPage: 1
+    }
 
+    this.filterArtifacts = this.filterArtifacts.bind(this);
+    this.onPageChange = this.onPageChange.bind(this);
+  }
+  onPageChange(page){
+    this.setState({currentPage: page});
+  }
   filterArtifacts(art, params, constants)
   {
     switch (params.searchOn)
@@ -155,6 +161,8 @@ class SearchResultGrid extends Component {
   }
 
   render() {
+    window.scrollTo(0,0)
+
     var artifacts = [];
 
     //STATE_CONSTANTS
@@ -279,11 +287,45 @@ class SearchResultGrid extends Component {
 
     if (flipSort === true) {artifacts.reverse()};
 
+    var pageArtifacts = [];
+    var itemsPerPage = 100;
+    var totalFullPages = Math.floor(artifacts.length / itemsPerPage);
+    var itemsOnPartialPage = artifacts.length % itemsPerPage;
+
+    var totalPages = totalFullPages;
+
+    if (itemsOnPartialPage > 0){
+      totalPages += 1;
+    }
+
+    for (var k = 0; k < itemsPerPage; k++){
+      var artifactIndex = k + (itemsPerPage * (this.state.currentPage - 1));
+
+      // Check if it exists
+      if (artifacts[artifactIndex])
+        pageArtifacts.push(<TomogramListItem Core={this.props.Core} artifact={artifacts[artifactIndex]} />)
+    }
+
     return(
-      <div className="col-sm-10" id="searchresultsgrid">
-        {/* <Infinite containerHeight={1000} elementHeight={50}> */}
-          {artifacts.map((artifact) => <TomogramListItem Core={this.props.Core} artifact={artifact} />)}
-        {/* </Infinite> */}
+      <div className="col-sm-10" id="searchresultsgrid" style={{marginBottom: "-100px"}}>
+        <div className="col-sm-12" style={{minHeight: "300px"}}>
+          <center style={{marginTop: "150px", marginBottom: "-150px", width: "50%", marginLeft: "auto", marginRight: "auto"}}>
+          { this.props.artifacts.length === 0 ?
+            <BarLoader
+              color={'#b60000'} 
+              width={-1}
+              loading={true} 
+            />
+          : artifacts.length === 0 ? <h4>No Results</h4> : ""}
+          </center>
+          {pageArtifacts}
+        </div>
+        <br />
+        <center>
+        <div className="row" style={{margin: "auto"}}>
+          <Pagination onChange={this.onPageChange} activePage={this.state.currentPage} itemsCountPerPage={itemsPerPage} totalItemsCount={artifacts.length} pageRangeDisplayed={5} />
+        </div>
+        </center>
       </div>
     )
   }

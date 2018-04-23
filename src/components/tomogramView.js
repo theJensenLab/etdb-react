@@ -151,7 +151,7 @@ class TomogramView extends Component {
 					</div>
 				</div>
                 <div className="container row" id="singletomograminfo">
-                <div className="col-sm-6"> <h2>{title}</h2>
+                <div className="col-sm-6"> <h2><i>{speciesName}</i></h2>
 					<div id="reddiv"> </div>
 				</div>
 				<div className="col-sm-6">
@@ -159,19 +159,19 @@ class TomogramView extends Component {
                         <div id="share">
 								<p>
 									<b>Share:</b>
-									<EmailShareButton url={"http://etdb.caltech.edu/tomogram/" + txid} subject={"ETDB tomogram of " + title + " by " + microscopist}>
+									<EmailShareButton url={"http://etdb.caltech.edu/tomogram/" + txid} subject={"ETDB tomogram of " + speciesName + " by " + microscopist}>
 										<EmailIcon size={32} round />
 									</EmailShareButton>
-									<LinkedinShareButton url={"http://etdb.caltech.edu/tomogram/" + txid} title={"ETDB tomogram of " + title + " by " + microscopist}>
+									<LinkedinShareButton url={"http://etdb.caltech.edu/tomogram/" + txid} title={"ETDB tomogram of " + speciesName + " by " + microscopist}>
 										<LinkedinIcon size={32} round />
 									</LinkedinShareButton>
-									<FacebookShareButton url={"http://etdb.caltech.edu/tomogram/" + txid} hashtag="#ETDB #ElectronTomography" quote={"ETDB tomogram of " + title + " by " + microscopist}>
+									<FacebookShareButton url={"http://etdb.caltech.edu/tomogram/" + txid} hashtag="#ETDB #ElectronTomography" quote={"ETDB tomogram of " + speciesName + " by " + microscopist}>
 										<FacebookIcon size={32} round />
 									</FacebookShareButton>
-									<RedditShareButton url={"http://etdb.caltech.edu/tomogram/" + txid} title={"ETDB tomogram of " + title + " by " + microscopist}>
+									<RedditShareButton url={"http://etdb.caltech.edu/tomogram/" + txid} title={"ETDB tomogram of " + speciesName + " by " + microscopist}>
 										<RedditIcon size={32} round />
 									</RedditShareButton>
-									<TwitterShareButton url={"http://etdb.caltech.edu/tomogram/" + txid} hashtags={hashtags} via="TheJensenLab" title={"ETDB tomogram of " + title + " by " + microscopist}>
+									<TwitterShareButton url={"http://etdb.caltech.edu/tomogram/" + txid} hashtags={hashtags} via="TheJensenLab" title={"ETDB tomogram of " + speciesName + " by " + microscopist}>
 										<TwitterIcon size={32} round />
 									</TwitterShareButton>
 								</p>
