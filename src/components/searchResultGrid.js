@@ -153,13 +153,15 @@ class SearchResultGrid extends Component {
     return(
       <div className="col-sm-10" id="searchresultsgrid" style={{marginBottom: "-100px"}}>
         <div className="col-sm-12" style={{minHeight: "300px"}}>
-          { artifacts.length === 0 ? <center style={{marginTop: "150px", marginBottom: "-150px", width: "50%", marginLeft: "auto", marginRight: "auto"}}>
+          <center style={{marginTop: "150px", marginBottom: "-150px", width: "50%", marginLeft: "auto", marginRight: "auto"}}>
+          { this.props.artifacts.length === 0 ?
             <BarLoader
               color={'#b60000'} 
               width={-1}
               loading={true} 
             />
-          </center> : ""}
+          : artifacts.length === 0 ? <h4>No Results</h4> : ""}
+          </center>
           {pageArtifacts}
         </div>
         <br />
