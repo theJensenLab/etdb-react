@@ -7,7 +7,7 @@ class AdvancedSearchRowComplex extends Component {
     super(props);
 
     this.state = {
-      complexSearchParams: {
+      searchParams: {
         searchOp: 'and',
         searchOn: 'anyField',
         searchType: 'contains',
@@ -18,7 +18,7 @@ class AdvancedSearchRowComplex extends Component {
 
     this.handleAddRowClick = this.handleAddRowClick.bind(this);
     this.handleMinusRowClick = this.handleMinusRowClick.bind(this);
-    this.handleComplexSearchChange = this.handleComplexSearchChange.bind(this);
+    this.handleAdvancedSearchChange = this.handleAdvancedSearchChange.bind(this);
     this.pushStateUp = this.pushStateUp.bind(this);
 
   }
@@ -35,12 +35,12 @@ class AdvancedSearchRowComplex extends Component {
     this.props.onMinusRowClick()
   }
 
-  handleComplexSearchChange(e){
+  handleAdvancedSearchChange(e){
     let name = e.target.name;
     let value = e.target.value;
     this.setState(prevState => ({
-      complexSearchParams: {
-        ...prevState.complexSearchParams,
+      searchParams: {
+        ...prevState.searchParams,
         [name]: value
       }
     }),
@@ -49,20 +49,20 @@ class AdvancedSearchRowComplex extends Component {
 }
 
 pushStateUp() {
-  console.log(this.state.complexSearchParams);
+  this.props.onAdvancedSearchChange(this.state.searchParams);
 }
 
 render() {
 
-  const searchTypes = (this.state.complexSearchParams.searchOn === "anyField") ? (
+  const searchTypes = (this.state.searchParams.searchOn === "anyField") ? (
     <div className="row" style={FieldRow3}>
-      <select name="searchType" form="advanced-search" onChange={this.handleComplexSearchChange} className="col-sm-12 as-select">
+      <select name="searchType" form="advanced-search" onChange={this.handleAdvancedSearchChange} className="col-sm-12 as-select">
         <option value="contains">contains</option>
       </select>
     </div>
   ) : (
     <div className="row" style={FieldRow3}>
-      <select name="searchType" form="advanced-search" onChange={this.handleComplexSearchChange} className="col-sm-12 as-select">
+      <select name="searchType" form="advanced-search" onChange={this.handleAdvancedSearchChange} className="col-sm-12 as-select">
         <option value="contains">contains</option>
         <option value="isExact">is (exact)</option>
         <option value="startsWith">starts with</option>
@@ -78,14 +78,14 @@ render() {
 
 
         {/* ---------------- AND/OR/NOT ----------------*/}
-        <select name="searchOp" className="col-sm-3 as-select" onChange={this.handleComplexSearchChange}>
+        <select name="searchOp" className="col-sm-3 as-select" onChange={this.handleAdvancedSearchChange}>
           <option value="and">AND</option>
           <option value="or">OR</option>
           <option value="not">NOT</option>
         </select>
 
         {/* ---------------- ALL FIELDS ----------------*/}
-        <select name="searchOn" form="advanced-search" onChange={this.handleComplexSearchChange} className="col-sm-9 as-select">
+        <select name="searchOn" form="advanced-search" onChange={this.handleAdvancedSearchChange} className="col-sm-9 as-select">
           <option value="anyField">Any Field</option>
           <option value="microscopist">Microscopist</option>
           <option value="speciesName">Species</option>
@@ -101,7 +101,7 @@ render() {
 
       {/* ---------------- TEXT INPUT ----------------*/}
       <div className="row">
-        <input style={FieldText} className="input-field1-text" type="text" name="searchFor" onBlur={this.handleComplexSearchChange}  />
+        <input style={FieldText} className="input-field1-text" type="text" name="searchFor" onBlur={this.handleAdvancedSearchChange}  />
       </div>
 
       {/* BUTTON TO ADD ADDITIONAL COMPLEX ROW */}

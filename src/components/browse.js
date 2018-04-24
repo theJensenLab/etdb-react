@@ -24,7 +24,7 @@ class Browse extends Component {
 		this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
 		this.handleSortButtonChange = this.handleSortButtonChange.bind(this);
 		this.handleFlipSortChange = this.handleFlipSortChange.bind(this);
-		this.handleSimpleSearchChange = this.handleSimpleSearchChange.bind(this);
+		this.handleAdvancedSearchChange = this.handleAdvancedSearchChange.bind(this);
 		this.handleToggleAdvancedSearch = this.handleToggleAdvancedSearch.bind(this);
 	}
 
@@ -70,27 +70,26 @@ class Browse extends Component {
     }))
 	}
 
-	handleSimpleSearchChange(simpleSearchParams){
-    // console.log(simpleSearchParams);
-		// var params = this.state.advancedSearchParams;
-		// var didMatch = false;
-		//
-		// for (var i; i < params.length; i++) {
-		// 	if (params[i].id === simpleSearchParams.id) {
-		// 		params[i] = simpleSearchParams;
-		// 		didMatch = true;
-		// 	}
-		// }
-		//
-		// if (!didMatch) {
-		// 	params.push(simpleSearchParams);
-		// }
-		//
-		// this.setState({
-		// 	advancedSearchParams: params
-		// })
+	handleAdvancedSearchChange(searchParams){
+		var advancedSearchParams = this.state.advancedSearchParams;
+		var didMatch = false;
+
+		for (var i = 0; i < advancedSearchParams.length; i++) {
+			console.log(advancedSearchParams[i])
+			if (advancedSearchParams[i].uid === searchParams.uid) {
+				console.log("true")
+				advancedSearchParams[i] = searchParams;
+				didMatch = true;
+			}
+		}
+
+		if (!didMatch) {
+			console.log('did not')
+			advancedSearchParams.push(searchParams);
+		}
+
 		this.setState({
-			advancedSearchParams: [simpleSearchParams]
+			advancedSearchParams: advancedSearchParams
 		})
   }
 
@@ -115,7 +114,7 @@ class Browse extends Component {
 						onFlipSortChange={this.handleFlipSortChange}
 						flipSort={this.state.flipSort}
 						flipText={this.state.flipText}
-						onSimpleSearchChange={this.handleSimpleSearchChange}
+						onAdvancedSearchChange={this.handleAdvancedSearchChange}
 						onToggleAdvancedSearch={this.handleToggleAdvancedSearch}
 
 					/>
