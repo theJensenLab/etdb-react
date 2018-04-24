@@ -33,6 +33,7 @@ class SearchResultGrid extends Component {
 
     this.filterArtifacts = this.filterArtifacts.bind(this);
     this.onPageChange = this.onPageChange.bind(this);
+    this.switchCase = this.switchCase.bind(this);
   }
   onPageChange(page){
     this.setState({currentPage: page});
@@ -42,149 +43,33 @@ class SearchResultGrid extends Component {
       this.setState({currentPage: 1});
     }
   }
-  filterArtifacts(art, params)
+
+  switchCase(art, params, field)
   {
-    switch (params.searchOn)
+    if (art.getDetail(field) === undefined) {return false};
+    switch (params.searchType)
     {
-//--------------------------------------------------------------------------------------------------------------------
-      case ANY_FIELD:
+      case CONTAINS:
+      return (art.getDetail(field).toLowerCase().indexOf(params.searchFor.toLowerCase()) >= 0)
+
+      case IS_EXACT:
+      return (art.getDetail(field).toLowerCase() === params.searchFor.toLowerCase())
+
+      case STARTS_WITH:
+      return (art.getDetail(field).toLowerCase().startsWith(params.searchFor.toLowerCase()))
+
+    }
+  }
+
+  filterArtifacts(art, params) {
+    if (params.searchOn == ANY_FIELD) {
       const artifactString = JSON.stringify(art.toJSON());
 
       if (artifactString.toLowerCase().indexOf(params.searchFor.toLowerCase()) >= 0) {
         return true;
       } else {return false}
-        // switch (params.searchType)
-        // {
-        //   case constants.CONTAINS:
-        //     if (art.getDetail(constants.MICROSCOPIST).toLowerCase().indexOf(params.searchFor.toLowerCase()) >= 0)
-        //     {
-        //       return true
-        //     } else {return false}
-        //     break;
-        //   case constants.IS_EXACT:
-        //     return (art.getDetail(constants.MICROSCOPIST).toLowerCase() === params.searchFor.toLowerCase())
-        //     break;
-        //   case constants.STARTS_WITH:
-        //      return (art.getDetail(constants.MICROSCOPIST).toLowerCase().startsWith(params.searchFor.toLowerCase()))
-        //      break;
-        // }
-        break;
-//--------------------------------------------------------------------------------------------------------------------
-      case MICROSCOPIST:
-        if (art.getDetail(MICROSCOPIST) === undefined) {return false};
-        switch (params.searchType)
-        {
-          case CONTAINS:
-            if (art.getDetail(MICROSCOPIST).toLowerCase().indexOf(params.searchFor.toLowerCase()) >= 0)
-            {
-              return true
-            } else {return false}
-            break;
-          case IS_EXACT:
-            return (art.getDetail(MICROSCOPIST).toLowerCase() === params.searchFor.toLowerCase())
-            break;
-          case STARTS_WITH:
-             return (art.getDetail(MICROSCOPIST).toLowerCase().startsWith(params.searchFor.toLowerCase()))
-             break;
-        }
-        break;
-//--------------------------------------------------------------------------------------------------------------------
-      case SPECIES:
-        if (art.getDetail(SPECIES) === undefined) {return false};
-        switch (params.searchType)
-        {
-          case CONTAINS:
-            if (art.getDetail(SPECIES).toLowerCase().indexOf(params.searchFor.toLowerCase()) >= 0)
-            {
-              return true
-            } else {return false}
-            break;
-          case IS_EXACT:
-            return (art.getDetail(SPECIES).toLowerCase() === params.searchFor.toLowerCase())
-            break;
-          case STARTS_WITH:
-             return (art.getDetail(SPECIES).toLowerCase().startsWith(params.searchFor.toLowerCase()))
-             break;
-        }
-        break;
-//--------------------------------------------------------------------------------------------------------------------
-      case STRAIN:
-        if (art.getDetail(STRAIN) === undefined) {return false};
-        switch (params.searchType)
-        {
-          case CONTAINS:
-            if (art.getDetail(STRAIN).toLowerCase().indexOf(params.searchFor.toLowerCase()) >= 0)
-            {
-              return true
-            } else {return false}
-            break;
-          case IS_EXACT:
-            return (art.getDetail(STRAIN).toLowerCase() === params.searchFor.toLowerCase())
-            break;
-          case STARTS_WITH:
-             return (art.getDetail(STRAIN).toLowerCase().startsWith(params.searchFor.toLowerCase()))
-             break;
-        }
-        break;
-//--------------------------------------------------------------------------------------------------------------------
-      case INSTITUTION:
-        if (art.getDetail(INSTITUTION) === undefined) {return false};
-        switch (params.searchType)
-        {
-          case CONTAINS:
-            if (art.getDetail(INSTITUTION).toLowerCase().indexOf(params.searchFor.toLowerCase()) >= 0)
-            {
-              return true
-            } else {return false}
-            break;
-          case IS_EXACT:
-            return (art.getDetail(INSTITUTION).toLowerCase() === params.searchFor.toLowerCase())
-            break;
-          case STARTS_WITH:
-             return (art.getDetail(INSTITUTION).toLowerCase().startsWith(params.searchFor.toLowerCase()))
-             break;
-        }
-        break;
-//--------------------------------------------------------------------------------------------------------------------
-      case LAB:
-        if (art.getDetail(LAB) === undefined) {return false};
-        switch (params.searchType)
-        {
-          case CONTAINS:
-            if (art.getDetail(LAB).toLowerCase().indexOf(params.searchFor.toLowerCase()) >= 0)
-            {
-              return true
-            } else {return false}
-            break;
-          case IS_EXACT:
-            return (art.getDetail(LAB).toLowerCase() === params.searchFor.toLowerCase())
-            break;
-          case STARTS_WITH:
-             return (art.getDetail(LAB).toLowerCase().startsWith(params.searchFor.toLowerCase()))
-             break;
-        }
-        break;
-//--------------------------------------------------------------------------------------------------------------------
-      case NOTES:
-        if (art.getDetail(NOTES) === undefined) {return false};
-        switch (params.searchType)
-        {
-          case CONTAINS:
-            if (art.getDetail(NOTES).toLowerCase().indexOf(params.searchFor.toLowerCase()) >= 0)
-            {
-              return true
-            } else {return false}
-            break;
-          case IS_EXACT:
-            return (art.getDetail(NOTES).toLowerCase() === params.searchFor.toLowerCase())
-            break;
-          case STARTS_WITH:
-             return (art.getDetail(NOTES).toLowerCase().startsWith(params.searchFor.toLowerCase()))
-             break;
-        }
-        break;
-//--------------------------------------------------------------------------------------------------------------------
-    }
+    } else {return this.switchCase(art, params, params.searchOn)}
+
   }
 
   render() {
@@ -194,7 +79,7 @@ class SearchResultGrid extends Component {
 
     //STATE_CONSTANTS
     const filterText = this.props.filterText;
-      //filter state is the full state of browse;
+    //filter state is the full state of browse;
     const filterState = this.props.filterState;
     const sortValue = this.props.sortValue;
     const flipSort = this.props.flipSort;
@@ -223,66 +108,66 @@ class SearchResultGrid extends Component {
       }
     } else {
 
-    this.props.artifacts.forEach((artifact) => {
-      const artifactString = JSON.stringify(artifact.toJSON());
+      this.props.artifacts.forEach((artifact) => {
+        const artifactString = JSON.stringify(artifact.toJSON());
 
-      if (artifactString.toLowerCase().indexOf(filterText.toLowerCase()) === -1) {
-        return;
-      }
+        if (artifactString.toLowerCase().indexOf(filterText.toLowerCase()) === -1) {
+          return;
+        }
 
-      artifacts.push(artifact)
-    })
+        artifacts.push(artifact)
+      })
 
-  }
+    }
 
 
     //SORTS
     switch (sortValue) {
       case VIEWS:
-        console.log(sortValue)
-        break;
+      console.log(sortValue)
+      break;
       case TITLE:
-        console.log(sortValue)
-        artifacts.sort( (a,b) => {
-          var x = a.getTitle().toLowerCase();
-          var y = b.getTitle().toLowerCase();
-          if (x < y) {return -1;}
-          if (x > y) {return 1;}
-          return 0;
-        });
-        break;
+      console.log(sortValue)
+      artifacts.sort( (a,b) => {
+        var x = a.getTitle().toLowerCase();
+        var y = b.getTitle().toLowerCase();
+        if (x < y) {return -1;}
+        if (x > y) {return 1;}
+        return 0;
+      });
+      break;
       case SPECIMEN:
-        console.log(sortValue);
-        artifacts.sort( (a,b) => {
-          var x = a.getDetail("speciesName").toLowerCase();
-          var y = b.getDetail("speciesName").toLowerCase();
-          if (x < y) {return -1;}
-          if (x > y) {return 1;}
-          return 0;
-        });
-        break;
+      console.log(sortValue);
+      artifacts.sort( (a,b) => {
+        var x = a.getDetail("speciesName").toLowerCase();
+        var y = b.getDetail("speciesName").toLowerCase();
+        if (x < y) {return -1;}
+        if (x > y) {return 1;}
+        return 0;
+      });
+      break;
       case MICROSCOPIST:
-        console.log(sortValue);
-        artifacts.sort( (a,b) => {
-          if ((typeof b.getDetail("microscopist") === 'undefined' && typeof a.getDetail("microscopist") !== 'undefined') || a.getDetail("microscopist") < b.getDetail("microscopist")) {
+      console.log(sortValue);
+      artifacts.sort( (a,b) => {
+        if ((typeof b.getDetail("microscopist") === 'undefined' && typeof a.getDetail("microscopist") !== 'undefined') || a.getDetail("microscopist") < b.getDetail("microscopist")) {
           return -1;
-          }
-          if ((typeof a.getDetail("microscopist") === 'undefined' && typeof b.getDetail("microscopist") !== 'undefined') || a.getDetail("microscopist") > b.getDetail("microscopist")) {
-              return 1;
-          }
-          return 0;
-        });
-        break;
+        }
+        if ((typeof a.getDetail("microscopist") === 'undefined' && typeof b.getDetail("microscopist") !== 'undefined') || a.getDetail("microscopist") > b.getDetail("microscopist")) {
+          return 1;
+        }
+        return 0;
+      });
+      break;
       case LAST_MODIFIED:
-        console.log(sortValue);
-        artifacts.sort( (a,b) => {return b.getTimestamp()-a.getTimestamp()});
-        break;
+      console.log(sortValue);
+      artifacts.sort( (a,b) => {return b.getTimestamp()-a.getTimestamp()});
+      break;
       case DATE_TAKEN:
-        console.log(sortValue);
-        artifacts.sort( (a,b) => {return b.getDetail("date")-a.getDetail("date")});
-        break;
+      console.log(sortValue);
+      artifacts.sort( (a,b) => {return b.getDetail("date")-a.getDetail("date")});
+      break;
       default:
-        artifacts.sort( (a,b) => {return b.getTimestamp()-a.getTimestamp()});
+      artifacts.sort( (a,b) => {return b.getTimestamp()-a.getTimestamp()});
 
     }
 
@@ -304,33 +189,33 @@ class SearchResultGrid extends Component {
 
       // Check if it exists
       if (artifacts[artifactIndex])
-        pageArtifacts.push(<TomogramListItem Core={this.props.Core} artifact={artifacts[artifactIndex]} />)
+      pageArtifacts.push(<TomogramListItem Core={this.props.Core} artifact={artifacts[artifactIndex]} />)
     }
 
     return(
       <div className="col-sm-10" id="searchresultsgrid" style={{marginBottom: "-100px"}}>
         <div className="col-sm-12" style={{minHeight: "300px"}}>
           <center style={{marginTop: "150px", marginBottom: "-150px", width: "50%", marginLeft: "auto", marginRight: "auto"}}>
-          { this.props.artifacts.length === 0 ?
-            <BarLoader
-              color={'#b60000'}
-              width={-1}
-              loading={true}
-            />
-          : artifacts.length === 0 ? <h4>No Results</h4> : ""}
+            { this.props.artifacts.length === 0 ?
+              <BarLoader
+                color={'#b60000'}
+                width={-1}
+                loading={true}
+              />
+              : artifacts.length === 0 ? <h4>No Results</h4> : ""}
+            </center>
+            {pageArtifacts}
+          </div>
+          <br />
+          <center>
+            <div className="row" style={{margin: "auto"}}>
+              <Pagination onChange={this.onPageChange} activePage={this.state.currentPage} itemsCountPerPage={itemsPerPage} totalItemsCount={artifacts.length} pageRangeDisplayed={5} />
+            </div>
           </center>
-          {pageArtifacts}
         </div>
-        <br />
-        <center>
-        <div className="row" style={{margin: "auto"}}>
-          <Pagination onChange={this.onPageChange} activePage={this.state.currentPage} itemsCountPerPage={itemsPerPage} totalItemsCount={artifacts.length} pageRangeDisplayed={5} />
-        </div>
-        </center>
-      </div>
-    )
+      )
+    }
   }
-}
 
 
-export default SearchResultGrid
+  export default SearchResultGrid
