@@ -6,7 +6,12 @@ class AdvancedSearchRowComplex extends Component {
     super(props);
 
     this.state = {
-      addRowButton: true
+      addRowButton: true,
+      complexSearchParams: {
+        searchOn: 'anyField',
+        searchType: 'contains',
+        searchFor: ""
+      }
     }
 
     this.handleAddRowClick = this.handleAddRowClick.bind(this);
@@ -32,6 +37,18 @@ class AdvancedSearchRowComplex extends Component {
 
   render() {
 
+    const searchTypes = (this.state.complexSearchParams.searchOn === "anyField") ? (
+      <select name="searchType" form="advanced-search" onChange={this.handleSimpleSearchChange} style={FieldRow3} className="col-sm-6 as-select">
+        <option value="contains">contains</option>
+      </select>
+    ) : (
+      <select name="searchType" form="advanced-search" onChange={this.handleSimpleSearchChange} style={FieldRow3} className="col-sm-6 as-select">
+        <option value="contains">contains</option>
+        <option value="isExact">is (exact)</option>
+        <option value="startsWith">starts with</option>
+      </select>
+    )
+
     return (
       <div>
 
@@ -47,24 +64,19 @@ class AdvancedSearchRowComplex extends Component {
           </select>
 
           {/* ---------------- ALL FIELDS ----------------*/}
-          <select className="col-sm-9 as-select">
-            <option>All Fields</option>
-            <option>Species Name</option>
-            <option>Strain</option>
-            <option>Institution</option>
-            <option>Lab</option>
-            <option>Art Notes</option>
+          <select name="searchOn" form="advanced-search" onChange={this.handleComplexSearchChange} className="col-sm-9 as-select">
+            <option value="anyField">Any Field</option>
+            <option value="microscopist">Microscopist</option>
+            <option value="speciesName">Species</option>
+            <option value="strain">Strain</option>
+            <option value="institution">Institution</option>
+            <option value="lab">Lab</option>
+            <option value="artNotes">Notes</option>
           </select>
         </div>
 
         {/* ---------------- CONTAINS/IS (EXACT)/STARTS WITH ----------------*/}
-        <div className="row" style={FieldRow3}>
-          <select className="col-sm-12 as-select">
-            <option>contains</option>
-            <option>is (exact)</option>
-            <option>starts with</option>
-          </select>
-        </div>
+        {searchTypes}
 
         {/* ---------------- TEXT INPUT ----------------*/}
         <div className="row">

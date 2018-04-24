@@ -98,7 +98,7 @@ render() {
           <input name="searchFor" style={FieldText} className="input-field1-text" type="text" onBlur={this.handleSimpleSearchChange}  />
         </div>
 
-        {/* {addComplexRowButton} */}
+        {addComplexRowButton}
 
       </div>
 

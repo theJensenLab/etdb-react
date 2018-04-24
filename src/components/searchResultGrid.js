@@ -50,25 +50,23 @@ class SearchResultGrid extends Component {
     switch (params.searchType)
     {
       case CONTAINS:
-      return (art.getDetail(field).toLowerCase().indexOf(params.searchFor.toLowerCase()) >= 0)
+        return (art.getDetail(field).toLowerCase().indexOf(params.searchFor.toLowerCase()) >= 0)
 
       case IS_EXACT:
-      return (art.getDetail(field).toLowerCase() === params.searchFor.toLowerCase())
+        return (art.getDetail(field).toLowerCase() === params.searchFor.toLowerCase())
 
       case STARTS_WITH:
-      return (art.getDetail(field).toLowerCase().startsWith(params.searchFor.toLowerCase()))
-
+        return (art.getDetail(field).toLowerCase().startsWith(params.searchFor.toLowerCase()))
     }
   }
+
   filterArtifacts(art, params) {
     if (params.searchOn == ANY_FIELD) {
       const artifactString = JSON.stringify(art.toJSON());
-
       if (artifactString.toLowerCase().indexOf(params.searchFor.toLowerCase()) >= 0) {
         return true;
       } else {return false}
     } else {return this.switchCase(art, params, params.searchOn)}
-
   }
 
   render() {
@@ -123,50 +121,50 @@ class SearchResultGrid extends Component {
     //SORTS
     switch (sortValue) {
       case VIEWS:
-      console.log(sortValue)
-      break;
+        console.log(sortValue)
+        break;
       case TITLE:
-      console.log(sortValue)
-      artifacts.sort( (a,b) => {
-        var x = a.getTitle().toLowerCase();
-        var y = b.getTitle().toLowerCase();
-        if (x < y) {return -1;}
-        if (x > y) {return 1;}
-        return 0;
-      });
-      break;
+        console.log(sortValue)
+        artifacts.sort( (a,b) => {
+          var x = a.getTitle().toLowerCase();
+          var y = b.getTitle().toLowerCase();
+          if (x < y) {return -1;}
+          if (x > y) {return 1;}
+          return 0;
+        });
+        break;
       case SPECIMEN:
-      console.log(sortValue);
-      artifacts.sort( (a,b) => {
-        var x = a.getDetail("speciesName").toLowerCase();
-        var y = b.getDetail("speciesName").toLowerCase();
-        if (x < y) {return -1;}
-        if (x > y) {return 1;}
-        return 0;
-      });
-      break;
+        console.log(sortValue);
+        artifacts.sort( (a,b) => {
+          var x = a.getDetail("speciesName").toLowerCase();
+          var y = b.getDetail("speciesName").toLowerCase();
+          if (x < y) {return -1;}
+          if (x > y) {return 1;}
+          return 0;
+        });
+        break;
       case MICROSCOPIST:
-      console.log(sortValue);
-      artifacts.sort( (a,b) => {
-        if ((typeof b.getDetail("microscopist") === 'undefined' && typeof a.getDetail("microscopist") !== 'undefined') || a.getDetail("microscopist") < b.getDetail("microscopist")) {
-          return -1;
-        }
-        if ((typeof a.getDetail("microscopist") === 'undefined' && typeof b.getDetail("microscopist") !== 'undefined') || a.getDetail("microscopist") > b.getDetail("microscopist")) {
-          return 1;
-        }
-        return 0;
-      });
+        console.log(sortValue);
+        artifacts.sort( (a,b) => {
+          if ((typeof b.getDetail("microscopist") === 'undefined' && typeof a.getDetail("microscopist") !== 'undefined') || a.getDetail("microscopist") < b.getDetail("microscopist")) {
+            return -1;
+          }
+          if ((typeof a.getDetail("microscopist") === 'undefined' && typeof b.getDetail("microscopist") !== 'undefined') || a.getDetail("microscopist") > b.getDetail("microscopist")) {
+            return 1;
+          }
+          return 0;
+        });
       break;
       case LAST_MODIFIED:
-      console.log(sortValue);
-      artifacts.sort( (a,b) => {return b.getTimestamp()-a.getTimestamp()});
-      break;
+        console.log(sortValue);
+        artifacts.sort( (a,b) => {return b.getTimestamp()-a.getTimestamp()});
+        break;
       case DATE_TAKEN:
-      console.log(sortValue);
-      artifacts.sort( (a,b) => {return b.getDetail("date")-a.getDetail("date")});
-      break;
+        console.log(sortValue);
+        artifacts.sort( (a,b) => {return b.getDetail("date")-a.getDetail("date")});
+        break;
       default:
-      artifacts.sort( (a,b) => {return b.getTimestamp()-a.getTimestamp()});
+        artifacts.sort( (a,b) => {return b.getTimestamp()-a.getTimestamp()});
 
     }
 
