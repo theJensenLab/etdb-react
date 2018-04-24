@@ -14,7 +14,7 @@ class About extends Component {
 				    <h2>Welcome to the Caltech ETDB, the blockchain-based Web 3.0 database of 10,000+ electron tomograms. </h2>
 				  </div>
 				</div>
-                <div id="space150"></div>
+                <div id="space50"></div>
 				<div className="row aboutintro" id="about">
                 <div className="col-sm-12">	<h3>About Electron tomography</h3>
 				      <div id="reddiv"></div>

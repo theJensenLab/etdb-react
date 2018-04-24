@@ -49,6 +49,7 @@ class FeaturedCell extends Component {
 		return(
 			<div className="col-sm-3">
 				<a href={this.props.url}>
+                <div id="noimage">Data Not Available</div>
 					<img className="results-thumb" src={"http://etdb.caltech.edu:8080/ipfs/" + thumbnailLocation + "/" + thumbnailFilename}/>
 					<name>{this.props.title}</name>
 				</a>

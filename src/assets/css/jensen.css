@@ -129,9 +129,6 @@ path {
     fill: #2b2b2b;
 }
 
--------------------------------------------------------------- */
-/* FAQ
--------------------------------------------------------------- */
 
 
 .panel-group .panel+.panel {
@@ -265,9 +262,7 @@ a:hover {
 }
 
 
--------------------------------------------------------------- */
-/* Header + Nav
--------------------------------------------------------------- */
+
 div#headerfixed {
     position: fixed;
     width: 100%;
@@ -536,6 +531,26 @@ footer.site-footer {
     text-align: left;
 }
 
+div#footer h4 a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+
+div#footer h4 {
+    border-bottom: 0px;
+    background: #444;
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    padding: 11px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: normal;
+    margin-bottom: 0px;
+}
+
 div#footer H3 {
     FONT-SIZE: 20px;
     margin-bottom: 80px;
@@ -703,6 +718,10 @@ div#longreddiv {
 
 div#about .col-sm-9 {
     padding-left: 0px !important;
+}
+
+div#space50 {
+    height: 50px;
 }
 
 .aboutintro {
@@ -1505,6 +1524,7 @@ div#featured img {
     margin-bottom: 15px;
     object-position: 50% 50%;
     object-fit: cover !important;
+    background: #ccc;
 }
 
 div#featured name {

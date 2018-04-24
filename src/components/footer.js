@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 
+
 class Footer extends Component {
 	render(){
 		return(
@@ -62,8 +63,12 @@ class Footer extends Component {
 								<img src="/src/assets/img/agi.png"/>
 							</a>
 						</div>
+
+                       <h4><a href="/terms">Terms and Conditions.</a> © 2018 The Jensen Lab, Caltech</h4>
 					</div>
+              
 			</div>
+            
 		)
 	}
 }
