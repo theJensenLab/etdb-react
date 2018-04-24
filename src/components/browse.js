@@ -72,22 +72,25 @@ class Browse extends Component {
 
 	handleSimpleSearchChange(simpleSearchParams){
     // console.log(simpleSearchParams);
-		var params = this.state.advancedSearchParams;
-		var didMatch = false;
-
-		for (var i; i < params.length; i++) {
-			if (params[i].id === simpleSearchParams.id) {
-				params[i] = simpleSearchParams;
-				didMatch = true;
-			}
-		}
-
-		if (!didMatch) {
-			params.push(simpleSearchParams);
-		}
-
+		// var params = this.state.advancedSearchParams;
+		// var didMatch = false;
+		//
+		// for (var i; i < params.length; i++) {
+		// 	if (params[i].id === simpleSearchParams.id) {
+		// 		params[i] = simpleSearchParams;
+		// 		didMatch = true;
+		// 	}
+		// }
+		//
+		// if (!didMatch) {
+		// 	params.push(simpleSearchParams);
+		// }
+		//
+		// this.setState({
+		// 	advancedSearchParams: params
+		// })
 		this.setState({
-			advancedSearchParams: params
+			advancedSearchParams: [simpleSearchParams]
 		})
   }
 
