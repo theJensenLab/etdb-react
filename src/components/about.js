@@ -16,16 +16,16 @@ class About extends Component {
 				</div>
                 <div id="space50"></div>
 				<div className="row aboutintro" id="about">
-                <div className="col-sm-12">	<h3>About Electron tomography</h3>
-				      <div id="reddiv"></div>
-                      </div>
+          <div className="col-sm-12">	
+						<h3>About Electron tomography</h3>
+				    <div id="reddiv"></div>
+          </div>
 				  <div className="col-sm-6">				      
-                        <p>Electron tomography is a form of transmission electron microscopy in which a sample is tilted during imaging, typically one or two degrees between images, building up a "tilt-series" of images that can be computationally reconstructed into a 3D view of the sample, or "tomogram." In essence, electron tomography takes a CT scan of a cell.</p>				    </div>
-
+            <p>Electron tomography is a form of transmission electron microscopy in which a sample is tilted during imaging, typically one or two degrees between images, building up a "tilt-series" of images that can be computationally reconstructed into a 3D view of the sample, or "tomogram." In essence, electron tomography takes a CT scan of a cell.</p>
+					</div>
 				  <div className="col-sm-6"> 
-               
-                  <p>Currently, the majority of tomograms in the ETDB were acquired by cryo-EM, in which cells in standard growth media are plunged into a cryogen that freezes them so rapidly that the water molecules don't have a chance to rearrange into a crystalline lattice, preserving cell structures in vitreous, or glass-like, amorphous ice.  Vitrified cells can be imaged directly by electron tomography, without the need for fixation, dehydration, resin-embedding or staining.  This captures the cells in an essentially native state.</p>
-                  </div>
+            <p>Currently, the majority of tomograms in the ETDB were acquired by cryo-EM, in which cells in standard growth media are plunged into a cryogen that freezes them so rapidly that the water molecules don't have a chance to rearrange into a crystalline lattice, preserving cell structures in vitreous, or glass-like, amorphous ice.  Vitrified cells can be imaged directly by electron tomography, without the need for fixation, dehydration, resin-embedding or staining.  This captures the cells in an essentially native state.</p>
+          </div>
 				</div>
 				<div className="row" id="about">
 				  <div className="col-sm-6">
@@ -46,11 +46,11 @@ class About extends Component {
 				  <div className="col-sm-6">
               <h3>Built with Blockchain</h3>			  		 
 				      <div id="reddiv"></div>
-				      <p> A blockchain uses peer-to-peer networking to achieve network consensus without central points of failure, making it a public digital ledger which anyone can contribute to or audit, and no one can alter. The Inter Planetary File System (IPFS) is a file transport protocol and network designed to create a content-addressable, peer-to-peer method of storing and sharing content in a distributed file system.</p>
+				      <p> A blockchain uses peer-to-peer networking to achieve network consensus without central points of failure, making it a public digital ledger which anyone can contribute to or audit, and no one can alter. The <a target="blank" href="https://ipfs.io/">Inter Planetary File System (IPFS)</a> is a file transport protocol and network designed to create a content-addressable, peer-to-peer method of storing and sharing content in a distributed file system.</p>
 					</div>
 				  <div className="col-sm-6">
 				    <div>      
-							<p>The Open Index Protocol (OIP) specification defines standard use of these technologies; it uses the FLO blockchain to index metadata and IPFS to store files. The OIP system includes a transparent index, persistent file storage and permissionless access. The result is a robust, decentralized database open to anyone through open-source software.</p>
+							<p>The <a target="blank" href="https://oip.wiki/Main_Page">Open Index Protocol (OIP)</a> specification defines standard use of these technologies; it uses the <a target="blank" href="https://flo.cash">FLO blockchain</a> to index metadata and IPFS to store files. The OIP system includes a transparent index, persistent file storage and permissionless access. The result is a robust, decentralized database open to anyone through open-source software.</p>
 
 							<p>ETDB is an experiment in distributing large scientific datasets using the OIP specification. The addresses of the tomograms, and their corresponding metadata, are stored in the public FLO blockchain and the tomogram files are stored in the IPFS network. While etdb.caltech.edu offers one way to access the database, users are free to create their own applications to retrieve and interact with the data.</p>
 				    </div>
