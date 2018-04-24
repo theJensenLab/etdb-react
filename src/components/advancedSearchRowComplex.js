@@ -1,5 +1,6 @@
 
 import React, {Component} from 'react';
+import uid from 'uid';
 
 class AdvancedSearchRowComplex extends Component {
   constructor(props){
@@ -10,7 +11,8 @@ class AdvancedSearchRowComplex extends Component {
         searchOp: 'and',
         searchOn: 'anyField',
         searchType: 'contains',
-        searchFor: ""
+        searchFor: "",
+        uid: uid()
       }
     }
 

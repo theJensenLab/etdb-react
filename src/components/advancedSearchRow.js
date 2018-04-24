@@ -1,15 +1,19 @@
 
 import React, {Component} from 'react';
+import uid from 'uid';
 
 class AdvancedSearchRow extends Component {
 constructor(props){
   super(props);
 
+
+
   this.state = {
     simpleSearchParams: {
       searchOn: 'anyField',
       searchType: 'contains',
-      searchFor: ""
+      searchFor: "",
+      uid: uid()
     }
   }
 
