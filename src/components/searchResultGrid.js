@@ -60,7 +60,6 @@ class SearchResultGrid extends Component {
 
     }
   }
-
   filterArtifacts(art, params) {
     if (params.searchOn == ANY_FIELD) {
       const artifactString = JSON.stringify(art.toJSON());
