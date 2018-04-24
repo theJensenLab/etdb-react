@@ -26,12 +26,12 @@ class Browse extends Component {
 		this.handleFlipSortChange = this.handleFlipSortChange.bind(this);
 		this.handleSimpleSearchChange = this.handleSimpleSearchChange.bind(this);
 		this.handleToggleAdvancedSearch = this.handleToggleAdvancedSearch.bind(this);
-
 	}
 
 	componentDidMount(){
     this.getTomograms();
   }
+
 
   getTomograms(){
     this.props.Core.Index.getSupportedArtifacts((this.storeTomograms), (error) => {
@@ -72,8 +72,22 @@ class Browse extends Component {
 
 	handleSimpleSearchChange(simpleSearchParams){
     // console.log(simpleSearchParams);
+		var params = this.state.advancedSearchParams;
+		var didMatch = false;
+
+		for (var i; i < params.length; i++) {
+			if (params[i].id === simpleSearchParams.id) {
+				params[i] = simpleSearchParams;
+				didMatch = true;
+			}
+		}
+
+		if (!didMatch) {
+			params.push(simpleSearchParams);
+		}
+
 		this.setState({
-			advancedSearchParams: [simpleSearchParams]
+			advancedSearchParams: params
 		})
   }
 
