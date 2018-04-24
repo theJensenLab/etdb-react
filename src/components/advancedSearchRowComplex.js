@@ -6,8 +6,8 @@ class AdvancedSearchRowComplex extends Component {
     super(props);
 
     this.state = {
-      addRowButton: true,
       complexSearchParams: {
+        searchOp: 'and',
         searchOn: 'anyField',
         searchType: 'contains',
         searchFor: ""
@@ -16,14 +16,16 @@ class AdvancedSearchRowComplex extends Component {
 
     this.handleAddRowClick = this.handleAddRowClick.bind(this);
     this.handleMinusRowClick = this.handleMinusRowClick.bind(this);
-    this.handleTextChange = this.handleTextChange.bind(this);
+    this.handleComplexSearchChange = this.handleComplexSearchChange.bind(this);
+    this.pushStateUp = this.pushStateUp.bind(this);
 
   }
 
+  componentDidMount() {
+    this.pushStateUp()
+  }
+
   handleAddRowClick() {
-    // this.setState(prevState => ({
-    //   addRowButton: !prevState.addRowButton
-    // }));
     this.props.onAddRowClick()
   }
 
@@ -31,75 +33,92 @@ class AdvancedSearchRowComplex extends Component {
     this.props.onMinusRowClick()
   }
 
-  handleTextChange(e) {
-    // console.log(e.target.value)
-  }
+  handleComplexSearchChange(e){
+    let name = e.target.name;
+    let value = e.target.value;
+    this.setState(prevState => ({
+      complexSearchParams: {
+        ...prevState.complexSearchParams,
+        [name]: value
+      }
+    }),
+    this.pushStateUp
+  )
+}
 
-  render() {
+pushStateUp() {
+  console.log(this.state.complexSearchParams);
+}
 
-    const searchTypes = (this.state.complexSearchParams.searchOn === "anyField") ? (
-      <select name="searchType" form="advanced-search" onChange={this.handleSimpleSearchChange} style={FieldRow3} className="col-sm-6 as-select">
+render() {
+
+  const searchTypes = (this.state.complexSearchParams.searchOn === "anyField") ? (
+    <div className="row" style={FieldRow3}>
+      <select name="searchType" form="advanced-search" onChange={this.handleComplexSearchChange} className="col-sm-12 as-select">
         <option value="contains">contains</option>
       </select>
-    ) : (
-      <select name="searchType" form="advanced-search" onChange={this.handleSimpleSearchChange} style={FieldRow3} className="col-sm-6 as-select">
+    </div>
+  ) : (
+    <div className="row" style={FieldRow3}>
+      <select name="searchType" form="advanced-search" onChange={this.handleComplexSearchChange} className="col-sm-12 as-select">
         <option value="contains">contains</option>
         <option value="isExact">is (exact)</option>
         <option value="startsWith">starts with</option>
       </select>
-    )
-
-    return (
-      <div>
-
-        {/* ---------------- BUTTON TO DELETE A COMPLEX ROW ----------------*/}
-        <div className="row" style={FieldRow2}>
+    </div>
+  )
 
 
-          {/* ---------------- AND/OR/NOT ----------------*/}
-          <select className="col-sm-3 as-select">
-            <option>AND</option>
-            <option>OR</option>
-            <option>NOT</option>
-          </select>
+  return (
+    <div>
 
-          {/* ---------------- ALL FIELDS ----------------*/}
-          <select name="searchOn" form="advanced-search" onChange={this.handleComplexSearchChange} className="col-sm-9 as-select">
-            <option value="anyField">Any Field</option>
-            <option value="microscopist">Microscopist</option>
-            <option value="speciesName">Species</option>
-            <option value="strain">Strain</option>
-            <option value="institution">Institution</option>
-            <option value="lab">Lab</option>
-            <option value="artNotes">Notes</option>
-          </select>
-        </div>
+      <div className="row" style={FieldRow2}>
 
-        {/* ---------------- CONTAINS/IS (EXACT)/STARTS WITH ----------------*/}
-        {searchTypes}
 
-        {/* ---------------- TEXT INPUT ----------------*/}
-        <div className="row">
-          <input style={FieldText} className="input-field1-text" type="text" onChange={this.handleTextChange}  />
-        </div>
+        {/* ---------------- AND/OR/NOT ----------------*/}
+        <select name="searchOp" className="col-sm-3 as-select" onChange={this.handleComplexSearchChange}>
+          <option value="and">AND</option>
+          <option value="or">OR</option>
+          <option value="not">NOT</option>
+        </select>
 
-        {/* BUTTON TO ADD ADDITIONAL COMPLEX ROW */}
-        <div className="row">
-          <button className="remove"
-                onClick={this.handleMinusRowClick}
-                style={OpButtonStyle}>- Remove row </button>
+        {/* ---------------- ALL FIELDS ----------------*/}
+        <select name="searchOn" form="advanced-search" onChange={this.handleComplexSearchChange} className="col-sm-9 as-select">
+          <option value="anyField">Any Field</option>
+          <option value="microscopist">Microscopist</option>
+          <option value="speciesName">Species</option>
+          <option value="strain">Strain</option>
+          <option value="institution">Institution</option>
+          <option value="lab">Lab</option>
+          <option value="artNotes">Notes</option>
+        </select>
+      </div>
+
+      {/* ---------------- CONTAINS/IS (EXACT)/STARTS WITH ----------------*/}
+      {searchTypes}
+
+      {/* ---------------- TEXT INPUT ----------------*/}
+      <div className="row">
+        <input style={FieldText} className="input-field1-text" type="text" name="searchFor" onBlur={this.handleComplexSearchChange}  />
+      </div>
+
+      {/* BUTTON TO ADD ADDITIONAL COMPLEX ROW */}
+      <div className="row">
+        <button className="remove"
+          onClick={this.handleMinusRowClick}
+          style={OpButtonStyle}>- Remove row </button>
 
           <button className="addparameter" onClick={this.handleAddRowClick}
             style={OpButtonStyle}>Add parameter +</button>
-         </div>
+          </div>
 
-      </div>
-    )
+        </div>
+      )
+    }
   }
-}
 
-/* ---------------- REACT INLINE STYLES (FEEL FREE TO DELETE/CHANGE) ---------------- */
-const FieldRow1 = {
+  /* ---------------- REACT INLINE STYLES (FEEL FREE TO DELETE/CHANGE) ---------------- */
+  const FieldRow1 = {
     marginTop: "5px",
     display: "flex",
     justifyContent: "flex-start"
@@ -140,4 +159,4 @@ const FieldRow1 = {
     justifyContent: "flex-end"
   }
 
-export default AdvancedSearchRowComplex
+  export default AdvancedSearchRowComplex
