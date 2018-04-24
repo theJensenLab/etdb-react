@@ -1156,6 +1156,7 @@ name {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    line-height: 1.4;
 }
 
 div#filter {
@@ -1200,7 +1201,7 @@ div#tomogram-thumb {
 div#video-thumb-container {
     overflow: hidden;
     margin-bottom: 7px;
-    height:250px;
+    height:255px;
 }
 
 /* Tomogram Single Page
