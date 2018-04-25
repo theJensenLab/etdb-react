@@ -25,15 +25,14 @@ class AdvancedSearchGrid extends Component {
             onAddRowClick={this.handleAddRowClick}
             onMinusRowClick={this.handleMinusRowClick}
             onAdvancedSearchChange={this.handleAdvancedSearchChange}
+            indexOfComplexRow={newComplexRow.length}
           />
     );
     this.setState({complexRows: newComplexRow})
   }
 
-  handleMinusRowClick() {
-    // this.setState({
-    //   complexRowCounter: this.state.complexRowCounter - 1
-    // })
+  handleMinusRowClick(index) {
+    console.log(index, this.state.complexRows[index]);
   }
 
   handleAdvanceSearchSubmit(e){

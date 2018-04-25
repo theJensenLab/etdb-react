@@ -32,7 +32,7 @@ class AdvancedSearchRowComplex extends Component {
   }
 
   handleMinusRowClick() {
-    this.props.onMinusRowClick()
+    this.props.onMinusRowClick(this.props.indexOfComplexRow)
   }
 
   handleAdvancedSearchChange(e){
