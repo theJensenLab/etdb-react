@@ -17,19 +17,9 @@ import { OIPJS } from 'oip-js';
 
 var Core = OIPJS({
 	"OIPdURL": "https://snowflake.oip.fun/alexandria/v2",
-	"artifactFilters": [
-	function(artifact){
-		if (artifact.getType() === "Research" && artifact.getSubtype() === "Tomogram"){
-			return true;
-		} else {
-			return false;
-		}
-	}, function(artifact){
-		if (artifact.getMainAddress() === "FTSTq8xx8yWUKJA5E3bgXLzZqqG9V6dvnr"){
-			return true;
-		}
-		return false;
-	}]
+	"indexFilters": {
+		"publisher": "FTSTq8xx8yWUKJA5E3bgXLzZqqG9V6dvnr"
+	}
 });
 
 class App extends Component {
