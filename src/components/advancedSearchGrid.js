@@ -9,7 +9,6 @@ class AdvancedSearchGrid extends Component {
     super(props);
 
     this.state = {
-      complexRowCounter: 0,
       complexRows: []
     }
 
@@ -32,9 +31,9 @@ class AdvancedSearchGrid extends Component {
   }
 
   handleMinusRowClick() {
-    this.setState({
-      complexRowCounter: this.state.complexRowCounter - 1
-    })
+    // this.setState({
+    //   complexRowCounter: this.state.complexRowCounter - 1
+    // })
   }
 
   handleAdvanceSearchSubmit(e){
