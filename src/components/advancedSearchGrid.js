@@ -9,7 +9,8 @@ class AdvancedSearchGrid extends Component {
     super(props);
 
     this.state = {
-      complexRowCounter: 0
+      complexRowCounter: 0,
+      complexRows: []
     }
 
     this.handleAddRowClick = this.handleAddRowClick.bind(this);
@@ -19,9 +20,15 @@ class AdvancedSearchGrid extends Component {
   }
 
   handleAddRowClick() {
-    this.setState({
-      complexRowCounter: this.state.complexRowCounter + 1
-    })
+    let newComplexRow = [...this.state.complexRows];
+    newComplexRow.push(
+      <AdvancedSearchRowComplex
+            onAddRowClick={this.handleAddRowClick}
+            onMinusRowClick={this.handleMinusRowClick}
+            onAdvancedSearchChange={this.handleAdvancedSearchChange}
+          />
+    );
+    this.setState({complexRows: newComplexRow})
   }
 
   handleMinusRowClick() {
@@ -40,28 +47,18 @@ class AdvancedSearchGrid extends Component {
 
 
   render() {
-    let complexRows = [];
-
-    for (var i = 0; i < this.state.complexRowCounter; i++){
-      complexRows.push(
-        <AdvancedSearchRowComplex
-          onAddRowClick={this.handleAddRowClick}
-          onMinusRowClick={this.handleMinusRowClick}
-          onAdvancedSearchChange={this.handleAdvancedSearchChange}
-        />)
-    }
 
     return (
       <div>
         <form id="advanced-search" onSubmit={this.handleAdvanceSearchSubmit}>
           <AdvancedSearchRow
-            complexRowCounter={this.state.complexRowCounter}
+            complexRowArray={this.state.complexRows.length}
             onAddRowClick={this.handleAddRowClick}
             onAdvancedSearchChange={this.handleAdvancedSearchChange}
 
 
           />
-          {complexRows}
+          {this.state.complexRows}
           <SubmitAdvancedSearch />
         </form>
 

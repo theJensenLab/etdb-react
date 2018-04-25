@@ -54,9 +54,9 @@ pushStateUp() {
 
 
 render() {
-  const complexRowCounterBool = (this.props.complexRowCounter === 0);
+  const complexRowBool = (this.props.complexRowArray === 0);
 
-  const addComplexRowButton = (complexRowCounterBool) ? (
+  const addComplexRowButton = (complexRowBool) ? (
     <div style={FlexEnd} className="row">
       <button
         onClick={this.handleAddRowClick}
