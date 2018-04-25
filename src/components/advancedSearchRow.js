@@ -10,6 +10,7 @@ constructor(props){
 
   this.state = {
     searchParams: {
+      type: 'simple',
       searchOn: 'anyField',
       searchType: 'contains',
       searchFor: "",

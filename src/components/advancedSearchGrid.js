@@ -4,7 +4,6 @@ import AdvancedSearchRow from './advancedSearchRow'
 import AdvancedSearchRowComplex from './advancedSearchRowComplex'
 import SubmitAdvancedSearch from './submitAdvancedSearch'
 
-
 class AdvancedSearchGrid extends Component {
   constructor(props){
     super(props);
@@ -17,7 +16,6 @@ class AdvancedSearchGrid extends Component {
     this.handleMinusRowClick = this.handleMinusRowClick.bind(this);
     this.handleAdvanceSearchSubmit = this.handleAdvanceSearchSubmit.bind(this);
     this.handleAdvancedSearchChange = this.handleAdvancedSearchChange.bind(this);
-
   }
 
   handleAddRowClick() {
@@ -60,6 +58,7 @@ class AdvancedSearchGrid extends Component {
             complexRowCounter={this.state.complexRowCounter}
             onAddRowClick={this.handleAddRowClick}
             onAdvancedSearchChange={this.handleAdvancedSearchChange}
+
 
           />
           {complexRows}

@@ -90,7 +90,9 @@ class SearchResultGrid extends Component {
     var artifactsToFilter = this.props.artifacts;
 
     if (advancedSearchToggleBool) {
+      //ADVANCED SEARCH FILTER
       for (const params of advancedSearchParams) {
+        //set artifacts array to 0 so we can repopulate it with filtered artifacts
         if (artifacts.length > 0){
           artifacts = [];
         }
@@ -104,7 +106,7 @@ class SearchResultGrid extends Component {
         artifactsToFilter = artifacts;
       }
     } else {
-
+      //NORMAL SEARCH FILTER
       this.props.artifacts.forEach((artifact) => {
         const artifactString = JSON.stringify(artifact.toJSON());
 

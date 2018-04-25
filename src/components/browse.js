@@ -39,6 +39,7 @@ class Browse extends Component {
     })
   }
 	storeTomograms(artifacts){
+		artifacts = artifacts.slice(0,3);
     this.setState({artifacts: artifacts});
   }
 
@@ -75,16 +76,13 @@ class Browse extends Component {
 		var didMatch = false;
 
 		for (var i = 0; i < advancedSearchParams.length; i++) {
-			console.log(advancedSearchParams[i])
-			if (advancedSearchParams[i].uid === searchParams.uid) {
-				console.log("true")
+			if (advancedSearchParams[i].uid === searchParams.uid || advancedSearchParams[i].type === "simple") {
 				advancedSearchParams[i] = searchParams;
 				didMatch = true;
 			}
 		}
 
 		if (!didMatch) {
-			console.log('did not')
 			advancedSearchParams.push(searchParams);
 		}
 
