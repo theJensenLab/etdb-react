@@ -26,6 +26,7 @@ class Browse extends Component {
 		this.handleFlipSortChange = this.handleFlipSortChange.bind(this);
 		this.handleAdvancedSearchChange = this.handleAdvancedSearchChange.bind(this);
 		this.handleToggleAdvancedSearch = this.handleToggleAdvancedSearch.bind(this);
+		this.clearSearchParams = this.clearSearchParams.bind(this);
 	}
 
 	componentDidMount(){
@@ -39,7 +40,7 @@ class Browse extends Component {
     })
   }
 	storeTomograms(artifacts){
-		artifacts = artifacts.slice(0,3);
+		artifacts = artifacts.slice(0,100);
     this.setState({artifacts: artifacts});
   }
 
@@ -76,7 +77,7 @@ class Browse extends Component {
 		var didMatch = false;
 
 		for (var i = 0; i < advancedSearchParams.length; i++) {
-			if (advancedSearchParams[i].uid === searchParams.uid || advancedSearchParams[i].type === "simple") {
+			if (advancedSearchParams[i].uid === searchParams.uid) {
 				advancedSearchParams[i] = searchParams;
 				didMatch = true;
 			}
@@ -95,8 +96,14 @@ class Browse extends Component {
 		this.setState({
 			advancedSearchToggleBool: advancedSearchToggleBool,
 			filterText: ""
-		})
+		}, this.clearSearchParams)
   }
+
+	clearSearchParams() {
+		if (!this.state.advancedSearchToggleBool) {
+			this.setState({advancedSearchParams: []})
+		}
+	}
 
 	render(){
 		return(

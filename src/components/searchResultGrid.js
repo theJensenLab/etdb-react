@@ -86,16 +86,15 @@ class SearchResultGrid extends Component {
       //ADVANCED SEARCH FILTER
       for (const params of advancedSearchParams) {
 //------------------------------------------------------
-        if (artifacts.length > 0){
-          artifacts = [];
-        }
-        
+        if (artfiacts.length > 0){
+          artifacts = []
+        };
+
         for (const art of artifactsToFilter){
           if (this.filterArtifacts(art, params)){
             artifacts.push(art);
           }
         }
-
         artifactsToFilter = artifacts;
       }
 //------------------------------------------------------
