@@ -86,7 +86,7 @@ class SearchResultGrid extends Component {
       //ADVANCED SEARCH FILTER
       for (const params of advancedSearchParams) {
 //------------------------------------------------------
-        if (artfiacts.length > 0){
+        if (artifacts.length > 0){
           artifacts = []
         };
 
@@ -95,6 +95,7 @@ class SearchResultGrid extends Component {
             artifacts.push(art);
           }
         }
+
         artifactsToFilter = artifacts;
       }
 //------------------------------------------------------
