@@ -21,6 +21,10 @@ const NOTES = "artNotes";
 const CONTAINS = "contains";
 const IS_EXACT = "isExact";
 const STARTS_WITH = "startsWith";
+const SIMPLE = "simple";
+const AND = "and";
+const OR = "or";
+const NOT = "not";
 
 
 class SearchResultGrid extends Component {
@@ -86,17 +90,45 @@ class SearchResultGrid extends Component {
       //ADVANCED SEARCH FILTER
       for (const params of advancedSearchParams) {
 //------------------------------------------------------
-        if (artifacts.length > 0){
-          artifacts = []
-        };
+        switch (params.searchOp) {
+          case (undefined):
+          case (AND):
+            console.log(params.searchOp);
+            if (artifacts.length > 0){
+              artifacts = []
+            };
+            for (const art of artifactsToFilter){
+              if (this.filterArtifacts(art, params)){
+                artifacts.push(art);
+              }
+            }
+            artifactsToFilter = artifacts;
+            break;
+          case (OR):
+            console.log(params.searchOp);
+            for (const art of this.props.artifacts) {
+              if (this.filterArtifacts(art, params) && artifacts.indexOf(art) === -1) {
+                artifacts.push(art);
+              }
+            }
+            artifactsToFilter = artifacts;
+            break;
+          case (NOT):
+            for ( var i = 0; i <= artifactsToFilter; i++) {
+              if (this.filterArtifacts(artifactsToFilter[i], params)) {
+                artifactsToFilter.slice(i, 1);
+              }
+            }
+            artifacts = artifactsToFilter;
+            break;
+            // for (const art of artifactsToFilter){
+            //   if (this.filterArtifacts(art,params)) {
+            //     artifacts.slice(3,1)
+            //   }
+            // }
 
-        for (const art of artifactsToFilter){
-          if (this.filterArtifacts(art, params)){
-            artifacts.push(art);
-          }
         }
 
-        artifactsToFilter = artifacts;
       }
 //------------------------------------------------------
 
