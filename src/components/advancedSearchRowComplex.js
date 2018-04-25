@@ -1,6 +1,5 @@
 
 import React, {Component} from 'react';
-import uid from 'uid';
 
 class AdvancedSearchRowComplex extends Component {
   constructor(props){
@@ -12,7 +11,7 @@ class AdvancedSearchRowComplex extends Component {
         searchOn: 'anyField',
         searchType: 'contains',
         searchFor: "",
-        uid: uid()
+        uid: props.uid || ""
       }
     }
 
@@ -23,6 +22,9 @@ class AdvancedSearchRowComplex extends Component {
 
   }
 
+componentWillReceiveProps(nextProps) {
+  this.setState({searchParams: nextProps.componentState})
+}
   componentDidMount() {
     this.pushStateUp()
   }
@@ -32,7 +34,7 @@ class AdvancedSearchRowComplex extends Component {
   }
 
   handleMinusRowClick() {
-    this.props.onMinusRowClick(this.props.indexOfComplexRow)
+    this.props.onMinusRowClick(this.props.uid)
   }
 
   handleAdvancedSearchChange(e){
@@ -49,20 +51,20 @@ class AdvancedSearchRowComplex extends Component {
 }
 
 pushStateUp() {
-  this.props.onAdvancedSearchChange(this.state.searchParams);
+  this.props.onAdvancedSearchChange(this.state.searchParams, this.props.uid);
 }
 
 render() {
 
   const searchTypes = (this.state.searchParams.searchOn === "anyField") ? (
     <div className="row" style={FieldRow3}>
-      <select name="searchType" form="advanced-search" onChange={this.handleAdvancedSearchChange} className="col-sm-12 as-select">
+      <select value={this.state.searchParams.searchType} name="searchType" form="advanced-search" onChange={this.handleAdvancedSearchChange} className="col-sm-12 as-select">
         <option value="contains">contains</option>
       </select>
     </div>
   ) : (
     <div className="row" style={FieldRow3}>
-      <select name="searchType" form="advanced-search" onChange={this.handleAdvancedSearchChange} className="col-sm-12 as-select">
+      <select value={this.state.searchParams.searchType} name="searchType" form="advanced-search" onChange={this.handleAdvancedSearchChange} className="col-sm-12 as-select">
         <option value="contains">contains</option>
         <option value="isExact">is (exact)</option>
         <option value="startsWith">starts with</option>
@@ -78,14 +80,14 @@ render() {
 
 
         {/* ---------------- AND/OR/NOT ----------------*/}
-        <select name="searchOp" className="col-sm-3 as-select" onChange={this.handleAdvancedSearchChange}>
+        <select value={this.state.searchParams.searchOp} name="searchOp" className="col-sm-3 as-select" onChange={this.handleAdvancedSearchChange}>
           <option value="and">AND</option>
           <option value="or">OR</option>
           <option value="not">NOT</option>
         </select>
 
         {/* ---------------- ALL FIELDS ----------------*/}
-        <select name="searchOn" form="advanced-search" onChange={this.handleAdvancedSearchChange} className="col-sm-9 as-select">
+        <select value={this.state.searchParams.searchOn} name="searchOn" form="advanced-search" onChange={this.handleAdvancedSearchChange} className="col-sm-9 as-select">
           <option value="anyField">Any Field</option>
           <option value="microscopist">Microscopist</option>
           <option value="speciesName">Species</option>

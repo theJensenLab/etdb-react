@@ -93,7 +93,6 @@ class SearchResultGrid extends Component {
         switch (params.searchOp) {
           case (undefined):
           case (AND):
-            console.log(params.searchOp);
             if (artifacts.length > 0){
               artifacts = []
             };
@@ -105,7 +104,6 @@ class SearchResultGrid extends Component {
             artifactsToFilter = artifacts;
             break;
           case (OR):
-            console.log(params.searchOp);
             for (const art of this.props.artifacts) {
               if (this.filterArtifacts(art, params) && artifacts.indexOf(art) === -1) {
                 artifacts.push(art);

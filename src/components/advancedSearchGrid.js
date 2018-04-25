@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import AdvancedSearchRow from './advancedSearchRow'
 import AdvancedSearchRowComplex from './advancedSearchRowComplex'
 import SubmitAdvancedSearch from './submitAdvancedSearch'
+import uid from 'uid';
 
 class AdvancedSearchGrid extends Component {
   constructor(props){
@@ -20,26 +21,35 @@ class AdvancedSearchGrid extends Component {
 
   handleAddRowClick() {
     let newComplexRow = [...this.state.complexRows];
-    newComplexRow.push(
-      <AdvancedSearchRowComplex
-            onAddRowClick={this.handleAddRowClick}
-            onMinusRowClick={this.handleMinusRowClick}
-            onAdvancedSearchChange={this.handleAdvancedSearchChange}
-            indexOfComplexRow={newComplexRow.length}
-          />
-    );
+    newComplexRow.push( { uid: uid() } );
     this.setState({complexRows: newComplexRow})
   }
 
-  handleMinusRowClick(index) {
-    console.log(index, this.state.complexRows[index]);
+  handleMinusRowClick(uuid) {
+    let newRow = [...this.state.complexRows];
+
+    for (var i = 0; i < newRow.length; i++){
+      if (newRow[i].uid === uuid){
+        newRow.splice(i, 1)
+      }
+    }
+
+    this.setState({complexRows: newRow})
   }
 
   handleAdvanceSearchSubmit(e){
     this.props.onSubmit(e);
   }
 
-  handleAdvancedSearchChange(searchParams){
+  handleAdvancedSearchChange(searchParams, uuid){
+    let stateArray = [...this.state.complexRows];
+
+    for (var i = 0; i < stateArray.length; i++){
+      if (stateArray[i].uid === uuid) {
+        stateArray[i] = searchParams;
+      }
+    }
+    this.setState({complexRows: stateArray})
     this.props.onAdvancedSearchChange(searchParams);
   }
 
@@ -56,7 +66,16 @@ class AdvancedSearchGrid extends Component {
 
 
           />
-          {this.state.complexRows}
+
+          {this.state.complexRows.map((componentState, i) => {
+            return <AdvancedSearchRowComplex
+                    onAddRowClick={this.handleAddRowClick}
+                    onMinusRowClick={this.handleMinusRowClick}
+                    onAdvancedSearchChange={this.handleAdvancedSearchChange}
+                    uid={componentState.uid}
+                    componentState={componentState}
+                  />
+          })}
           <SubmitAdvancedSearch />
         </form>
 
