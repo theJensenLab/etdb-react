@@ -63,9 +63,7 @@ class SearchResultGrid extends Component {
   filterArtifacts(art, params) {
     if (params.searchOn == ANY_FIELD) {
       const artifactString = JSON.stringify(art.toJSON());
-      if (artifactString.toLowerCase().indexOf(params.searchFor.toLowerCase()) >= 0) {
-        return true;
-      } else {return false}
+      return (artifactString.toLowerCase().indexOf(params.searchFor.toLowerCase()) >= 0)
     } else {return this.switchCase(art, params, params.searchOn)}
   }
 
@@ -84,15 +82,12 @@ class SearchResultGrid extends Component {
     const advancedSearchToggleBool = this.props.advancedSearchToggleBool;
 
 
-
-
-
     var artifactsToFilter = this.props.artifacts;
 
     if (advancedSearchToggleBool) {
       //ADVANCED SEARCH FILTER
       for (const params of advancedSearchParams) {
-        //set artifacts array to 0 so we can repopulate it with filtered artifacts
+
         if (artifacts.length > 0){
           artifacts = [];
         }

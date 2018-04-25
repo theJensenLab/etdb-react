@@ -25,6 +25,7 @@ constructor(props){
 
 }
 
+//can get rid of this if we don't mind having no results on initial advanced search click
 componentDidMount() {
   this.pushStateUp()
 }
