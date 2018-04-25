@@ -74,8 +74,6 @@ class SearchResultGrid extends Component {
 
     //STATE_CONSTANTS
     const filterText = this.props.filterText;
-    //filter state is the full state of browse;
-    const filterState = this.props.filterState;
     const sortValue = this.props.sortValue;
     const flipSort = this.props.flipSort;
     const advancedSearchParams = this.props.advancedSearchParams;
@@ -87,11 +85,11 @@ class SearchResultGrid extends Component {
     if (advancedSearchToggleBool) {
       //ADVANCED SEARCH FILTER
       for (const params of advancedSearchParams) {
-
+//------------------------------------------------------
         if (artifacts.length > 0){
           artifacts = [];
         }
-
+        
         for (const art of artifactsToFilter){
           if (this.filterArtifacts(art, params)){
             artifacts.push(art);
@@ -100,6 +98,8 @@ class SearchResultGrid extends Component {
 
         artifactsToFilter = artifacts;
       }
+//------------------------------------------------------
+
     } else {
       //NORMAL SEARCH FILTER
       this.props.artifacts.forEach((artifact) => {
