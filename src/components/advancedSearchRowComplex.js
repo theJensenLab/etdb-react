@@ -19,12 +19,13 @@ class AdvancedSearchRowComplex extends Component {
     this.handleMinusRowClick = this.handleMinusRowClick.bind(this);
     this.handleAdvancedSearchChange = this.handleAdvancedSearchChange.bind(this);
     this.pushStateUp = this.pushStateUp.bind(this);
+    this.handleTextChange = this.handleTextChange.bind(this);
 
   }
 
-componentWillReceiveProps(nextProps) {
-  this.setState({searchParams: nextProps.componentState})
-}
+  componentWillReceiveProps(nextProps) {
+    this.setState({searchParams: nextProps.componentState})
+  }
   componentDidMount() {
     this.pushStateUp()
   }
@@ -52,6 +53,18 @@ componentWillReceiveProps(nextProps) {
 
 pushStateUp() {
   this.props.onAdvancedSearchChange(this.state.searchParams, this.props.uid);
+}
+
+handleTextChange(e) {
+  var value = e.target.value;
+  this.setState(prevState => ({
+    searchParams: {
+        ...prevState.searchParams,
+        searchFor: value
+    }
+}))
+
+
 }
 
 render() {
@@ -103,7 +116,7 @@ render() {
 
       {/* ---------------- TEXT INPUT ----------------*/}
       <div className="row">
-        <input style={FieldText} className="input-field1-text" type="text" name="searchFor" onBlur={this.handleAdvancedSearchChange}  />
+        <input value={this.state.searchParams.searchFor} style={FieldText} className="input-field1-text" type="text" name="searchFor" onChange={this.handleTextChange} onBlur={this.handleAdvancedSearchChange}  />
       </div>
 
       {/* BUTTON TO ADD ADDITIONAL COMPLEX ROW */}
