@@ -12,8 +12,9 @@ class Filter extends Component {
     this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
     this.handleSortButtonChange = this.handleSortButtonChange.bind(this);
     this.handleFlipSortChange = this.handleFlipSortChange.bind(this);
-    this.handleSimpleSearchChange = this.handleSimpleSearchChange.bind(this);
+    this.handleAdvancedSearchChange = this.handleAdvancedSearchChange.bind(this);
     this.handleToggleAdvancedSearch = this.handleToggleAdvancedSearch.bind(this);
+    this.deleteRowParamsFromState = this.deleteRowParamsFromState.bind(this);
 
   }
 
@@ -37,12 +38,16 @@ class Filter extends Component {
     this.props.onFlipSortChange();
   }
 
-  handleSimpleSearchChange(simpleSearchParams){
-    this.props.onSimpleSearchChange(simpleSearchParams);
+  handleAdvancedSearchChange(searchParams){
+    this.props.onAdvancedSearchChange(searchParams);
   }
 
   handleToggleAdvancedSearch(advancedSearchToggleBool) {
     this.props.onToggleAdvancedSearch(advancedSearchToggleBool)
+  }
+
+  deleteRowParamsFromState(uid) {
+    this.props.onDeleteRowParamsFromState(uid);
   }
 
   render() {
@@ -66,8 +71,9 @@ class Filter extends Component {
          <Search
           onFilterTextChange={this.handleFilterTextChange}
           filterText={this.props.filterText}
-          onSimpleSearchChange={this.handleSimpleSearchChange}
+          onAdvancedSearchChange={this.handleAdvancedSearchChange}
           onToggleAdvancedSearch={this.handleToggleAdvancedSearch}
+          onDeleteRowParamsFromState={this.deleteRowParamsFromState}
         />
 
         {/* ---------------- SORT BUTTONS ---------------- */}

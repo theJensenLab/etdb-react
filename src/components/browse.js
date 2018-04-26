@@ -24,14 +24,17 @@ class Browse extends Component {
 		this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
 		this.handleSortButtonChange = this.handleSortButtonChange.bind(this);
 		this.handleFlipSortChange = this.handleFlipSortChange.bind(this);
-		this.handleSimpleSearchChange = this.handleSimpleSearchChange.bind(this);
+		this.handleAdvancedSearchChange = this.handleAdvancedSearchChange.bind(this);
 		this.handleToggleAdvancedSearch = this.handleToggleAdvancedSearch.bind(this);
+		this.clearSearchParams = this.clearSearchParams.bind(this);
+		this.deleteRowParamsFromState = this.deleteRowParamsFromState.bind(this);
 
 	}
 
 	componentDidMount(){
     this.getTomograms();
   }
+
 
   getTomograms(){
     this.props.Core.Index.getSupportedArtifacts((this.storeTomograms), (error) => {
@@ -70,10 +73,27 @@ class Browse extends Component {
     }))
 	}
 
-	handleSimpleSearchChange(simpleSearchParams){
-    // console.log(simpleSearchParams);
+	deleteRowParamsFromState(uid) {
+    this.props.onDeleteRowParamsFromState(uid);
+  }
+
+	handleAdvancedSearchChange(searchParams){
+		var advancedSearchParams = this.state.advancedSearchParams;
+		var didMatch = false;
+
+		for (var i = 0; i < advancedSearchParams.length; i++) {
+			if (advancedSearchParams[i].uid === searchParams.uid) {
+				advancedSearchParams[i] = searchParams;
+				didMatch = true;
+			}
+		}
+
+		if (!didMatch) {
+			advancedSearchParams.push(searchParams);
+		}
+
 		this.setState({
-			advancedSearchParams: [simpleSearchParams]
+			advancedSearchParams: advancedSearchParams
 		})
   }
 
@@ -81,7 +101,28 @@ class Browse extends Component {
 		this.setState({
 			advancedSearchToggleBool: advancedSearchToggleBool,
 			filterText: ""
-		})
+		}, this.clearSearchParams)
+  }
+
+	clearSearchParams() {
+		if (!this.state.advancedSearchToggleBool) {
+			this.setState({advancedSearchParams: []})
+		}
+	}
+
+	deleteRowParamsFromState(uid) {
+		// console.log(uid)
+		var advancedSearchParams = this.state.advancedSearchParams;
+
+		for (var i = 0; i < advancedSearchParams.length; i++) {
+			if (advancedSearchParams[i].uid === uid) {
+				console.log("UID: ", uid, "ASP: ", advancedSearchParams[i]);
+				let newParameterState = this.state.advancedSearchParams;
+				newParameterState.splice(i, 1)
+				this.setState({advancedSearchParams: newParameterState})
+				// console.log(newParameterState)
+			}
+		}
   }
 
 	render(){
@@ -98,8 +139,9 @@ class Browse extends Component {
 						onFlipSortChange={this.handleFlipSortChange}
 						flipSort={this.state.flipSort}
 						flipText={this.state.flipText}
-						onSimpleSearchChange={this.handleSimpleSearchChange}
+						onAdvancedSearchChange={this.handleAdvancedSearchChange}
 						onToggleAdvancedSearch={this.handleToggleAdvancedSearch}
+						onDeleteRowParamsFromState={this.deleteRowParamsFromState}
 
 					/>
 					<SearchResultGrid

@@ -12,9 +12,10 @@ class Search extends Component {
 
     this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
     this.handleAdvanceSearchSubmit = this.handleAdvanceSearchSubmit.bind(this);
-    this.handleSimpleSearchChange = this.handleSimpleSearchChange.bind(this);
+    this.handleAdvancedSearchChange = this.handleAdvancedSearchChange.bind(this);
     this.handleToggleAdvancedSearch = this.handleToggleAdvancedSearch.bind(this);
     this.toggleAdvancedSearch = this.toggleAdvancedSearch.bind(this);
+    this.deleteRowParamsFromState = this.deleteRowParamsFromState.bind(this);
 
   }
 
@@ -41,8 +42,12 @@ class Search extends Component {
     e.preventDefault();
   }
 
-  handleSimpleSearchChange(simpleSearchParams){
-    this.props.onSimpleSearchChange(simpleSearchParams);
+  handleAdvancedSearchChange(searchParams){
+    this.props.onAdvancedSearchChange(searchParams);
+  }
+
+  deleteRowParamsFromState(uid) {
+    this.props.onDeleteRowParamsFromState(uid);
   }
 
 
@@ -54,7 +59,8 @@ class Search extends Component {
       <AdvancedSearchGrid
         onSubmit={this.handleAdvanceSearchSubmit}
         onFilterTextChange={this.handleFilterTextChange}
-        onSimpleSearchChange={this.handleSimpleSearchChange}
+        onAdvancedSearchChange={this.handleAdvancedSearchChange}
+        onDeleteRowParamsFromState={this.deleteRowParamsFromState}
 
        />
     ) : (

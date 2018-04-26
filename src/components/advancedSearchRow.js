@@ -1,25 +1,31 @@
 
 import React, {Component} from 'react';
+import uid from 'uid';
 
 class AdvancedSearchRow extends Component {
 constructor(props){
   super(props);
 
+
+
   this.state = {
-    simpleSearchParams: {
+    searchParams: {
+      type: 'simple',
       searchOn: 'anyField',
       searchType: 'contains',
-      searchFor: ""
+      searchFor: "",
+      uid: uid()
     }
   }
 
   this.handleAddRowClick = this.handleAddRowClick.bind(this);
-  this.handleSimpleSearchChange = this.handleSimpleSearchChange.bind(this);
+  this.handleAdvancedSearchChange = this.handleAdvancedSearchChange.bind(this);
   this.pushStateUp = this.pushStateUp.bind(this);
 
 
 }
 
+//can get rid of this if we don't mind having no results on initial advanced search click
 componentDidMount() {
   this.pushStateUp()
 }
@@ -28,12 +34,12 @@ handleAddRowClick() {
   this.props.onAddRowClick()
 }
 
-handleSimpleSearchChange(e){
+handleAdvancedSearchChange(e){
   let name = e.target.name;
   let value = e.target.value;
   this.setState(prevState => ({
-    simpleSearchParams: {
-        ...prevState.simpleSearchParams,
+    searchParams: {
+        ...prevState.searchParams,
         [name]: value
     }
   }),
@@ -42,15 +48,15 @@ handleSimpleSearchChange(e){
 }
 
 pushStateUp() {
-  this.props.onSimpleSearchChange(this.state.simpleSearchParams);
+  this.props.onAdvancedSearchChange(this.state.searchParams);
 }
 
 
 
 render() {
-  const complexRowCounterBool = (this.props.complexRowCounter === 0);
+  const complexRowBool = (this.props.complexRowArray === 0);
 
-  const addComplexRowButton = (complexRowCounterBool) ? (
+  const addComplexRowButton = (complexRowBool) ? (
     <div style={FlexEnd} className="row">
       <button
         onClick={this.handleAddRowClick}
@@ -60,12 +66,12 @@ render() {
       null
     );
 
-    const searchTypes = (this.state.simpleSearchParams.searchOn === "anyField") ? (
-      <select name="searchType" form="advanced-search" onChange={this.handleSimpleSearchChange} className="col-sm-6 as-select">
+    const searchTypes = (this.state.searchParams.searchOn === "anyField") ? (
+      <select name="searchType" form="advanced-search" onChange={this.handleAdvancedSearchChange} className="col-sm-6 as-select">
         <option value="contains">contains</option>
       </select>
     ) : (
-      <select name="searchType" form="advanced-search" onChange={this.handleSimpleSearchChange} className="col-sm-6 as-select">
+      <select name="searchType" form="advanced-search" onChange={this.handleAdvancedSearchChange} className="col-sm-6 as-select">
         <option value="contains">contains</option>
         <option value="isExact">is (exact)</option>
         <option value="startsWith">starts with</option>
@@ -79,7 +85,7 @@ render() {
 
         {/* ---------------- ALL FIELDS ----------------*/}
         <div className="row" style={FieldRow1}>
-          <select name="searchOn" form="advanced-search" onChange={this.handleSimpleSearchChange} className="col-sm-5 as-select">
+          <select name="searchOn" form="advanced-search" onChange={this.handleAdvancedSearchChange} className="col-sm-5 as-select">
             <option value="anyField">Any Field</option>
             <option value="microscopist">Microscopist</option>
             <option value="speciesName">Species</option>
@@ -95,10 +101,10 @@ render() {
 
         {/* ---------------- TEXT INPUT ----------------*/}
         <div className="row">
-          <input name="searchFor" style={FieldText} className="input-field1-text" type="text" onBlur={this.handleSimpleSearchChange}  />
+          <input name="searchFor" style={FieldText} className="input-field1-text" type="text" onBlur={this.handleAdvancedSearchChange}  />
         </div>
 
-        {/* {addComplexRowButton} */}
+        {addComplexRowButton}
 
       </div>
 
