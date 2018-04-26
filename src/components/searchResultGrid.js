@@ -50,6 +50,7 @@ class SearchResultGrid extends Component {
 
   switchCase(art, params, field)
   {
+    if (art === undefined) {return false};
     if (art.getDetail(field) === undefined) {return false};
     switch (params.searchType)
     {
@@ -66,6 +67,7 @@ class SearchResultGrid extends Component {
 
   filterArtifacts(art, params) {
     if (params.searchOn == ANY_FIELD) {
+      if (art === undefined ) {return false};
       const artifactString = JSON.stringify(art.toJSON());
       return (artifactString.toLowerCase().indexOf(params.searchFor.toLowerCase()) >= 0)
     } else {return this.switchCase(art, params, params.searchOn)}
@@ -112,19 +114,14 @@ class SearchResultGrid extends Component {
             artifactsToFilter = artifacts;
             break;
           case (NOT):
-            for ( var i = 0; i <= artifactsToFilter; i++) {
-              if (this.filterArtifacts(artifactsToFilter[i], params)) {
-                artifactsToFilter.slice(i, 1);
+            if (artifacts.length > 0){
+              artifacts = []
+            };
+            for ( var i = 0; i <= artifactsToFilter.length; i++) {
+              if (!this.filterArtifacts(artifactsToFilter[i], params)) {
+                artifacts.push(artifactsToFilter[i]);
               }
             }
-            artifacts = artifactsToFilter;
-            break;
-            // for (const art of artifactsToFilter){
-            //   if (this.filterArtifacts(art,params)) {
-            //     artifacts.slice(3,1)
-            //   }
-            // }
-
         }
 
       }
