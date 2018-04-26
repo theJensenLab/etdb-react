@@ -42,7 +42,6 @@ class Browse extends Component {
     })
   }
 	storeTomograms(artifacts){
-		artifacts = artifacts.slice(0,100);
     this.setState({artifacts: artifacts});
   }
 
