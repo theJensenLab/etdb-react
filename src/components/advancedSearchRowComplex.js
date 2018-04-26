@@ -30,15 +30,18 @@ class AdvancedSearchRowComplex extends Component {
     this.pushStateUp()
   }
 
-  handleAddRowClick() {
-    this.props.onAddRowClick()
+  handleAddRowClick(e) {
+    e.preventDefault();
+    this.props.onAddRowClick();
   }
 
-  handleMinusRowClick() {
-    this.props.onMinusRowClick(this.props.uid)
+  handleMinusRowClick(e) {
+    e.preventDefault();
+    this.props.onMinusRowClick(this.props.uid);
   }
 
   handleAdvancedSearchChange(e){
+    e.preventDefault();
     let name = e.target.name;
     let value = e.target.value;
     this.setState(prevState => ({
@@ -56,6 +59,7 @@ pushStateUp() {
 }
 
 handleTextChange(e) {
+  e.preventDefault();
   var value = e.target.value;
   this.setState(prevState => ({
     searchParams: {
@@ -71,13 +75,13 @@ render() {
 
   const searchTypes = (this.state.searchParams.searchOn === "anyField") ? (
     <div className="row" style={FieldRow3}>
-      <select value={this.state.searchParams.searchType} name="searchType" form="advanced-search" onChange={this.handleAdvancedSearchChange} className="col-sm-12 as-select">
+      <select value={this.state.searchParams.searchType} name="searchType" onChange={this.handleAdvancedSearchChange} className="col-sm-12 as-select">
         <option value="contains">contains</option>
       </select>
     </div>
   ) : (
     <div className="row" style={FieldRow3}>
-      <select value={this.state.searchParams.searchType} name="searchType" form="advanced-search" onChange={this.handleAdvancedSearchChange} className="col-sm-12 as-select">
+      <select value={this.state.searchParams.searchType} name="searchType" onChange={this.handleAdvancedSearchChange} className="col-sm-12 as-select">
         <option value="contains">contains</option>
         <option value="isExact">is (exact)</option>
         <option value="startsWith">starts with</option>
@@ -100,7 +104,7 @@ render() {
         </select>
 
         {/* ---------------- ALL FIELDS ----------------*/}
-        <select value={this.state.searchParams.searchOn} name="searchOn" form="advanced-search" onChange={this.handleAdvancedSearchChange} className="col-sm-9 as-select">
+        <select value={this.state.searchParams.searchOn} name="searchOn"  onChange={this.handleAdvancedSearchChange} className="col-sm-9 as-select">
           <option value="anyField">Any Field</option>
           <option value="microscopist">Microscopist</option>
           <option value="speciesName">Species</option>

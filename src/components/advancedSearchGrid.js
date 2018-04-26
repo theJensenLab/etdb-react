@@ -44,6 +44,7 @@ class AdvancedSearchGrid extends Component {
   }
 
   handleAdvanceSearchSubmit(e){
+    e.preventDefault();
     this.props.onSubmit(e);
   }
 
@@ -64,7 +65,7 @@ class AdvancedSearchGrid extends Component {
 
     return (
       <div>
-        <form id="advanced-search" onSubmit={this.handleAdvanceSearchSubmit}>
+        <div onSubmit={this.handleAdvanceSearchSubmit}>
           <AdvancedSearchRow
             complexRowArray={this.state.complexRows.length}
             onAddRowClick={this.handleAddRowClick}
@@ -83,7 +84,7 @@ class AdvancedSearchGrid extends Component {
                   />
           })}
           <SubmitAdvancedSearch />
-        </form>
+        </div>
 
       </div>
 

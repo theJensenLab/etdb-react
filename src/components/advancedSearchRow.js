@@ -30,11 +30,14 @@ componentDidMount() {
   this.pushStateUp()
 }
 
-handleAddRowClick() {
+handleAddRowClick(e) {
+  e.preventDefault();
   this.props.onAddRowClick()
+
 }
 
 handleAdvancedSearchChange(e){
+  e.preventDefault();
   let name = e.target.name;
   let value = e.target.value;
   this.setState(prevState => ({
@@ -67,11 +70,11 @@ render() {
     );
 
     const searchTypes = (this.state.searchParams.searchOn === "anyField") ? (
-      <select name="searchType" form="advanced-search" onChange={this.handleAdvancedSearchChange} className="col-sm-6 as-select">
+      <select name="searchType" onChange={this.handleAdvancedSearchChange} className="col-sm-6 as-select">
         <option value="contains">contains</option>
       </select>
     ) : (
-      <select name="searchType" form="advanced-search" onChange={this.handleAdvancedSearchChange} className="col-sm-6 as-select">
+      <select name="searchType" onChange={this.handleAdvancedSearchChange} className="col-sm-6 as-select">
         <option value="contains">contains</option>
         <option value="isExact">is (exact)</option>
         <option value="startsWith">starts with</option>
@@ -85,7 +88,7 @@ render() {
 
         {/* ---------------- ALL FIELDS ----------------*/}
         <div className="row" style={FieldRow1}>
-          <select name="searchOn" form="advanced-search" onChange={this.handleAdvancedSearchChange} className="col-sm-5 as-select">
+          <select name="searchOn" onChange={this.handleAdvancedSearchChange} className="col-sm-5 as-select">
             <option value="anyField">Any Field</option>
             <option value="microscopist">Microscopist</option>
             <option value="speciesName">Species</option>

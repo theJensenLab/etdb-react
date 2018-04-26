@@ -118,15 +118,16 @@ class SearchResultGrid extends Component {
               artifacts = []
             };
             for ( var i = 0; i <= artifactsToFilter.length; i++) {
-              if (!this.filterArtifacts(artifactsToFilter[i], params)) {
+              if (!this.filterArtifacts(artifactsToFilter[i], params) && artifactsToFilter[i] !== undefined ) {
                 artifacts.push(artifactsToFilter[i]);
               }
             }
+            console.log(artifacts)
+            break;
         }
 
       }
 //------------------------------------------------------
-
     } else {
       //NORMAL SEARCH FILTER
       this.props.artifacts.forEach((artifact) => {
@@ -135,12 +136,10 @@ class SearchResultGrid extends Component {
         if (artifactString.toLowerCase().indexOf(filterText.toLowerCase()) === -1) {
           return;
         }
-
         artifacts.push(artifact)
       })
 
     }
-
 
     //SORTS
     switch (sortValue) {
