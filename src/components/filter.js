@@ -14,6 +14,7 @@ class Filter extends Component {
     this.handleFlipSortChange = this.handleFlipSortChange.bind(this);
     this.handleAdvancedSearchChange = this.handleAdvancedSearchChange.bind(this);
     this.handleToggleAdvancedSearch = this.handleToggleAdvancedSearch.bind(this);
+    this.deleteRowParamsFromState = this.deleteRowParamsFromState.bind(this);
 
   }
 
@@ -45,6 +46,10 @@ class Filter extends Component {
     this.props.onToggleAdvancedSearch(advancedSearchToggleBool)
   }
 
+  deleteRowParamsFromState(uid) {
+    this.props.onDeleteRowParamsFromState(uid);
+  }
+
   render() {
     const sortValue = this.props.sortValue;
 
@@ -68,6 +73,7 @@ class Filter extends Component {
           filterText={this.props.filterText}
           onAdvancedSearchChange={this.handleAdvancedSearchChange}
           onToggleAdvancedSearch={this.handleToggleAdvancedSearch}
+          onDeleteRowParamsFromState={this.deleteRowParamsFromState}
         />
 
         {/* ---------------- SORT BUTTONS ---------------- */}

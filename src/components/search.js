@@ -15,6 +15,7 @@ class Search extends Component {
     this.handleAdvancedSearchChange = this.handleAdvancedSearchChange.bind(this);
     this.handleToggleAdvancedSearch = this.handleToggleAdvancedSearch.bind(this);
     this.toggleAdvancedSearch = this.toggleAdvancedSearch.bind(this);
+    this.deleteRowParamsFromState = this.deleteRowParamsFromState.bind(this);
 
   }
 
@@ -45,6 +46,10 @@ class Search extends Component {
     this.props.onAdvancedSearchChange(searchParams);
   }
 
+  deleteRowParamsFromState(uid) {
+    this.props.onDeleteRowParamsFromState(uid);
+  }
+
 
   render() {
     const advancedSearchToggleBool = this.state.advancedSearchToggleBool;
@@ -55,6 +60,7 @@ class Search extends Component {
         onSubmit={this.handleAdvanceSearchSubmit}
         onFilterTextChange={this.handleFilterTextChange}
         onAdvancedSearchChange={this.handleAdvancedSearchChange}
+        onDeleteRowParamsFromState={this.deleteRowParamsFromState}
 
        />
     ) : (

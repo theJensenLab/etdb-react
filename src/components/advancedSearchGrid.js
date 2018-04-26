@@ -17,6 +17,7 @@ class AdvancedSearchGrid extends Component {
     this.handleMinusRowClick = this.handleMinusRowClick.bind(this);
     this.handleAdvanceSearchSubmit = this.handleAdvanceSearchSubmit.bind(this);
     this.handleAdvancedSearchChange = this.handleAdvancedSearchChange.bind(this);
+    this.deleteRowParamsFromState = this.deleteRowParamsFromState.bind(this);
   }
 
   handleAddRowClick() {
@@ -34,7 +35,12 @@ class AdvancedSearchGrid extends Component {
       }
     }
 
-    this.setState({complexRows: newRow})
+    this.setState({complexRows: newRow});
+    this.deleteRowParamsFromState(uuid);
+  }
+
+  deleteRowParamsFromState(uid) {
+    this.props.onDeleteRowParamsFromState(uid);
   }
 
   handleAdvanceSearchSubmit(e){

@@ -27,6 +27,8 @@ class Browse extends Component {
 		this.handleAdvancedSearchChange = this.handleAdvancedSearchChange.bind(this);
 		this.handleToggleAdvancedSearch = this.handleToggleAdvancedSearch.bind(this);
 		this.clearSearchParams = this.clearSearchParams.bind(this);
+		this.deleteRowParamsFromState = this.deleteRowParamsFromState.bind(this);
+
 	}
 
 	componentDidMount(){
@@ -72,6 +74,10 @@ class Browse extends Component {
     }))
 	}
 
+	deleteRowParamsFromState(uid) {
+    this.props.onDeleteRowParamsFromState(uid);
+  }
+
 	handleAdvancedSearchChange(searchParams){
 		var advancedSearchParams = this.state.advancedSearchParams;
 		var didMatch = false;
@@ -105,6 +111,21 @@ class Browse extends Component {
 		}
 	}
 
+	deleteRowParamsFromState(uid) {
+		// console.log(uid)
+		var advancedSearchParams = this.state.advancedSearchParams;
+
+		for (var i = 0; i < advancedSearchParams.length; i++) {
+			if (advancedSearchParams[i].uid === uid) {
+				console.log("UID: ", uid, "ASP: ", advancedSearchParams[i]);
+				let newParameterState = this.state.advancedSearchParams;
+				newParameterState.splice(i, 1)
+				this.setState({advancedSearchParams: newParameterState})
+				// console.log(newParameterState)
+			}
+		}
+  }
+
 	render(){
 		return(
 			<div>
@@ -121,6 +142,7 @@ class Browse extends Component {
 						flipText={this.state.flipText}
 						onAdvancedSearchChange={this.handleAdvancedSearchChange}
 						onToggleAdvancedSearch={this.handleToggleAdvancedSearch}
+						onDeleteRowParamsFromState={this.deleteRowParamsFromState}
 
 					/>
 					<SearchResultGrid
