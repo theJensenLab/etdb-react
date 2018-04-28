@@ -55,13 +55,13 @@ class SearchResultGrid extends Component {
     switch (params.searchType)
     {
       case CONTAINS:
-        return (art.getDetail(field).toLowerCase().indexOf(params.searchFor.toLowerCase()) >= 0)
+        return (art.getDetail(field).toString().toLowerCase().indexOf(params.searchFor.toLowerCase()) >= 0)
 
       case IS_EXACT:
-        return (art.getDetail(field).toLowerCase() === params.searchFor.toLowerCase())
+        return (art.getDetail(field).toString().toLowerCase() === params.searchFor.toLowerCase())
 
       case STARTS_WITH:
-        return (art.getDetail(field).toLowerCase().startsWith(params.searchFor.toLowerCase()))
+        return (art.getDetail(field).toString().toLowerCase().startsWith(params.searchFor.toLowerCase()))
     }
   }
 

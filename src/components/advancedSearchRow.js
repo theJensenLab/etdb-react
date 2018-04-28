@@ -15,7 +15,8 @@ constructor(props){
       searchType: 'contains',
       searchFor: "",
       uid: uid()
-    }
+    },
+    size: 1
   }
 
   this.handleAddRowClick = this.handleAddRowClick.bind(this);
@@ -55,7 +56,6 @@ pushStateUp() {
 }
 
 
-
 render() {
   const complexRowBool = (this.props.complexRowArray === 0);
 
@@ -82,7 +82,6 @@ render() {
     )
 
 
-
     return (
       <div>
 
@@ -95,6 +94,18 @@ render() {
             <option value="strain">Strain</option>
             <option value="institution">Institution</option>
             <option value="lab">Lab</option>
+            <option value="date">Date</option>
+            <option value="scopeName">Scope Name</option>
+            <option value="magnification-=">Magnification</option>
+            <option value="defocus">Defocus</option>
+            <option value="dosage">Dosage</option>
+            <option value="tiltSingleDual">Tilt</option>
+            <option value="tiltStep">TiltStep</option>
+            <option value="tiltConstant">TiltConstant</option>
+            <option value="tiltMin">TiltMin</option>
+            <option value="tiltMax">TiltMax</option>
+            <option value="sid">Internal ID</option>
+            <option value="NBCItaxID">NBCI Taxonomy ID</option>
             <option value="artNotes">Notes</option>
           </select>
 
