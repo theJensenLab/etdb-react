@@ -1,7 +1,7 @@
 
 import React, {Component} from 'react';
 
-class SelectTypeOptions extends Component {
+class SelectSearchTypeOptions extends Component {
   constructor(props){
     super(props);
 
@@ -74,4 +74,4 @@ class SelectTypeOptions extends Component {
 
 
 
-export default SelectTypeOptions
+export default SelectSearchTypeOptions
