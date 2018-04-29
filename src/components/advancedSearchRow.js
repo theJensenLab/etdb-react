@@ -114,7 +114,6 @@ render() {
           {/* {searchTypes} */}
         </div>
 
-        {/* ---------------- TEXT INPUT ----------------*/}
         <div className="row">
           <input name="searchFor" style={FieldText} className="input-field1-text" type="text" onBlur={this.handleAdvancedSearchChange}  />
         </div>
@@ -134,6 +133,16 @@ const FieldRow1 = {
   justifyContent: "flex-start"
 }
 
+
+const OpButtonStyle = {
+  border: "none",
+  background: "none",
+  color: "black",
+  display: "flex",
+  justifyContent: "flex-end",
+  fontSize: "12px"
+}
+
 const FieldText = {
   width: "100%",
   marginTop: "9px",
@@ -144,14 +153,6 @@ const FieldText = {
   fontSize: "12px"
 }
 
-const OpButtonStyle = {
-  border: "none",
-  background: "none",
-  color: "black",
-  display: "flex",
-  justifyContent: "flex-end",
-  fontSize: "12px"
-}
 
 const FlexEnd = {
   display: "flex",

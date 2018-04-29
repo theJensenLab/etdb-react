@@ -13,16 +13,43 @@ class SelectTypeOptions extends Component {
     this.props.onHandleAdvancedSearchChange(e)
   }
 
+
   switchTypes(searchOn) {
-    console.log(searchOn);
+
+    const defaultSelectTypeOptions = (
+      <select name="searchType" onChange={this.handleAdvancedSearchChange} className="col-sm-12 as-select">
+        <option value="contains">contains</option>
+        <option value="isExact">is (exact)</option>
+        <option value="startsWith">starts with</option>
+      </select>
+
+    );
+
+    const alternativeTypeOps = (
+      <select name="searchType" onChange={this.handleAdvancedSearchChange} className="col-sm-12 as-select">
+        <option value="above">Above</option>
+        <option value="below">Below</option>
+        <option value="between">Between</option>
+        <option value="isExact">is (exact)</option>
+      </select>
+    )
+
     switch(searchOn) {
       case "anyField":
-        return ( <option value="contains">contains</option> )
+        return (
+          <select name="searchType" onChange={this.handleAdvancedSearchChange} className="col-sm-12 as-select">
+            <option value="contains">contains</option>
+          </select>
+        );
       case "microscopist":
       case "speciesName":
       case "strain":
       case "institution":
       case "lab":
+      case "sid":
+      case "NBCItaxID":
+      case "artNotes":
+        return defaultSelectTypeOptions;
       case "date":
       case "scopeName":
       case "magnification":
@@ -33,23 +60,20 @@ class SelectTypeOptions extends Component {
       case "tiltConstant":
       case "tiltMin":
       case "tiltMax":
-      case "sid":
-      case "NBCItaxID":
-      case "artNotes":
+        return alternativeTypeOps;
+
 
     }
   }
 
   render() {
-    console.log(this.props)
     return (
-      <select name="searchType" onChange={this.handleAdvancedSearchChange} className="col-sm-6 as-select">
-        {this.switchTypes(this.props.params.searchOn)}
-      </select>
 
+        <div>{this.switchTypes(this.props.params.searchOn)}</div>
     )
   }
 }
+
 
 
 export default SelectTypeOptions

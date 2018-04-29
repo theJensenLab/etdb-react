@@ -1,5 +1,6 @@
 
 import React, {Component} from 'react';
+import SelectTypeOptions from './selectTypeOptions';
 
 class AdvancedSearchRowComplex extends Component {
   constructor(props){
@@ -128,8 +129,7 @@ render() {
       </div>
 
       {/* ---------------- CONTAINS/IS (EXACT)/STARTS WITH ----------------*/}
-      {searchTypes}
-
+      <SelectTypeOptions onHandleAdvancedSearchChange={this.handleAdvancedSearchChange} params={this.state.searchParams} />
       {/* ---------------- TEXT INPUT ----------------*/}
       <div className="row">
         <input value={this.state.searchParams.searchFor} style={FieldText} className="input-field1-text" type="text" name="searchFor" onChange={this.handleTextChange} onBlur={this.handleAdvancedSearchChange}  />
