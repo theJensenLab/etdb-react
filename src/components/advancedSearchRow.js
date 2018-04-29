@@ -4,12 +4,9 @@ import uid from 'uid';
 import SelectSearchOnOptions from './selectSearchOnOptions';
 import SelectSearchTypeOptions from './selectSearchTypeOptions';
 
-
 class AdvancedSearchRow extends Component {
 constructor(props){
   super(props);
-
-
 
   this.state = {
     searchParams: {
@@ -25,7 +22,6 @@ constructor(props){
   this.handleAddRowClick = this.handleAddRowClick.bind(this);
   this.handleAdvancedSearchChange = this.handleAdvancedSearchChange.bind(this);
   this.pushStateUp = this.pushStateUp.bind(this);
-
 
 }
 
@@ -57,7 +53,6 @@ pushStateUp() {
   this.props.onAdvancedSearchChange(this.state.searchParams);
 }
 
-
 render() {
   const complexRowBool = (this.props.complexRowArray === 0);
 
@@ -72,12 +67,10 @@ render() {
 
     return (
       <div>
-        {/* ---------------- ALL FIELDS ----------------*/}
-        <div className="row">
-          <SelectSearchOnOptions
-            onHandleAdvancedSearchChange={this.handleAdvancedSearchChange}
-          />
-        </div>
+
+        <SelectSearchOnOptions
+          onHandleAdvancedSearchChange={this.handleAdvancedSearchChange}
+        />
 
         <SelectSearchTypeOptions
           onHandleAdvancedSearchChange={this.handleAdvancedSearchChange}
@@ -95,6 +88,5 @@ render() {
     )
   }
 }
-
 
 export default AdvancedSearchRow

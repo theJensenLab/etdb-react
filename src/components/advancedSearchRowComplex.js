@@ -69,29 +69,22 @@ handleTextChange(e) {
     }
   }))
 
-
 }
 
 render() {
 
   return (
     <div>
+      
+      <select value={this.state.searchParams.searchOp} name="searchOp" className="col-sm-3 as-select" onChange={this.handleAdvancedSearchChange}>
+        <option value="and">AND</option>
+        <option value="or">OR</option>
+        <option value="not">NOT</option>
+      </select>
 
-      <div className="row">
-
-
-        {/* ---------------- AND/OR/NOT ----------------*/}
-        <select value={this.state.searchParams.searchOp} name="searchOp" className="col-sm-3 as-select" onChange={this.handleAdvancedSearchChange}>
-          <option value="and">AND</option>
-          <option value="or">OR</option>
-          <option value="not">NOT</option>
-        </select>
-
-        {/* ---------------- ALL FIELDS ----------------*/}
-        <SelectSearchOnOptions
-          onHandleAdvancedSearchChange={this.handleAdvancedSearchChange}
-        />
-      </div>
+      <SelectSearchOnOptions
+        onHandleAdvancedSearchChange={this.handleAdvancedSearchChange}
+      />
 
       <SelectSearchTypeOptions
         onHandleAdvancedSearchChange={this.handleAdvancedSearchChange}
@@ -102,7 +95,6 @@ render() {
         <input value={this.state.searchParams.searchFor} className="input-field1-text" type="text" name="searchFor" onChange={this.handleTextChange} onBlur={this.handleAdvancedSearchChange}  />
       </div>
 
-      {/* BUTTON TO ADD ADDITIONAL COMPLEX ROW */}
       <div className="row">
         <button className="remove" onClick={this.handleMinusRowClick}>- Remove row </button>
         <button className="addparameter" onClick={this.handleAddRowClick}>Add parameter +</button>
