@@ -1,6 +1,7 @@
 
 import React, {Component} from 'react';
 import uid from 'uid';
+import SelectTypeOptions from './selectTypeOptions';
 
 class AdvancedSearchRow extends Component {
 constructor(props){
@@ -84,7 +85,6 @@ render() {
 
     return (
       <div>
-
         {/* ---------------- ALL FIELDS ----------------*/}
         <div className="row" style={FieldRow1}>
           <select name="searchOn" onChange={this.handleAdvancedSearchChange} className="col-sm-5 as-select">
@@ -96,7 +96,7 @@ render() {
             <option value="lab">Lab</option>
             <option value="date">Date</option>
             <option value="scopeName">Scope Name</option>
-            <option value="magnification-=">Magnification</option>
+            <option value="magnification">Magnification</option>
             <option value="defocus">Defocus</option>
             <option value="dosage">Dosage</option>
             <option value="tiltSingleDual">Tilt</option>
@@ -110,7 +110,8 @@ render() {
           </select>
 
           {/* ---------------- CONTAINS/IS (EXACT)/STARTS WITH ----------------*/}
-          {searchTypes}
+          <SelectTypeOptions onHandleAdvancedSearchChange={this.handleAdvancedSearchChange} params={this.state.searchParams} />
+          {/* {searchTypes} */}
         </div>
 
         {/* ---------------- TEXT INPUT ----------------*/}
