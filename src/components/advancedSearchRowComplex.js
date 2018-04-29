@@ -64,37 +64,20 @@ handleTextChange(e) {
   var value = e.target.value;
   this.setState(prevState => ({
     searchParams: {
-        ...prevState.searchParams,
-        searchFor: value
+      ...prevState.searchParams,
+      searchFor: value
     }
-}))
+  }))
 
 
 }
 
 render() {
 
-  const searchTypes = (this.state.searchParams.searchOn === "anyField") ? (
-    <div className="row" style={FieldRow3}>
-      <select value={this.state.searchParams.searchType} name="searchType" onChange={this.handleAdvancedSearchChange} className="col-sm-12 as-select">
-        <option value="contains">contains</option>
-      </select>
-    </div>
-  ) : (
-    <div className="row" style={FieldRow3}>
-      <select value={this.state.searchParams.searchType} name="searchType" onChange={this.handleAdvancedSearchChange} className="col-sm-12 as-select">
-        <option value="contains">contains</option>
-        <option value="isExact">is (exact)</option>
-        <option value="startsWith">starts with</option>
-      </select>
-    </div>
-  )
-
-
   return (
     <div>
 
-      <div className="row" style={FieldRow2}>
+      <div className="row">
 
 
         {/* ---------------- AND/OR/NOT ----------------*/}
@@ -128,68 +111,25 @@ render() {
         </select>
       </div>
 
-      {/* ---------------- CONTAINS/IS (EXACT)/STARTS WITH ----------------*/}
-      <SelectTypeOptions onHandleAdvancedSearchChange={this.handleAdvancedSearchChange} params={this.state.searchParams} />
-      {/* ---------------- TEXT INPUT ----------------*/}
+      <SelectTypeOptions
+        onHandleAdvancedSearchChange={this.handleAdvancedSearchChange}
+        params={this.state.searchParams}
+      />
+
       <div className="row">
-        <input value={this.state.searchParams.searchFor} style={FieldText} className="input-field1-text" type="text" name="searchFor" onChange={this.handleTextChange} onBlur={this.handleAdvancedSearchChange}  />
+        <input value={this.state.searchParams.searchFor} className="input-field1-text" type="text" name="searchFor" onChange={this.handleTextChange} onBlur={this.handleAdvancedSearchChange}  />
       </div>
 
       {/* BUTTON TO ADD ADDITIONAL COMPLEX ROW */}
       <div className="row">
-        <button className="remove"
-          onClick={this.handleMinusRowClick}
-          style={OpButtonStyle}>- Remove row </button>
+        <button className="remove" onClick={this.handleMinusRowClick}>- Remove row </button>
+        <button className="addparameter" onClick={this.handleAddRowClick}>Add parameter +</button>
+      </div>
 
-          <button className="addparameter" onClick={this.handleAddRowClick}
-            style={OpButtonStyle}>Add parameter +</button>
-          </div>
+    </div>
+  )
+}
+}
 
-        </div>
-      )
-    }
-  }
 
-  /* ---------------- REACT INLINE STYLES (FEEL FREE TO DELETE/CHANGE) ---------------- */
-  const FieldRow1 = {
-    marginTop: "5px",
-    display: "flex",
-    justifyContent: "flex-start"
-  }
-
-  const FieldText = {
-    width: "100%",
-    marginTop: "9px",
-    background: "none",
-    border: "none",
-    borderBottom: "1px solid black",
-    color: "black",
-    fontSize: "12px"
-  }
-
-  const FieldRow2 = {
-    marginTop: "30px",
-    display: "flex",
-    justifyContent: "flex-start"
-  }
-
-  const FieldRow3 = {
-    marginTop: "10px",
-    display: "flex",
-    justifyContent: "flex-start"
-  }
-
-  const OpButtonStyle = {
-    border: "none",
-    background: "none",
-    color: "black",
-    fontSize: "12px"
-
-  }
-
-  const FlexEnd = {
-    display: "flex",
-    justifyContent: "flex-end"
-  }
-
-  export default AdvancedSearchRowComplex
+export default AdvancedSearchRowComplex

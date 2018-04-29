@@ -61,8 +61,6 @@ class SelectTypeOptions extends Component {
       case "tiltMin":
       case "tiltMax":
         return alternativeTypeOps;
-
-
     }
   }
 

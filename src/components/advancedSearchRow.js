@@ -61,32 +61,18 @@ render() {
   const complexRowBool = (this.props.complexRowArray === 0);
 
   const addComplexRowButton = (complexRowBool) ? (
-    <div style={FlexEnd} className="row">
+    <div className="row">
       <button
-        onClick={this.handleAddRowClick}
-        style={OpButtonStyle}>Add parameter +</button>
+        onClick={this.handleAddRowClick}>Add parameter +</button>
       </div>
     ) : (
       null
     );
 
-    const searchTypes = (this.state.searchParams.searchOn === "anyField") ? (
-      <select name="searchType" onChange={this.handleAdvancedSearchChange} className="col-sm-6 as-select">
-        <option value="contains">contains</option>
-      </select>
-    ) : (
-      <select name="searchType" onChange={this.handleAdvancedSearchChange} className="col-sm-6 as-select">
-        <option value="contains">contains</option>
-        <option value="isExact">is (exact)</option>
-        <option value="startsWith">starts with</option>
-      </select>
-    )
-
-
     return (
       <div>
         {/* ---------------- ALL FIELDS ----------------*/}
-        <div className="row" style={FieldRow1}>
+        <div className="row">
           <select name="searchOn" onChange={this.handleAdvancedSearchChange} className="col-sm-5 as-select">
             <option value="anyField">Any Field</option>
             <option value="microscopist">Microscopist</option>
@@ -108,14 +94,15 @@ render() {
             <option value="NBCItaxID">NBCI Taxonomy ID</option>
             <option value="artNotes">Notes</option>
           </select>
-
-          {/* ---------------- CONTAINS/IS (EXACT)/STARTS WITH ----------------*/}
-          <SelectTypeOptions onHandleAdvancedSearchChange={this.handleAdvancedSearchChange} params={this.state.searchParams} />
-          {/* {searchTypes} */}
         </div>
 
+        <SelectTypeOptions
+          onHandleAdvancedSearchChange={this.handleAdvancedSearchChange}
+          params={this.state.searchParams}
+        />
+
         <div className="row">
-          <input name="searchFor" style={FieldText} className="input-field1-text" type="text" onBlur={this.handleAdvancedSearchChange}  />
+          <input name="searchFor" className="input-field1-text" type="text" onBlur={this.handleAdvancedSearchChange}  />
         </div>
 
         {addComplexRowButton}
@@ -126,37 +113,5 @@ render() {
   }
 }
 
-/* ---------------- REACT INLINE STYLES (FEEL FREE TO DELETE/CHANGE) ---------------- */
-const FieldRow1 = {
-  marginTop: "5px",
-  display: "flex",
-  justifyContent: "flex-start"
-}
-
-
-const OpButtonStyle = {
-  border: "none",
-  background: "none",
-  color: "black",
-  display: "flex",
-  justifyContent: "flex-end",
-  fontSize: "12px"
-}
-
-const FieldText = {
-  width: "100%",
-  marginTop: "9px",
-  background: "none",
-  border: "none",
-  borderBottom: "1px solid black",
-  color: "black",
-  fontSize: "12px"
-}
-
-
-const FlexEnd = {
-  display: "flex",
-  justifyContent: "flex-end"
-}
 
 export default AdvancedSearchRow
