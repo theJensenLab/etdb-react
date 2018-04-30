@@ -1,5 +1,6 @@
 
 import React, {Component} from 'react';
+import DatePicker from 'react-date-picker';
 
 class InputSearchFor extends Component {
   constructor(props){
@@ -33,6 +34,27 @@ class InputSearchFor extends Component {
       </div>
     )
 
+    const searchDate = (
+      <DatePicker
+
+      />
+    )
+
+    const searchBetweenDate = (
+      <div>
+        <span>
+          <DatePicker
+
+          />
+        </span>
+        <span>
+          <DatePicker
+
+          />
+        </span>
+    </div>
+    )
+
     switch (searchType) {
       case "":
       case "contains":
@@ -42,10 +64,10 @@ class InputSearchFor extends Component {
       case "below":
         return defaultSearchFor;
       case "between":
-        if (this.props.params.searchOn !== "date") {
-          return searchBetween;
+        if (this.props.params.searchOn === "date") {
+          return searchBetweenDate;
         }
-        break;
+        return searchBetween;
       default:
         return null;
     }

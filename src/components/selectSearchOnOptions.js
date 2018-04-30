@@ -27,11 +27,11 @@ class SelectSearchOnOptions extends Component {
         <option value="magnification">Magnification</option>
         <option value="defocus">Defocus</option>
         <option value="dosage">Dosage</option>
-        <option value="tiltSingleDual">Tilt</option>
-        <option value="tiltStep">TiltStep</option>
+        <option value="tiltSingleDual">TiltAxis</option>
         <option value="tiltConstant">TiltConstant</option>
         <option value="tiltMin">TiltMin</option>
         <option value="tiltMax">TiltMax</option>
+        <option value="tiltStep">TiltStep</option>
         <option value="sid">Internal ID</option>
         <option value="NBCItaxID">NBCI Taxonomy ID</option>
         <option value="artNotes">Notes</option>

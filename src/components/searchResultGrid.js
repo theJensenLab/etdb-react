@@ -26,6 +26,12 @@ const AND = "and";
 const OR = "or";
 const NOT = "not";
 const EMPTY_STRING = "";
+const BELOW = "below";
+const ABOVE = "above";
+const BETWEEN = "between";
+const ONE = "1";
+const TWO = "2";
+const DATE = "date";
 
 
 class SearchResultGrid extends Component {
@@ -64,14 +70,26 @@ class SearchResultGrid extends Component {
 
       case STARTS_WITH:
         return (art.getDetail(field).toString().toLowerCase().startsWith(params.searchFor.toLowerCase()))
+      case ABOVE:
+        return (art.getDetail(field) >= params.searchFor);
+      case BELOW:
+        return (art.getDetail(field) <= params.searchFor);
+      case BETWEEN:
+        return ;
+      case ONE:
+        return (art.getDetail(field) == 1);
+      case TWO:
+        return (art.getDetail(field) == 2);
     }
   }
 
   filterArtifacts(art, params) {
-    if (params.searchOn == ANY_FIELD) {
+    if (params.searchOn === ANY_FIELD) {
       if (art === undefined ) {return false};
       const artifactString = JSON.stringify(art.toJSON());
       return (artifactString.toLowerCase().indexOf(params.searchFor.toLowerCase()) >= 0)
+    } else if (params.searchOn === DATE) {
+      return false;
     } else {return this.switchCase(art, params, params.searchOn)}
   }
 
