@@ -15,7 +15,7 @@ class SelectSearchOnOptions extends Component {
 
   render() {
     return (
-      <select name="searchOn" onChange={this.handleAdvancedSearchChange} className="col-sm-5 as-select">
+      <select value={this.props.searchOn} name="searchOn" onChange={this.handleAdvancedSearchChange} className="col-sm-5 as-select">
         <option value="anyField">Any Field</option>
         <option value="microscopist">Microscopist</option>
         <option value="speciesName">Species</option>

@@ -96,6 +96,7 @@ render() {
 
         <SelectSearchOnOptions
           onHandleAdvancedSearchChange={this.handleAdvancedSearchChange}
+          searchOn={this.state.searchParams.searchOn}
         />
 
         <SelectSearchTypeOptions

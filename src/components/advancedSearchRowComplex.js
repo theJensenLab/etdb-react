@@ -48,6 +48,18 @@ class AdvancedSearchRowComplex extends Component {
     e.preventDefault();
     let name = e.target.name;
     let value = e.target.value;
+    if (name === "searchOn") {
+      this.setState(prevState => ({
+        searchParams: {
+          ...prevState.searchParams,
+          [name]: value,
+          searchType: "",
+          searchFor: ""
+        }
+      }),
+      this.pushStateUp
+    )
+  } else {
     this.setState(prevState => ({
       searchParams: {
         ...prevState.searchParams,
@@ -56,6 +68,7 @@ class AdvancedSearchRowComplex extends Component {
     }),
     this.pushStateUp
   )
+}
 }
 
 pushStateUp() {
@@ -85,6 +98,7 @@ render() {
       </select>
 
       <SelectSearchOnOptions
+        searchOn={this.state.searchParams.searchOn}
         onHandleAdvancedSearchChange={this.handleAdvancedSearchChange}
       />
 
@@ -97,7 +111,7 @@ render() {
         onHandleTextChange={this.handleTextChange}
         onHandleAdvancedSearchChange={this.handleAdvancedSearchChange}
         params={this.state.searchParams}
-        textValue={this.state.searchFor}
+        textValue={this.state.searchParams.searchFor}
       />
 
       <div className="row">
