@@ -16,6 +16,12 @@ class SelectSearchTypeOptions extends Component {
 
   switchTypes(searchOn) {
 
+    const anyFieldOptions = (
+      <select value={this.props.params.searchType} name="searchType" onChange={this.handleAdvancedSearchChange} className="col-sm-12 as-select">
+        <option value="contains">contains</option>
+      </select>
+    )
+
     const defaultSelectTypeOptions = (
       <select value={this.props.params.searchType} name="searchType" onChange={this.handleAdvancedSearchChange} className="col-sm-12 as-select">
         <option value="contains">contains</option>
@@ -36,13 +42,30 @@ class SelectSearchTypeOptions extends Component {
       </select>
     )
 
+    const dateTypeOptions = (
+      <select value={this.props.params.searchType} name="searchType" onChange={this.handleAdvancedSearchChange} className="col-sm-12 as-select">
+        <option value="isExact">is (exact)</option>
+        <option value="below">Before</option>
+        <option value="above">After</option>
+        <option value="between">Between</option>
+      </select>
+    )
+
+    const tiltTypeOptions = (
+      <select name="searchType" onChange={this.handleAdvancedSearchChange} className="col-sm-12 as-select">
+        <option disabled selected value="">contains</option>
+        <option value="1">1</option>
+        <option calue="2">2</option>
+      </select>
+    )
+
     switch(searchOn) {
       case "anyField":
-        return (
-          <select value={this.props.params.searchType} name="searchType" onChange={this.handleAdvancedSearchChange} className="col-sm-12 as-select">
-            <option value="contains">contains</option>
-          </select>
-        );
+        return anyFieldOptions;
+      case "tiltSingleDual":
+        return tiltTypeOptions;
+      case "date":
+        return dateTypeOptions;
       case "microscopist":
       case "speciesName":
       case "strain":
@@ -52,7 +75,6 @@ class SelectSearchTypeOptions extends Component {
       case "NBCItaxID":
       case "artNotes":
         return defaultSelectTypeOptions;
-      case "date":
       case "scopeName":
       case "magnification":
       case "defocus":
@@ -62,26 +84,13 @@ class SelectSearchTypeOptions extends Component {
       case "tiltMin":
       case "tiltMax":
         return alternativeTypeOptions;
-      case "tiltSingleDual":
-        return (
-          <select name="searchType" onChange={this.handleAdvancedSearchChange} className="col-sm-12 as-select">
-            <option disabled selected value="">contains</option>
-            <option value="1">1</option>
-            <option calue="2">2</option>
-          </select>
-        );
-
     }
   }
 
   render() {
-    return (
+    return <div>{this.switchTypes(this.props.params.searchOn)}</div>
 
-        <div>{this.switchTypes(this.props.params.searchOn)}</div>
-    )
   }
 }
-
-
 
 export default SelectSearchTypeOptions

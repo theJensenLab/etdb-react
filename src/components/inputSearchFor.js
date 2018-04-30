@@ -26,6 +26,13 @@ class InputSearchFor extends Component {
       </div>
     );
 
+    const searchBetween = (
+      <div className="row">
+        <input value={this.props.params.searchFor1} type="text" name="searchFor1" onChange={this.handleTextChange} onBlur={this.handleAdvancedSearchChange}  />
+        <input value={this.props.params.searchFor2} type="text" name="searchFor2" onChange={this.handleTextChange} onBlur={this.handleAdvancedSearchChange}  />
+      </div>
+    )
+
     switch (searchType) {
       case "":
       case "contains":
@@ -35,6 +42,10 @@ class InputSearchFor extends Component {
       case "below":
         return defaultSearchFor;
       case "between":
+        if (this.props.params.searchOn !== "date") {
+          return searchBetween;
+        }
+        break;
       default:
         return null;
     }

@@ -54,7 +54,9 @@ class AdvancedSearchRowComplex extends Component {
           ...prevState.searchParams,
           [name]: value,
           searchType: "",
-          searchFor: ""
+          searchFor: "",
+          searchFor1: "",
+          searchFor2: ""
         }
       }),
       this.pushStateUp
@@ -77,11 +79,12 @@ pushStateUp() {
 
 handleTextChange(e) {
   e.preventDefault();
-  var value = e.target.value;
+  let value = e.target.value;
+  let name = e.target.name;
   this.setState(prevState => ({
     searchParams: {
       ...prevState.searchParams,
-      searchFor: value
+      [name]: value
     }
   }))
 }
