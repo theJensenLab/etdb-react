@@ -1,6 +1,9 @@
 
 import React, {Component} from 'react';
+import SelectSearchOnOptions from './selectSearchOnOptions';
 import SelectSearchTypeOptions from './selectSearchTypeOptions';
+import InputSearchFor from './inputSearchFor';
+
 
 class AdvancedSearchRowComplex extends Component {
   constructor(props){
@@ -10,9 +13,9 @@ class AdvancedSearchRowComplex extends Component {
       searchParams: {
         searchOp: 'and',
         searchOn: 'anyField',
-        searchType: 'contains',
-        searchFor: "",
-        uid: props.uid || ""
+        searchType: '',
+        searchFor: '',
+        uid: props.uid || ''
       }
     }
 
@@ -68,14 +71,13 @@ handleTextChange(e) {
       searchFor: value
     }
   }))
-
 }
 
 render() {
 
   return (
     <div>
-      
+
       <select value={this.state.searchParams.searchOp} name="searchOp" className="col-sm-3 as-select" onChange={this.handleAdvancedSearchChange}>
         <option value="and">AND</option>
         <option value="or">OR</option>
@@ -91,9 +93,12 @@ render() {
         params={this.state.searchParams}
       />
 
-      <div className="row">
-        <input value={this.state.searchParams.searchFor} className="input-field1-text" type="text" name="searchFor" onChange={this.handleTextChange} onBlur={this.handleAdvancedSearchChange}  />
-      </div>
+      <InputSearchFor
+        onHandleTextChange={this.handleTextChange}
+        onHandleAdvancedSearchChange={this.handleAdvancedSearchChange}
+        params={this.state.searchParams}
+        textValue={this.state.searchFor}
+      />
 
       <div className="row">
         <button className="remove" onClick={this.handleMinusRowClick}>- Remove row </button>

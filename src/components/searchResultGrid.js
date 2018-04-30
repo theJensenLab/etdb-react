@@ -25,6 +25,7 @@ const SIMPLE = "simple";
 const AND = "and";
 const OR = "or";
 const NOT = "not";
+const EMPTY_STRING = "";
 
 
 class SearchResultGrid extends Component {
@@ -54,6 +55,7 @@ class SearchResultGrid extends Component {
     if (art.getDetail(field) === undefined) {return false};
     switch (params.searchType)
     {
+      case EMPTY_STRING:
       case CONTAINS:
         return (art.getDetail(field).toString().toLowerCase().indexOf(params.searchFor.toLowerCase()) >= 0)
 
