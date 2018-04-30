@@ -11,10 +11,10 @@ class AdvancedSearchRow extends Component {
 
     this.state = {
       searchParams: {
-        type: 'simple',
-        searchOn: 'anyField',
-        searchType: '',
-        searchFor: '',
+        type: "simple",
+        searchOn: "anyField",
+        searchType: "",
+        searchFor: "",
         uid: uid()
       },
       size: 1
@@ -41,13 +41,13 @@ class AdvancedSearchRow extends Component {
     e.preventDefault();
     let name = e.target.name;
     let value = e.target.value;
-    console.log(name, value)
     if (name === "searchOn") {
       this.setState(prevState => ({
         searchParams: {
           ...prevState.searchParams,
           [name]: value,
-          searchType: ""
+          searchType: "",
+          searchFor: ""
         }
       }),
       this.pushStateUp
@@ -90,7 +90,7 @@ render() {
     ) : (
       null
     );
-
+    console.log(this.state.searchFor)
     return (
       <div>
 
@@ -107,7 +107,7 @@ render() {
           onHandleTextChange={this.handleTextChange}
           onHandleAdvancedSearchChange={this.handleAdvancedSearchChange}
           params={this.state.searchParams}
-          textValue={this.state.searchFor}
+          textValue={this.state.searchParams.searchFor}
         />
 
         {addComplexRowButton}
