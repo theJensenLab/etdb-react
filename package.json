@@ -34,6 +34,7 @@
     "oip-js": "1.1.9",
     "react": "^16.2.0",
     "react-bootstrap": "^0.32.1",
+    "react-date-picker": "^6.10.1",
     "react-dom": "^16.2.0",
     "react-image-lightbox": "^4.6.0",
     "react-js-pagination": "^3.0.1",
