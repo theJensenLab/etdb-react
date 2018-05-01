@@ -94,7 +94,7 @@ class TomogramView extends Component {
 							processingSoftware = file.getSoftware();
 					}
 					if (file.getSubtype() === 'Snapshot' && file.getFilename().match(`.jpg$`)) {
-						snapshots.push("http://etdb.caltech.edu:8080/ipfs/" + location + "/" + file.getFilename())
+						snapshots.push("https://etdb.caltech.edu/ipfs/" + location + "/" + file.getFilename())
 					}
 				}
 			}
@@ -159,19 +159,19 @@ class TomogramView extends Component {
                         <div id="share">
 								<p>
 									<b>Share:</b>
-									<EmailShareButton url={"http://etdb.caltech.edu/tomogram/" + txid} subject={"ETDB tomogram of " + speciesName + " by " + microscopist}>
+									<EmailShareButton url={"https://etdb.caltech.edu/tomogram/" + txid} subject={"ETDB tomogram of " + speciesName + " by " + microscopist}>
 										<EmailIcon size={32} round />
 									</EmailShareButton>
-									<LinkedinShareButton url={"http://etdb.caltech.edu/tomogram/" + txid} title={"ETDB tomogram of " + speciesName + " by " + microscopist}>
+									<LinkedinShareButton url={"https://etdb.caltech.edu/tomogram/" + txid} title={"ETDB tomogram of " + speciesName + " by " + microscopist}>
 										<LinkedinIcon size={32} round />
 									</LinkedinShareButton>
-									<FacebookShareButton url={"http://etdb.caltech.edu/tomogram/" + txid} hashtag="#ETDB #ElectronTomography" quote={"ETDB tomogram of " + speciesName + " by " + microscopist}>
+									<FacebookShareButton url={"https://etdb.caltech.edu/tomogram/" + txid} hashtag="#ETDB #ElectronTomography" quote={"ETDB tomogram of " + speciesName + " by " + microscopist}>
 										<FacebookIcon size={32} round />
 									</FacebookShareButton>
-									<RedditShareButton url={"http://etdb.caltech.edu/tomogram/" + txid} title={"ETDB tomogram of " + speciesName + " by " + microscopist}>
+									<RedditShareButton url={"https://etdb.caltech.edu/tomogram/" + txid} title={"ETDB tomogram of " + speciesName + " by " + microscopist}>
 										<RedditIcon size={32} round />
 									</RedditShareButton>
-									<TwitterShareButton url={"http://etdb.caltech.edu/tomogram/" + txid} hashtags={hashtags} via="TheJensenLab" title={"ETDB tomogram of " + speciesName + " by " + microscopist}>
+									<TwitterShareButton url={"https://etdb.caltech.edu/tomogram/" + txid} hashtags={hashtags} via="TheJensenLab" title={"ETDB tomogram of " + speciesName + " by " + microscopist}>
 										<TwitterIcon size={32} round />
 									</TwitterShareButton>
 								</p>
@@ -183,8 +183,8 @@ class TomogramView extends Component {
 					<div className="col-sm-4" id="videoembed">
 						<div id="videoinner">
 							{ videoFilename ? <video autoPlay loop controls>
-								<source src={"http://etdb.caltech.edu:8080/ipfs/" + location + "/" + videoFilename} />
-							</video> : <img src={"http://etdb.caltech.edu:8080/ipfs/" + location + "/" + thumbFilename} />}
+								<source src={"https://etdb.caltech.edu/ipfs/" + location + "/" + videoFilename} />
+							</video> : <img src={"https://etdb.caltech.edu/ipfs/" + location + "/" + thumbFilename} />}
 							
 						</div>
 					</div>
@@ -263,7 +263,7 @@ class TomogramView extends Component {
 											<td>{fileSize}</td>
 											<td>{subtype}</td>
 											<td>
-												<a href={"http://etdb.caltech.edu:8080/ipfs/" + location + "/" + file.getFilename()} className="btn btn-primary" target="_blank" download>Download</a>
+												<a href={"https://etdb.caltech.edu/ipfs/" + location + "/" + file.getFilename()} className="btn btn-primary" target="_blank" download>Download</a>
 											</td>
 										</tr>
 										}
