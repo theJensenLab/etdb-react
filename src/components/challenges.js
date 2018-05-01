@@ -26,7 +26,7 @@ class Challenges extends Component {
 				      <div id="reddiv"></div>				      
                         <p className="goal challenge">The goal is to develop software that can automatically segment the boundaries of cells in electron tomograms.  A particular challenge is distinguishing such boundaries from the circular holes in the support grids.</p>
  
-                        <p className="challenge">All cells are enclosed by at least one membrane. There are two classes of bacteria – Gram-positive and Gram-negative. Gram-positive bacteria have a single membrane and a thick cell wall.  Gram-negative bacteria have two membranes and a thin cell wall between. Gram-negative bacteria, as well as archaea, may also have an S-layer. There are some examples in the collection of tomograms featuring different <a target="blank" href="http://etdb.caltech.edu/featured/surfaceLayers">surface layers</a>, <a target="blank" href="http://etdb.caltech.edu/featured/cellShapes">cell shapes</a> and <a target="blank" href="http://etdb.caltech.edu/featured/cellEnvelopes">cell envelopes</a>.</p>
+                        <p className="challenge">All cells are enclosed by at least one membrane. There are two classes of bacteria – Gram-positive and Gram-negative. Gram-positive bacteria have a single membrane and a thick cell wall.  Gram-negative bacteria have two membranes and a thin cell wall between. Gram-negative bacteria, as well as archaea, may also have an S-layer. There are some examples in the collection of tomograms featuring different <a target="blank" href="https://etdb.caltech.edu/featured/surfaceLayers">surface layers</a>, <a target="blank" href="https://etdb.caltech.edu/featured/cellShapes">cell shapes</a> and <a target="blank" href="https://etdb.caltech.edu/featured/cellEnvelopes">cell envelopes</a>.</p>
 
                         <p className="challenge">This envelope architecture is fair pre-knowledge in segmenting a given cell. Also fair is the use of a training set where a user marks a section of membrane to use as a template. Finally, different species have different, and well-known, curvatures which most cells of that species will exhibit. It is also fair to use this knowledge of curvature in algorithm development.</p>
   
@@ -58,7 +58,7 @@ class Challenges extends Component {
 
 				  <div className="col-sm-3"> 
                
-                  <p className="note"><b>Related challenge:</b> Like the uncharacterized structures reported in <a target="blank" href="http://jb.asm.org/content/early/2017/06/07/JB.00100-17.long">this paper</a>, we expect that there are many other structures yet to be found in the data and we challenge anybody to find some examples.  If you do find something new, we'd love to <a target="blank" href="http://etdb.caltech.edu/contact">hear about it</a> and discuss potential ways to figure out what it really is.
+                  <p className="note"><b>Related challenge:</b> Like the uncharacterized structures reported in <a target="blank" href="http://jb.asm.org/content/early/2017/06/07/JB.00100-17.long">this paper</a>, we expect that there are many other structures yet to be found in the data and we challenge anybody to find some examples.  If you do find something new, we'd love to <a target="blank" href="https://etdb.caltech.edu/contact">hear about it</a> and discuss potential ways to figure out what it really is.
  </p>
                   </div>
 				</div>
