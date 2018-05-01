@@ -75,7 +75,7 @@ class SearchResultGrid extends Component {
       case BELOW:
         return (art.getDetail(field) <= params.searchFor);
       case BETWEEN:
-        return ;
+        return (art.getDetail(field) >= params.searchFor1 && art.getDetail(field) <= params.searchFor2);
       case ONE:
         return (art.getDetail(field) == 1);
       case TWO:
@@ -84,12 +84,24 @@ class SearchResultGrid extends Component {
   }
 
   filterArtifacts(art, params) {
+    if (art === undefined ) {return false};
+    // if (art.getDetail(params.searchOn === undefined)) {return false};
     if (params.searchOn === ANY_FIELD) {
-      if (art === undefined ) {return false};
       const artifactString = JSON.stringify(art.toJSON());
       return (artifactString.toLowerCase().indexOf(params.searchFor.toLowerCase()) >= 0)
     } else if (params.searchOn === DATE) {
-      return false;
+      switch (params.searchType) {
+        case IS_EXACT:
+          let minTime = params.date/1000 - 43200;
+          let maxTime = params.date/1000 + 43200;
+          return (art.getDetail(params.searchOn) >= minTime && art.getDetail(params.searchOn) <= maxTime)
+        case ABOVE:
+          return (art.getDetail(params.searchOn) >= params.date/1000)
+        case BELOW:
+          return (art.getDetail(params.searchOn) <= params.date/1000)
+        case BETWEEN:
+          return (art.getDetail(params.searchOn) >= params.date1/1000 && art.getDetail(params.searchOn) <= params.date2/1000);
+      }
     } else {return this.switchCase(art, params, params.searchOn)}
   }
 

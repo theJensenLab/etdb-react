@@ -44,6 +44,7 @@ class SelectSearchTypeOptions extends Component {
 
     const dateTypeOptions = (
       <select value={this.props.params.searchType} name="searchType" onChange={this.handleAdvancedSearchChange} className="col-sm-12 as-select">
+        <option disabled selected value="">Select option...</option>
         <option value="isExact">is (exact)</option>
         <option value="below">Before</option>
         <option value="above">After</option>
@@ -53,7 +54,7 @@ class SelectSearchTypeOptions extends Component {
 
     const tiltTypeOptions = (
       <select name="searchType" onChange={this.handleAdvancedSearchChange} className="col-sm-12 as-select">
-        <option disabled selected value="">contains</option>
+        <option disabled selected value="">Select option...</option>
         <option value="1">1</option>
         <option calue="2">2</option>
       </select>

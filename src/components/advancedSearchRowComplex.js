@@ -24,6 +24,10 @@ class AdvancedSearchRowComplex extends Component {
     this.handleAdvancedSearchChange = this.handleAdvancedSearchChange.bind(this);
     this.pushStateUp = this.pushStateUp.bind(this);
     this.handleTextChange = this.handleTextChange.bind(this);
+    this.handleDateChange = this.handleDateChange.bind(this);
+    this.handleDateChange1 = this.handleDateChange1.bind(this);
+    this.handleDateChange2 = this.handleDateChange2.bind(this);
+
 
   }
 
@@ -89,6 +93,36 @@ handleTextChange(e) {
   }))
 }
 
+handleDateChange(date) {
+  let unixDate = date.getTime()
+  this.setState(prevState => ({
+    searchParams: {
+      ...prevState.searchParams,
+      date: unixDate
+    }
+  }), this.pushStateUp)
+}
+
+handleDateChange1(date) {
+  let unixDate = date.getTime()
+  this.setState(prevState => ({
+    searchParams: {
+      ...prevState.searchParams,
+      date1: unixDate
+    }
+  }), this.pushStateUp)
+}
+
+handleDateChange2(date) {
+  let unixDate = date.getTime()
+  this.setState(prevState => ({
+    searchParams: {
+      ...prevState.searchParams,
+      date2: unixDate
+    }
+  }), this.pushStateUp)
+}
+
 render() {
 
   return (
@@ -115,6 +149,9 @@ render() {
         onHandleAdvancedSearchChange={this.handleAdvancedSearchChange}
         params={this.state.searchParams}
         textValue={this.state.searchParams.searchFor}
+        onDateChange={this.handleDateChange}
+        onDateChange1={this.handleDateChange1}
+        onDateChange2={this.handleDateChange2}
       />
 
       <div className="row">
