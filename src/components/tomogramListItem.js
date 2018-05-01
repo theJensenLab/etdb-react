@@ -16,7 +16,7 @@ class TomogramListItem extends Component {
 			<div className="col-sm-3" id="tomogramcell"	>
 				<div id="video-thumb-container">
 					<a className="tomogram-link" href={"/tomogram/" + this.props.artifact.getTXID().substr(0,6)}>
-						<video className="videothumbhover" style={{maxHeight: "72%"}} poster={"http://etdb.caltech.edu:8080/ipfs/" + this.props.artifact.getLocation() + "/" + thumbFilename}>
+						<video className="videothumbhover" style={{maxHeight: "72%"}} poster={"https://etdb.caltech.edu/ipfs/" + this.props.artifact.getLocation() + "/" + thumbFilename}>
 							<source src="" type="video/mp4"/>
 						</video>
 						<name><i>{this.props.artifact.getDetail("speciesName")}</i></name>

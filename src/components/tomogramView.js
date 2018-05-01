@@ -94,7 +94,7 @@ class TomogramView extends Component {
 							processingSoftware = file.getSoftware();
 					}
 					if (file.getSubtype() === 'Snapshot' && file.getFilename().match(`.jpg$`)) {
-						snapshots.push("http://etdb.caltech.edu:8080/ipfs/" + location + "/" + file.getFilename())
+						snapshots.push("https://etdb.caltech.edu/ipfs/" + location + "/" + file.getFilename())
 					}
 				}
 			}
@@ -183,8 +183,8 @@ class TomogramView extends Component {
 					<div className="col-sm-4" id="videoembed">
 						<div id="videoinner">
 							{ videoFilename ? <video autoPlay loop controls>
-								<source src={"http://etdb.caltech.edu:8080/ipfs/" + location + "/" + videoFilename} />
-							</video> : <img src={"http://etdb.caltech.edu:8080/ipfs/" + location + "/" + thumbFilename} />}
+								<source src={"https://etdb.caltech.edu/ipfs/" + location + "/" + videoFilename} />
+							</video> : <img src={"https://etdb.caltech.edu/ipfs/" + location + "/" + thumbFilename} />}
 							
 						</div>
 					</div>
@@ -263,7 +263,7 @@ class TomogramView extends Component {
 											<td>{fileSize}</td>
 											<td>{subtype}</td>
 											<td>
-												<a href={"http://etdb.caltech.edu:8080/ipfs/" + location + "/" + file.getFilename()} className="btn btn-primary" target="_blank" download>Download</a>
+												<a href={"https://etdb.caltech.edu/ipfs/" + location + "/" + file.getFilename()} className="btn btn-primary" target="_blank" download>Download</a>
 											</td>
 										</tr>
 										}

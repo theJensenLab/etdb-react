@@ -94,7 +94,7 @@ class FeaturedCollection extends Component {
 
 						return <div className="col-sm-3" style={{marginBottom: "10px"}}>
 							<a href={"/tomogram/" + tomoTxid}>
-								<img className="results-thumb" src={"http://etdb.caltech.edu:8080/ipfs/" + thumbnailLocation + "/" + thumbnailFilename}/>
+								<img className="results-thumb" src={"https://etdb.caltech.edu/ipfs/" + thumbnailLocation + "/" + thumbnailFilename}/>
 								<name>{tomoTitle || type.sid}</name>
 								<p>{type.description}</p>
 							</a>
