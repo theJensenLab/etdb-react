@@ -155,7 +155,7 @@ class TomogramView extends Component {
 					<div id="reddiv"> </div>
 				</div>
 				<div className="col-sm-6">
-                <div id="return1"> <a class="topretur" href="/browse">Return to database</a></div>
+                <div id="return1"> <a className="topretur" href="/browse">Return to database</a></div>
                         <div id="share">
 								<p>
 									<b>Share:</b>
@@ -274,7 +274,7 @@ class TomogramView extends Component {
 					</div>
 				</div>
 
-<center><a class="backtodatabase" href="/browse">Return to database</a></center>
+<center><a className="backtodatabase" href="/browse">Return to database</a></center>
 				<Footer />
 			</div>
 		)

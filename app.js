@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import {
-  BrowserRouter as Router
+  BrowserRouter
 } from 'react-router-dom'
 import ReactDOM from 'react-dom';
+import Analytics from 'react-router-ga';
 
 import AppRoutes from './src/components/appRoutes.js';
 
@@ -25,9 +26,11 @@ var Core = OIPJS({
 class App extends Component {
 	render(){
 		return(
-			<Router>
-				<AppRoutes Core={Core} />
-			</Router>
+			<BrowserRouter>
+				<Analytics id="UA-117866137-1" debug>
+					<AppRoutes Core={Core} />
+				</Analytics>
+			</BrowserRouter>
 		)
 	}
 }

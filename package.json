@@ -5,7 +5,9 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start:dev": "webpack-dev-server"
+    "start:dev": "webpack-dev-server --open --config webpack.dev.js",
+    "start:prod": "npm run build && node production_server.js",
+    "build": "webpack --config webpack.prod.js"
   },
   "repository": {
     "type": "git",
@@ -39,9 +41,9 @@
     "react-image-lightbox": "^4.6.0",
     "react-js-pagination": "^3.0.1",
     "react-router-dom": "^4.2.2",
+    "react-router-ga": "^1.0.0",
     "react-share": "^2.1.1",
     "react-spinners": "^0.3.2",
-    "uglifyjs-webpack-plugin": "^1.2.5",
     "uid": "0.0.2"
   },
   "devDependencies": {
@@ -50,11 +52,16 @@
     "babel-loader": "^7.1.4",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^0.28.10",
+    "express": "^4.16.3",
     "file-loader": "^1.1.11",
+    "html-webpack-plugin": "^3.2.0",
     "style-loader": "^0.20.3",
-    "webpack": "^4.1.1",
+    "uglifyjs-webpack-plugin": "^1.2.5",
+    "webpack": "^4.6.0",
     "webpack-cli": "^2.0.11",
-    "webpack-dev-server": "^3.1.1"
+    "webpack-dev-server": "^3.1.1",
+    "webpack-merge": "^4.1.2"
   }
 }
