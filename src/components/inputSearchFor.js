@@ -7,9 +7,9 @@ class InputSearchFor extends Component {
     super(props);
 
     this.state = {
-      date: new Date(),
-      date1: new Date(),
-      date2: new Date()
+      date: null,
+      date1: null,
+      date2: null
     }
 
     this.switchFor = this.switchFor.bind(this);
