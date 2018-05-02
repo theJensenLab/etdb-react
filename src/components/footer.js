@@ -1,5 +1,15 @@
 import React, { Component } from 'react'
 
+import hhmi from '../assets/img/hhmi.png'
+import nih from '../assets/img/nih.png'
+import beckman from '../assets/img/beckman.png'
+import templteton from '../assets/img/templteton.png'
+import cemi from '../assets/img/cemi.png'
+import hfsp from '../assets/img/hfsp.png'
+import logoWhite from '../assets/img/logo-white.png'
+import searle_banner from '../assets/img/searle_banner.png'
+import ted from '../assets/img/ted.png'
+import agi from '../assets/img/agi.png'
 
 class Footer extends Component {
 	render(){
@@ -10,37 +20,37 @@ class Footer extends Component {
                     <h3>This project was made possible thanks to the support of the following organizations: </h3>
 						<div className="col-sm-3">
 							<a target="blank" href="http://www.hhmi.org/">
-								<img className="square" src="/src/assets/img/hhmi.png"/>
+								<img className="square" src={hhmi}/>
 							</a>
 						</div>
 						<div className="col-sm-3">
 							<a target="blank" href="https://om.od.nih.gov/">
-								<img className="long" src="/src/assets/img/nih.png"/>
+								<img className="long" src={nih}/>
 							</a>
 						</div>
 						<div className="col-sm-3">
 							<a target="blank" href="http://beckmaninstitute.caltech.edu/">
-								<img src="/src/assets/img/beckman.png"/>
+								<img src={beckman}/>
 							</a>
 						</div>
 						<div className="col-sm-3">
 							<a target="blank" href="https://templeton.org/">
-								<img src="/src/assets/img/templteton.png"/>
+								<img src={templteton} />
 							</a>
 						</div>
 						<div className="col-sm-3">
 							<a target="blank" href="http://microbiology.caltech.edu/CIT_Micro-Welcome.html">
-								<img src="/src/assets/img/cemi.png"/>
+								<img src={cemi} />
 							</a>
 						</div>
 						<div className="col-sm-3">
 							<a target="blank" href="http://www.hfsp.org/">
-								<img className="square" src="/src/assets/img/hfsp.png"/>
+								<img className="square" src={hfsp} />
 							</a>
 						</div>
 						<div className="col-sm-3">
 							<a target="blank" href="https://www.moore.org/">
-								<img src="/src/assets/img/logo-white.png"/>
+								<img src={logoWhite} />
 							</a>
 						</div>
 						<div className="col-sm-3">
@@ -50,17 +60,17 @@ class Footer extends Component {
 						</div>
 						<div className="col-sm-3">
 							<a target="blank" className="footerlink" href="http://www.searlescholars.net/">
-								<img src="/src/assets/img/searle_banner.png"/>
+								<img src={searle_banner} />
 							</a>
 						</div>
 						<div className="col-sm-3">
 							<a target="blank" href="http://www.tedpella.com/">
-								<img src="/src/assets/img/ted.png"/>
+								<img src={ted} />
 							</a>
 						</div>
 						<div className="col-sm-3">
 							<a target="blank" href="http://agi.org/">
-								<img src="/src/assets/img/agi.png"/>
+								<img src={agi} />
 							</a>
 						</div>
 
