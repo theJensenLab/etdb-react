@@ -58,17 +58,17 @@ class About extends Component {
 				</div>
 				<div className="row" id="about">
 				  <div className="col-sm-6">
-				    <div>
+                  <img src="/src/assets/img/labshot.png"/>
+				  </div>
+
+                  <div className="col-sm-6"> <div>
 				      <h3>Learning more</h3>
 				      <div id="reddiv"></div>
 				      <p>If you are interested in learning more about tomograms, this database and other research conducted by the Jensen Lab please <a href="/contact">get in touch</a></p>
                       <p>Many of these datasets have been used in studies resulting in scientific publications. You can view a list of these publications on the <a target="blank" href="/src/assets/img/learn-more.png">Jensen Lab</a> website.
 </p>
                       <a className="browse" href="http://www.jensenlab.caltech.edu">Jensen Lab <i className="fa fa-arrow-right" aria-hidden="true"></i></a>
-				    </div>
-				  </div>
-
-                  <div className="col-sm-6">			  		<img src="/src/assets/img/learn-more.png"/>
+				    </div>			  		
 </div>
 				</div>
 				<a name="FAQ"></a> 
