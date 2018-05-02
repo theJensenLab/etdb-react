@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import logo from '../assets/img/etdb-logo.png'
+import homePic from '../assets/img/etdb-home.png'
 
 class Home extends Component {
 	constructor(props){
@@ -55,7 +56,7 @@ class Home extends Component {
 				  </div>
 				</div>
 				<div id="home-image">
-				  <div id="home-image-container"><img src="/src/assets/img/etdb-home.png"/>
+				  <div id="home-image-container"><img src={homePic} />
                   <div id="photocredit">Matt Swulius using the Caltech Polara microscope</div>
                   </div>
 				</div>
