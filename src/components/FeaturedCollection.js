@@ -47,20 +47,18 @@ class FeaturedCollection extends Component {
 				<div className="row" id="featured-2">
 					<div className="col-sm-8">
 						<h2>{type.name}</h2>
+                        <div id="reddiv"></div>
 					</div>
                     <div className="col-sm-4">
-					<a className="back" href="/featured">Back to featured tomograms</a>
+					<a className="topretur" href="/featured"><i class="fas fa-arrow-left"></i> Return to featured tomograms</a>
 					</div>
 				</div>
-				<div className="row" id="featured-3">
-					<div className="col-sm-6">
-						<div id="reddiv"></div>
+				<div className="row" id="featured">
+					<div className="col-sm-12 featured-description">
+						
 						<p>{type.detailOne}</p>
 					</div>
-					<div className="col-sm-6">
-						<div id="spacediv"></div>
-						<p>{type.detailTwo}</p>
-					</div>
+					
 				</div>
 				<div className="row" id="featured">
 					{this.state.artifacts.length === 0 ? 
@@ -95,8 +93,10 @@ class FeaturedCollection extends Component {
 						return <div className="col-sm-3" style={{marginBottom: "10px"}}>
 							<a href={"/tomogram/" + tomoTxid}>
 								<img className="results-thumb" src={"https://etdb.caltech.edu/ipfs/" + thumbnailLocation + "/" + thumbnailFilename}/>
-								<name>{tomoTitle || type.sid}</name>
-								<p>{type.description}</p>
+								<name2>{tomoTitle || type.sid}</name2> <div id="goarrow"><i class="fas fa-arrow-right"></i>
+
+</div>
+								<description>{type.description}</description>
 							</a>
 						</div>
 					})}
