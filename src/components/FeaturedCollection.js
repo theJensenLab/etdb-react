@@ -101,22 +101,6 @@ class FeaturedCollection extends Component {
 						</div>
 					})}
 				</div>
-
-
-
-
-<div className="row" id="featured-2">
-					<div className="col-sm-8">
-						<h2>View another collection</h2>
-                        <div id="reddiv"></div>
-					</div>
-                    <div className="col-sm-4">
-					</div>
-				</div>
-
-               
-
-
 				<Footer />
 			</div>
 		)
