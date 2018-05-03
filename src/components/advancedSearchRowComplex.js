@@ -126,7 +126,7 @@ handleDateChange2(date) {
 render() {
 
   return (
-    <div>
+    <div id="extrasearchrow">
 
       <select value={this.state.searchParams.searchOp} name="searchOp" className="col-sm-3 as-select" onChange={this.handleAdvancedSearchChange}>
         <option value="and">AND</option>

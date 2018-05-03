@@ -291,7 +291,7 @@ div#menu a:before {
     height: 1px;
     bottom: 0;
     left: 0;
-    background-color: #000;
+    background-color: #e5342a;
     visibility: hidden;
     -webkit-transform: scaleX(0);
     transform: scaleX(0);
@@ -954,6 +954,30 @@ div#about h2 a {
     text-transform: none;
 }
 
+input.input-field1-text {
+    border: 0px;
+    background: #fff !important;
+    padding: 4px;
+    width: 100%;
+    margin: 10px 0px;
+}
+select.col-sm-12.as-select {
+    width: 100px;
+}
+
+button.remove, button.addparameter {
+    border: none;
+    background: none;
+    color: black;
+    font-size: 12px;
+}
+
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+    background-color: transparent;
+    border-color: #b60000;
+    color: #fff !important;
+}
+
 const FieldRow1  {
     marginTop: 5px;
     display: flex;
@@ -1081,8 +1105,29 @@ div#filters input.form-control {
 }
 
 select.col-sm-5.as-select {
-    margin-right: 10px;
-    width: 65%;
+    margin-right: 5px;
+    width: 62%;
+}
+
+div#extrasearchrow select.col-sm-3.as-select {
+    margin-right: 5px;
+    margin-bottom: 10px;
+}
+
+div#extrasearchrow {
+    margin-top: 10px;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+
+div#extrasearchrow select.col-sm-5.as-select {
+    width: 73%;
+    margin-bottom: 10px;
+    margin-right: 0px;
+}
+
+div#extrasearchrow select.col-sm-12.as-select {
+    width: 100%;
 }
 
 select.col-sm-9.as-select {
@@ -1165,7 +1210,7 @@ div#filters {
     width: 300px;
     z-index: 1;
     background: #b4b4b4;
-    padding: 20px 20px 20px;
+    padding: 20px 10px;
     border-radius: 5px;
     border-top: 8px solid #e5342a;
 }

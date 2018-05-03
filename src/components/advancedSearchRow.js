@@ -119,7 +119,7 @@ render() {
 
   const addComplexRowButton = (complexRowBool) ? (
     <div className="row">
-      <button
+      <button class="addparameter"
         onClick={this.handleAddRowClick}>Add parameter +</button>
       </div>
     ) : (

@@ -4,17 +4,20 @@ const SubmitAdvancedSearch = () => {
   return (
     <div>
       <div className="row submit-as-row">
-        <input style={SubmitStyle} type="submit" value="Submit" />
+        <input style={SubmitStyle} type="submit" value="Submit"  /> 
+
+
       </div>
     </div>
   )
 }
 
 const SubmitStyle = {
-  background: "none",
-  border: "1px solid white",
-  color: "white",
-  fontSize: "12px"
+  background: "#000",
+  border: "1px solid #000000",
+  color: "#fff",
+  fontsize: "15px",
+    padding: "5px 30px"
 }
 const FlexRowSubmit = {
   display: "flex",
