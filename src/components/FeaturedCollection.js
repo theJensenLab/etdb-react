@@ -102,6 +102,18 @@ class FeaturedCollection extends Component {
 					})}
 				</div>
 
+
+
+
+<div className="row" id="featured-2">
+					<div className="col-sm-8">
+						<h2>View another collection</h2>
+                        <div id="reddiv"></div>
+					</div>
+                    <div className="col-sm-4">
+					</div>
+				</div>
+
                 	<div className="row" id="featured">
 					{/* This line below should be uncommented out once the OIPd Advanced search is working.
 					featuredTypes.map((type, i) => <FeaturedCell Core={this.props.Core} tomogram={type.thumbnail} url={"/featured/" + type.section} title={type.name} description={type.description} />)
@@ -131,7 +143,7 @@ class FeaturedCollection extends Component {
 							}
 						}
 
-						return <div className="col-sm-3">
+						return <div className="col-sm-2">
 							<a href={"/featured/" + type.section}>
 								<img className="results-thumb" src={"https://etdb.caltech.edu/ipfs/" + thumbnailLocation + "/" + thumbnailFilename}/>
 								<name>{type.name}</name> <div id="goarrow"><i className="fas fa-arrow-right"></i></div>
