@@ -72,7 +72,7 @@ class FeaturedCollection extends Component {
 					: tomograms.map((type, i) => {
 						var matchedTomogram = undefined;
 						var tomoTxid = "";
-						var tomoTitle = "";
+						var tomoSpeciesName = "";
 						var thumbnailLocation = "QmevjEoYtXtDBvjBFhxLuHaPHghdpPSChSvg64CWisGJEV"; // Default
 						var thumbnail = undefined;
 						var thumbnailFilename = "keyimg_pd2004-07-30-2.jpg"; // Default
@@ -83,7 +83,7 @@ class FeaturedCollection extends Component {
 									&& artifact.getDetail("sid") === type.sid){
 								matchedTomogram = artifact;
 								tomoTxid = artifact.getTXID().substr(0,6);
-								tomoTitle = artifact.getTitle();
+								tomoSpeciesName = artifact.getDetail("speciesName");
 								thumbnailLocation = artifact.getLocation();
 								thumbnail = artifact.getThumbnail();
 								thumbnailFilename = thumbnail.getFilename();
@@ -93,7 +93,7 @@ class FeaturedCollection extends Component {
 						return <div className="col-sm-3" style={{marginBottom: "10px"}}>
 							<a href={"/tomogram/" + tomoTxid}>
 								<img className="results-thumb" src={"https://etdb.caltech.edu/ipfs/" + thumbnailLocation + "/" + thumbnailFilename}/>
-								<name2>{tomoTitle || type.sid}</name2> <div id="goarrow"><i class="fas fa-arrow-right"></i>
+								<name2><i>{tomoSpeciesName || type.sid}</i></name2> <div id="goarrow"><i class="fas fa-arrow-right"></i>
 
 </div>
 								<description>{type.description}</description>
