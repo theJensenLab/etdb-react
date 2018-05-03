@@ -13,7 +13,7 @@ class Browse extends Component {
 			filterText: "",
 			artifacts: [],
 			sortValue: null,
-			flipSort: false,
+			sortStatus: false,
 			advancedSearchParams: [],
 			advancedSearchToggleBool: false
 		}
@@ -23,7 +23,6 @@ class Browse extends Component {
 		this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
 		this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
 		this.handleSortButtonChange = this.handleSortButtonChange.bind(this);
-		this.handleFlipSortChange = this.handleFlipSortChange.bind(this);
 		this.handleAdvancedSearchChange = this.handleAdvancedSearchChange.bind(this);
 		this.handleToggleAdvancedSearch = this.handleToggleAdvancedSearch.bind(this);
 		this.clearSearchParams = this.clearSearchParams.bind(this);
@@ -57,21 +56,14 @@ class Browse extends Component {
 		})
 	}
 
-	handleSortButtonChange(value) {
-		console.log(value);
-		if (value === this.state.sortValue) {
-			this.setState({sortValue: null})
-		} else this.setState({
-			sortValue: value,
-			flipSort: false
+	handleSortButtonChange(name, sortStatus) {
+		if (sortStatus === false) {name = null}
+		this.setState({
+			sortStatus: sortStatus,
+			sortValue: name
 		})
 	}
 
-	handleFlipSortChange() {
-		this.setState(prevState => ({
-      flipSort: !prevState.flipSort
-    }))
-	}
 
 	deleteRowParamsFromState(uid) {
     this.props.onDeleteRowParamsFromState(uid);
@@ -136,8 +128,6 @@ class Browse extends Component {
 						onSelectChange={this.handleSelectChange}
 						sortValue={this.state.sortValue}
 						onSortButtonChange={this.handleSortButtonChange}
-						onFlipSortChange={this.handleFlipSortChange}
-						flipSort={this.state.flipSort}
 						flipText={this.state.flipText}
 						onAdvancedSearchChange={this.handleAdvancedSearchChange}
 						onToggleAdvancedSearch={this.handleToggleAdvancedSearch}
@@ -150,7 +140,7 @@ class Browse extends Component {
 						filterText={this.state.filterText}
 						filterState={this.state}
 						sortValue={this.state.sortValue}
-						flipSort={this.state.flipSort}
+						sortStatus={this.state.sortStatus}
 						advancedSearchParams={this.state.advancedSearchParams}
 						advancedSearchToggleBool={this.state.advancedSearchToggleBool}
 					/>
