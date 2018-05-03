@@ -29,13 +29,15 @@ class Contact extends Component {
 				  </div>
 				  <div className="col-sm-3">
 						<h3 className="contact">Catherine Oikonomou</h3>
-                        <div id="reddiv"></div>
+            <div id="reddiv"></div>
+						<p>Content</p>
 						<p><b>p:</b> (626) 395-3056 </p>
 						<p><b>e:</b> coiko(at)caltech.edu</p>
 					</div>
 					<div className="col-sm-3">
 						<h3 className="contact">Davi Ortega</h3>
-                        <div id="reddiv"></div>
+            <div id="reddiv"></div>
+						<p>Technology</p>
 						<p><b>p:</b> (626) 395-8829 </p>
 						<p><b>e:</b> ortegad(at)caltech.edu</p>
 				  </div>

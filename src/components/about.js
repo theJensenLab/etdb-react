@@ -63,7 +63,7 @@ class About extends Component {
 					<div className="col-sm-6"> <div>
 						<h3>Learning more</h3>
 						<div id="reddiv"></div>
-							<p>If you are interested in learning more about tomograms, this database and other research conducted by the Jensen Lab please <a href="/contact">get in touch</a></p>
+							<p>If you are interested in learning more about electron tomography, this database, or other research conducted by the Jensen Lab please <a href="/contact">get in touch</a></p>
 							<p>Many of these datasets have been used in studies resulting in scientific publications. You can view a list of these publications on the <a target="blank" href="http://www.jensenlab.caltech.edu/publications">Jensen Lab</a> website.</p>
 							<a className="browse" href="http://www.jensenlab.caltech.edu">Jensen Lab <i className="fa fa-arrow-right" aria-hidden="true"></i></a>
 					</div>			  		

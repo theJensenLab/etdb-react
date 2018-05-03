@@ -17,7 +17,7 @@ class Footer extends Component {
 			<div>
 				
 					<div className="row" id="footer">
-                    <h3>This project was made possible thanks to the support of the following organizations: </h3>
+                    <h3>The following organizations supported the collection of the data in this database:</h3>
 						<div className="col-sm-3">
 							<a target="blank" href="http://www.hhmi.org/">
 								<img className="square" src={hhmi}/>
