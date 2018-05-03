@@ -23,7 +23,7 @@ class FeaturedCollection extends Component {
 		this.getTomograms();
 	}
 	getTomograms(){
-		this.props.Core.Index.getSupportedArtifacts((this.storeTomograms), (error) => {
+		this.props.Core.Index.getArtifacts("*", this.storeTomograms, (error) => {
 			console.error(error)
 		})
 	}
