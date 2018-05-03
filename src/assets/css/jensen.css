@@ -662,6 +662,14 @@ div#homehero {
   padding-top: 100px;
 }
 
+a.termsandconditions {
+    display: block;
+    color: grey;
+    font-weight: 100;
+    margin-top: 20px;
+    font-size: 12px;
+}
+
 div#homecontent {
     padding-top: 120px;
 }
@@ -939,6 +947,12 @@ div#about h2 a {
 
 /* Advanced Search
 -------------------------------------------------------------- */
+.col-sm-12 h5 {
+    text-align: right;
+    margin-right: 32px;
+    font-family: muli;
+    text-transform: none;
+}
 
 const FieldRow1  {
     marginTop: 5px;

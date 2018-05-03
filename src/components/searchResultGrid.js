@@ -215,7 +215,7 @@ class SearchResultGrid extends Component {
     return(
       <div className="col-sm-10" id="searchresultsgrid" style={{marginBottom: "-100px"}}>
         { this.props.artifacts.length === 0 ? "" : artifacts.length === 0 ? "" : <div className="col-sm-12">
-          <h5>({artifacts.length} Results)</h5>
+          <h5>{artifacts.length} Results</h5>
         </div> }
         <div className="col-sm-12" style={{minHeight: "300px"}}>
           <center style={{marginTop: "150px", marginBottom: "-150px", width: "50%", marginLeft: "auto", marginRight: "auto"}}>
