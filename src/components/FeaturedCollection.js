@@ -146,7 +146,7 @@ class FeaturedCollection extends Component {
 						return <div className="col-sm-2">
 							<a href={"/featured/" + type.section}>
 								<img className="results-thumb" src={"https://etdb.caltech.edu/ipfs/" + thumbnailLocation + "/" + thumbnailFilename}/>
-								<name>{type.name}</name> <div id="goarrow"><i className="fas fa-arrow-right"></i></div>
+								<div id="name-more-featured"><name>{type.name}</name></div> <div id="goarrow"><i className="fas fa-arrow-right"></i></div>
 							</a>
 						</div>
 					})}

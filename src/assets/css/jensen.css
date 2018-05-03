@@ -670,6 +670,11 @@ div#homecontent {
     font-weight: 600;
 }
 
+.col-sm-12.tandc p {
+    max-width: 750px;
+    margin-bottom: 20px;
+}
+
 a.browse { 
     border-top: 1px solid #000;
     border-bottom: 4px solid #000;
@@ -686,6 +691,7 @@ a.browse {
 a.browse:hover {
   background: #e5342a;
   color: #fff;
+  opacity: 1;
 }
 
 div#homehero h1 {
