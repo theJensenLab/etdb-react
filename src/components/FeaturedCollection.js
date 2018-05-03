@@ -23,7 +23,7 @@ class FeaturedCollection extends Component {
 		this.getTomograms();
 	}
 	getTomograms(){
-		this.props.Core.Index.getSupportedArtifacts((this.storeTomograms), (error) => {
+		this.props.Core.Index.getArtifacts("*", this.storeTomograms, (error) => {
 			console.error(error)
 		})
 	}
@@ -47,26 +47,24 @@ class FeaturedCollection extends Component {
 				<div className="row" id="featured-2">
 					<div className="col-sm-8">
 						<h2>{type.name}</h2>
+                        <div id="reddiv"></div>
 					</div>
                     <div className="col-sm-4">
-					<a className="back" href="/featured">Back to featured tomograms</a>
+					<a className="topretur" href="/featured"><i class="fas fa-arrow-left"></i> Return to featured tomograms</a>
 					</div>
 				</div>
-				<div className="row" id="featured-3">
-					<div className="col-sm-6">
-						<div id="reddiv"></div>
+				<div className="row" id="featured">
+					<div className="col-sm-12 featured-description">
+						
 						<p>{type.detailOne}</p>
 					</div>
-					<div className="col-sm-6">
-						<div id="spacediv"></div>
-						<p>{type.detailTwo}</p>
-					</div>
+					
 				</div>
 				<div className="row" id="featured">
 					{this.state.artifacts.length === 0 ? 
 					<center style={{marginTop: "50px", marginBottom: "0px", width: "50%", marginLeft: "auto", marginRight: "auto"}}>
 			            <BarLoader
-			              color={'#b60000'} 
+			              color={'#e5342a'} 
 			              width={-1}
 			              loading={true} 
 			            />
@@ -74,7 +72,7 @@ class FeaturedCollection extends Component {
 					: tomograms.map((type, i) => {
 						var matchedTomogram = undefined;
 						var tomoTxid = "";
-						var tomoTitle = "";
+						var tomoSpeciesName = "";
 						var thumbnailLocation = "QmevjEoYtXtDBvjBFhxLuHaPHghdpPSChSvg64CWisGJEV"; // Default
 						var thumbnail = undefined;
 						var thumbnailFilename = "keyimg_pd2004-07-30-2.jpg"; // Default
@@ -85,7 +83,7 @@ class FeaturedCollection extends Component {
 									&& artifact.getDetail("sid") === type.sid){
 								matchedTomogram = artifact;
 								tomoTxid = artifact.getTXID().substr(0,6);
-								tomoTitle = artifact.getTitle();
+								tomoSpeciesName = artifact.getDetail("speciesName");
 								thumbnailLocation = artifact.getLocation();
 								thumbnail = artifact.getThumbnail();
 								thumbnailFilename = thumbnail.getFilename();
@@ -95,8 +93,10 @@ class FeaturedCollection extends Component {
 						return <div className="col-sm-3" style={{marginBottom: "10px"}}>
 							<a href={"/tomogram/" + tomoTxid}>
 								<img className="results-thumb" src={"https://etdb.caltech.edu/ipfs/" + thumbnailLocation + "/" + thumbnailFilename}/>
-								<name>{tomoTitle || type.sid}</name>
-								<p>{type.description}</p>
+								<name2><i>{tomoSpeciesName || type.sid}</i></name2> <div id="goarrow"><i class="fas fa-arrow-right"></i>
+
+</div>
+								<description>{type.description}</description>
 							</a>
 						</div>
 					})}

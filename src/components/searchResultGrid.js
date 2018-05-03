@@ -25,6 +25,13 @@ const SIMPLE = "simple";
 const AND = "and";
 const OR = "or";
 const NOT = "not";
+const EMPTY_STRING = "";
+const BELOW = "below";
+const ABOVE = "above";
+const BETWEEN = "between";
+const ONE = "1";
+const TWO = "2";
+const DATE = "date";
 
 
 class SearchResultGrid extends Component {
@@ -54,22 +61,47 @@ class SearchResultGrid extends Component {
     if (art.getDetail(field) === undefined) {return false};
     switch (params.searchType)
     {
+      case EMPTY_STRING:
       case CONTAINS:
-        return (art.getDetail(field).toLowerCase().indexOf(params.searchFor.toLowerCase()) >= 0)
+        return (art.getDetail(field).toString().toLowerCase().indexOf(params.searchFor.toLowerCase()) >= 0)
 
       case IS_EXACT:
-        return (art.getDetail(field).toLowerCase() === params.searchFor.toLowerCase())
+        return (art.getDetail(field).toString().toLowerCase() === params.searchFor.toLowerCase())
 
       case STARTS_WITH:
-        return (art.getDetail(field).toLowerCase().startsWith(params.searchFor.toLowerCase()))
+        return (art.getDetail(field).toString().toLowerCase().startsWith(params.searchFor.toLowerCase()))
+      case ABOVE:
+        return (art.getDetail(field) >= params.searchFor);
+      case BELOW:
+        return (art.getDetail(field) <= params.searchFor);
+      case BETWEEN:
+        return (art.getDetail(field) >= params.searchFor1 && art.getDetail(field) <= params.searchFor2);
+      case ONE:
+        return (art.getDetail(field) == 1);
+      case TWO:
+        return (art.getDetail(field) == 2);
     }
   }
 
   filterArtifacts(art, params) {
-    if (params.searchOn == ANY_FIELD) {
-      if (art === undefined ) {return false};
+    if (art === undefined ) {return false};
+    // if (art.getDetail(params.searchOn === undefined)) {return false};
+    if (params.searchOn === ANY_FIELD) {
       const artifactString = JSON.stringify(art.toJSON());
       return (artifactString.toLowerCase().indexOf(params.searchFor.toLowerCase()) >= 0)
+    } else if (params.searchOn === DATE) {
+      switch (params.searchType) {
+        case IS_EXACT:
+          let minTime = params.date/1000 - 43200;
+          let maxTime = params.date/1000 + 43200;
+          return (art.getDetail(params.searchOn) >= minTime && art.getDetail(params.searchOn) <= maxTime)
+        case ABOVE:
+          return (art.getDetail(params.searchOn) >= params.date/1000)
+        case BELOW:
+          return (art.getDetail(params.searchOn) <= params.date/1000)
+        case BETWEEN:
+          return (art.getDetail(params.searchOn) >= params.date1/1000 && art.getDetail(params.searchOn) <= params.date2/1000);
+      }
     } else {return this.switchCase(art, params, params.searchOn)}
   }
 
@@ -214,6 +246,9 @@ class SearchResultGrid extends Component {
 
     return(
       <div className="col-sm-10" id="searchresultsgrid" style={{marginBottom: "-100px"}}>
+        { this.props.artifacts.length === 0 ? "" : artifacts.length === 0 ? "" : <div className="col-sm-12">
+          <h5>{artifacts.length} Results</h5>
+        </div> }
         <div className="col-sm-12" style={{minHeight: "300px"}}>
           <center style={{marginTop: "150px", marginBottom: "-150px", width: "50%", marginLeft: "auto", marginRight: "auto"}}>
             { this.props.artifacts.length === 0 ?

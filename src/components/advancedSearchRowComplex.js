@@ -1,5 +1,9 @@
 
 import React, {Component} from 'react';
+import SelectSearchOnOptions from './selectSearchOnOptions';
+import SelectSearchTypeOptions from './selectSearchTypeOptions';
+import InputSearchFor from './inputSearchFor';
+
 
 class AdvancedSearchRowComplex extends Component {
   constructor(props){
@@ -9,9 +13,9 @@ class AdvancedSearchRowComplex extends Component {
       searchParams: {
         searchOp: 'and',
         searchOn: 'anyField',
-        searchType: 'contains',
-        searchFor: "",
-        uid: props.uid || ""
+        searchType: '',
+        searchFor: '',
+        uid: props.uid || ''
       }
     }
 
@@ -20,6 +24,10 @@ class AdvancedSearchRowComplex extends Component {
     this.handleAdvancedSearchChange = this.handleAdvancedSearchChange.bind(this);
     this.pushStateUp = this.pushStateUp.bind(this);
     this.handleTextChange = this.handleTextChange.bind(this);
+    this.handleDateChange = this.handleDateChange.bind(this);
+    this.handleDateChange1 = this.handleDateChange1.bind(this);
+    this.handleDateChange2 = this.handleDateChange2.bind(this);
+
 
   }
 
@@ -44,6 +52,20 @@ class AdvancedSearchRowComplex extends Component {
     e.preventDefault();
     let name = e.target.name;
     let value = e.target.value;
+    if (name === "searchOn") {
+      this.setState(prevState => ({
+        searchParams: {
+          ...prevState.searchParams,
+          [name]: value,
+          searchType: "",
+          searchFor: "",
+          searchFor1: "",
+          searchFor2: ""
+        }
+      }),
+      this.pushStateUp
+    )
+  } else {
     this.setState(prevState => ({
       searchParams: {
         ...prevState.searchParams,
@@ -53,6 +75,7 @@ class AdvancedSearchRowComplex extends Component {
     this.pushStateUp
   )
 }
+}
 
 pushStateUp() {
   this.props.onAdvancedSearchChange(this.state.searchParams, this.props.uid);
@@ -60,124 +83,86 @@ pushStateUp() {
 
 handleTextChange(e) {
   e.preventDefault();
-  var value = e.target.value;
+  let value = e.target.value;
+  let name = e.target.name;
   this.setState(prevState => ({
     searchParams: {
-        ...prevState.searchParams,
-        searchFor: value
+      ...prevState.searchParams,
+      [name]: value
     }
-}))
+  }))
+}
 
+handleDateChange(date) {
+  let unixDate = date.getTime()
+  this.setState(prevState => ({
+    searchParams: {
+      ...prevState.searchParams,
+      date: unixDate
+    }
+  }), this.pushStateUp)
+}
 
+handleDateChange1(date) {
+  let unixDate = date.getTime()
+  this.setState(prevState => ({
+    searchParams: {
+      ...prevState.searchParams,
+      date1: unixDate
+    }
+  }), this.pushStateUp)
+}
+
+handleDateChange2(date) {
+  let unixDate = date.getTime()
+  this.setState(prevState => ({
+    searchParams: {
+      ...prevState.searchParams,
+      date2: unixDate
+    }
+  }), this.pushStateUp)
 }
 
 render() {
 
-  const searchTypes = (this.state.searchParams.searchOn === "anyField") ? (
-    <div className="row" style={FieldRow3}>
-      <select value={this.state.searchParams.searchType} name="searchType" onChange={this.handleAdvancedSearchChange} className="col-sm-12 as-select">
-        <option value="contains">contains</option>
+  return (
+    <div id="extrasearchrow">
+
+      <select value={this.state.searchParams.searchOp} name="searchOp" className="col-sm-3 as-select" onChange={this.handleAdvancedSearchChange}>
+        <option value="and">AND</option>
+        <option value="or">OR</option>
+        <option value="not">NOT</option>
       </select>
-    </div>
-  ) : (
-    <div className="row" style={FieldRow3}>
-      <select value={this.state.searchParams.searchType} name="searchType" onChange={this.handleAdvancedSearchChange} className="col-sm-12 as-select">
-        <option value="contains">contains</option>
-        <option value="isExact">is (exact)</option>
-        <option value="startsWith">starts with</option>
-      </select>
+
+      <SelectSearchOnOptions
+        searchOn={this.state.searchParams.searchOn}
+        onHandleAdvancedSearchChange={this.handleAdvancedSearchChange}
+      />
+
+      <SelectSearchTypeOptions
+        onHandleAdvancedSearchChange={this.handleAdvancedSearchChange}
+        params={this.state.searchParams}
+      />
+
+      <InputSearchFor
+        onHandleTextChange={this.handleTextChange}
+        onHandleAdvancedSearchChange={this.handleAdvancedSearchChange}
+        params={this.state.searchParams}
+        textValue={this.state.searchParams.searchFor}
+        onDateChange={this.handleDateChange}
+        onDateChange1={this.handleDateChange1}
+        onDateChange2={this.handleDateChange2}
+      />
+
+      <div className="row">
+        <button className="remove" onClick={this.handleMinusRowClick}>- Remove row </button>
+        <button className="addparameter" onClick={this.handleAddRowClick}>Add parameter +</button>
+      </div>
+
     </div>
   )
+}
+}
 
 
-  return (
-    <div>
-
-      <div className="row" style={FieldRow2}>
-
-
-        {/* ---------------- AND/OR/NOT ----------------*/}
-        <select value={this.state.searchParams.searchOp} name="searchOp" className="col-sm-3 as-select" onChange={this.handleAdvancedSearchChange}>
-          <option value="and">AND</option>
-          <option value="or">OR</option>
-          <option value="not">NOT</option>
-        </select>
-
-        {/* ---------------- ALL FIELDS ----------------*/}
-        <select value={this.state.searchParams.searchOn} name="searchOn"  onChange={this.handleAdvancedSearchChange} className="col-sm-9 as-select">
-          <option value="anyField">Any Field</option>
-          <option value="microscopist">Microscopist</option>
-          <option value="speciesName">Species</option>
-          <option value="strain">Strain</option>
-          <option value="institution">Institution</option>
-          <option value="lab">Lab</option>
-          <option value="artNotes">Notes</option>
-        </select>
-      </div>
-
-      {/* ---------------- CONTAINS/IS (EXACT)/STARTS WITH ----------------*/}
-      {searchTypes}
-
-      {/* ---------------- TEXT INPUT ----------------*/}
-      <div className="row">
-        <input value={this.state.searchParams.searchFor} style={FieldText} className="input-field1-text" type="text" name="searchFor" onChange={this.handleTextChange} onBlur={this.handleAdvancedSearchChange}  />
-      </div>
-
-      {/* BUTTON TO ADD ADDITIONAL COMPLEX ROW */}
-      <div className="row">
-        <button className="remove"
-          onClick={this.handleMinusRowClick}
-          style={OpButtonStyle}>- Remove row </button>
-
-          <button className="addparameter" onClick={this.handleAddRowClick}
-            style={OpButtonStyle}>Add parameter +</button>
-          </div>
-
-        </div>
-      )
-    }
-  }
-
-  /* ---------------- REACT INLINE STYLES (FEEL FREE TO DELETE/CHANGE) ---------------- */
-  const FieldRow1 = {
-    marginTop: "5px",
-    display: "flex",
-    justifyContent: "flex-start"
-  }
-
-  const FieldText = {
-    width: "100%",
-    marginTop: "9px",
-    background: "none",
-    border: "none",
-    borderBottom: "1px solid black",
-    color: "black",
-    fontSize: "12px"
-  }
-
-  const FieldRow2 = {
-    marginTop: "30px",
-    display: "flex",
-    justifyContent: "flex-start"
-  }
-
-  const FieldRow3 = {
-    marginTop: "10px",
-    display: "flex",
-    justifyContent: "flex-start"
-  }
-
-  const OpButtonStyle = {
-    border: "none",
-    background: "none",
-    color: "black",
-    fontSize: "12px"
-
-  }
-
-  const FlexEnd = {
-    display: "flex",
-    justifyContent: "flex-end"
-  }
-
-  export default AdvancedSearchRowComplex
+export default AdvancedSearchRowComplex
