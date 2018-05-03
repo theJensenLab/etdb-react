@@ -22,21 +22,21 @@ class FAQ extends Component {
     this.getTomograms();
   }
   getTomograms(){
-    this.props.Core.Index.getSupportedArtifacts(this.countTomograms, (error) => {
-      console.error(error)
-    })
+    this.props.Core.Network.OIPdRequest("get", "/research/tomogram/summary", {}, this.countTomograms, console.error)
   }
-  countTomograms(artifacts){
-    this.setState({numberOfTomograms: artifacts.length});
+  countTomograms(info){
+    var numTomos = "(Loading...)";
+    var numSpecies = "(Loading...)";
 
-    var TypesOfSpecies = [];
-    for (var artifact of artifacts){
-      if (artifact.getDetail("speciesName") && TypesOfSpecies.indexOf(artifact.getDetail("speciesName")) === -1){
-        TypesOfSpecies.push(artifact.getDetail("speciesName"))
+    if (info && info.data){
+      numTomos = info.data.total || "(Loading...)";
+      numSpecies = info.data.species || "(Loading...)";
+
+      if (info.data.publishers && info.data.publishers.FTSTq8xx8yWUKJA5E3bgXLzZqqG9V6dvnr){
+        numTomos = info.data.publishers.FTSTq8xx8yWUKJA5E3bgXLzZqqG9V6dvnr
       }
     }
-
-    this.setState({numberOfSpecies: TypesOfSpecies.length});
+    this.setState({numberOfTomograms: numTomos, numberOfSpecies: numSpecies});
   }
   handleSelect(activeKey) {
     if (activeKey !== this.state.activeKey)

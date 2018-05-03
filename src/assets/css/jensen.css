@@ -495,6 +495,25 @@ h4 {
     padding-bottom: 5px;
 }
 
+
+
+description {
+    display: block;
+    color: #2b2b2b;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px !important;
+    font-weight: 100;
+}
+
+.col-sm-12.featured-description {
+    column-count: 2;
+    font-weight: 100;
+}
+
+name i {
+    font-style: normal;
+}
+
 div#faq h6 {
     display: inline-block;
     font-size: 60px;
@@ -582,6 +601,32 @@ div#footer img {
     opacity: .9;
 }
 
+.pagination>li:first-child>a, .pagination>li:first-child>span {
+    margin-left: 0;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border: 0px;
+    background: transparent;
+}
+
+.pagination>li>a, .pagination>li>span {
+    position: relative;
+    float: left;
+    padding: 6px 15px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #000 !important;
+    text-decoration: none;
+    background-color: transparent;
+    border: 0px;
+}
+
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+    background-color: transparent;
+    border-color: #b60000;
+    color: #e5342a !important;
+}
+
 div#footer {
     width:100%;
 
@@ -617,12 +662,25 @@ div#homehero {
   padding-top: 100px;
 }
 
+a.termsandconditions {
+    display: block;
+    color: grey;
+    font-weight: 100;
+    margin-top: 20px;
+    font-size: 12px;
+}
+
 div#homecontent {
     padding-top: 120px;
 }
 
 .row.sort-row b {
     font-weight: 600;
+}
+
+.col-sm-12.tandc p {
+    max-width: 750px;
+    margin-bottom: 20px;
 }
 
 a.browse { 
@@ -641,6 +699,7 @@ a.browse {
 a.browse:hover {
   background: #e5342a;
   color: #fff;
+  opacity: 1;
 }
 
 div#homehero h1 {
@@ -750,15 +809,25 @@ div#return1 {
 }
 
 a.topretur {
-    color: #fff;
+    color: #000;
     text-align: right;
     float: right;
     margin-bottom: 10px;
     float: right;
-    font-size: 12px;
-    background: #000;
-    padding: 2px 10px;
-    border: 0px !important;
+    font-size: 13px;
+    background: transparent;
+    padding: 5px 15px;
+    border: 2px solid #000 !important;
+}
+
+name2 {
+    color: #000;
+    font-size: 14px;
+}
+
+div#goarrow {
+    float: right;
+    color: #000;
 }
 
 p.note {
@@ -878,6 +947,12 @@ div#about h2 a {
 
 /* Advanced Search
 -------------------------------------------------------------- */
+.col-sm-12 h5 {
+    text-align: right;
+    margin-right: 32px;
+    font-family: muli;
+    text-transform: none;
+}
 
 const FieldRow1  {
     marginTop: 5px;
@@ -1034,6 +1109,12 @@ div#tomogramcell name {
 div#searchresultsgrid .col-sm-3:hover {
     background: #d4d3ce;
     opacity: 1;
+}
+
+div#featured .col-sm-3:hover {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #d4d3ce;
 }
 
 div#searchresultsgrid {
@@ -1530,9 +1611,19 @@ div#featured img {
 div#featured name {
     color: #000;
     border-bottom: 0px;
-    text-align: center;
-    font-size: 17px;
+    text-align: left;
+    font-size: 16px;
     font-family: muli;
+    font-weight: bold;
+    float: left;
+}
+
+div#featured .col-sm-2 {
+    margin: 0px 4px 50px;
+    padding: 10px;
+    width: 16%;
+    padding-top: 10px;
+    background: #EFEEE9;
 }
 
 div#featured .col-sm-3 {
