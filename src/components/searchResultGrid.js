@@ -106,6 +106,7 @@ class SearchResultGrid extends Component {
   }
 
   render() {
+    console.log("props", this.props)
     window.scrollTo(0,0)
 
     var artifacts = [];
