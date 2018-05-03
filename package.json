@@ -34,7 +34,7 @@
     "filesize": "^3.6.1",
     "history": "^4.7.2",
     "moment": "^2.22.0",
-    "oip-js": "1.1.17",
+    "oip-js": "1.1.20",
     "react": "^16.2.0",
     "react-bootstrap": "^0.32.1",
     "react-date-picker": "^6.10.1",
