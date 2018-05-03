@@ -33,7 +33,7 @@ class SelectSearchOnOptions extends Component {
         <option value="tiltMax">TiltMax</option>
         <option value="tiltStep">TiltStep</option>
         <option value="sid">Internal ID</option>
-        <option value="NBCItaxID">NBCI Taxonomy ID</option>
+        <option value="NCBItaxID">NCBI Taxonomy ID</option>
         <option value="artNotes">Notes</option>
       </select>
     )

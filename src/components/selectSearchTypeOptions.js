@@ -73,7 +73,7 @@ class SelectSearchTypeOptions extends Component {
       case "institution":
       case "lab":
       case "sid":
-      case "NBCItaxID":
+      case "NCBItaxID":
       case "artNotes":
         return defaultSelectTypeOptions;
       case "scopeName":

@@ -58,7 +58,7 @@ class TomogramView extends Component {
 		this.setState({artifact: artifact});
 	}
 	render(){
-		let title = "loading...", timestamp, description, strain, speciesName, date, NBCItaxID, artNotes, tiltSingleDual, files = [], thumbnail, thumbFilename, video, videoFilename, location, defocus, niceDate, acquisitionSoftware = "No info available", processingSoftware = "No info available", institution, lab, microscopist, scopeName, magnification, tiltSeriesSettingsString, txid, hashtags, snapshots = []
+		let title = "loading...", timestamp, description, strain, speciesName, date, NCBItaxID, artNotes, tiltSingleDual, files = [], thumbnail, thumbFilename, video, videoFilename, location, defocus, niceDate, acquisitionSoftware = "No info available", processingSoftware = "No info available", institution, lab, microscopist, scopeName, magnification, tiltSeriesSettingsString, txid, hashtags, snapshots = []
 
 		hashtags = ["ETDB", "ElectronTomography"]
 
@@ -108,7 +108,7 @@ class TomogramView extends Component {
 
 			date = this.state.artifact.getDetail("date");
 			niceDate = moment.utc(date * 1000).calendar(null, {sameElse: "MMMM Do YYYY"});
-			NBCItaxID = this.state.artifact.getDetail("NBCItaxID");
+			NCBItaxID = this.state.artifact.getDetail("NCBItaxID");
 			artNotes = this.state.artifact.getDetail("artNotes");
 			strain = this.state.artifact.getDetail("strain");
 			speciesName = this.state.artifact.getDetail("speciesName");
