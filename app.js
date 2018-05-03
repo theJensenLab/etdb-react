@@ -17,7 +17,6 @@ import './src/assets/css/custom.css'
 import { OIPJS } from 'oip-js';
 
 var Core = OIPJS({
-	"OIPdURL": "https://snowflake.oip.fun/alexandria/v2",
 	"indexFilters": {
 		"publisher": "FTSTq8xx8yWUKJA5E3bgXLzZqqG9V6dvnr"
 	}

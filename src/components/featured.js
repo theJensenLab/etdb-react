@@ -24,7 +24,7 @@ class Featured extends Component {
 		this.getTomograms();
 	}
 	getTomograms(){
-		this.props.Core.Index.getSupportedArtifacts((this.storeTomograms), (error) => {
+		this.props.Core.Index.getArtifacts("*", this.storeTomograms, (error) => {
 			console.error(error)
 		})
 	}
@@ -87,7 +87,7 @@ class Featured extends Component {
 						return <div className="col-sm-3">
 							<a href={"/featured/" + type.section}>
 								<img className="results-thumb" src={"https://etdb.caltech.edu/ipfs/" + thumbnailLocation + "/" + thumbnailFilename}/>
-								<name>{type.name}</name>
+								<name>{type.name}</name> <div id="goarrow"><i className="fas fa-arrow-right"></i></div>
 							</a>
 						</div>
 					})}
