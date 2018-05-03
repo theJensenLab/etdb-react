@@ -29,9 +29,9 @@ class SortValueButton extends Component {
     this.setState({sortStatus: sortStatus}, () => this.pushStateUp(name))
   }
 
-  pushStateUp() {
-    console.log(name);
-    // this.props.onSortButtonChange(name, sortStatus)
+  pushStateUp(name) {
+    // console.log(name);
+    this.props.onSortButtonChange(name, this.state.sortStatus)
   }
 
   flipArrow(sortStatus) {
@@ -50,13 +50,20 @@ class SortValueButton extends Component {
     const buttonName = this.props.name;
     const buttonValue = this.props.buttonValue;
 
+    const button = (sortValue === buttonName) ? (
+      <b><button name={buttonName} className="sortButton" onClick={this.handleSortButtonChange}>
+        {buttonValue} {this.flipArrow(this.state.sortStatus)}
+      </button></b>
+    ) : (
+      <button name={buttonName} className="sortButton" onClick={this.handleSortButtonChange}>
+        {buttonValue}
+      </button>
+    )
 
     return (
       <div className="row sort-row">
         <div className="col">
-          <button name={buttonName} className="sortButton" onClick={this.handleSortButtonChange}>
-            {buttonValue} {this.flipArrow(this.state.sortStatus)}
-          </button>
+          {button}
         </div>
       </div>
     )
