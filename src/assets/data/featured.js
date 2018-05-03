@@ -33,7 +33,7 @@ module.exports = {
            "lab": "Jensen Lab", 
            "sid": "ms2012-05-07-13"
         },
-        "detailOne": "All cells are separated from their environment by at least one selectively permeable membrane.  To buttress this membrane against turgor pressure, most bacteria use a cell wall made of carbohydrate – long glycan strands crosslinked by short peptides to form a rigid peptidoglycan sacculus.  Monoderms have one membrane and a thick multi-layered sacculus.  Diderms have two membranes, an inner and an outer, with a thin sacculus sandwiched in between.  Here are some examples of these different architectures:",
+        "detailOne": "All cells are separated from their environment by at least one selectively permeable membrane.  To buttress this membrane against turgor pressure, most bacteria use a cell wall made of carbohydrate – long glycan strands crosslinked by short peptides to form a rigid peptidoglycan (PG) sacculus.  Monoderms have one membrane and a thick multi-layered sacculus.  Diderms have two membranes, an inner and an outer, with a thin sacculus sandwiched in between.  Here are some examples of these different architectures:",
         "detailTwo": "",
         "artifacts": [
            {

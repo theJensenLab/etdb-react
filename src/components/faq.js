@@ -51,7 +51,7 @@ class FAQ extends Component {
         <a name="faq"></a>
         
         <div id="faq">
-          <h3>Facts & Questions</h3>
+          <h3>FAQs</h3>
           <PanelGroup accordion activeKey={this.state.activeKey} id="faqPanel">
             <Panel eventKey='1'>
               <Button onClick={() => this.handleSelect('1')} className="accordion">What is this database?</Button>
@@ -88,9 +88,7 @@ class FAQ extends Component {
             <Panel eventKey='6'>
               <Button onClick={() => this.handleSelect('6')} className="accordion">How do I cite data in this database?</Button>
               <Panel.Body collapsible>
-                <p>These tomograms helped reveal the existence and variety of prokaryotic cytoskeletons and many of the macromolecular machines that power motility, warfare, and other complex behaviors of bacterial and archaeal cells. </p>
-
-                <p>By making these tomograms publicly available, we hope to encourage the scientific community to use them for further discovery. Check out our Scientific Challenges page here for what we think are particularly ripe areas for advancement.</p>
+                <p>Please cite Ortega et al. (manuscript in preparation, check back soon) </p>
               </Panel.Body>
             </Panel>
           </PanelGroup>
