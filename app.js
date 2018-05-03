@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import {
-  BrowserRouter
+  Router
 } from 'react-router-dom'
 import ReactDOM from 'react-dom';
-import Analytics from 'react-router-ga';
+import MatomoReactRouter from 'piwik-react-router';
+import createBrowserHistory from 'history/createBrowserHistory'
 
 import AppRoutes from './src/components/appRoutes.js';
 
@@ -16,20 +17,25 @@ import './src/assets/css/custom.css'
 
 import { OIPJS } from 'oip-js';
 
+var history = createBrowserHistory();
+
 var Core = OIPJS({
 	"indexFilters": {
 		"publisher": "FTSTq8xx8yWUKJA5E3bgXLzZqqG9V6dvnr"
 	}
 });
 
+var Matomo = MatomoReactRouter({
+	url: 'https://etdb.caltech.edu/matomo',
+	siteId: 1
+});
+
 class App extends Component {
 	render(){
 		return(
-			<BrowserRouter>
-				<Analytics id="UA-117866137-1" debug>
-					<AppRoutes Core={Core} />
-				</Analytics>
-			</BrowserRouter>
+			<Router history={Matomo.connectToHistory(history)}>
+				<AppRoutes Core={Core} />
+			</Router>
 		)
 	}
 }
