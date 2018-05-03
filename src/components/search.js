@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import AdvancedSearchGrid from './advancedSearchGrid'
 import AdvancedSearchButton from './advancedSearchButton'
+import SubmitAdvancedSearch from './submitAdvancedSearch'
 
 class Search extends Component {
   constructor(props){
@@ -67,7 +68,7 @@ class Search extends Component {
       <input
         className="form-control"
         type="text"
-        onChange={this.handleFilterTextChange}
+        onBlur={this.handleFilterTextChange}
         value={this.props.filterText}
         placeholder="Search for..."
       />
@@ -77,6 +78,7 @@ class Search extends Component {
       <div>
         <AdvancedSearchButton onToggleAdvancedSearch={this.handleToggleAdvancedSearch} />
         {searchGrid}
+        {advancedSearchToggleBool ? "" : <SubmitAdvancedSearch />}
       </div>
     )
   }
