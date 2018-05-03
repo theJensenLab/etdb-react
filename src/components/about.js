@@ -11,7 +11,7 @@ class About extends Component {
 				<Header />
 			<div className="row" id="featured-2">
 				  <div className="col-sm-8">
-				    <h2>Welcome to the Caltech ETDB, the blockchain-based Web 3.0 database of 10,000+ electron tomograms. </h2>
+				    <h2>Welcome to the Caltech ETDB, the blockchain-based Web 3.0 database of thousands of electron tomograms. </h2>
 				  </div>
 				</div>
                 <div id="space50"></div>
@@ -33,46 +33,44 @@ class About extends Component {
 				      <h3>By making this data available, we hope others will use it to fuel their own discoveries.  </h3>
 				      <div id="reddiv"></div>
 				      <p>In addition to its value for cell biologists, the ETDB offers a massive dataset for software developers to develop, test and improve image processing algorithms. We have some ideas for areas particularly ripe for improvement; check them out on the Scientific Challenges page.</p>
-                      <a className="browse" href="/challenges">View challenges <i className="fa fa-arrow-right" aria-hidden="true"></i></a>
+             <a className="browse" href="/challenges">View challenges <i className="fa fa-arrow-right" aria-hidden="true"></i></a>
 				    </div>
 				  </div>
-            <div className="col-sm-6">
-							<img src="/src/assets/img/challenges.png"/>
-						</div>
-
+          <div className="col-sm-6">
+						<img src="/src/assets/img/challenges.png"/>
+					</div>
 				</div>
 				<div className="row aboutintro" id="about">
-                
 				  <div className="col-sm-6">
               <h3>Built with Blockchain</h3>			  		 
 				      <div id="reddiv"></div>
-				      <p> A blockchain uses peer-to-peer networking to achieve network consensus without central points of failure, making it a public digital ledger which anyone can contribute to or audit, and no one can alter. The <a target="blank" href="https://ipfs.io/">Inter Planetary File System (IPFS)</a> is a file transport protocol and network designed to create a content-addressable, peer-to-peer method of storing and sharing content in a distributed file system.</p>
+							<p>ETDB is an experiment in distributing large scientific datasets using the OIP specification. The addresses of the tomograms, and their corresponding metadata, are stored in the public FLO blockchain and the tomogram files are stored in the IPFS network. While etdb.caltech.edu offers one way to access the database, users are free to create their own applications to retrieve and interact with the data.</p>
+							
+							<p> A blockchain uses peer-to-peer networking to achieve network consensus without central points of failure, making it a public digital ledger which anyone can contribute to or audit, and no one can alter.</p>
 					</div>
 				  <div className="col-sm-6">
 				    <div>      
-							<p>The <a target="blank" href="https://oip.wiki/Main_Page">Open Index Protocol (OIP)</a> specification defines standard use of these technologies; it uses the <a target="blank" href="https://flo.cash">FLO blockchain</a> to index metadata and IPFS to store files. The OIP system includes a transparent index, persistent file storage and permissionless access. The result is a robust, decentralized database open to anyone through open-source software.</p>
+							<p>The <a target="blank" href="https://ipfs.io/">Inter Planetary File System (IPFS)</a> is a file transport protocol and network designed to create a content-addressable, peer-to-peer method of storing and sharing content in a distributed file system.</p>
 
-							<p>ETDB is an experiment in distributing large scientific datasets using the OIP specification. The addresses of the tomograms, and their corresponding metadata, are stored in the public FLO blockchain and the tomogram files are stored in the IPFS network. While etdb.caltech.edu offers one way to access the database, users are free to create their own applications to retrieve and interact with the data.</p>
+							<p>The <a target="blank" href="https://oip.wiki/Main_Page">Open Index Protocol (OIP)</a> specification defines standard use of these technologies; it uses the <a target="blank" href="https://flo.cash">FLO blockchain</a> to index metadata and IPFS to store files. The OIP system includes a transparent index, persistent file storage and permissionless access. The result is a robust, decentralized database open to anyone through open-source software.</p>
 				    </div>
 				  </div>
 				</div>
 				<div className="row" id="about">
 				  <div className="col-sm-6">
-                  <img src="/src/assets/img/labshot.png"/>
+            <img src="/src/assets/img/labshot.png"/>
 				  </div>
-
-                  <div className="col-sm-6"> <div>
-				      <h3>Learning more</h3>
-				      <div id="reddiv"></div>
-				      <p>If you are interested in learning more about tomograms, this database and other research conducted by the Jensen Lab please <a href="/contact">get in touch</a></p>
-                      <p>Many of these datasets have been used in studies resulting in scientific publications. You can view a list of these publications on the <a target="blank" href="/src/assets/img/learn-more.png">Jensen Lab</a> website.
-</p>
-                      <a className="browse" href="http://www.jensenlab.caltech.edu">Jensen Lab <i className="fa fa-arrow-right" aria-hidden="true"></i></a>
-				    </div>			  		
-</div>
+					<div className="col-sm-6"> <div>
+						<h3>Learning more</h3>
+						<div id="reddiv"></div>
+							<p>If you are interested in learning more about electron tomography, this database, or other research conducted by the Jensen Lab please <a href="/contact">get in touch</a></p>
+							<p>Many of these datasets have been used in studies resulting in scientific publications. You can view a list of these publications on the <a target="blank" href="http://www.jensenlab.caltech.edu/publications">Jensen Lab</a> website.</p>
+							<a className="browse" href="http://www.jensenlab.caltech.edu">Jensen Lab <i className="fa fa-arrow-right" aria-hidden="true"></i></a>
+					</div>			  		
+					</div>
 				</div>
 				<a name="FAQ"></a> 
-                <FAQ Core={this.props.Core} />
+        <FAQ Core={this.props.Core} />
 				<Footer />
 			</div>
 		)

@@ -11,7 +11,6 @@ class Filter extends Component {
     this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
     this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
     this.handleSortButtonChange = this.handleSortButtonChange.bind(this);
-    this.handleFlipSortChange = this.handleFlipSortChange.bind(this);
     this.handleAdvancedSearchChange = this.handleAdvancedSearchChange.bind(this);
     this.handleToggleAdvancedSearch = this.handleToggleAdvancedSearch.bind(this);
     this.deleteRowParamsFromState = this.deleteRowParamsFromState.bind(this);
@@ -30,12 +29,8 @@ class Filter extends Component {
   }
 
 
-  handleSortButtonChange(value) {
-    this.props.onSortButtonChange(value);
-  }
-
-  handleFlipSortChange() {
-    this.props.onFlipSortChange();
+  handleSortButtonChange(name, sortStatus) {
+    this.props.onSortButtonChange(name, sortStatus);
   }
 
   handleAdvancedSearchChange(searchParams){
@@ -81,10 +76,10 @@ class Filter extends Component {
        <div id="smline"></div>
         <div className="sortButton">
           {/* <SortValueButton buttonValue="Views" name={VIEWS} sortValue={this.props.sortValue} onSortButtonChange={this.handleSortButtonChange} onFlipSortChange={this.handleFlipSortChange} flipSort={this.props.flipSort} /> */}
-          <SortValueButton buttonValue="Specimen" name={SPECIMEN} sortValue={this.props.sortValue} onSortButtonChange={this.handleSortButtonChange} onFlipSortChange={this.handleFlipSortChange} flipSort={this.props.flipSort} />
-          <SortValueButton buttonValue="Microscopist" name={MICROSCOPIST} sortValue={this.props.sortValue} onSortButtonChange={this.handleSortButtonChange} onFlipSortChange={this.handleFlipSortChange} flipSort={this.props.flipSort} />
-          <SortValueButton buttonValue="Last Modifed" name={LAST_MODIFIED} sortValue={this.props.sortValue} onSortButtonChange={this.handleSortButtonChange} onFlipSortChange={this.handleFlipSortChange} flipSort={this.props.flipSort} />
-          <SortValueButton buttonValue="Date Taken" name={DATE_TAKEN} sortValue={this.props.sortValue} onSortButtonChange={this.handleSortButtonChange} onFlipSortChange={this.handleFlipSortChange} flipSort={this.props.flipSort} />
+          <SortValueButton buttonValue="Specimen" name={SPECIMEN} sortValue={this.props.sortValue} onSortButtonChange={this.handleSortButtonChange} />
+          <SortValueButton buttonValue="Microscopist" name={MICROSCOPIST} sortValue={this.props.sortValue} onSortButtonChange={this.handleSortButtonChange} />
+          <SortValueButton buttonValue="Last Modifed" name={LAST_MODIFIED} sortValue={this.props.sortValue} onSortButtonChange={this.handleSortButtonChange} />
+          <SortValueButton buttonValue="Date Taken" name={DATE_TAKEN} sortValue={this.props.sortValue} onSortButtonChange={this.handleSortButtonChange} />
         </div>
         </div>
 
