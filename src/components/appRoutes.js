@@ -13,7 +13,7 @@ import Featured from './featured.js';
 import Browse from './browse.js';
 import TomogramView from './tomogramView.js';
 import FeaturedCollection from './FeaturedCollection.js'
-import termsAndConditions from './termsAndConditions.js'
+import TermsAndConditions from './termsAndConditions.js'
 import NotFoundPage from './NotFoundPage.js'
 
 
@@ -28,7 +28,7 @@ class AppRoutes extends Component {
 				<Route path="/browse" render={props => <Browse Core={this.props.Core} {...props} />} />
 				<Route path="/tomogram/:id" render={props => <TomogramView Core={this.props.Core} {...props} />} />
 				<Route path="/featured/:id" render={props => <FeaturedCollection Core={this.props.Core} {...props} />} />
-				<Route path="/terms" render={props => <termsAndConditions Core={this.props.Core} {...props} />} />
+				<Route path="/terms" render={props => <TermsAndConditions Core={this.props.Core} {...props} />} />
 
                 <Route path="/" exact render={props => <Home Core={this.props.Core} {...props} />} />
 
