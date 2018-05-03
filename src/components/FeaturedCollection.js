@@ -114,43 +114,7 @@ class FeaturedCollection extends Component {
 					</div>
 				</div>
 
-                	<div className="row" id="featured">
-					{/* This line below should be uncommented out once the OIPd Advanced search is working.
-					featuredTypes.map((type, i) => <FeaturedCell Core={this.props.Core} tomogram={type.thumbnail} url={"/featured/" + type.section} title={type.name} description={type.description} />)
-					*/}
-					{this.state.artifacts.length === 0 ?
-					<center style={{marginTop: "50px", marginBottom: "0px", width: "50%", marginLeft: "auto", marginRight: "auto"}}>
-			            <BarLoader
-			              color={'#e5342a'}
-			              width={-1}
-			              loading={true}
-			            />
-			        </center>
-					: featuredTypes.map((type, i) => {
-						var matchedTomogram = undefined;
-						var thumbnailLocation = "QmevjEoYtXtDBvjBFhxLuHaPHghdpPSChSvg64CWisGJEV"; // Default
-						var thumbnail = undefined;
-						var thumbnailFilename = "keyimg_pd2004-07-30-2.jpg"; // Default
-
-						for (var artifact of this.state.artifacts){
-							if (artifact.getDetail("institution") === type.thumbnail.institution
-									&& artifact.getDetail("lab") === type.thumbnail.lab
-									&& artifact.getDetail("sid") === type.thumbnail.sid){
-								matchedTomogram = artifact;
-								thumbnailLocation = artifact.getLocation();
-								thumbnail = artifact.getThumbnail();
-								thumbnailFilename = thumbnail.getFilename();
-							}
-						}
-
-						return <div className="col-sm-2">
-							<a href={"/featured/" + type.section}>
-								<img className="results-thumb" src={"https://etdb.caltech.edu/ipfs/" + thumbnailLocation + "/" + thumbnailFilename}/>
-								<div id="name-more-featured"><name>{type.name}</name></div> <div id="goarrow"><i className="fas fa-arrow-right"></i></div>
-							</a>
-						</div>
-					})}
-				</div>
+               
 
 
 				<Footer />
