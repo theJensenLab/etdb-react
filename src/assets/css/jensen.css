@@ -301,7 +301,7 @@ div#menu a:before {
 
 div#menu a {
     color: #2b2b2b;
-    margin: 0 30px;
+    margin: 0 20px;
     position: relative;
 
   text-decoration: none;
@@ -664,9 +664,9 @@ div#homehero {
 
 a.termsandconditions {
     display: block;
-    color: grey;
+    color: #bbb;
     font-weight: 100;
-    margin-top: 20px;
+    margin-top: 6px;
     font-size: 12px;
 }
 
@@ -1157,8 +1157,7 @@ div#searchresultsgrid .col-sm-3:hover {
 }
 
 div#featured .col-sm-3:hover {
-    margin-bottom: 30px;
-    padding: 20px;
+   
     background: #d4d3ce;
 }
 
@@ -1222,6 +1221,12 @@ div#photocredit {
     left: 222px;
     font-size: 12px;
     font-style: italic;
+}
+
+div#featured-3 p a {
+    color: #000;
+    text-decoration: underline;
+    font-weight: 500;
 }
 
 .contactrow {
@@ -1657,7 +1662,7 @@ div#featured name {
     color: #000;
     border-bottom: 0px;
     text-align: left;
-    font-size: 16px;
+    font-size: 15px;
     font-family: muli;
     font-weight: bold;
     float: left;
@@ -1674,13 +1679,13 @@ div#featured .col-sm-2 {
 div#featured .col-sm-3 {
     margin-bottom: 30px;
     background: #EFEEE9;
-    width: 24%;
-    margin: 5px;
+    width: 22%;
+    margin: 0px 15px;
 }
 
 div#featured .col-sm-3 {
     margin-bottom: 30px;
-    padding: 20px;}
+    padding: 15px;}
 
 a.back {
     background: #EFEEE9;
@@ -1736,7 +1741,8 @@ h3.contact {
 }
 
 
-@media only screen and (max-width: 700px) {
+
+@media only screen and (max-width: 1000px) {
     div#searchresultsgrid .col-sm-3 {
         padding-bottom: 5px;
         padding-top: 10px;

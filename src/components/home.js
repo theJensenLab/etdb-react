@@ -42,7 +42,7 @@ class Home extends Component {
 				<div id="headerfixed">
 				  <div className="transparent" id="topbar">
 				    <div className="row">
-				      <div className="col-sm-6"><a href="./index.js"></a><img className="black-logo" src={logo} /></div>
+				      <div className="col-sm-6"><a href="./index.js">   <img className="black-logo" src={logo} /> </a> </div>
 				      <div className="col-sm-6">
 				        <div id="menu">
 			          	<a href="/about">About</a>
@@ -57,7 +57,6 @@ class Home extends Component {
 				</div>
 				<div id="home-image">
 				  <div id="home-image-container"><img src={homePic} />
-                  <div id="photocredit">Matt Swulius using the Caltech Polara microscope</div>
                   </div>
 				</div>
 				<div className="row" id="homecontent">
