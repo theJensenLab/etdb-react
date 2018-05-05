@@ -42,7 +42,7 @@ class Home extends Component {
 				<div id="headerfixed">
 				  <div className="transparent" id="topbar">
 				    <div className="row">
-				      <div className="col-sm-6"><a href="./index.js">   <img className="black-logo" src={logo} /> </a> </div>
+				      <div className="col-sm-6"><a href="./index.js">   <img class="black-logo" src="/src/assets/img/logo.png"/></a> </div>
 				      <div className="col-sm-6">
 				        <div id="menu">
 			          	<a href="/about">About</a>
