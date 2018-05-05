@@ -25,8 +25,8 @@ class Header extends Component {
 		return(
 		  <div id="headerfixed">
 		    <div id="topbar">
-		      <div className="row">
-		        <div className="col-sm-3"><Link to="/"><img src="/src/assets/img/logo.png"/><img className="black-logo" src={logo}/>
+		      <div className="row"> 
+		        <div className="col-sm-3"><Link to="/"><img class="black-logo" src="/src/assets/img/logo.png"/>
                  </Link></div>
 		        <div className="col-sm-9">
 		          <div id="menu">
