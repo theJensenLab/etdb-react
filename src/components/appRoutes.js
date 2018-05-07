@@ -26,7 +26,7 @@ class AppRoutes extends Component {
 				<Route path="/featured" exact render={props => <Featured Core={this.props.Core} {...props} />} />
                 <Route path="/challenges" render={props => <Challenges Core={this.props.Core} {...props} />} />
 				<Route path="/browse" render={props => <Browse Core={this.props.Core} {...props} />} />
-				<Route path="/tomogram/:id" render={props => <TomogramView Core={this.props.Core} {...props} />} />
+				<Route path="/tomogram/:id" render={props => <TomogramView Core={this.props.Core} history={this.props.history} {...props} />} />
 				<Route path="/featured/:id" render={props => <FeaturedCollection Core={this.props.Core} {...props} />} />
 				<Route path="/terms" render={props => <TermsAndConditions Core={this.props.Core} {...props} />} />
 
