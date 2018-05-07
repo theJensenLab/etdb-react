@@ -508,6 +508,7 @@ description {
     column-count: 2;
     font-weight: 100;
     column-gap: 65px;
+    text-align: justify;
 }
 
 name i {
