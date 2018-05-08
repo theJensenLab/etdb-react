@@ -504,6 +504,10 @@ description {
     font-weight: 100;
 }
 
+div#about h3 {
+    font-weight: normal;
+}
+
 .col-sm-12.featured-description {
     column-count: 2;
     font-weight: 100;
@@ -1373,6 +1377,44 @@ tr .btn-primary {
     margin: 0px;
     font-size: 10px !important;
     width: 100%;
+    background: #ffffff;
+}
+
+div#about .btn-primary {
+    text-decoration: none;
+    background: #fff;
+    padding: 10px 25px;
+    font-size: 14px;
+}
+
+div#about h6 {
+    font-family: muli;
+    letter-spacing: 1px;
+    line-height: 1.7;
+    margin-bottom: 0px;
+    display: inline-block;
+    font-weight: normal;
+    font-size: 20px;
+}
+
+p.app-meta {
+    margin-bottom: 0px !important;
+}
+
+p.app-meta b {
+    font-weight: 400;
+}
+
+a.appdownload {
+    display: block;
+    font-weight: 100 !important;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+div#about .btn-primary:hover {
+    background: #e5342a;
+    opacity: 1;
 }
 
 div#singletomograminfo .col-sm-6 {

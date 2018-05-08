@@ -15,6 +15,7 @@ import TomogramView from './tomogramView.js';
 import FeaturedCollection from './FeaturedCollection.js'
 import TermsAndConditions from './termsAndConditions.js'
 import NotFoundPage from './NotFoundPage.js'
+import Thirdpartyapps from './thirdpartyapps.js'
 
 
 class AppRoutes extends Component {
@@ -29,6 +30,7 @@ class AppRoutes extends Component {
 				<Route path="/tomogram/:id" render={props => <TomogramView Core={this.props.Core} history={this.props.history} {...props} />} />
 				<Route path="/featured/:id" render={props => <FeaturedCollection Core={this.props.Core} {...props} />} />
 				<Route path="/terms" render={props => <TermsAndConditions Core={this.props.Core} {...props} />} />
+				<Route path="/thirdpartyapps" render={props => <Thirdpartyapps Core={this.props.Core} {...props} />} />
 
                 <Route path="/" exact render={props => <Home Core={this.props.Core} {...props} />} />
 
