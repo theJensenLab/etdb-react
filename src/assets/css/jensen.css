@@ -721,7 +721,13 @@ div#homesecondary {
     position: absolute;
     right: 0;
     top: 0;
-    padding: 150px 50px 30px;
+    padding: 100px 50px 30px;
+}
+
+img.home-logo {
+    max-width: 100px;
+    margin-top: 30px;
+    margin-right: 30px;
 }
 
 div#row33 {
@@ -1090,9 +1096,7 @@ button.sortButton:hover {
 }
 
 .transparent img.black-logo {
-    position: fixed;
-    bottom: 17px;
-    right: 20px;
+display: none;
 }
 
 .as-select {

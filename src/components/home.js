@@ -68,6 +68,7 @@ class Home extends Component {
 				      <h6>A public repository featuring {this.state.numberOfTomograms} electron tomography datasets of intact bacterial and archaeal cells, representing {this.state.numberOfSpecies} species.</h6>
 				      <a className="browse" href="/browse">Browse database <i className="fa fa-arrow-right" aria-hidden="true"></i></a>
 				   <a class="termsandconditions" href="/terms">View our terms and conditions</a>
+                   <img className="home-logo" src={logo}/> <img className="home-logo" src={logo}/> <img className="home-logo" src={logo}/>
                     </div>
 				  </div>
 				</div>
