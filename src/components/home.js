@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 
 import logo from '../assets/img/etdb-logo.png'
 import homePic from '../assets/img/etdb-home.png'
+import etdbcaltech from '../assets/img/etdbcaltech.png'
+import flo from '../assets/img/flo.png'
 
 class Home extends Component {
 	constructor(props){
@@ -63,15 +65,18 @@ class Home extends Component {
 				  <div className="col-sm-6" id="homehero"></div>
 				  <div className="col-sm-6" id="homesecondary">
 				    <div>
-                        <h4>Welcome to the</h4>
+                    <img class="home-logo" src={etdbcaltech}/> 
+
 				      <h3>Caltech Electron Tomography Database</h3>
 				      <h6>A public repository featuring {this.state.numberOfTomograms} electron tomography datasets of intact bacterial and archaeal cells, representing {this.state.numberOfSpecies} species.</h6>
 				      <a className="browse" href="/browse">Browse database <i className="fa fa-arrow-right" aria-hidden="true"></i></a>
 				   <a class="termsandconditions" href="/terms">View our terms and conditions</a>
-                   <img className="home-logo" src={logo}/> <img className="home-logo" src={logo}/> <img className="home-logo" src={logo}/>
                     </div>
+                    <div class="home-footer">Powered by:  <img class="home-footer-img" src={flo}/> 
+</div>
 				  </div>
 				</div>
+               
 			</div>
 		)
 	}
