@@ -32,9 +32,10 @@ var Matomo = MatomoReactRouter({
 
 class App extends Component {
 	render(){
+		var matHistory = Matomo.connectToHistory(history);
 		return(
-			<Router history={Matomo.connectToHistory(history)}>
-				<AppRoutes Core={Core} />
+			<Router history={matHistory}>
+				<AppRoutes Core={Core} history={matHistory} />
 			</Router>
 		)
 	}

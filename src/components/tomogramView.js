@@ -155,7 +155,7 @@ class TomogramView extends Component {
 					<div id="reddiv"> </div>
 				</div>
 				<div className="col-sm-6">
-                <div id="return1"> <a className="topretur" href="/browse"><i class="fas fa-arrow-left"></i>     Return to database</a></div>
+                <div id="return1"> <button className="topretur" onClick={() => this.props.history.goBack()}><i class="fas fa-arrow-left"></i> Back </button></div>
                         <div id="share">
 								<p>
 									<b>Share:</b>
