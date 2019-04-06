@@ -72,7 +72,7 @@ class Home extends Component {
 				      <a className="browse" href="/browse">Browse database <i className="fa fa-arrow-right" aria-hidden="true"></i></a>
 				   <a class="termsandconditions" href="/terms">View our terms and conditions</a>
                     </div>
-                    <div class="home-footer">Powered by:  <img class="home-footer-img" src={flo}/> 
+                    <div class="home-footer">Powered by:<img class="home-footer-img" src={flo}/> 
 </div>
 				  </div>
 				</div>
