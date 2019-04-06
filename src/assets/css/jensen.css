@@ -721,7 +721,21 @@ div#homesecondary {
     position: absolute;
     right: 0;
     top: 0;
-    padding: 150px 50px 30px;
+    padding: 100px 50px 30px;
+}
+
+img.home-logo {
+    max-width: 180px;
+    margin-top: 30px;
+    margin-right: 30px;
+}
+
+.home-footer {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    max-width: 300px;
+    text-align: center;
 }
 
 div#row33 {
@@ -1090,9 +1104,12 @@ button.sortButton:hover {
 }
 
 .transparent img.black-logo {
-    position: fixed;
-    bottom: 17px;
-    right: 20px;
+display:none;}
+
+img.home-footer-img {
+    width: 120px;
+    display: block;
+    margin-top: 10px;
 }
 
 .as-select {
