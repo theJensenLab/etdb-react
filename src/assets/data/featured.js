@@ -119,13 +119,13 @@ module.exports = {
            {
               "institution": "Caltech", 
               "lab": "Jensen Lab", 
-              "sid": "pd2005-04-29-2",
+              "sid": "ab2005-04-14-3",
               "description": "Vibrioid"
            },
            {
               "institution": "Caltech", 
               "lab": "Jensen Lab", 
-              "sid": "zl2008-07-07-8",
+              "sid": "zl2008-05-12-13",
               "description": "Square"
            },
            {
@@ -142,16 +142,16 @@ module.exports = {
         "thumbnail": {
            "institution": "Caltech", 
            "lab": "Jensen Lab", 
-           "sid": "yc2013-05-01-10"
+           "sid": "gm2006-09-13-3"
         },
-        "detailOne": "The genome of bacterial and archaeal cells is highly organized to pack inside the cell. In certain conditions, it is visible by electron tomography. For instance, when cells are in a state of minimal transcription, like in this attack phase Bdellovibrio bacteriovorus, the nucleoid is highly condensed. In this dividing Hyphomonas neptunium cell, you can see supercoiled DNA being segregated through the narrow stalk into the budding daughter.",
+        "detailOne": "The genome of bacterial and archaeal cells is highly organized to pack inside the cell. In certain conditions, the condensed nucleoid is visible by electron tomography as a cytoplasmic region that excludes large macromolecular complexes like ribosomes. In Hyphomonas neptunium, which divide by budding, you can see supercoiled DNA being segregated through the narrow stalk into the daughter cell.",
         "detailTwo": "",
         "artifacts": [
            {
               "institution": "Caltech", 
               "lab": "Jensen Lab", 
-              "sid": "yc2013-05-01-10",
-              "description": "Attack phase"
+              "sid": "gm2006-09-13-3",
+              "description": "Nucleoid"
            },
            {
               "institution": "Caltech", 
@@ -167,9 +167,9 @@ module.exports = {
         "thumbnail": {
            "institution": "Caltech", 
            "lab": "Jensen Lab", 
-           "sid": "ps2015-06-06-6]"
+           "sid": "ab2008-07-17-45"
         },
-        "detailOne": "Many bacterial species secrete outer membrane vesicles (OMVs) into the environment, either for survival of the cell or community or to deliver toxins. OMVs can be released singly or as chains, with pearled or tubular morphologies. Some species even OMV chains to extend the electron transport chain to an external electron acceptor, forming nanowires.",
+        "detailOne": "Many bacterial species secrete outer membrane vesicles (OMVs) into the environment, either for survival of the cell or community or to deliver toxins. OMVs can be released singly or as chains, with pearled or tubular morphologies.",
         "detailTwo": "",
         "artifacts": [
            {
@@ -184,12 +184,6 @@ module.exports = {
               "sid": "ab2008-07-17-5",
               "description": "Tubular OMV chain"
            },
-           {
-              "institution": "Caltech", 
-              "lab": "Jensen Lab", 
-              "sid": "ps2015-06-06-6",
-              "description": "Nanowire"
-           }
         ]
      },
      {  
@@ -287,7 +281,7 @@ module.exports = {
            {
               "institution": "Caltech", 
               "lab": "Jensen Lab", 
-              "sid": "zl2008-07-07-8",
+              "sid": "zl2008-01-11-13",
               "description": ""
            }
         ]
@@ -318,15 +312,16 @@ module.exports = {
            {
               "institution": "Caltech", 
               "lab": "Jensen Lab", 
-              "sid": "ab2014-07-15-27",
-              "description": "Archaellum"
-           },
-           {
-              "institution": "Caltech", 
-              "lab": "Jensen Lab", 
               "sid": "gm2005-09-11-3",
               "description": "Periplasmic flagella"
-           }
+           },
+	   {
+              "institution": "Caltech",
+	      "lab": "Jensen Lab",
+	      "sid": "ab2014-07-15-27",
+	      "description": "Archaellum"
+	   },
+
         ]
      },
      {  
@@ -354,9 +349,9 @@ module.exports = {
         "thumbnail": {
            "institution": "Caltech", 
            "lab": "Jensen Lab", 
-           "sid": "yc2013-08-26-48"
+           "sid": "et2014-07-22-8"
         },
-        "detailOne": "Bacteria use extracellular appendages for a variety of purposes, including attachment and motility. The best studied are type IV pili, which some species use like grappling hooks to move across a surface.",
+        "detailOne": "Bacteria use extracellular appendages for a variety of purposes, including attachment and motility.",
         "detailTwo": "",
         "artifacts": [
            {
@@ -368,7 +363,7 @@ module.exports = {
            {
               "institution": "Caltech", 
               "lab": "Jensen Lab", 
-              "sid": "yc2013-08-26-48",
+              "sid": "et2014-07-22-8",
               "description": ""
            }
         ]
@@ -387,7 +382,7 @@ module.exports = {
            {
               "institution": "Caltech", 
               "lab": "Jensen Lab", 
-              "sid": "pd2005-04-29-2",
+              "sid": "md2007-11-14-1",
               "description": "Membrane-bound arrays in bacteria"
            },
            {
@@ -437,7 +432,7 @@ module.exports = {
            {
               "institution": "Caltech", 
               "lab": "Jensen Lab", 
-              "sid": "et2008-04-16-3",
+              "sid": "et2008-07-04-10",
               "description": "Endosporulation"
            },
            {
@@ -460,23 +455,11 @@ module.exports = {
         "thumbnail": {
            "institution": "Caltech", 
            "lab": "Jensen Lab", 
-           "sid": "mp2011-04-16-11"
+           "sid": "mp2013-07-12-9"
         },
         "detailOne": "Some bacteria use contractile injection machinery similar to the DNA-delivery machinery of phage tails to shoot toxin-tipped spears into neighboring cells.  Type VI secretion systems assemble in the cytoplasm of the cell, attached to the membrane. To fire, the outer sheath contracts into a shorter, wider conformation, powering the ejection of the inner rod into the target cell.  Huge arrays of a related structure in a marine bacterium are released by lysis.  These arrays provide a signal for a tubeworm to settle onto a surface and differentiate, so they're known as morphogenesis-associated contractile structures (MACs).",
         "detailTwo": "",
         "artifacts": [
-           {
-              "institution": "Caltech", 
-              "lab": "Jensen Lab", 
-              "sid": "mp2011-04-16-11",
-              "description": "T6SS extended"
-           },
-           {
-              "institution": "Caltech", 
-              "lab": "Jensen Lab", 
-              "sid": "mp2011-04-16-24",
-              "description": "T6SS contracted"
-           },
            {
               "institution": "Caltech", 
               "lab": "Jensen Lab", 
@@ -499,20 +482,8 @@ module.exports = {
            {
               "institution": "Caltech", 
               "lab": "Jensen Lab", 
-              "sid": "ew2007-12-13-1",
-              "description": "Filled capsids"
-           },
-           {
-              "institution": "Caltech", 
-              "lab": "Jensen Lab", 
-              "sid": "ps2015-06-01-1",
-              "description": "Filled capsids"
-           },
-           {
-              "institution": "Caltech", 
-              "lab": "Jensen Lab", 
-              "sid": "et2013-06-26-6",
-              "description": "Empty capsid"
+              "sid": "yc2015-05-11-33",
+              "description": "Phage"
            },
            {
               "institution": "Caltech", 

@@ -99,3 +99,4 @@ class Featured extends Component {
 }
 
 export default Featured;
+
