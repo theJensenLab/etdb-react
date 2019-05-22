@@ -58,8 +58,7 @@ class TomogramView extends Component {
 		this.setState({artifact: artifact});
 	}
 	render(){
-		let title = "loading...", timestamp, description, strain, speciesName, date, NCBItaxID, artNotes, tiltSingleDual, files = [], thumbnail, thumbFilename, video, videoFilename, location, defocus, niceDate, acquisitionSoftware = "No info available", processingSoftware = "No info available", institution, lab, microscopist, scopeName, magnification, tiltSeriesSettingsString, txid, hashtags, snapshots = []
-
+		let title = "loading...", timestamp, description, strain, speciesName, date, NCBItaxID, artNotes, tiltSingleDual, files = [], thumbnail, thumbFilename, video, videoFilename, location, defocus, niceDate, acquisitionSoftware = "No info available", processingSoftware = "No info available", institution, lab, microscopist, scopeName, magnification, tiltSeriesSettingsString, txid, txidFull, hashtags, snapshots = []
 		hashtags = ["ETDB", "ElectronTomography"]
 
 		//props instead of state
@@ -142,6 +141,7 @@ class TomogramView extends Component {
 			
 			tiltSeriesSettingsString = tiltSeriesSettings.join(", ");
 			txid = this.state.artifact.getTXID().substr(0,6)
+			txidFull = this.state.artifact.getTXID()
 		}
 		return(
 			<div>
@@ -189,7 +189,6 @@ class TomogramView extends Component {
 						</div>
 					</div>
 					<div className="col-sm-8" id="tomographdata">
-						
 						<p><b>Tilt Series date:</b> {niceDate}</p>
 						<p><b>Data Taken By:</b> {microscopist}</p>
 						<p><b>Species / Specimen:</b> <i>{speciesName} </i></p>
@@ -199,6 +198,7 @@ class TomogramView extends Component {
 						<p><b>Acquisition Software:</b> {acquisitionSoftware}</p>
 						<p><b>Processing Software Used:</b> {processingSoftware}</p>
 						<p style={{whiteSpace: "pre-wrap"}}><b>Notes:</b> {artNotes}</p>
+						<p style={{wordWrap: "break-word"}}><b>OIP id:</b> <a href={ "https://livenet.flocha.in/tx/" + txidFull} target="_blank" >{txidFull}</a></p>
 					</div>
 					{ snapshots.length !== 0 &&
 						<div className="col-sm-12 snapshots" style={{marginTop: "10px"}}>		
