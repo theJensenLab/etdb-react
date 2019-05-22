@@ -80,7 +80,7 @@ class FAQ extends Component {
             <Panel eventKey='5'>
               <Button onClick={() => this.handleSelect('5')} className="accordion">How do I cite data in this database?</Button>
               <Panel.Body collapsible>
-                <p>Please cite: <a href="https://journals.plos.org/plosone/article/comments?id=10.1371/journal.pone.0215531"  target="_blank">1.Ortega, D. R. et al. ETDB-Caltech: A blockchain-based distributed public database for electron tomography. PLOS ONE 14, e0215531 (2019).</a></p>
+                <p>Please cite: <a href="https://journals.plos.org/plosone/article/comments?id=10.1371/journal.pone.0215531"  target="_blank">Ortega, D. R. et al. ETDB-Caltech: A blockchain-based distributed public database for electron tomography. PLOS ONE 14, e0215531 (2019).</a></p>
               </Panel.Body>
             </Panel>
           </PanelGroup>
